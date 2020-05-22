@@ -1,0 +1,53 @@
+{
+  "name": "babel-plugin-transform-async-to-promises",
+  "version": "0.8.15",
+  "description": "Transform async/await to promise chains",
+  "main": "async-to-promises.js",
+  "scripts": {
+    "prepare": "tsc && node ./generate-helpers-string.js",
+    "format": "prettier --write async-to-promises.ts async-to-promises.test.js",
+    "test": "jest && prettier -c async-to-promises.ts async-to-promises.test.js",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpetrich/babel-plugin-transform-async-to-promises.git"
+  },
+  "keywords": [
+    "async",
+    "await",
+    "optimization",
+    "babel",
+    "compile",
+    "transform",
+    "minify"
+  ],
+  "author": "Ryan Petrich <rpetrich@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rpetrich/babel-plugin-transform-async-to-promises/issues"
+  },
+  "homepage": "https://github.com/rpetrich/babel-plugin-transform-async-to-promises#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-transform-classes": "^7.5.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "@babel/plugin-transform-parameters": "^7.4.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/traverse": "^7.6.3",
+    "@babel/types": "^7.6.3",
+    "@types/babel-traverse": "^6.25.5",
+    "@types/babel-types": "^7.0.7",
+    "@types/node": "^12.11.7",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-traverse": "^6.26.0",
+    "jest": "^24.9.0",
+    "prettier": "1.18.2",
+    "typescript": "^3.6.4"
+  }
+}
