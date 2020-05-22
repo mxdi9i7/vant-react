@@ -1,6 +1,6 @@
 # vant-react
 
-> Lightweight Mobile UI Components built on Vue https://youzan.github.io/vant
+> Lightweight Mobile UI Components built on React, inspired by https://youzan.github.io/vant
 
 [![NPM](https://img.shields.io/npm/v/vant-react.svg)](https://www.npmjs.com/package/vant-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
