@@ -8,14 +8,15 @@ import { LoadingIconProps } from './types';
 export const renderLoadingIcon = ({
   className,
   loadingType = 'circular',
-  loadingText
+  loadingText,
+  loadingSize
 }: LoadingIconProps): ReactElement => {
   return (
     <React.Fragment>
       {loadingType === 'spinner' ? (
-        <SpinnerLoading className={className} />
+        <SpinnerLoading loadingSize={loadingSize} className={className} />
       ) : (
-        <CircularLoading className={className} />
+        <CircularLoading loadingSize={loadingSize} className={className} />
       )}
       {loadingText && <span>{loadingText}</span>}
     </React.Fragment>

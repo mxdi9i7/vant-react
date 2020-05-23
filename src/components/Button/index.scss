@@ -25,6 +25,7 @@ a.#{$baseClass} {
   cursor: pointer;
   transition: opacity 0.2s;
   outline: none;
+  text-decoration: none;
 
   &::before {
     position: absolute;
@@ -118,5 +119,13 @@ a.#{$baseClass} {
   &__disabled {
     cursor: not-allowed;
     opacity: $button-disabled-opacity;
+  }
+
+  img {
+    height: $loader-size;
+    width: $loader-size;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin-right: 5px;
   }
 }

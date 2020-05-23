@@ -3,11 +3,18 @@ import './index.scss';
 
 interface Props {
   className: string;
+  loadingSize?: string;
 }
 
-export default function CircularLoading({ className }: Props): ReactElement {
+export default function CircularLoading({
+  className,
+  loadingSize
+}: Props): ReactElement {
   return (
-    <div className='loading circular-loading'>
+    <div
+      className='loading circular-loading'
+      style={{ height: loadingSize || '20px', width: loadingSize || '20px' }}
+    >
       <svg
         className={className}
         viewBox='0 0 100 100'

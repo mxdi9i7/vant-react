@@ -50,6 +50,9 @@ export const LoadingButtons = () => (
     <Button type='primary' loading loadingType='spinner'>
       Loading Spinner
     </Button>
+    <Button type='warning' loadingSize='80px' loading loadingType='spinner'>
+      Loading Spinner
+    </Button>
   </div>
 );
 
@@ -90,6 +93,35 @@ export const BlockButtons = () => (
   <div className='container column'>
     <Button>Non Block Button</Button>
     <Button block>Block Button</Button>
+  </div>
+);
+
+export const IconButton = () => (
+  <div className='container'>
+    <Button icon='https://img.yzcdn.cn/vant/logo.png'>
+      Custom Icon Button
+    </Button>
+  </div>
+);
+
+export const ButtonURL = () => (
+  <div className='container column'>
+    <Button tag='a' url='https://github.com/mxdi9i7/vant-react'>
+      Button with URL
+    </Button>
+    <Button tag='a' replace url='https://github.com/mxdi9i7/vant-react'>
+      Open URL in Same Frame
+    </Button>
+    <Button tag='a' url='https://github.com/mxdi9i7/vant-react'>
+      Open URL in New Tab
+    </Button>
+  </div>
+);
+
+export const ButtonAction = () => (
+  <div className='container column'>
+    <Button click={(e) => alert(e.target)}>Handle Click</Button>
+    <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
   </div>
 );
 

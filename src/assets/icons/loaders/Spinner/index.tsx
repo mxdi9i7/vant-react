@@ -3,11 +3,19 @@ import React, { ReactElement } from 'react';
 import './index.scss';
 interface Props {
   className: string;
+  loadingSize?: string;
 }
 
-export default function CircularLoading({ className }: Props): ReactElement {
+export default function SpinnerLoading({
+  className,
+  loadingSize
+}: Props): ReactElement {
+  console.log(loadingSize);
   return (
-    <div className='loading spinner-loading'>
+    <div
+      className='loading spinner-loading'
+      style={{ height: loadingSize || '40px', width: loadingSize || '40px' }}
+    >
       <svg
         className={className}
         viewBox='0 0 100 100'
