@@ -12,6 +12,7 @@ node_modules/
 
 # testing
 /coverage
+/storybook-static
 
 # production
 /build
