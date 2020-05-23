@@ -2,14 +2,15 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = _interopDefault(require('react'));
 
-var styles = {"test":"_3ybTi"};
-
-var ExampleComponent = function ExampleComponent(_ref) {
+function Button(_ref) {
   var text = _ref.text;
-  return /*#__PURE__*/React.createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
+  return /*#__PURE__*/React.createElement("button", null, text);
+}
+
+var Vant = {
+  Button: Button
 };
 
-exports.ExampleComponent = ExampleComponent;
+exports.Button = Button;
+exports.default = Vant;
 //# sourceMappingURL=index.js.map

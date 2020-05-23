@@ -1,13 +1,15 @@
 import React from 'react';
 
-var styles = {"test":"_3ybTi"};
+function Button({
+  text
+}) {
+  return /*#__PURE__*/React.createElement("button", null, text);
+}
 
-var ExampleComponent = function ExampleComponent(_ref) {
-  var text = _ref.text;
-  return /*#__PURE__*/React.createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
+const Vant = {
+  Button
 };
 
-export { ExampleComponent };
+export default Vant;
+export { Button };
 //# sourceMappingURL=index.modern.js.map

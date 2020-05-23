@@ -1,0 +1,17 @@
+build/
+dist/
+node_modules/
+**/node_modules/
+.snapshots/
+*.min.js
+.idea/
+.vscode/
+.vs/
+**/.DS_Store
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
