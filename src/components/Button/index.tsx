@@ -1,14 +1,12 @@
 import React from 'react';
+
+import { renderLoadingIcon } from './helper';
 import classnames from '../../utils/classNames';
+
+import { Props } from './types';
+
 import './index.scss';
 
-interface Props {
-  text?: string;
-  children?: string;
-  plain?: boolean;
-  disabled?: boolean;
-  type?: 'default' | 'primary' | 'warning' | 'info' | 'danger';
-}
 const baseClass = 'vant-button';
 
 export default function Button({
@@ -16,19 +14,30 @@ export default function Button({
   children,
   type = 'default',
   plain,
-  disabled
+  disabled,
+  loading,
+  loadingType,
+  loadingText
 }: Props) {
   return (
     <button
-      className={classnames(
-        baseClass,
-        `${baseClass}__${type}`,
-        plain ? `${baseClass}__plain` : '',
-        disabled ? `${baseClass}__disabled` : ''
-      )}
+      className={classnames(baseClass, [
+        { type },
+        { plain },
+        { disabled },
+        { loading }
+      ])}
       disabled={disabled}
     >
-      {text || children}
+      {loading
+        ? renderLoadingIcon({
+            className: loadingType
+              ? `${baseClass}__${loadingType}`
+              : `${baseClass}__circular`,
+            loadingType,
+            loadingText
+          })
+        : text || children}
     </button>
   );
 }

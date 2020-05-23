@@ -39,4 +39,18 @@ export const DisabledButtons = () => (
   </div>
 );
 
-export const Emoji = () => <Button text='😀 😎 👍 💯' />;
+export const LoadingButtons = () => (
+  <div className='container'>
+    <Button type='danger' loading>
+      Loading Default
+    </Button>
+    <Button type='info' loading loadingType='circular' loadingText='Loading...'>
+      Loading Circular
+    </Button>
+    <Button type='primary' loading loadingType='spinner'>
+      Loading Spinner
+    </Button>
+  </div>
+);
+
+// export const Emoji = () => <Button text='😀 😎 👍 💯' />;

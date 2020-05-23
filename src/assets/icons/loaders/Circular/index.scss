@@ -1,0 +1,57 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/variables.scss';
+
+.circular-loading {
+  height: $loader-size;
+  width: $loader-size;
+  svg {
+    animation-timing-function: linear;
+    animation-name: svg-animation;
+    animation-duration: $loader-animation-duration;
+    animation-iteration-count: infinite;
+  }
+
+  circle {
+    animation-timing-function: ease-in-out;
+    animation-duration: $loader-circular-duration;
+    animation-iteration-count: infinite;
+    animation-name: circle-animation;
+    animation-fill-mode: both;
+    display: block;
+    fill: transparent;
+    stroke: $default;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 280;
+    stroke-width: 10px;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes circle-animation {
+    0%,
+    25% {
+      stroke-dashoffset: 280;
+      transform: rotate(0);
+    }
+
+    50%,
+    75% {
+      stroke-dashoffset: 75;
+      transform: rotate(45deg);
+    }
+
+    100% {
+      stroke-dashoffset: 280;
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes svg-animation {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+}

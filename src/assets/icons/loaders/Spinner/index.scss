@@ -1,0 +1,18 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/colors.scss';
+
+.spinner-loading {
+  height: $loader-size * 2;
+  width: $loader-size * 2;
+  svg {
+    margin: auto;
+    display: block;
+    shape-rendering: auto;
+
+    rect {
+      width: 3px;
+      height: 12px;
+      fill: $default;
+    }
+  }
+}

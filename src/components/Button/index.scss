@@ -5,7 +5,7 @@
 
 $baseClass: 'vant-button';
 
-.#{$baseClass} {
+button.#{$baseClass} {
   @include normal;
   display: inline-flex;
   justify-content: center;
@@ -85,6 +85,12 @@ $baseClass: 'vant-button';
     }
     &.#{$baseClass}__warning {
       color: $warning;
+    }
+  }
+
+  &__loading {
+    span {
+      margin-left: 5px;
     }
   }
 
