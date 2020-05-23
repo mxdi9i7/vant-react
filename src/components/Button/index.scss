@@ -1,0 +1,102 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/typography.scss';
+@import '../../styles/opacity.scss';
+
+$baseClass: 'vant-button';
+
+.#{$baseClass} {
+  @include normal;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  color: $dark-text;
+  background-color: $default;
+  padding: 0 $padding-sm;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  height: 44px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  outline: none;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    border: inherit;
+    border-color: $black;
+    border-radius: inherit; /* inherit parent's border radius */
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    content: ' ';
+  }
+
+  &:active {
+    &::before {
+      opacity: 0.1;
+    }
+  }
+
+  &__default {
+    background-color: $default;
+    border-color: $grey-text;
+    color: $dark-text;
+  }
+
+  &__primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: $light-text;
+  }
+  &__info {
+    background-color: $info;
+    border-color: $info;
+    color: $light-text;
+  }
+  &__danger {
+    background-color: $danger;
+    border-color: $danger;
+    color: $light-text;
+  }
+  &__warning {
+    background-color: $warning;
+    border-color: $warning;
+    color: $light-text;
+  }
+
+  &__plain {
+    background-color: $default;
+    &.#{$baseClass}__primary {
+      color: $primary;
+    }
+    &.#{$baseClass}__info {
+      color: $info;
+    }
+    &.#{$baseClass}__danger {
+      color: $danger;
+    }
+    &.#{$baseClass}__warning {
+      color: $warning;
+    }
+  }
+
+  &__loading,
+  &__disabled {
+    &::before {
+      display: none;
+    }
+  }
+
+  &__disabled {
+    cursor: not-allowed;
+    opacity: $button-disabled-opacity;
+  }
+}

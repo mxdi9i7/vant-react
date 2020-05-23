@@ -87,5 +87,7 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
 }
