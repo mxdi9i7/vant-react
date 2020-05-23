@@ -1,0 +1,52 @@
+Arguments: 
+  /Users/peter/.nvm/versions/node/v12.4.0/bin/node /usr/local/Cellar/yarn/1.22.1/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/peter/.npm/_npx/63613/bin:/Users/peter/Desktop/node_modules/.bin:/Users/peter/.cargo/bin:/Users/peter/.nvm/versions/node/v12.4.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:~/desktop/flutter/bin
+
+Yarn version: 
+  1.22.1
+
+Node version: 
+  12.4.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, lstat '/Users/peter/Desktop/vant-react/node_modules/react-scripts/node_modules/@babel/plugin-syntax-object-rest-spread'
+
+npm manifest: 
+  {
+    "name": "vant-react-example",
+    "homepage": "https://mxdi9i7.github.io/vant-react",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+      "react": "link:../node_modules/react",
+      "react-dom": "link:../node_modules/react-dom",
+      "react-scripts": "link:../node_modules/react-scripts",
+      "vant-react": "link:.."
+    },
+    "scripts": {
+      "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
+      "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
+      "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
+      "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
