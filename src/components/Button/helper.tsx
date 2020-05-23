@@ -23,7 +23,7 @@ export const renderLoadingIcon = ({
   );
 };
 
-export const getContrastTextColor = (colorHex) => {
+export const getContrastTextColor = (colorHex: string): string => {
   if (colorHex.length !== 6) return 'black'; // return black if color is not supplied
   const r = parseInt(colorHex[0] + colorHex[1], 16);
   const g = parseInt(colorHex[2] + colorHex[3], 16);
