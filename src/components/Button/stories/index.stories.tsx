@@ -71,4 +71,26 @@ export const ButtonColor = () => (
   </div>
 );
 
+export const ButtonTags = () => (
+  <div className='container'>
+    <Button tag='a'>A Tag</Button>
+    <Button tag='button'>Button Tag</Button>
+  </div>
+);
+
+export const ButtonNativeTypes = () => (
+  <div className='container'>
+    <Button nativeType='submit'>Button Type</Button>
+    <Button nativeType='reset'>Reset Type</Button>
+    <Button nativeType='submit'>Submit Type</Button>
+  </div>
+);
+
+export const BlockButtons = () => (
+  <div className='container column'>
+    <Button>Non Block Button</Button>
+    <Button block>Block Button</Button>
+  </div>
+);
+
 // export const Emoji = () => <Button text='😀 😎 👍 💯' />;

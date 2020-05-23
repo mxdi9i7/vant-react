@@ -5,7 +5,18 @@
   justify-content: center;
   align-items: center;
 
-  button {
+  &.column {
+    flex-direction: column;
+
+    button,
+    a {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+  }
+
+  button,
+  a {
     margin-right: 20px;
   }
 }

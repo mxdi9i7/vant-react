@@ -23,18 +23,24 @@ export default function Button({
   loadingText,
   round,
   square,
-  color
+  color,
+  tag,
+  nativeType,
+  block
 }: Props) {
+  const CustomTag = tag || 'button';
   return (
-    <button
+    <CustomTag
       className={classnames(baseClass, [
         { type },
         { plain },
         { disabled },
         { loading },
         { round },
-        { square }
+        { square },
+        { block }
       ])}
+      type={nativeType}
       style={{
         color: color ? getContrastTextColor(color) : 'ffffff',
         backgroundColor: `#${color}`,
@@ -51,6 +57,6 @@ export default function Button({
             loadingText
           })
         : text || children}
-    </button>
+    </CustomTag>
   );
 }

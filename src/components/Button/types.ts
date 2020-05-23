@@ -1,15 +1,18 @@
 export interface Props {
   text?: string;
+  color?: string;
   children?: string;
-  plain?: boolean;
-  disabled?: boolean;
-  loading?: boolean;
-  loadingType?: LoadingTypes;
   loadingText?: string;
+  plain?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
   round?: boolean;
   square?: boolean;
+  block?: boolean;
+  tag?: 'button' | 'a';
+  nativeType?: 'button' | 'submit' | 'reset';
   type?: ButtonTypes;
-  color?: string;
+  loadingType?: LoadingTypes;
 }
 
 export interface LoadingIconProps {
