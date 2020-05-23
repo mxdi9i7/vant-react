@@ -9,6 +9,7 @@ export interface Props {
   round?: boolean;
   square?: boolean;
   type?: ButtonTypes;
+  color?: string;
 }
 
 export interface LoadingIconProps {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderLoadingIcon } from './helper';
+import { renderLoadingIcon, getContrastTextColor } from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
@@ -8,6 +8,9 @@ import { Props } from './types';
 import './index.scss';
 
 const baseClass = 'vant-button';
+
+// @todo: add hairline props
+// @todo: accept color in rgb
 
 export default function Button({
   text,
@@ -19,7 +22,8 @@ export default function Button({
   loadingType,
   loadingText,
   round,
-  square
+  square,
+  color
 }: Props) {
   return (
     <button
@@ -31,6 +35,11 @@ export default function Button({
         { round },
         { square }
       ])}
+      style={{
+        color: color ? getContrastTextColor(color) : 'ffffff',
+        backgroundColor: `#${color}`,
+        borderColor: `#${color}`
+      }}
       disabled={disabled}
     >
       {loading

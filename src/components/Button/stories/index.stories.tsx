@@ -64,4 +64,11 @@ export const ButtonShapes = () => (
   </div>
 );
 
+export const ButtonColor = () => (
+  <div className='container'>
+    <Button color='FFECB3'>Info Button</Button>
+    <Button color='00796B'>Warning Button</Button>
+  </div>
+);
+
 // export const Emoji = () => <Button text='😀 😎 👍 💯' />;
