@@ -17,7 +17,9 @@ export default function Button({
   disabled,
   loading,
   loadingType,
-  loadingText
+  loadingText,
+  round,
+  square
 }: Props) {
   return (
     <button
@@ -25,7 +27,9 @@ export default function Button({
         { type },
         { plain },
         { disabled },
-        { loading }
+        { loading },
+        { round },
+        { square }
       ])}
       disabled={disabled}
     >

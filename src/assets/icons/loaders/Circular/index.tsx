@@ -7,7 +7,7 @@ interface Props {
 
 export default function CircularLoading({ className }: Props): ReactElement {
   return (
-    <div className='circular-loading'>
+    <div className='loading circular-loading'>
       <svg
         className={className}
         viewBox='0 0 100 100'

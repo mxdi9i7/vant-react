@@ -6,6 +6,8 @@ export interface Props {
   loading?: boolean;
   loadingType?: LoadingTypes;
   loadingText?: string;
+  round?: boolean;
+  square?: boolean;
   type?: ButtonTypes;
 }
 

@@ -2,6 +2,7 @@
 @import '../../styles/spacing.scss';
 @import '../../styles/typography.scss';
 @import '../../styles/opacity.scss';
+@import '../../styles/variables.scss';
 
 $baseClass: 'vant-button';
 
@@ -18,7 +19,7 @@ button.#{$baseClass} {
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  height: 44px;
+  height: $button-height;
   border-radius: 2px;
   cursor: pointer;
   transition: opacity 0.2s;
@@ -86,6 +87,13 @@ button.#{$baseClass} {
     &.#{$baseClass}__warning {
       color: $warning;
     }
+  }
+
+  &__square {
+    border-radius: 0;
+  }
+  &__round {
+    border-radius: $button-height / 2;
   }
 
   &__loading {

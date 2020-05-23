@@ -53,4 +53,15 @@ export const LoadingButtons = () => (
   </div>
 );
 
+export const ButtonShapes = () => (
+  <div className='container'>
+    <Button type='info' round>
+      Info Button
+    </Button>
+    <Button type='warning' square>
+      Warning Button
+    </Button>
+  </div>
+);
+
 // export const Emoji = () => <Button text='😀 😎 👍 💯' />;
