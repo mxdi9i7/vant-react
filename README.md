@@ -1,8 +1,8 @@
----
-description: Mobile UI Components built on Typescript and React
----
-
 # Vant React
+
+## **Vant React**
+
+Mobile UI Components built on Typescript and React
 
 ## **Features**
 
