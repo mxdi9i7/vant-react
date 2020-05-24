@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { ReactElement } from 'react';
 import './index.scss';
+
 interface Props {
   className: string;
   loadingSize?: string;
@@ -10,7 +11,6 @@ export default function SpinnerLoading({
   className,
   loadingSize
 }: Props): ReactElement {
-  console.log(loadingSize);
   return (
     <div
       className='loading spinner-loading'
