@@ -6,6 +6,7 @@
 $baseClass: 'vant-navbar';
 
 nav.#{$baseClass} {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,12 +16,42 @@ nav.#{$baseClass} {
 
   .#{$baseClass}__title {
     @include nav-title;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .#{$baseClass}__left,
   .#{$baseClass}__right {
+    @include nav-link;
+    display: flex;
+    align-items: center;
     padding: 0 $space-lg;
-    font-size: 14px;
     cursor: pointer;
+
+    .vant-icon__container {
+      height: auto;
+      width: auto;
+      .vant-icon {
+        color: $info;
+      }
+    }
+  }
+
+  .#{$baseClass}__left {
+    .vant-icon {
+      margin-right: $space-sm;
+    }
+  }
+  .#{$baseClass}__right {
+    .vant-icon {
+      margin-left: $space-sm;
+    }
+  }
+
+  &__fixed {
+    position: fixed;
+    top: 0;
   }
 }

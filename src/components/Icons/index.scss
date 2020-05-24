@@ -1,0 +1,48 @@
+@import '../../assets/icons/vant-icons/index.scss';
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/global.scss';
+
+$baseContainerClass: 'vant-icon__container';
+$baseClass: 'vant-icon';
+
+.#{$baseContainerClass} {
+  height: $icon-container-size;
+  width: $icon-container-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &__dot {
+    .#{$baseClass}--dot {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: $icon-dot-size;
+      width: $icon-dot-size;
+      border-radius: 50%;
+      background-color: $danger;
+      font-size: 12px;
+    }
+
+    .#{$baseClass}--badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 16px;
+      padding: 0 3px;
+      color: $default;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      background-color: $danger;
+      border-radius: 16px;
+      -webkit-transform: translate(50%, -50%);
+      transform: translate(50%, -50%);
+      -webkit-transform-origin: 100%;
+      transform-origin: 100%;
+    }
+  }
+}

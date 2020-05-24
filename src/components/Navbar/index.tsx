@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 
+import Icon from '../Icons';
+
 import classnames from '../../utils/classNames';
 
 import './index.scss';
@@ -10,46 +12,49 @@ interface Props {
   rightText?: string;
   border?: boolean;
   fixed?: boolean;
-  placeholder?: boolean;
-  leftArrow?: boolean;
+  leftIcon?: string;
+  rightIcon?: string;
   clickLeft?: Function;
   clickRight?: Function;
+  zIndex: number;
 }
 
 const baseClass = 'vant-navbar';
+
+// TODO: Enable placeholder: Whether to generate a placeholder element when fixed
 
 export default function Navbar({
   title,
   leftText,
   rightText,
-  leftArrow,
+  leftIcon,
+  rightIcon,
   border,
   fixed,
-  placeholder,
-  clickLeft,
-  clickRight
+  zIndex,
+  clickLeft = () => {},
+  clickRight = () => {}
 }: Props): ReactElement {
+  const navProps = {
+    style: {},
+    className: classnames(baseClass, [{ border }, { fixed }])
+  };
+
+  const NAV_ICON_SIZE = '16px';
+
+  if (zIndex) Object.assign(navProps, { style: { ...navProps.style, zIndex } });
+
   return (
-    <nav
-      className={classnames(baseClass, [
-        {
-          leftArrow
-        },
-        {
-          border
-        },
-        { fixed },
-        { placeholder }
-      ])}
-    >
-      <div className={`${baseClass}__left`}>
+    <nav {...navProps}>
+      <div className={`${baseClass}__left`} onClick={(e) => clickLeft(e)}>
         <div className={`${baseClass}__icon--left`} />
+        {leftIcon && <Icon name={leftIcon} size={NAV_ICON_SIZE} />}
         <div className={`${baseClass}__text--left`}>{leftText}</div>
       </div>
       <div className={`${baseClass}__title`}>{title || 'Title'}</div>
-      <div className={`${baseClass}__right`}>
-        <div className={`${baseClass}__icon--right`} />
+      <div className={`${baseClass}__right`} onClick={(e) => clickRight(e)}>
         <div className={`${baseClass}__text--right`}>{rightText}</div>
+        {rightIcon && <Icon name={rightIcon} size={NAV_ICON_SIZE} />}
       </div>
     </nav>
   );

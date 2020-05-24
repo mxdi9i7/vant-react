@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft Yahei', sans-serif;
+}
+
 .container {
   height: 100vh;
   width: 100%;
@@ -6,7 +13,7 @@
   align-items: center;
 
   &.grey {
-    background-color: #eee;
+    background-color: #f7f8fa;
   }
 
   &.column {
@@ -19,8 +26,66 @@
     }
   }
 
+  nav {
+    margin-bottom: 20px;
+
+    .vant-icon__container {
+      margin: 0;
+    }
+  }
+
   button,
   a {
     margin-right: 20px;
+  }
+
+  .vant-icon__container {
+    margin-right: 20px;
+  }
+}
+
+.icons-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f8fa;
+
+  h1 {
+    font-size: 22px;
+    margin: 15px 0 15px 15px;
+    font-weight: 300;
+  }
+
+  .icon-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .icon-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    margin: 15px;
+    border-radius: 25px;
+    padding: 12px 8px;
+    background-color: #fff;
+    transition-duration: 0.2s;
+    box-shadow: 2px 2px 5px #eee;
+
+    &:hover {
+      background-color: #fff;
+      box-shadow: 2px 2px 20px #eee;
+      cursor: pointer;
+    }
+  }
+
+  .icon-name {
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    font-weight: 100;
   }
 }

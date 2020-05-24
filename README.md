@@ -2,7 +2,7 @@
 
 ## **Vant React**
 
-Mobile UI Components built on Typescript and React
+Lightweight Mobile UI Components built on Typescript and React in under 2kb!
 
 ## **Features**
 
@@ -26,7 +26,7 @@ yarn add vant-react
 ```text
 import React from 'react';
 import { Button } from 'vant-react';
-import 'vant-react/index.css';
+import 'vant-react/dist/index.css';
 
 const App = () => {
     return (
@@ -41,7 +41,7 @@ Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/van
 
 Or, join our discussion group on Wechat by adding me!
 
-![](.gitbook/assets/image%20%281%29.png)
+![Wechat QR Code](.gitbook/assets/qr.png)
 
 ## Browser Support
 
