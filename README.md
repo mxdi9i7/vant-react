@@ -39,6 +39,10 @@ const App = () => {
 
 Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/vant-react/blob/master/CONTRIBUTION) before making a pull request.
 
+Or, join our discussion group on Wechat by adding me!
+
+![](.gitbook/assets/image%20%281%29.png)
+
 ## Browser Support
 
 Modern browsers and Android 4.0+, iOS 8.0+.
