@@ -2,7 +2,7 @@
 
 ## **Vant React**
 
-Mobile UI Components built on Typescript and React
+Lightweight Mobile UI Components built on Typescript and React in under 2kb!
 
 ## **Features**
 
