@@ -1,0 +1,22 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.column {
+    flex-direction: column;
+
+    button,
+    a {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+  }
+
+  button,
+  a {
+    margin-right: 20px;
+  }
+}

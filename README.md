@@ -10,19 +10,25 @@
 npm install --save vant-react
 ```
 
+```bash
+yarn add vant-react
+```
+
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react';
 
-import MyComponent from 'vant-react'
-import 'vant-react/dist/index.css'
+import Vant, { Button } from 'vant-react';
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+const Example = () => {
+  return (
+    <React.Fragment>
+      <Vant.Button />
+      <Button />
+    </React.Fragment>
+  );
+};
 ```
 
 ## License
