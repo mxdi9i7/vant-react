@@ -26,7 +26,7 @@ yarn add vant-react
 ```text
 import React from 'react';
 import { Button } from 'vant-react';
-import 'vant-react/index.css';
+import 'vant-react/dist/index.css';
 
 const App = () => {
     return (
