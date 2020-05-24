@@ -9,9 +9,9 @@ import './index.scss';
 
 const baseClass = 'vant-button';
 
-// @todo: add hairline props
-// @todo: accept color in rgb
-// @todo: enable icon buttons, need to have icon library done first
+// TODO: add hairline props
+// TODO: accept color in rgb
+// TODO: enable icon buttons, need to have icon library done first
 
 export default function Button({
   text,
