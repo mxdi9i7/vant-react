@@ -1,0 +1,26 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-navbar';
+
+nav.#{$baseClass} {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $default;
+  height: $navbar-height;
+  width: 100%;
+
+  .#{$baseClass}__title {
+    @include nav-title;
+  }
+
+  .#{$baseClass}__left,
+  .#{$baseClass}__right {
+    padding: 0 $space-lg;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}

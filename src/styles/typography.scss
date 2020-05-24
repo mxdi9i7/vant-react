@@ -1,5 +1,13 @@
+@import './global.scss';
+
 @mixin normal {
   font-size: 14px;
   line-height: 1.2;
   text-align: center;
+}
+
+@mixin nav-title {
+  font-size: 17px;
+  text-transform: capitalize;
+  font-weight: 500;
 }

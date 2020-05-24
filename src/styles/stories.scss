@@ -5,6 +5,10 @@
   justify-content: center;
   align-items: center;
 
+  &.grey {
+    background-color: #eee;
+  }
+
   &.column {
     flex-direction: column;
 
