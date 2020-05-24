@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import './index.scss';
 import classnames from '../../utils/classNames';
