@@ -56,7 +56,6 @@ export default function Icon({
     });
   }
 
-  console.log(dot, badge);
   return (
     <div {...containerProps}>
       <i {...iconProps} />
