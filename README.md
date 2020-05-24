@@ -41,7 +41,7 @@ Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/van
 
 Or, join our discussion group on Wechat by adding me!
 
-![](.gitbook/assets/image%20%281%29.png)
+![Wechat QR Code](.gitbook/assets/qr.png)
 
 ## Browser Support
 
