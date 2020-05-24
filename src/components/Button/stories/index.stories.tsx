@@ -83,7 +83,7 @@ export const ButtonTags = () => (
 
 export const ButtonNativeTypes = () => (
   <div className='container'>
-    <Button nativeType='submit'>Button Type</Button>
+    <Button nativeType='button'>Button Type</Button>
     <Button nativeType='reset'>Reset Type</Button>
     <Button nativeType='submit'>Submit Type</Button>
   </div>

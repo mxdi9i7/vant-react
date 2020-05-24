@@ -49,7 +49,7 @@ export default function Button({
     style: {}
   };
 
-  if (nativeType) Object.assign(props, { type, nativeType });
+  if (nativeType) Object.assign(props, { nativeType });
 
   if (loadingSize)
     Object.assign(props, { style: { ...props.style, height: loadingSize } });
@@ -73,9 +73,6 @@ export default function Button({
     Object.assign(props, {
       href: url
     });
-  }
-
-  if (tag === 'a' && url) {
     if (replace) {
       Object.assign(props, {
         target: '_self'
