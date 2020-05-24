@@ -16,7 +16,7 @@ interface Props {
   rightIcon?: string;
   clickLeft?: Function;
   clickRight?: Function;
-  zIndex: number;
+  zIndex?: number;
 }
 
 const baseClass = 'vant-navbar';
@@ -31,18 +31,18 @@ export default function Navbar({
   rightIcon,
   border,
   fixed,
-  zIndex,
+  zIndex = 1,
   clickLeft = () => {},
   clickRight = () => {}
 }: Props): ReactElement {
   const navProps = {
-    style: {},
+    style: {
+      zIndex
+    },
     className: classnames(baseClass, [{ border }, { fixed }])
   };
 
   const NAV_ICON_SIZE = '16px';
-
-  if (zIndex) Object.assign(navProps, { style: { ...navProps.style, zIndex } });
 
   return (
     <nav {...navProps}>
