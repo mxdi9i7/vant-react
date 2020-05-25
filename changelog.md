@@ -1,6 +1,6 @@
 # Changelog
 
-### Intro
+## Intro
 
 Vant follows Semantic Versioning 0.1.0.
 
