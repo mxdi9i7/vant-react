@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderLoadingIcon, getContrastTextColor } from './helper';
+import { renderLoadingIcon, getContrastTextColor, colorType } from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
@@ -60,8 +60,8 @@ export default function Button({
       style: {
         ...props.style,
         color: color ? getContrastTextColor(color) : 'ffffff',
-        backgroundColor: `#${color}`,
-        borderColor: `#${color}`
+        backgroundColor: colorType(color),
+        borderColor: colorType(color)
       }
     });
 
