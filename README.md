@@ -35,9 +35,93 @@ const App = () => {
 };
 ```
 
+
+## Components completion status
+
+#### Basic Components
+- [x] Button
+- [ ] Cell
+- [x] Icon
+- [ ] Image
+- [ ] Layout
+- [ ] Popup
+- [ ] Built-in style
+
+#### Form Components
+- [ ] Calendar
+- [ ] Checkbox
+- [ ] DatetimePicker
+- [ ] Field
+- [ ] Form
+- [ ] NumberKeyboard
+- [ ] PasswordInput
+- [ ] Picker
+- [ ] Radio
+- [ ] Rate
+- [ ] Search
+- [ ] Slider
+- [ ] Stepper
+- [ ] Switch
+- [ ] SwitchCell
+- [ ] Uploader
+
+#### Action Components
+- [ ] ActionSheet
+- [ ] Dialog
+- [ ] DropdownMenu
+- [ ] Loading
+- [ ] Notify
+- [ ] Overlay
+- [ ] PullRefresh
+- [ ] ShareSheet
+- [ ] SwipeCell
+- [ ] Toast
+
+#### Display Components
+- [ ] Circle
+- [ ] Collapse
+- [ ] CountDown
+- [ ] Divider
+- [ ] Empty
+- [ ] ImagePreview
+- [ ] Lazyload
+- [ ] List
+- [ ] NoticeBar
+- [ ] Panel
+- [ ] Progress
+- [ ] Skeleton
+- [ ] Steps
+- [ ] Sticky
+- [ ] Swipe
+- [x] Tag
+
+#### Navigation Components
+- [ ] Grid
+- [ ] IndexBar
+- [x] NavBar
+- [ ] Pagination
+- [ ] Sidebar
+- [ ] Tab
+- [ ] Tabbar
+- [ ] TreeSelect
+
+#### Business Components
+- [ ] AddressEdit
+- [ ] AddressList
+- [ ] Area
+- [ ] Card
+- [ ] Contact
+- [ ] Coupon
+- [ ] GoodsAction
+- [ ] SubmitBar
+- [ ] Sku
+
+#### Deprecated
+- [ ] SwitchCell
+
 ## Contribution
 
-Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/vant-react/blob/master/CONTRIBUTION) before making a pull request.
+Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/vant-react/blob/master/CONTRIBUTION.md) before making a pull request.
 
 Or, join our discussion group on Wechat by adding me!
 

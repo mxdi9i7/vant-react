@@ -1,9 +1,22 @@
+@import './colors.scss';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft Yahei', sans-serif;
+}
+
 .container {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.grey {
+    background-color: #f7f8fa;
+  }
 
   &.column {
     flex-direction: column;
@@ -15,8 +28,82 @@
     }
   }
 
+  nav {
+    margin-bottom: 20px;
+
+    .vant-icon__container {
+      margin: 0;
+    }
+  }
+
   button,
-  a {
+  a,
+  span {
     margin-right: 20px;
+  }
+}
+
+.icons-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f8fa;
+
+  h1 {
+    font-size: 22px;
+    margin: 15px 0 15px 15px;
+    font-weight: 300;
+  }
+
+  .icon-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .icon-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 125px;
+    width: 125px;
+    margin: 15px;
+    border-radius: 25px;
+    padding: 12px 8px;
+    background-color: #fff;
+    transition-duration: 0.4s;
+    box-shadow: 2px 2px 5px #eee;
+
+    * {
+      transition-duration: 0.2s;
+    }
+
+    i {
+      font-size: 42px !important;
+      color: $black !important;
+    }
+
+    &:hover {
+      background-color: #fff;
+      box-shadow: 4px 4px 50px #eee;
+      cursor: pointer;
+
+      i {
+        color: $primary !important;
+      }
+
+      .icon-name {
+        color: $primary;
+      }
+    }
+  }
+
+  .icon-name {
+    color: $black;
+    font-size: 12px;
+    display: block;
+    margin-top: 15px;
+    font-weight: 100;
   }
 }

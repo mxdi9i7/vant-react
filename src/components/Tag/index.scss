@@ -1,0 +1,75 @@
+@import '../../styles/colors.scss';
+
+$baseClass: 'vant-tag';
+
+.#{$baseClass} {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em 0.5em;
+  font-size: 10px;
+  color: $default;
+  line-height: normal;
+  border-radius: 0.2em;
+  border: 1px solid $grey;
+  background-color: $grey;
+
+  &__primary {
+    background-color: $primary;
+    border-color: $primary;
+  }
+  &__info {
+    background-color: $info;
+    border-color: $info;
+  }
+  &__warning {
+    background-color: $warning;
+    border-color: $warning;
+  }
+  &__danger {
+    background-color: $danger;
+    border-color: $danger;
+  }
+
+  &__medium {
+    font-size: 12px;
+  }
+
+  &__large {
+    font-size: 14px;
+  }
+
+  &__plain {
+    background-color: transparent;
+    color: $grey;
+
+    &.#{$baseClass}__primary {
+      color: $primary;
+    }
+    &.#{$baseClass}__info {
+      color: $info;
+    }
+    &.#{$baseClass}__warning {
+      color: $warning;
+    }
+    &.#{$baseClass}__danger {
+      color: $danger;
+    }
+  }
+
+  &__round {
+    border-radius: 999px;
+  }
+
+  &__mark {
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+  }
+
+  &__closeable {
+    .vant-icon {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+}
