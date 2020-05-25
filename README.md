@@ -37,7 +37,7 @@ const App = () => {
 
 ## Contribution
 
-Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/vant-react/blob/master/CONTRIBUTION) before making a pull request.
+Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/vant-react/blob/master/CONTRIBUTION.md) before making a pull request.
 
 Or, join our discussion group on Wechat by adding me!
 
