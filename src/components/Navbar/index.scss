@@ -54,4 +54,13 @@ nav.#{$baseClass} {
     position: fixed;
     top: 0;
   }
+
+  &__border {
+    border-bottom: 1px solid #ebedf0;
+  }
+
+  .#{$baseClass}__text--left,
+  .#{$baseClass}__text--right {
+    font-weight: 300;
+  }
 }
