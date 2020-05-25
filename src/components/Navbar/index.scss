@@ -13,6 +13,7 @@ nav.#{$baseClass} {
   background-color: $default;
   height: $navbar-height;
   width: 100%;
+  border-bottom: 1px solid transparent;
 
   .#{$baseClass}__title {
     @include nav-title;
@@ -56,7 +57,7 @@ nav.#{$baseClass} {
   }
 
   &__border {
-    border-bottom: 1px solid #ebedf0;
+    border-color: #ebedf0;
   }
 
   .#{$baseClass}__text--left,
