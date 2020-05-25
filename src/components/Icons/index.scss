@@ -7,8 +7,6 @@ $baseContainerClass: 'vant-icon__container';
 $baseClass: 'vant-icon';
 
 .#{$baseContainerClass} {
-  height: $icon-container-size;
-  width: $icon-container-size;
   display: flex;
   justify-content: center;
   align-items: center;
