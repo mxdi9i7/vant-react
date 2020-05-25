@@ -38,6 +38,17 @@ export const NavbarFixed = () => (
     />
   </div>
 );
+export const NavbarBorder = () => (
+  <div className='container column grey'>
+    <Navbar
+      border
+      title='Profile'
+      leftIcon='arrow-left'
+      leftText='Back'
+      rightIcon='search'
+    />
+  </div>
+);
 
 export const NavbarWithLongTitle = () => (
   <div className='container column grey'>
