@@ -10,12 +10,12 @@ interface IProps {
   color?: string;
   size?: string;
   classPrefix?: string;
-  tag?: string;
+  tag?: 'a';
+  url?: string;
+  replace: boolean;
 }
 
 const baseClass = 'vant-icon';
-
-// TODO Accept custom tag element
 
 export default function Icon({
   name,
@@ -23,8 +23,12 @@ export default function Icon({
   badge,
   color,
   size,
-  classPrefix = baseClass
+  classPrefix = baseClass,
+  tag,
+  url,
+  replace
 }: IProps) {
+  const CustomTag = tag || 'a';
   const containerProps = {
     className: classnames(`${classPrefix}__container`, [
       {
@@ -55,12 +59,26 @@ export default function Icon({
       }
     });
   }
+  if (url && tag === 'a') {
+    Object.assign(iconProps, {
+      href: url
+    });
+    if (replace) {
+      Object.assign(iconProps, {
+        target: '_self'
+      });
+    } else {
+      Object.assign(iconProps, {
+        target: '_blank'
+      });
+    }
+  }
 
   return (
-    <div {...containerProps}>
+    <CustomTag {...containerProps}>
       <i {...iconProps} />
       {dot && !badge && <span className={`${classPrefix}--dot`} />}
       {badge && <span className={`${classPrefix}--badge`}>{badge}</span>}
-    </div>
+    </CustomTag>
   );
 }
