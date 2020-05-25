@@ -1,12 +1,12 @@
 # Button
 
-### StoryBook Link
+### [Demo](https://vant.bctc.io/?path=/story/button--button-types)
 
 ### Install
 
 ```text
 import React from 'react';
-import { Button } from 'vant-reacta';
+import { Button } from 'vant-react';
 ```
 
 ### Usage
@@ -103,7 +103,7 @@ import { Button } from 'vant-reacta';
 
 ####   Props
 
-| Attribute | Description | Type | Default | required |
+| Attribute | Description | Type | Default | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | `type` | Can be set to `primary` `info` `warning` `danger`  | _**string**_ | `default` | _optional_ |
 | `text` | Text to be displayed in button | _**string**_ | - | _optional_ |
