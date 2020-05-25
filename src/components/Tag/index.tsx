@@ -21,6 +21,9 @@ export interface IProps {
 
 const baseClass = 'vant-tag';
 
+// TODO: Fix closeable error
+// TODO: Fix tag padding when closeable is true
+
 const Tag = ({
   type,
   closeable,
@@ -63,15 +66,15 @@ const Tag = ({
       {children || text}
       {closeable && (
         <span
-          onClick={() => {
-            if (tagRef !== null) {
-              const current = tagRef.current;
-              if (current) {
-                const style = current.style;
-                style.display = 'none';
-              }
-            }
-          }}
+        // onClick={() => {
+        //   if (tagRef !== null) {
+        //     const current = tagRef.current;
+        //     if (current) {
+        //       const style = current.style;
+        //       style.display = 'none';
+        //     }
+        //   }
+        // }}
         >
           <Icon size='10px' color={contrastingColor} name='cross' />
         </span>
