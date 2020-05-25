@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../';
-import '../../../styles/stories.scss';
+import Button from '.';
+import '../../styles/stories.scss';
 
 export default {
   title: 'Button',
@@ -124,5 +124,3 @@ export const ButtonAction = () => (
     <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
   </div>
 );
-
-// export const Emoji = () => <Button text='😀 😎 👍 💯' />;

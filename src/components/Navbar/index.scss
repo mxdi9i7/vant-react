@@ -1,0 +1,57 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-navbar';
+
+nav.#{$baseClass} {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $default;
+  height: $navbar-height;
+  width: 100%;
+
+  .#{$baseClass}__title {
+    @include nav-title;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .#{$baseClass}__left,
+  .#{$baseClass}__right {
+    @include nav-link;
+    display: flex;
+    align-items: center;
+    padding: 0 $space-lg;
+    cursor: pointer;
+
+    .vant-icon__container {
+      height: auto;
+      width: auto;
+      .vant-icon {
+        color: $info;
+      }
+    }
+  }
+
+  .#{$baseClass}__left {
+    .vant-icon {
+      margin-right: $space-sm;
+    }
+  }
+  .#{$baseClass}__right {
+    .vant-icon {
+      margin-left: $space-sm;
+    }
+  }
+
+  &__fixed {
+    position: fixed;
+    top: 0;
+  }
+}

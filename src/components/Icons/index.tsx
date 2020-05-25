@@ -35,8 +35,7 @@ export default function Icon({
   const iconProps = {
     className: `${classPrefix} ${classPrefix}-${name}`,
     style: {
-      fontSize: '28px',
-      color: '#000'
+      fontSize: '28px'
     }
   };
 
@@ -57,7 +56,6 @@ export default function Icon({
     });
   }
 
-  console.log(dot, badge);
   return (
     <div {...containerProps}>
       <i {...iconProps} />
