@@ -82,7 +82,7 @@ import { Button } from 'vant-react';
 ####     Icon
 
 ```text
-<Button icon='https://img.yzcdn.cn/vant/logo.png'>Custom Icon Button</Button>
+<Button icon="https://img.yzcdn.cn/vant/logo.png">Custom Icon Button</Button>
 ```
 
 ####     Action
@@ -95,8 +95,8 @@ import { Button } from 'vant-react';
 ####     URL
 
 ```text
-<Button tag='a' replace url='https://github.com/mxdi9i7/vant-react'>Open URL in Same Frame</Button>
-<Button tag='a' url='https://github.com/mxdi9i7/vant-react'>Open URL in New Tab</Button>
+<Button tag="a" replace url="https://github.com/mxdi9i7/vant-react">Open URL in Same Frame</Button>
+<Button tag="a" url="https://github.com/mxdi9i7/vant-react">Open URL in New Tab</Button>
 ```
 
 ### API
