@@ -15,8 +15,8 @@ a.#{$baseClass} {
   position: relative;
   color: $dark-text;
   background-color: $default;
-  padding: 0 $padding-sm;
-  border-width: 1px;
+  padding: 0.5px $padding-sm + 0.5px;
+  border-width: 0.5px;
   border-style: solid;
   border-color: transparent;
   height: $button-height;
