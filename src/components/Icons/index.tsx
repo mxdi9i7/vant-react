@@ -12,7 +12,7 @@ interface IProps {
   classPrefix?: string;
   tag?: 'a';
   url?: string;
-  replace: boolean;
+  replace?: boolean;
 }
 
 const baseClass = 'vant-icon';
