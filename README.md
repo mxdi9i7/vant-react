@@ -1,6 +1,11 @@
-# Introduction
+# **Vant React**
 
-## **Vant React**
+[![npm version](https://badge.fury.io/js/vant-react.svg)](https://badge.fury.io/js/vant-react)
+[![NPM](https://img.shields.io/npm/l/vant-react)](LICENSE)
+![Test CI](https://github.com/mxdi9i7/vant-react/workflows/Test%20CI/badge.svg)
+![Publish CI](https://github.com/mxdi9i7/vant-react/workflows/Publish%20CI/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/30ddabc0-3eb6-4530-ab08-58db247a2b48/deploy-status)](https://vant.bctc.io)
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://vant.bctc.io)
 
 Lightweight Mobile UI Components built on Typescript and React in under 2kb!
 
@@ -127,7 +132,7 @@ const App = () => {
 
 ## Contribution
 
-Please make sure to read the[ Contributing Guide](https://github.com/mxdi9i7/vant-react/blob/master/CONTRIBUTION.md) before making a pull request.
+Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) before making a pull request.
 
 Or, join our discussion group on Wechat by adding me!
 

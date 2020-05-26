@@ -133,5 +133,15 @@ export const ButtonAction = () => (
   <div className='container column'>
     <Button click={(e) => alert(e.target)}>Handle Click</Button>
     <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
+    <Button click={(e) => alert(e.target)} type='primary' disabled>
+      Disabled Button
+    </Button>
+    <Button
+      type='info'
+      loading
+      loadingType='circular'
+      loadingText='Loading Button'
+      click={(e) => alert(e.target)}
+    />
   </div>
 );

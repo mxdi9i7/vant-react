@@ -16,7 +16,7 @@ $baseClass: 'vant-icon';
     .#{$baseClass}--dot {
       position: absolute;
       top: 0;
-      right: 0;
+      right: 5px;
       height: $icon-dot-size;
       width: $icon-dot-size;
       border-radius: 50%;
@@ -27,7 +27,7 @@ $baseClass: 'vant-icon';
     .#{$baseClass}--badge {
       position: absolute;
       top: 0;
-      right: 0;
+      right: 1;
       min-width: 16px;
       padding: 0 3px;
       color: $default;
