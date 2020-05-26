@@ -8,7 +8,7 @@ Lightweight Mobile UI Components built on Typescript and React in under 2kb!
 
 * Support Typescript
 * 60+ Reusable components
-* 100% Storybook coverage: https://vant.bctc.io
+* 100% Storybook coverage: [https://vant.bctc.io](https://vant.bctc.io)
 * Extensive documentation and demos
 
 ## Install
@@ -35,89 +35,95 @@ const App = () => {
 };
 ```
 
-
 ## Components completion status
 
-#### Basic Components
-- [x] Button
-- [ ] Cell
-- [x] Icon
-- [ ] Image
-- [ ] Layout
-- [ ] Popup
-- [ ] Built-in style
+### Basic Components
 
-#### Form Components
-- [ ] Calendar
-- [ ] Checkbox
-- [ ] DatetimePicker
-- [ ] Field
-- [ ] Form
-- [ ] NumberKeyboard
-- [ ] PasswordInput
-- [ ] Picker
-- [ ] Radio
-- [ ] Rate
-- [ ] Search
-- [ ] Slider
-- [ ] Stepper
-- [ ] Switch
-- [ ] SwitchCell
-- [ ] Uploader
+* [x] Button
+* [ ] Cell
+* [x] Icon
+* [ ] Image
+* [ ] Layout
+* [ ] Popup
+* [ ] Built-in style
 
-#### Action Components
-- [ ] ActionSheet
-- [ ] Dialog
-- [ ] DropdownMenu
-- [ ] Loading
-- [ ] Notify
-- [ ] Overlay
-- [ ] PullRefresh
-- [ ] ShareSheet
-- [ ] SwipeCell
-- [ ] Toast
+### Form Components
 
-#### Display Components
-- [ ] Circle
-- [ ] Collapse
-- [ ] CountDown
-- [ ] Divider
-- [ ] Empty
-- [ ] ImagePreview
-- [ ] Lazyload
-- [ ] List
-- [ ] NoticeBar
-- [ ] Panel
-- [ ] Progress
-- [ ] Skeleton
-- [ ] Steps
-- [ ] Sticky
-- [ ] Swipe
-- [x] Tag
+* [ ] Calendar
+* [ ] Checkbox
+* [ ] DatetimePicker
+* [ ] Field
+* [ ] Form
+* [ ] NumberKeyboard
+* [ ] PasswordInput
+* [ ] Picker
+* [ ] Radio
+* [ ] Rate
+* [ ] Search
+* [ ] Slider
+* [ ] Stepper
+* [ ] Switch
+* [ ] SwitchCell
+* [ ] Uploader
 
-#### Navigation Components
-- [ ] Grid
-- [ ] IndexBar
-- [x] NavBar
-- [ ] Pagination
-- [ ] Sidebar
-- [ ] Tab
-- [ ] Tabbar
-- [ ] TreeSelect
+### Action Components
 
-#### Business Components
-- [ ] AddressEdit
-- [ ] AddressList
-- [ ] Area
-- [ ] Card
-- [ ] Contact
-- [ ] Coupon
-- [ ] GoodsAction
-- [ ] SubmitBar
-- [ ] Sku
+* [ ] ActionSheet
+* [ ] Dialog
+* [ ] DropdownMenu
+* [ ] Loading
+* [ ] Notify
+* [ ] Overlay
+* [ ] PullRefresh
+* [ ] ShareSheet
+* [ ] SwipeCell
+* [ ] Toast
 
-#### Deprecated
-- [ ] SwitchCell
+### Display Components
+
+* [ ] Circle
+* [ ] Collapse
+* [ ] CountDown
+* [ ] Divider
+* [ ] Empty
+* [ ] ImagePreview
+* [ ] Lazyload
+* [ ] List
+* [ ] NoticeBar
+* [ ] Panel
+* [ ] Progress
+* [ ] Skeleton
+* [ ] Steps
+* [ ] Sticky
+* [ ] Swipe
+* [x] Tag
+
+### Navigation Components
+
+* [ ] Grid
+* [ ] IndexBar
+* [x] NavBar
+* [ ] Pagination
+* [ ] Sidebar
+* [ ] Tab
+* [ ] Tabbar
+* [ ] TreeSelect
+
+### Business Components
+
+* [ ] AddressEdit
+* [ ] AddressList
+* [ ] Area
+* [ ] Card
+* [ ] Contact
+* [ ] Coupon
+* [ ] GoodsAction
+* [ ] SubmitBar
+* [ ] Sku
+
+### Deprecated
+
+* [ ] SwitchCell
 
 ## Contribution
 
@@ -133,5 +139,5 @@ Modern browsers and Android 4.0+, iOS 8.0+.
 
 ## Open Source License
 
- This is an Open Source Software operating under the [MIT](https://github.com/mxdi9i7/vant-react/blob/master/LICENSE) License.
+This is an Open Source Software operating under the [MIT](https://github.com/mxdi9i7/vant-react/blob/master/LICENSE) License.
 
