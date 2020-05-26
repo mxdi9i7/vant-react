@@ -40,7 +40,7 @@ export default function Button({
   const props = {
     className: classnames(baseClass, [
       { type },
-      { plain },
+      { plain: plain || hairline },
       { disabled },
       { loading },
       { round },
@@ -85,11 +85,6 @@ export default function Button({
       });
     }
   }
-
-  if (hairline)
-    Object.assign(props, {
-      plain: true
-    });
 
   if (click) {
     Object.assign(props, {
