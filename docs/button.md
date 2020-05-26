@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Button
 
 ### [Demo](https://vant.bctc.io/?path=/story/button--button-types)
@@ -13,7 +11,7 @@ import { Button } from 'vant-react';
 
 ### Usage
 
-####     Type
+#### Type
 
 ```text
 <Button type="default">Default</Button>
@@ -23,21 +21,21 @@ import { Button } from 'vant-react';
 <Button type="warning">Warning</Button>
 ```
 
-####     Plain
+#### Plain
 
 ```text
 <Button plain type="primary">Primary</Button
 <Button plain type="danger">Danger</Button>
 ```
 
-####     Disable
+#### Disable
 
 ```text
 <Button disabled type="primary">Diabled</Button>
 <Button disabled type="info">Diabled</Button>
 ```
 
-####     Loading
+#### Loading
 
 ```text
 <Button loading type="primary" />
@@ -45,28 +43,28 @@ import { Button } from 'vant-react';
 <Button loading type="info" loadingText="Loading..." />
 ```
 
-####     Shape
+#### Shape
 
 ```text
 <Button square type="primary">Square</Button>
 <Button round type="info">Round</Button>
 ```
 
-####     Custom Color
+#### Custom Color
 
 ```text
 <Button color="FFECB3">Pure</Button
 <Button color="00796B" plain>Pure</Button>
 ```
 
-####     Tags
+#### Tags
 
 ```text
 <Button tag="a">A Tag</Button>
 <Button tag="button">Button Tag</Button>
 ```
 
-####     Native Type
+#### Native Type
 
 ```text
 <Button nativeType="button">Button Type</Button>
@@ -74,27 +72,27 @@ import { Button } from 'vant-react';
 <Button nativeType="submit">Submit Type</Button>
 ```
 
-####     Block
+#### Block
 
 ```text
 <Button>Non Block Button</Button>
 <Button block>Block Button</Button>
 ```
 
-####     Icon
+#### Icon
 
 ```text
 <Button icon="https://img.yzcdn.cn/vant/logo.png">Custom Icon Button</Button>
 ```
 
-####     Action
+#### Action
 
 ```text
 <Button click={(e) => alert(e.target)}>Handle Click</Button>
 <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
 ```
 
-####     URL
+#### URL
 
 ```text
 <Button tag="a" replace url="https://github.com/mxdi9i7/vant-react">Open URL in Same Frame</Button>
@@ -103,31 +101,29 @@ import { Button } from 'vant-react';
 
 ### API
 
-####   Props
+#### Props
 
-| Attribute | Description | Type | Default | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| `type` | Can be set to `primary` `info` `warning` `danger`  | _**string**_ | `default` | _optional_ |
-| `text` | Text to be displayed in button | _**string**_ | - | _optional_ |
-| `color` | Color, in hex value: `a9s7dn` | _**string**_ | - | _optional_ |
-| `icon` | Button icon that appears on the left | _**string**_ | - | _optional_ |
-| `tag` | HTML Tag | _**string**_ | - | _optional_ |
-| `nativeType` | Native Type Attribute | _**string**_ | ' ' | _optional_ |
-| `plain` | Whether to be plain button | _**boolean**_ | `false` | _optional_ |
-| `round` | Whether to be round button | _**boolean**_ | `false` | _optional_ |
-| `square` | Whether to be square button | _**boolean**_ | `false` | _optional_ |
-| `disabled` | Whether to disable button | _**boolean**_ | `false` | _optional_ |
-| `loading` | Whether to show loading status | _**boolean**_ | `false` | _optional_ |
-| `loadingText` | Loading text | _**string**_ | - | _optional_ |
-| `loadingType` | Loading type, can be set to`spinner`   | _**string**_ | `circular` | _optional_ |
-| `url` | Link URL | _**string**_ | - | _optional_ |
-| `replace` | Whether open in current tab | _**boolean**_ | `false` | _optional_ |
+| Attribute     | Description                                       | Type          | Default    | Required   |
+| :------------ | :------------------------------------------------ | :------------ | :--------- | :--------- |
+| `type`        | Can be set to `primary` `info` `warning` `danger` | _**string**_  | `default`  | _optional_ |
+| `text`        | Text to be displayed in button                    | _**string**_  | -          | _optional_ |
+| `color`       | Color, in hex value: `a9s7dn`                     | _**string**_  | -          | _optional_ |
+| `icon`        | Button icon that appears on the left              | _**string**_  | -          | _optional_ |
+| `tag`         | HTML Tag                                          | _**string**_  | -          | _optional_ |
+| `nativeType`  | Native Type Attribute                             | _**string**_  | ' '        | _optional_ |
+| `plain`       | Whether to be plain button                        | _**boolean**_ | `false`    | _optional_ |
+| `round`       | Whether to be round button                        | _**boolean**_ | `false`    | _optional_ |
+| `square`      | Whether to be square button                       | _**boolean**_ | `false`    | _optional_ |
+| `disabled`    | Whether to disable button                         | _**boolean**_ | `false`    | _optional_ |
+| `loading`     | Whether to show loading status                    | _**boolean**_ | `false`    | _optional_ |
+| `loadingText` | Loading text                                      | _**string**_  | -          | _optional_ |
+| `loadingType` | Loading type, can be set to`spinner`              | _**string**_  | `circular` | _optional_ |
+| `url`         | Link URL                                          | _**string**_  | -          | _optional_ |
+| `replace`     | Whether open in current tab                       | _**boolean**_ | `false`    | _optional_ |
 
-####   Event
+#### Event
 
-| Event | Description | Arguments |
-| :--- | :--- | :--- |
-| `click` | Triggered when click button and not disabled or loading | _event: Event_ |
-| `touchstart` | Triggered when touch start on mobile | _event:TouchEvent_ |
-
->>>>>>> origin
+| Event        | Description                                             | Arguments          |
+| :----------- | :------------------------------------------------------ | :----------------- |
+| `click`      | Triggered when click button and not disabled or loading | _event: Event_     |
+| `touchstart` | Triggered when touch start on mobile                    | _event:TouchEvent_ |
