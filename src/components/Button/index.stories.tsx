@@ -131,8 +131,8 @@ export const ButtonURL = () => (
 
 export const ButtonAction = () => (
   <div className='container column'>
-    <Button click={(e) => alert('Click')}>Handle Click</Button>
-    <Button touchstart={(e) => alert('Touchstart')}>Handle Touchstart</Button>
+    <Button click={(e) => alert(e.target)}>Handle Click</Button>
+    <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
     <Button click={(e) => alert(e.target)} type='primary' disabled>
       Disabled Button
     </Button>
@@ -140,10 +140,8 @@ export const ButtonAction = () => (
       type='info'
       loading
       loadingType='circular'
-      loadingText='Loading...'
+      loadingText='Loading Button'
       click={(e) => alert(e.target)}
-    >
-      Loading Circular
-    </Button>
+    />
   </div>
 );

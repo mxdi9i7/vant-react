@@ -94,7 +94,7 @@ export default function Button({
 
   if (click && loading) {
     Object.assign(props, {
-      onClick: undefined
+      onClick: () => {}
     });
   }
 
@@ -106,7 +106,7 @@ export default function Button({
 
   if (touchstart && loading) {
     Object.assign(props, {
-      onTouchStart: undefined
+      onTouchStart: () => {}
     });
   }
 
