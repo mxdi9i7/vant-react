@@ -26,6 +26,7 @@ export default function Button({
   round,
   square,
   color,
+  fontColor,
   tag,
   nativeType,
   block,
@@ -56,15 +57,29 @@ export default function Button({
   if (loadingSize)
     Object.assign(props, { style: { ...props.style, height: loadingSize } });
 
-  if (color)
-    Object.assign(props, {
-      style: {
-        ...props.style,
-        color: color ? getContrastTextColor(color) : 'ffffff',
-        backgroundColor: colorType(color),
-        borderColor: colorType(color)
-      }
-    });
+  if (fontColor)
+    Object.assign(props, { style: { ...props.style, color: fontColor } });
+
+  if (color) {
+    if (color.indexOf('linear-gradient') === -1) {
+      Object.assign(props, {
+        style: {
+          ...props.style,
+          color: fontColor || getContrastTextColor(color),
+          backgroundColor: colorType(color),
+          borderColor: colorType(color)
+        }
+      });
+    } else {
+      Object.assign(props, {
+        style: {
+          ...props.style,
+          color: fontColor || getContrastTextColor(color),
+          background: color
+        }
+      });
+    }
+  }
 
   if (disabled)
     Object.assign(props, {
