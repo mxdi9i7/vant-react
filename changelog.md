@@ -2,13 +2,27 @@
 
 ## Intro
 
-Vant follows Semantic Versioning 0.1.0.
+Vant follows Semantic Versioning 0.1.1.
 
 **Release Schedule**
 
 * Patch version：released weekly, including features and bug fixes.
 * Minor version：released every one to two months, including backwards compatible features.
 * Major version：including breaking changes and new features.
+
+## **0**.1.1 
+
+-05-25-2020
+
+**Bug Fixes**
+
+* Button: 
+  * enable icon buttons, need to have icon library done first
+  * accept linear gradient
+  
+* Tag: 
+  * accept custom tag element
+
 
 ## **0**.1.0 
 
@@ -28,10 +42,7 @@ Vant follows Semantic Versioning 0.1.0.
 * Button: 
   * add hairline props
   * accept color in rgb
-  * enable icon buttons, need to have icon library done first
-  * accept linear gradient
-* Tag: 
-  * accept custom tag element
+
 * Navbar：
   * Fix navbar font weight
   * Add navbar prop -&gt; border: boolean, default is true
