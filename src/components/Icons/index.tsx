@@ -24,7 +24,7 @@ export default function Icon({
   classPrefix = baseClass,
   tag
 }: IProps) {
-  const CustomTag = tag || 'i';
+  const CustomTag = 'i' || tag;
   const containerProps = {
     className: classnames(`${classPrefix}__container`, [
       {
