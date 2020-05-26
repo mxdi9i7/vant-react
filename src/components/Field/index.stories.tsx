@@ -38,8 +38,12 @@ export const Colon = () => (
 
 export const ShowIcon = () => (
   <div className='container column grey'>
-    <Field leftIcon='phone-o' rightIcon='cart-o' />
-    <Field leftIcon='fire-o' rightIcon='success' />
-    <Field leftIcon='fire-o' rightIcon='success' clearable />
+    <Field leftIcon='music-o' rightIcon='success' />
+    <Field
+      leftIcon='smile-o'
+      placeholder='Show clear icon'
+      rightIcon='success'
+      clearable
+    />
   </div>
 );

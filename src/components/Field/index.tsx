@@ -34,12 +34,12 @@ const Field = ({
   rightIcon,
   clearable
 }: Props) => {
-  const [fieldValue, setValue] = useState('');
+  const [fieldValue, setValue] = useState(value);
   const containerProps = {
     className: classnames(baseClass, [{ disabled }, { readonly }])
   };
   const inputProps = {
-    value,
+    value: fieldValue,
     type,
     name,
     placeHolder: placeholder || label,

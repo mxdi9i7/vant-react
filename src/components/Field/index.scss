@@ -30,6 +30,10 @@ $baseClass: 'vant-field';
     display: flex;
     align-items: center;
     width: 90px;
+
+    .vant-icon__container {
+      margin-right: 5px;
+    }
   }
 
   .#{$baseClass}__input {
@@ -41,6 +45,10 @@ $baseClass: 'vant-field';
     word-wrap: break-word;
     vertical-align: middle;
     position: relative;
+
+    .vant-icon__container {
+      padding: 0 5px;
+    }
   }
 
   input {
