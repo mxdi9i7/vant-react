@@ -12,7 +12,7 @@ Vant follows Semantic Versioning 0.1.0.
 
 ## **0**.1.0 
 
--05-24-2020
+-05-25-2020
 
 **Feature**
 
@@ -26,12 +26,10 @@ Vant follows Semantic Versioning 0.1.0.
 **Bug Fixes**
 
 * Button: 
+
   * add hairline props
   * accept color in rgb
-  * enable icon buttons, need to have icon library done first
-  * accept linear gradient
-* Tag: 
-  * accept custom tag element
+
 * Navbar：
   * Fix navbar font weight
   * Add navbar prop -&gt; border: boolean, default is true
