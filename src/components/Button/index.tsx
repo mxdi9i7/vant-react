@@ -92,9 +92,21 @@ export default function Button({
     });
   }
 
+  if (click && loading) {
+    Object.assign(props, {
+      onClick: undefined
+    });
+  }
+
   if (touchstart) {
     Object.assign(props, {
       onTouchStart: touchstart
+    });
+  }
+
+  if (touchstart && loading) {
+    Object.assign(props, {
+      onTouchStart: undefined
     });
   }
 
