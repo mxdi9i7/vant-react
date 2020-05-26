@@ -108,6 +108,8 @@ a.#{$baseClass} {
   }
 
   &__loading {
+    cursor: not-allowed;
+
     span {
       margin-left: 5px;
     }
