@@ -19,7 +19,7 @@ const Field = ({
   type = 'text',
   label = 'Label',
   name,
-  placeholder = 'Text'
+  placeholder
 }: Props) => {
   const containerProps = {
     className: classnames(baseClass, [])
@@ -28,11 +28,15 @@ const Field = ({
     value,
     type,
     name,
-    placeHolder: placeholder
+    placeHolder: placeholder || label
   };
   const labelProps = {
     htmlFor: name
   };
+
+  if (type === 'digit')
+    Object.assign(inputProps, { inputmode: 'numeric', type: 'tel' });
+
   return (
     <div {...containerProps}>
       <div className={`${baseClass}__label`}>
