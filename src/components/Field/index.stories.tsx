@@ -29,3 +29,17 @@ export const Disabled = () => (
     <Field readonly value='Input Readonly' />
   </div>
 );
+
+export const Colon = () => (
+  <div className='container column grey'>
+    <Field colon />
+  </div>
+);
+
+export const ShowIcon = () => (
+  <div className='container column grey'>
+    <Field leftIcon='phone-o' rightIcon='cart-o' />
+    <Field leftIcon='fire-o' rightIcon='success' />
+    <Field leftIcon='fire-o' rightIcon='success' clearable />
+  </div>
+);

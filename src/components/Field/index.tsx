@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import classnames from '../../utils/classNames';
 
 import './index.scss';
+import Icon from '../Icons';
 
 export interface Props {
   value?: string;
@@ -12,6 +13,10 @@ export interface Props {
   placeholder?: string;
   disabled?: boolean;
   readonly?: boolean;
+  clearable?: boolean;
+  colon?: boolean;
+  leftIcon?: string;
+  rightIcon?: string;
 }
 
 const baseClass = 'vant-field';
@@ -23,8 +28,13 @@ const Field = ({
   name,
   placeholder,
   readonly,
-  disabled
+  disabled,
+  colon,
+  leftIcon,
+  rightIcon,
+  clearable
 }: Props) => {
+  const [fieldValue, setValue] = useState('');
   const containerProps = {
     className: classnames(baseClass, [{ disabled }, { readonly }])
   };
@@ -34,7 +44,10 @@ const Field = ({
     name,
     placeHolder: placeholder || label,
     disabled,
-    readonly
+    readonly,
+    onChange: (e) => {
+      setValue(e.target.value);
+    }
   };
   const labelProps = {
     htmlFor: name
@@ -43,13 +56,21 @@ const Field = ({
   if (type === 'digit')
     Object.assign(inputProps, { inputmode: 'numeric', type: 'tel' });
 
+  const ICON_SIZE = '16px';
+
   return (
     <div {...containerProps}>
       <div className={`${baseClass}__label`}>
-        <label {...labelProps}>{label}</label>
+        {leftIcon && <Icon name={leftIcon} size={ICON_SIZE} />}
+        <label {...labelProps}>
+          {label}
+          {colon && ':'}
+        </label>
       </div>
       <div className={`${baseClass}__input`}>
         <input {...inputProps} />
+        {clearable && fieldValue && <Icon name='clear' size={ICON_SIZE} />}
+        {rightIcon && !clearable && <Icon name={rightIcon} size={ICON_SIZE} />}
       </div>
     </div>
   );
