@@ -126,9 +126,13 @@ export default function Button({
     });
   }
 
+  const NAV_ICON_SIZE = '16px';
+
   return (
     <CustomTag {...props}>
-      {icon && <Icon name={icon} /> && <img src={icon} alt='button icon' />}
+      {icon?.slice(0, 4) === 'http'
+        ? icon && <img src={icon} alt='button icon' />
+        : icon && <Icon name={icon} size={NAV_ICON_SIZE} />}
       {loading
         ? renderLoadingIcon({
             className: loadingType
