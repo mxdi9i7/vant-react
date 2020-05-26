@@ -81,7 +81,12 @@ export const ButtonShapes = () => (
 export const ButtonColor = () => (
   <div className='container'>
     <Button color='FFECB3'>Info Button</Button>
-    <Button color='00796B'>Warning Button</Button>
+    <Button color='00796B' fontColor='#999'>
+      Warning Button
+    </Button>
+    <Button color='linear-gradient(to right, #4bb0ff, #6149f6)'>
+      Warning Button
+    </Button>
   </div>
 );
 

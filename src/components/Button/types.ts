@@ -1,6 +1,7 @@
 export interface Props {
   text?: string;
   color?: string;
+  fontColor?: string;
   children?: string;
   loadingText?: string;
   loadingSize?: string;

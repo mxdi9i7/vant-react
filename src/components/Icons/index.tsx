@@ -11,6 +11,7 @@ interface IProps {
   size?: string;
   classPrefix?: string;
   tag?: 'i' | 'span';
+  click?: Function;
 }
 
 const baseClass = 'vant-icon';
@@ -22,7 +23,8 @@ export default function Icon({
   color,
   size,
   classPrefix = baseClass,
-  tag
+  tag,
+  click
 }: IProps) {
   const CustomTag = tag || 'i' || 'span';
   const containerProps = {
@@ -53,6 +55,12 @@ export default function Icon({
         ...iconProps.style,
         fontSize: size
       }
+    });
+  }
+  if (click) {
+    Object.assign(iconProps, {
+      onClick: click,
+      style: { cursor: 'pointer', fontSize: '28px' }
     });
   }
 
