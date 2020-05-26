@@ -4,6 +4,7 @@ import { renderLoadingIcon, getContrastTextColor, colorType } from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
+import Icon from '../Icons';
 
 import './index.scss';
 
@@ -127,7 +128,7 @@ export default function Button({
 
   return (
     <CustomTag {...props}>
-      {icon && <img src={icon} alt='button icon' />}
+      {<Icon name={icon} /> && <img src={icon} alt='button icon' />}
       {loading
         ? renderLoadingIcon({
             className: loadingType

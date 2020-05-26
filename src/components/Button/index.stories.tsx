@@ -117,6 +117,7 @@ export const IconButton = () => (
     <Button icon='https://img.yzcdn.cn/vant/logo.png'>
       Custom Icon Button
     </Button>
+    <Button icon='start-o'>Custom Icon Button</Button>
   </div>
 );
 
