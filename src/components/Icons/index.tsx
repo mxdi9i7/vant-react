@@ -59,8 +59,7 @@ export default function Icon({
   }
   if (click) {
     Object.assign(iconProps, {
-      onClick: click,
-      style: { cursor: 'pointer', fontSize: '28px' }
+      onClick: click
     });
   }
 
