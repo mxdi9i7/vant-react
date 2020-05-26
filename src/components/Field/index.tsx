@@ -5,6 +5,8 @@ import classnames from '../../utils/classNames';
 import './index.scss';
 import Icon from '../Icons';
 
+const ICON_SIZE = '16px';
+
 export interface Props {
   value?: string;
   type?: string;
@@ -35,9 +37,13 @@ const Field = ({
   clearable
 }: Props) => {
   const [fieldValue, setValue] = useState(value);
+
+  const handleClear = () => setValue('');
+
   const containerProps = {
     className: classnames(baseClass, [{ disabled }, { readonly }])
   };
+
   const inputProps = {
     value: fieldValue,
     type,
@@ -49,14 +55,13 @@ const Field = ({
       setValue(e.target.value);
     }
   };
+
   const labelProps = {
     htmlFor: name
   };
 
   if (type === 'digit')
     Object.assign(inputProps, { inputmode: 'numeric', type: 'tel' });
-
-  const ICON_SIZE = '16px';
 
   return (
     <div {...containerProps}>
@@ -70,7 +75,9 @@ const Field = ({
       <div className={`${baseClass}__input`}>
         <input {...inputProps} />
         {clearable && fieldValue && <Icon name='clear' size={ICON_SIZE} />}
-        {rightIcon && !clearable && <Icon name={rightIcon} size={ICON_SIZE} />}
+        {rightIcon && !clearable && (
+          <Icon click={handleClear} name={rightIcon} size={ICON_SIZE} />
+        )}
       </div>
     </div>
   );
