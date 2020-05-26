@@ -57,10 +57,10 @@ export default function Icon({
   }
 
   return (
-    <CustomTag {...containerProps}>
-      <i {...iconProps} />
+    <div {...containerProps}>
       {dot && !badge && <span className={`${classPrefix}--dot`} />}
       {badge && <span className={`${classPrefix}--badge`}>{badge}</span>}
-    </CustomTag>
+      <CustomTag {...iconProps} />
+    </div>
   );
 }
