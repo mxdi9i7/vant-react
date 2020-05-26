@@ -1,0 +1,28 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-search';
+
+.#{$baseClass} {
+  background-color: $default;
+  width: 100%;
+  display: flex;
+  padding: 10px 12px;
+  position: relative;
+  align-items: center;
+
+  input {
+    width: 100%;
+    background-color: $grey-background;
+    border: none;
+    border-radius: 2px;
+    padding-left: $space-md;
+  }
+
+  &:first-of-type(i) {
+    position: absolute;
+    left: 8px;
+  }
+}

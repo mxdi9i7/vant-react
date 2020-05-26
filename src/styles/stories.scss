@@ -15,7 +15,7 @@ body {
   align-items: center;
 
   &.grey {
-    background-color: #f7f8fa;
+    background-color: $grey-background;
   }
 
   &.column {
@@ -47,7 +47,7 @@ body {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  background-color: #f7f8fa;
+  background-color: $grey-background;
 
   h1 {
     font-size: 22px;
