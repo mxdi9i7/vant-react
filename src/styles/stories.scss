@@ -27,6 +27,9 @@ body {
       margin-right: 0;
     }
   }
+  i{
+    margin-right: 5px;
+  }
 
   nav {
     margin-bottom: 20px;
@@ -34,12 +37,6 @@ body {
     .vant-icon__container {
       margin: 0;
     }
-  }
-
-  button,
-  a,
-  span {
-    margin-right: 20px;
   }
 }
 

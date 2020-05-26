@@ -10,12 +10,10 @@ interface IProps {
   color?: string;
   size?: string;
   classPrefix?: string;
-  tag?: string;
+  tag?: 'i' | 'span';
 }
 
 const baseClass = 'vant-icon';
-
-// TODO Accept custom tag element
 
 export default function Icon({
   name,
@@ -23,8 +21,10 @@ export default function Icon({
   badge,
   color,
   size,
-  classPrefix = baseClass
+  classPrefix = baseClass,
+  tag
 }: IProps) {
+  const CustomTag = tag || 'i' || 'span';
   const containerProps = {
     className: classnames(`${classPrefix}__container`, [
       {
@@ -58,9 +58,9 @@ export default function Icon({
 
   return (
     <div {...containerProps}>
-      <i {...iconProps} />
       {dot && !badge && <span className={`${classPrefix}--dot`} />}
       {badge && <span className={`${classPrefix}--badge`}>{badge}</span>}
+      <CustomTag {...iconProps} />
     </div>
   );
 }
