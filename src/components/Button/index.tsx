@@ -128,7 +128,7 @@ export default function Button({
 
   return (
     <CustomTag {...props}>
-      {<Icon name={icon} /> && <img src={icon} alt='button icon' />}
+      {icon && <Icon name={icon} /> && <img src={icon} alt='button icon' />}
       {loading
         ? renderLoadingIcon({
             className: loadingType
