@@ -10,7 +10,7 @@ interface IProps {
   color?: string;
   size?: string;
   classPrefix?: string;
-  tag?: 'i';
+  tag?: 'i' | 'span';
 }
 
 const baseClass = 'vant-icon';
@@ -24,7 +24,7 @@ export default function Icon({
   classPrefix = baseClass,
   tag
 }: IProps) {
-  const CustomTag = 'i' || tag;
+  const CustomTag = 'i' || 'span' || tag;
   const containerProps = {
     className: classnames(`${classPrefix}__container`, [
       {
