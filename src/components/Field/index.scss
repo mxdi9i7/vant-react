@@ -41,20 +41,26 @@ $baseClass: 'vant-field';
     word-wrap: break-word;
     vertical-align: middle;
     position: relative;
+  }
 
+  input {
+    @include field-label;
+    width: inherit;
+    outline: none;
+    display: block;
+    text-align: left;
+    line-height: inherit;
+    border: 0;
+    resize: none;
+
+    &::placeholder {
+      color: $placeholder;
+    }
+  }
+
+  &__disabled {
     input {
-      @include field-label;
-      width: inherit;
-      outline: none;
-      display: block;
-      text-align: left;
-      line-height: inherit;
-      border: 0;
-      resize: none;
-
-      &::placeholder {
-        color: $placeholder;
-      }
+      color: $grey;
     }
   }
 }

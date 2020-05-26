@@ -10,6 +10,8 @@ export interface Props {
   name?: string;
   label?: string;
   placeholder?: string;
+  disabled?: boolean;
+  readonly?: boolean;
 }
 
 const baseClass = 'vant-field';
@@ -19,16 +21,20 @@ const Field = ({
   type = 'text',
   label = 'Label',
   name,
-  placeholder
+  placeholder,
+  readonly,
+  disabled
 }: Props) => {
   const containerProps = {
-    className: classnames(baseClass, [])
+    className: classnames(baseClass, [{ disabled }, { readonly }])
   };
   const inputProps = {
     value,
     type,
     name,
-    placeHolder: placeholder || label
+    placeHolder: placeholder || label,
+    disabled,
+    readonly
   };
   const labelProps = {
     htmlFor: name

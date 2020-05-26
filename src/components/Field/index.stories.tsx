@@ -8,7 +8,7 @@ export default {
 };
 
 export const BasicUsage = () => (
-  <div className='container grey'>
+  <div className='container column grey'>
     <Field />
   </div>
 );
@@ -20,5 +20,12 @@ export const CustomTypes = () => (
     <Field label='Digit' type='digit' />
     <Field label='Number' type='number' />
     <Field label='Password' type='password' />
+  </div>
+);
+
+export const Disabled = () => (
+  <div className='container column grey'>
+    <Field disabled value='Input Disabled' />
+    <Field readonly value='Input Readonly' />
   </div>
 );
