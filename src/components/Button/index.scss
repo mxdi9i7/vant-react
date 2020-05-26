@@ -93,19 +93,19 @@ a.#{$baseClass} {
   &__hairline {
     border-width: 0.5px;
     padding: 0.5px $padding-sm + 0.5px;
-    background-color: $default;
-    &.#{$baseClass}__primary {
-      color: $primary;
-    }
-    &.#{$baseClass}__info {
-      color: $info;
-    }
-    &.#{$baseClass}__danger {
-      color: $danger;
-    }
-    &.#{$baseClass}__warning {
-      color: $warning;
-    }
+    // background-color: $default;
+    // &.#{$baseClass}__primary {
+    //   color: $primary;
+    // }
+    // &.#{$baseClass}__info {
+    //   color: $info;
+    // }
+    // &.#{$baseClass}__danger {
+    //   color: $danger;
+    // }
+    // &.#{$baseClass}__warning {
+    //   color: $warning;
+    // }
   }
 
   &__square {

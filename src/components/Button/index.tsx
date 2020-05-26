@@ -86,6 +86,11 @@ export default function Button({
     }
   }
 
+  if (hairline)
+    Object.assign(props, {
+      plain: true
+    });
+
   if (click) {
     Object.assign(props, {
       onClick: click
