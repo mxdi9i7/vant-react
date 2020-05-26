@@ -67,9 +67,13 @@ $baseClass: 'vant-tag';
   }
 
   &__closeable {
-    .vant-icon {
-      margin-left: 5px;
-      cursor: pointer;
+    span {
+      margin-right: 0;
+
+      .vant-icon {
+        margin-left: 5px;
+        cursor: pointer;
+      }
     }
   }
 }
