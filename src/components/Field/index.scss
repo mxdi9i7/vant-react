@@ -1,0 +1,48 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-field';
+
+.#{$baseClass} {
+  @include field-label;
+  width: 100%;
+  background-color: $default;
+  padding: 10px $space-lg;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  .#{$baseClass}__label {
+    display: flex;
+    align-items: center;
+    width: 90px;
+  }
+
+  .#{$baseClass}__input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    color: $grey;
+    word-wrap: break-word;
+    vertical-align: middle;
+    position: relative;
+
+    input {
+      @include field-label;
+      width: inherit;
+      outline: none;
+      display: block;
+      text-align: left;
+      line-height: inherit;
+      border: 0;
+      resize: none;
+
+      &::placeholder {
+        color: $placeholder;
+      }
+    }
+  }
+}
