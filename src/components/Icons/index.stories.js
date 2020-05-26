@@ -10,7 +10,7 @@ export default {
 
 export const AllIcons = () => (
   <div className='icons-container'>
-    <h1>Basic Icons</h1>
+    <h1>{IconsConfig.basic.length} Basic Icons</h1>
     <div className='icon-group'>
       {IconsConfig.basic.map((v, i) => (
         <div className='icon-block' key={i}>
@@ -19,7 +19,7 @@ export const AllIcons = () => (
         </div>
       ))}
     </div>
-    <h1>Outline Icons</h1>
+    <h1>{IconsConfig.outline.length} Outline Icons</h1>
     <div className='icon-group'>
       {IconsConfig.outline.map((v, i) => (
         <div className='icon-block' key={i}>
@@ -28,7 +28,7 @@ export const AllIcons = () => (
         </div>
       ))}
     </div>
-    <h1>Filled Icons</h1>
+    <h1>{IconsConfig.filled.length} Filled Icons</h1>
     <div className='icon-group'>
       {IconsConfig.filled.map((v, i) => (
         <div className='icon-block' key={i}>

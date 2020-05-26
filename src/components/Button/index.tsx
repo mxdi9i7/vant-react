@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderLoadingIcon, getContrastTextColor } from './helper';
+import { renderLoadingIcon, getContrastTextColor, colorType } from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
@@ -10,7 +10,6 @@ import './index.scss';
 const baseClass = 'vant-button';
 
 // TODO: add hairline props
-// TODO: accept color in rgb
 // TODO: enable icon buttons, need to have icon library done first
 // TODO: accept linear gradient
 
@@ -34,18 +33,20 @@ export default function Button({
   replace,
   click,
   touchstart,
-  icon
+  icon,
+  hairline
 }: Props) {
   const CustomTag = tag || 'button';
   const props = {
     className: classnames(baseClass, [
       { type },
-      { plain },
+      { plain: plain || hairline },
       { disabled },
       { loading },
       { round },
       { square },
-      { block }
+      { block },
+      { hairline }
     ]),
     style: {}
   };
@@ -60,8 +61,8 @@ export default function Button({
       style: {
         ...props.style,
         color: color ? getContrastTextColor(color) : 'ffffff',
-        backgroundColor: `#${color}`,
-        borderColor: `#${color}`
+        backgroundColor: colorType(color),
+        borderColor: colorType(color)
       }
     });
 

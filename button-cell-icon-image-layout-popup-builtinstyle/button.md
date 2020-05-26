@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Button
 
 ### [Demo](https://vant.bctc.io/?path=/story/button--button-types)
@@ -130,4 +128,3 @@ import { Button } from 'vant-react';
 | `click` | Triggered when click button and not disabled or loading | _event: Event_ |
 | `touchstart` | Triggered when touch start on mobile | _event:TouchEvent_ |
 
->>>>>>> origin

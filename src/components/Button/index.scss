@@ -90,6 +90,11 @@ a.#{$baseClass} {
     }
   }
 
+  &__hairline {
+    border-width: 0.5px;
+    padding: 0.5px $padding-sm + 0.5px;
+  }
+
   &__square {
     border-radius: 0;
   }

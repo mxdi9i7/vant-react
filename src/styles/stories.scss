@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
@@ -64,25 +66,44 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 150px;
+    height: 125px;
+    width: 125px;
     margin: 15px;
     border-radius: 25px;
     padding: 12px 8px;
     background-color: #fff;
-    transition-duration: 0.2s;
+    transition-duration: 0.4s;
     box-shadow: 2px 2px 5px #eee;
+
+    * {
+      transition-duration: 0.2s;
+    }
+
+    i {
+      font-size: 42px !important;
+      color: $black !important;
+    }
 
     &:hover {
       background-color: #fff;
-      box-shadow: 2px 2px 20px #eee;
+      box-shadow: 4px 4px 50px #eee;
       cursor: pointer;
+
+      i {
+        color: $primary !important;
+      }
+
+      .icon-name {
+        color: $primary;
+      }
     }
   }
 
   .icon-name {
-    font-size: 14px;
+    color: $black;
+    font-size: 12px;
     display: block;
-    margin-top: 5px;
+    margin-top: 15px;
     font-weight: 100;
   }
 }
