@@ -5,6 +5,7 @@ export interface Props {
   loadingText?: string;
   loadingSize?: string;
   icon?: string;
+  hairline?: boolean;
   url?: string;
   plain?: boolean;
   loading?: boolean;

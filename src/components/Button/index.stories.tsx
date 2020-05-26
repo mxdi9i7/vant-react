@@ -28,6 +28,17 @@ export const PlainButtons = () => (
   </div>
 );
 
+export const HairlineButtons = () => (
+  <div className='container'>
+    <Button type='danger' hairline>
+      Danger Button
+    </Button>
+    <Button type='primary' hairline>
+      Primary Button
+    </Button>
+  </div>
+);
+
 export const DisabledButtons = () => (
   <div className='container'>
     <Button type='danger' disabled>

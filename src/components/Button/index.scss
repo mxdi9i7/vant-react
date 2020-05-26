@@ -15,8 +15,8 @@ a.#{$baseClass} {
   position: relative;
   color: $dark-text;
   background-color: $default;
-  padding: 0.5px $padding-sm + 0.5px;
-  border-width: 0.5px;
+  padding: 0 $padding-sm;
+  border-width: 1px;
   border-style: solid;
   border-color: transparent;
   height: $button-height;
@@ -75,6 +75,24 @@ a.#{$baseClass} {
   }
 
   &__plain {
+    background-color: $default;
+    &.#{$baseClass}__primary {
+      color: $primary;
+    }
+    &.#{$baseClass}__info {
+      color: $info;
+    }
+    &.#{$baseClass}__danger {
+      color: $danger;
+    }
+    &.#{$baseClass}__warning {
+      color: $warning;
+    }
+  }
+
+  &__hairline {
+    border-width: 0.5px;
+    padding: 0.5px $padding-sm + 0.5px;
     background-color: $default;
     &.#{$baseClass}__primary {
       color: $primary;

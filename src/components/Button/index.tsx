@@ -9,6 +9,7 @@ import './index.scss';
 
 const baseClass = 'vant-button';
 
+// TODO: add hairline props
 // TODO: enable icon buttons, need to have icon library done first
 // TODO: accept linear gradient
 
@@ -32,7 +33,8 @@ export default function Button({
   replace,
   click,
   touchstart,
-  icon
+  icon,
+  hairline
 }: Props) {
   const CustomTag = tag || 'button';
   const props = {
@@ -43,7 +45,8 @@ export default function Button({
       { loading },
       { round },
       { square },
-      { block }
+      { block },
+      { hairline }
     ]),
     style: {}
   };
