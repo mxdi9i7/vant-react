@@ -4,14 +4,11 @@ import { renderLoadingIcon, getContrastTextColor, colorType } from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
+import Icon from '../Icons';
 
 import './index.scss';
 
 const baseClass = 'vant-button';
-
-// TODO: add hairline props
-// TODO: enable icon buttons, need to have icon library done first
-// TODO: accept linear gradient
 
 export default function Button({
   text,
@@ -125,9 +122,13 @@ export default function Button({
     });
   }
 
+  const NAV_ICON_SIZE = '16px';
+
   return (
     <CustomTag {...props}>
-      {icon && <img src={icon} alt='button icon' />}
+      {icon?.includes('.') || icon?.includes('http')
+        ? icon && <img src={icon} alt='button icon' />
+        : icon && <Icon name={icon} size={NAV_ICON_SIZE} />}
       {loading
         ? renderLoadingIcon({
             className: loadingType
