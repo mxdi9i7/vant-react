@@ -40,7 +40,9 @@ export const Colon = () => (
 export const ShowIcon = () => {
   return (
     <div className='container column grey'>
-      <Field leftIcon='music-o' rightIcon='success' />
+      <Field label='Left Icon' leftIcon='music-o' />
+      <Field label='Right Icon' rightIcon='success' />
+      <Field labelWidth='150px' label='Label Icon' labelIcon='search' />
     </div>
   );
 };

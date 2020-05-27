@@ -22,6 +22,7 @@ export interface IProps {
   clickable?: boolean;
   autofocus?: boolean;
   error?: boolean;
+  labelIcon?: string;
   leftIcon?: string;
   rightIcon?: string;
   input?: Function;
