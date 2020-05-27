@@ -131,7 +131,7 @@ export default function Button({
 
   return (
     <CustomTag {...props}>
-      {iconType(icon!)
+      {iconType(`${icon}`)
         ? icon && <Icon name={icon} size={NAV_ICON_SIZE} />
         : icon && <img src={icon} alt='button icon' />}
       {loading
