@@ -40,9 +40,10 @@ a.#{$baseClass} {
     opacity: 0;
     content: ' ';
   }
-
-  &:not(:last-of-type) {
-    margin-right: 0px;
+  &:first-child {
+    i {
+      margin: 0px;
+    }
   }
 
   &:active {
