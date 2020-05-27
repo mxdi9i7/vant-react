@@ -29,7 +29,8 @@ body {
   &.column {
     flex-direction: column;
   }
-  i {
+
+  &.icon i {
     margin-right: 5px;
   }
 

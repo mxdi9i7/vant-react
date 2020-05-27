@@ -21,6 +21,7 @@ const Field = ({
   readonly,
   disabled,
   colon,
+  labelIcon,
   leftIcon,
   rightIcon,
   clearable,
@@ -46,7 +47,9 @@ const Field = ({
   labelWidth,
   labelAlign = 'left',
   inputAlign = 'left',
-  errorAlign = 'left'
+  errorAlign = 'left',
+  required,
+  border = true
 }: IProps) => {
   const handleInput = (e) => {
     const inputValue = e.target.value;
@@ -110,7 +113,9 @@ const Field = ({
       { showWordLimit },
       { [`input-${inputAlign}`]: inputAlign },
       { [`label-${labelAlign}`]: labelAlign },
-      { [`error-${errorAlign}`]: errorAlign }
+      { [`error-${errorAlign}`]: errorAlign },
+      { border },
+      { required }
     ]),
     onClick: handleClick,
     ref: fieldContainerRef
@@ -151,13 +156,7 @@ const Field = ({
     <div {...containerProps}>
       {label && (
         <div {...labelContainerProps}>
-          {leftIcon && (
-            <Icon
-              click={handleClickLeftIcon}
-              name={leftIcon}
-              size={ICON_SIZE}
-            />
-          )}
+          {labelIcon && <Icon name={labelIcon} size={ICON_SIZE} />}
           <label {...labelProps}>
             {label}
             {colon && ':'}
@@ -166,6 +165,14 @@ const Field = ({
       )}
       <div className={`${baseClass}__input`}>
         <div className={`${baseClass}__field`}>
+          {leftIcon && (
+            <Icon
+              color='#323233'
+              click={handleClickLeftIcon}
+              name={leftIcon}
+              size={ICON_SIZE}
+            />
+          )}
           <input {...inputProps} />
           {clearable && value && (
             <Icon click={clear} name='clear' size={ICON_SIZE} />

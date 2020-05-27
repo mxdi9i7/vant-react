@@ -14,6 +14,12 @@ export const BasicUsage = () => (
   </div>
 );
 
+export const RequiredField = () => (
+  <div className='container column grey'>
+    <Field label='Required' required />
+  </div>
+);
+
 export const CustomTypes = () => (
   <div className='container column grey'>
     <Field label='Text' type='text' />
@@ -40,7 +46,9 @@ export const Colon = () => (
 export const ShowIcon = () => {
   return (
     <div className='container column grey'>
-      <Field leftIcon='music-o' rightIcon='success' />
+      <Field label='Left Icon' leftIcon='music-o' />
+      <Field label='Right Icon' rightIcon='success' />
+      <Field labelWidth='150px' label='Label Icon' labelIcon='search' />
     </div>
   );
 };

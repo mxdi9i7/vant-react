@@ -30,6 +30,11 @@ $baseClass: 'vant-search';
 
     .vant-field__input {
       padding: 5px 8px 5px 0;
+
+      .vant-icon__container {
+        padding: 0;
+      }
+
       input {
         width: 100%;
         background-color: $grey-background;

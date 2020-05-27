@@ -41,7 +41,7 @@ export const AllIcons = () => (
 );
 
 export const IconColor = () => (
-  <div className='container'>
+  <div className='icons container'>
     <Icon name='chat-o' color='#1976D2' />
     <Icon name='add' color='#BBDEFB' />
     <Icon name='add-square' color='#4CAF50' />
@@ -50,7 +50,7 @@ export const IconColor = () => (
 );
 
 export const IconSize = () => (
-  <div className='container' size='18px'>
+  <div className='container icons' size='18px'>
     <Icon name='chat-o' size='28px' />
     <Icon name='add' size='38px' />
     <Icon name='add-square' size='48px' />
@@ -59,7 +59,7 @@ export const IconSize = () => (
 );
 
 export const IconDotsAndBadges = () => (
-  <div className='container'>
+  <div className='container icons'>
     <Icon name='chat-o' dot />
     <Icon name='add' badge='1' />
     <Icon name='add-square' badge='12' />
@@ -67,14 +67,14 @@ export const IconDotsAndBadges = () => (
   </div>
 );
 export const IconTags = () => (
-  <div className='container'>
+  <div className='container icons'>
     <Icon name='chat-o' tag='i' />
     <Icon name='add' tag='span' />
   </div>
 );
 
 export const IconAction = () => (
-  <div className='container'>
+  <div className='container icons'>
     <Icon name='chat-o' click={(e) => window.alert(e.target)} />
   </div>
 );

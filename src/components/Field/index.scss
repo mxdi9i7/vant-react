@@ -14,18 +14,6 @@ $baseClass: 'vant-field';
   overflow: hidden;
   position: relative;
 
-  &:not(:last-child)::after {
-    position: absolute;
-    box-sizing: border-box;
-    content: ' ';
-    pointer-events: none;
-    right: 0;
-    bottom: 0;
-    left: $space-lg;
-    border-bottom: 1px solid $grey-text;
-    transform: scaleY(0.5);
-  }
-
   .#{$baseClass}__label {
     display: flex;
     align-items: center;
@@ -140,6 +128,34 @@ $baseClass: 'vant-field';
   &__error-center {
     .#{$baseClass}__error {
       text-align: center;
+    }
+  }
+
+  &__required {
+    .#{$baseClass}__label {
+      label {
+        &::before {
+          position: absolute;
+          left: $space-md;
+          color: $danger;
+          font-size: 14px;
+          content: '*';
+        }
+      }
+    }
+  }
+
+  &__border {
+    &:not(:last-child)::after {
+      position: absolute;
+      box-sizing: border-box;
+      content: ' ';
+      pointer-events: none;
+      right: 0;
+      bottom: 0;
+      left: $space-lg;
+      border-bottom: 1px solid $grey-text;
+      transform: scaleY(0.5);
     }
   }
 }
