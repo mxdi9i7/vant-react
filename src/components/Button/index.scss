@@ -41,7 +41,7 @@ a.#{$baseClass} {
     content: ' ';
   }
 
-  &:not(:last-child) {
+  &:not(:last-of-type) {
     margin-right: 0px;
   }
 
