@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  renderLoadingIcon,
-  getContrastTextColor,
-  colorType,
-  iconType
-} from './helper';
+import { renderLoadingIcon, getContrastTextColor, colorType } from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
@@ -131,9 +126,9 @@ export default function Button({
 
   return (
     <CustomTag {...props}>
-      {iconType(`${icon}`)
-        ? icon && <Icon name={icon} size={NAV_ICON_SIZE} />
-        : icon && <img src={icon} alt='button icon' />}
+      {icon?.includes('.') || icon?.includes('http')
+        ? icon && <img src={icon} alt='button icon' />
+        : icon && <Icon name={icon} size={NAV_ICON_SIZE} />}
       {loading
         ? renderLoadingIcon({
             className: loadingType
