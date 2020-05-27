@@ -13,16 +13,30 @@ $baseClass: 'vant-search';
   position: relative;
   align-items: center;
 
-  input {
-    width: 100%;
-    background-color: $grey-background;
-    border: none;
-    border-radius: 2px;
-    padding-left: $space-md;
-  }
-
   &:first-of-type(i) {
     position: absolute;
     left: 8px;
+  }
+
+  &__round {
+    .vant-field {
+      border-radius: 2px;
+    }
+  }
+
+  .vant-field {
+    background-color: $grey-background;
+    padding: 0 0 0 8px;
+
+    .vant-field__input {
+      padding: 5px 8px 5px 0;
+      input {
+        width: 100%;
+        background-color: $grey-background;
+        border: none;
+        border-radius: 2px;
+        padding-left: $space-md;
+      }
+    }
   }
 }
