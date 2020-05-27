@@ -41,7 +41,7 @@ const Field = ({
   maxLength,
   showWordLimit,
   button,
-  formatter,
+  formatter = () => true,
   labelClass,
   labelWidth,
   labelAlign = 'left',
@@ -50,7 +50,7 @@ const Field = ({
 }: IProps) => {
   const handleInput = (e) => {
     const inputValue = e.target.value;
-    if (formatter && formatter(inputValue)) {
+    if (formatter(inputValue)) {
       if (input) {
         if (!maxLength) {
           return input(e);
