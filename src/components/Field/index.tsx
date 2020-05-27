@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import classnames from '../../utils/classNames';
 
@@ -51,6 +51,8 @@ const Field = ({
   required,
   border = true
 }: IProps) => {
+  const [containerFocus, setContainerFocus] = useState(false);
+
   const handleInput = (e) => {
     const inputValue = e.target.value;
     if (formatter(inputValue)) {
@@ -104,6 +106,18 @@ const Field = ({
     if (getContainerRef) getContainerRef(fieldContainerRef);
     if (getFieldRef) getFieldRef(fieldRef);
   }, [getContainerRef, getFieldRef]);
+
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      // @ts-ignore: Object is possibly 'null'.
+      if (fieldContainerRef?.current?.contains(e.target)) {
+        setContainerFocus(true);
+      } else {
+        setContainerFocus(false);
+      }
+    });
+    return () => window.removeEventListener('click', () => {});
+  }, []);
 
   const containerProps = {
     className: classnames(baseClass, [
@@ -173,7 +187,7 @@ const Field = ({
             />
           )}
           <input {...inputProps} />
-          {clearable && value && (
+          {clearable && value && containerFocus && (
             <Icon click={clear} name='clear' size={ICON_SIZE} />
           )}
           {rightIcon && !clearable && (
