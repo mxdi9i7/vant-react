@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { renderLoadingIcon, getContrastTextColor, colorType } from './helper';
+import {
+  renderLoadingIcon,
+  getContrastTextColor,
+  colorType,
+  iconType
+} from './helper';
 import classnames from '../../utils/classNames';
 
 import { Props } from './types';
 import Icon from '../Icons';
-import IconsConfig from '../../assets/icons/vant-icons/config';
 
 import './index.scss';
 
@@ -127,9 +131,7 @@ export default function Button({
 
   return (
     <CustomTag {...props}>
-      {IconsConfig.basic.includes(icon!) ||
-      IconsConfig.outline.includes(icon!) ||
-      IconsConfig.filled.includes(icon!)
+      {iconType(icon!)
         ? icon && <Icon name={icon} size={NAV_ICON_SIZE} />
         : icon && <img src={icon} alt='button icon' />}
       {loading

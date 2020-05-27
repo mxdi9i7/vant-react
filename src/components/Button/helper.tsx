@@ -4,6 +4,7 @@ import SpinnerLoading from '../../assets/icons/loaders/Spinner';
 import CircularLoading from '../../assets/icons/loaders/Circular';
 
 import { LoadingIconProps } from './types';
+import IconsConfig from '../../assets/icons/vant-icons/config';
 
 export const renderLoadingIcon = ({
   className,
@@ -50,4 +51,14 @@ export const colorType = (colorHex: string): string => {
   if (colorHex.length !== 6 && colorHex.slice(0, 3) === 'rgb') return colorHex;
   const result = '#' + colorHex;
   return result;
+};
+
+export const iconType = (icon: string): boolean => {
+  if (
+    IconsConfig.basic.includes(icon) ||
+    IconsConfig.outline.includes(icon) ||
+    IconsConfig.filled.includes(icon)
+  )
+    return true;
+  return false;
 };
