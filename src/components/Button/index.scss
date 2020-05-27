@@ -108,6 +108,8 @@ a.#{$baseClass} {
   }
 
   &__loading {
+    cursor: not-allowed;
+
     span {
       margin-left: 5px;
     }
@@ -123,6 +125,24 @@ a.#{$baseClass} {
   &__disabled {
     cursor: not-allowed;
     opacity: $button-disabled-opacity;
+  }
+
+  &__large {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  &__small {
+    height: 30px;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 $space-md;
+  }
+
+  &__mini {
+    height: 22px;
+    font-size: 10px;
+    padding: 0 $space-sm;
   }
 
   img {

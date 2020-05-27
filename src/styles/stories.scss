@@ -18,14 +18,19 @@ body {
     background-color: $grey-background;
   }
 
-  &.column {
-    flex-direction: column;
-
+  &.button {
     button,
     a {
       margin-bottom: 20px;
-      margin-right: 0;
+      margin-right: 20px;
     }
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+  i {
+    margin-right: 5px;
   }
 
   nav {
@@ -36,9 +41,7 @@ body {
     }
   }
 
-  button,
-  a,
-  span {
+  .vant-button {
     margin-right: 20px;
   }
 }

@@ -8,7 +8,7 @@ export default {
 };
 
 export const ButtonTypes = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button type='default'>Default Button</Button>
     <Button type='primary'>Primary Button</Button>
     <Button type='info'>Info Button</Button>
@@ -18,7 +18,7 @@ export const ButtonTypes = () => (
 );
 
 export const PlainButtons = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button type='danger' plain>
       Danger Button
     </Button>
@@ -29,7 +29,7 @@ export const PlainButtons = () => (
 );
 
 export const HairlineButtons = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button type='danger' hairline>
       Danger Button
     </Button>
@@ -40,7 +40,7 @@ export const HairlineButtons = () => (
 );
 
 export const DisabledButtons = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button type='danger' disabled>
       Disabled Button
     </Button>
@@ -51,7 +51,7 @@ export const DisabledButtons = () => (
 );
 
 export const LoadingButtons = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button type='danger' loading>
       Loading Default
     </Button>
@@ -68,7 +68,7 @@ export const LoadingButtons = () => (
 );
 
 export const ButtonShapes = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button type='info' round>
       Info Button
     </Button>
@@ -78,22 +78,41 @@ export const ButtonShapes = () => (
   </div>
 );
 
+export const ButtonSize = () => (
+  <div className='container button'>
+    <Button type='info' size='large'>
+      Info Button
+    </Button>
+    <Button type='info' size='small'>
+      Info Button
+    </Button>
+    <Button type='warning' size='mini'>
+      Warning Button
+    </Button>
+  </div>
+);
+
 export const ButtonColor = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button color='FFECB3'>Info Button</Button>
-    <Button color='00796B'>Warning Button</Button>
+    <Button color='00796B' fontColor='#999'>
+      Warning Button
+    </Button>
+    <Button color='linear-gradient(to right, #4bb0ff, #6149f6)'>
+      Warning Button
+    </Button>
   </div>
 );
 
 export const ButtonTags = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button tag='a'>A Tag</Button>
     <Button tag='button'>Button Tag</Button>
   </div>
 );
 
 export const ButtonNativeTypes = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button nativeType='button'>Button Type</Button>
     <Button nativeType='reset'>Reset Type</Button>
     <Button nativeType='submit'>Submit Type</Button>
@@ -101,14 +120,14 @@ export const ButtonNativeTypes = () => (
 );
 
 export const BlockButtons = () => (
-  <div className='container column'>
+  <div className='container column button'>
     <Button>Non Block Button</Button>
     <Button block>Block Button</Button>
   </div>
 );
 
 export const IconButton = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button icon='https://img.yzcdn.cn/vant/logo.png'>
       Custom Icon Button
     </Button>
@@ -116,7 +135,7 @@ export const IconButton = () => (
 );
 
 export const ButtonURL = () => (
-  <div className='container column'>
+  <div className='container column button'>
     <Button tag='a' url='https://github.com/mxdi9i7/vant-react'>
       Button with URL
     </Button>
@@ -130,8 +149,18 @@ export const ButtonURL = () => (
 );
 
 export const ButtonAction = () => (
-  <div className='container column'>
+  <div className='container column button'>
     <Button click={(e) => alert(e.target)}>Handle Click</Button>
     <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
+    <Button click={(e) => alert(e.target)} type='primary' disabled>
+      Disabled Button
+    </Button>
+    <Button
+      type='info'
+      loading
+      loadingType='circular'
+      loadingText='Loading Button'
+      click={(e) => alert(e.target)}
+    />
   </div>
 );

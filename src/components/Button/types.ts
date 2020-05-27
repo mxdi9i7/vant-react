@@ -1,9 +1,11 @@
 export interface Props {
   text?: string;
   color?: string;
+  fontColor?: string;
   children?: string;
   loadingText?: string;
   loadingSize?: string;
+  size?: 'large' | 'small' | 'mini' | 'normal';
   icon?: string;
   hairline?: boolean;
   url?: string;

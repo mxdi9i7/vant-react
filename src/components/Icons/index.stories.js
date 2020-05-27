@@ -66,3 +66,15 @@ export const IconDotsAndBadges = () => (
     <Icon name='after-sale' badge='99+' />
   </div>
 );
+export const IconTags = () => (
+  <div className='container'>
+    <Icon name='chat-o' tag='i' />
+    <Icon name='add' tag='span' />
+  </div>
+);
+
+export const IconAction = () => (
+  <div className='container'>
+    <Icon name='chat-o' click={(e) => window.alert(e.target)} />
+  </div>
+);
