@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Field from '.';
 import '../../styles/stories.scss';
 import Button from '../Button';
@@ -72,7 +72,7 @@ export const FieldEvents = () => {
         leftIcon='smile-o'
         placeholder='Input click event'
         clickable
-        clickInput={(e) => alert('Input clicked')}
+        clickInput={() => alert('Input clicked')}
       />
       <Field
         leftIcon='smile-o'
@@ -91,10 +91,14 @@ export const FieldRef = () => {
   const [fieldRef, setFieldRef] = useState(null);
 
   window.addEventListener('click', (e) => {
-    if (containerRef) {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        alert('Click outside of container detected');
-      }
+    if (
+      containerRef !== undefined &&
+      // @ts-ignore: Object is possibly 'null'.
+      containerRef.current &&
+      // @ts-ignore: Object is possibly 'null'.
+      !containerRef.current.contains(e.target)
+    ) {
+      alert('Click outside of container detected');
     }
   });
 
@@ -102,9 +106,18 @@ export const FieldRef = () => {
     <div className='container column grey'>
       <p>
         Container Ref element name:
-        {containerRef && containerRef.current.localName}
+        {
+          // @ts-ignore: Object is possibly 'null'.
+          containerRef && containerRef.current.localName
+        }
       </p>
-      <p>Field Ref element name: {fieldRef && fieldRef.current.localName}</p>
+      <p>
+        Field Ref element name:{' '}
+        {
+          // @ts-ignore: Object is possibly 'null'.
+          fieldRef && fieldRef.current.localName
+        }
+      </p>
       <Field
         leftIcon='music-o'
         rightIcon='success'

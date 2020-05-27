@@ -100,7 +100,7 @@ const Field = ({
   useEffect(() => {
     if (getContainerRef) getContainerRef(fieldContainerRef);
     if (getFieldRef) getFieldRef(fieldRef);
-  }, []);
+  }, [getContainerRef, getFieldRef]);
 
   const containerProps = {
     className: classnames(baseClass, [
