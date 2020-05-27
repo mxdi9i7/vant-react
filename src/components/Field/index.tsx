@@ -47,7 +47,9 @@ const Field = ({
   labelWidth,
   labelAlign = 'left',
   inputAlign = 'left',
-  errorAlign = 'left'
+  errorAlign = 'left',
+  required,
+  border = true
 }: IProps) => {
   const handleInput = (e) => {
     const inputValue = e.target.value;
@@ -111,7 +113,9 @@ const Field = ({
       { showWordLimit },
       { [`input-${inputAlign}`]: inputAlign },
       { [`label-${labelAlign}`]: labelAlign },
-      { [`error-${errorAlign}`]: errorAlign }
+      { [`error-${errorAlign}`]: errorAlign },
+      { border },
+      { required }
     ]),
     onClick: handleClick,
     ref: fieldContainerRef

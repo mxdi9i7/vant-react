@@ -14,6 +14,12 @@ export const BasicUsage = () => (
   </div>
 );
 
+export const RequiredField = () => (
+  <div className='container column grey'>
+    <Field label='Required' required />
+  </div>
+);
+
 export const CustomTypes = () => (
   <div className='container column grey'>
     <Field label='Text' type='text' />
