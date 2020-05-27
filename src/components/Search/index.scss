@@ -20,7 +20,17 @@ $baseClass: 'vant-search';
 
   &__round {
     .vant-field {
-      border-radius: 2px;
+      border-radius: 999px;
+    }
+  }
+
+  &__showAction {
+    padding-right: 0;
+  }
+
+  &__leftIcon {
+    .vant-field__error {
+      padding-left: 24px;
     }
   }
 
@@ -42,6 +52,29 @@ $baseClass: 'vant-search';
         border-radius: 2px;
         padding-left: $space-md;
       }
+    }
+  }
+
+  &__action {
+    padding: 0 $space-md;
+    cursor: pointer;
+
+    button {
+      min-height: 34px;
+    }
+
+    .#{$baseClass}__cancel {
+      @include search-action;
+      cursor: pointer;
+      background-color: $default;
+      border: 0;
+      padding: 0;
+    }
+  }
+
+  &__disabled {
+    input {
+      cursor: not-allowed;
     }
   }
 }
