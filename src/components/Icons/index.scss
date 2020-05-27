@@ -22,6 +22,7 @@ $baseClass: 'vant-icon';
       border-radius: 50%;
       background-color: $danger;
       font-size: 12px;
+      z-index: 1;
     }
 
     .#{$baseClass}--badge {
@@ -41,6 +42,7 @@ $baseClass: 'vant-icon';
       transform: translate(50%, -50%);
       -webkit-transform-origin: 100%;
       transform-origin: 100%;
+      z-index: 1;
     }
   }
 }
