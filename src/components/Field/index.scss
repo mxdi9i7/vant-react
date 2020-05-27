@@ -39,16 +39,42 @@ $baseClass: 'vant-field';
   .#{$baseClass}__input {
     width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     overflow: visible;
     color: $grey;
     word-wrap: break-word;
     vertical-align: middle;
     position: relative;
 
+    .#{$baseClass}__field {
+      display: flex;
+      width: inherit;
+    }
+
     .vant-icon__container {
       padding: 0 5px;
     }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .#{$baseClass}__error {
+    color: $danger;
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .#{$baseClass}__word-limit {
+    margin-top: $space-sm;
+    font-size: 12px;
+    color: $word-limit;
+    line-height: 16px;
+    text-align: right;
   }
 
   input {
@@ -69,6 +95,50 @@ $baseClass: 'vant-field';
   &__disabled {
     input {
       color: $grey;
+    }
+  }
+
+  &__error,
+  &__showWordLimit {
+    .full {
+      color: $danger;
+    }
+
+    .#{$baseClass}__label {
+      align-items: flex-start;
+    }
+  }
+
+  &__input-center {
+    input {
+      text-align: center;
+    }
+  }
+  &__input-right {
+    input {
+      text-align: right;
+    }
+  }
+
+  &__label-center {
+    .#{$baseClass}__label {
+      justify-content: center;
+    }
+  }
+  &__label-right {
+    .#{$baseClass}__label {
+      justify-content: flex-end;
+    }
+  }
+
+  &__error-right {
+    .#{$baseClass}__error {
+      text-align: right;
+    }
+  }
+  &__error-center {
+    .#{$baseClass}__error {
+      text-align: center;
     }
   }
 }

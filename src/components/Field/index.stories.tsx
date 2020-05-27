@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Field from '.';
 import '../../styles/stories.scss';
+import Button from '../Button';
 
 export default {
   title: 'Field',
@@ -32,7 +33,7 @@ export const Disabled = () => (
 
 export const Colon = () => (
   <div className='container column grey'>
-    <Field colon />
+    <Field label='Colon' colon />
   </div>
 );
 
@@ -113,3 +114,121 @@ export const FieldRef = () => {
     </div>
   );
 };
+
+export const AutoFocus = () => {
+  return (
+    <div className='container column grey'>
+      <Field autofocus placeholder='Autofocus input field' />
+    </div>
+  );
+};
+
+export const ErrorInfo = () => {
+  return (
+    <div className='container column grey'>
+      <Field label='Error input' error errorMessage='Invalid input info' />
+    </div>
+  );
+};
+
+export const MaxLengthWordLimit = () => {
+  const [value, setValue] = useState('');
+  return (
+    <div className='container column grey'>
+      <Field
+        value={value}
+        input={(e) => setValue(e.target.value)}
+        label='Max length'
+        maxLength={5}
+        showWordLimit
+      />
+    </div>
+  );
+};
+
+export const FieldWithButton = () => {
+  return (
+    <div className='container column grey'>
+      <Field
+        label='SMS'
+        placeholder='SMS'
+        button={
+          <Button
+            size='small'
+            click={() => alert('Message sent!')}
+            text='Send SMS'
+            type='primary'
+          />
+        }
+      />
+    </div>
+  );
+};
+
+const pattern = new RegExp(/^[a-zA-Z]*$/);
+
+export const Formatter = () => {
+  const [value, setValue] = useState('');
+  return (
+    <div className='container column grey'>
+      <Field
+        label='Text Only'
+        placeholder='No Numbers'
+        value={value}
+        input={(e) => setValue(e.target.value)}
+        formatter={(value) => pattern.test(value)}
+      />
+    </div>
+  );
+};
+
+export const LabelUtilities = () => (
+  <div className='container column grey'>
+    <Field label='Long 220px label' labelClass='pant' labelWidth='220px' />
+  </div>
+);
+
+export const LabelInputAlignment = () => (
+  <div className='container column grey'>
+    <Field
+      label='Label Center'
+      placeholder='Input Right'
+      labelWidth='190px'
+      labelAlign='center'
+      inputAlign='right'
+    />
+    <Field
+      label='Label Right'
+      placeholder='Input Center'
+      labelWidth='190px'
+      inputAlign='center'
+      labelAlign='right'
+    />
+    <Field
+      label='Error Center'
+      placeholder='Input Center'
+      labelWidth='190px'
+      inputAlign='center'
+      labelAlign='right'
+      error
+      errorMessage='Something went wrong'
+      errorAlign='center'
+    />
+    <Field
+      label='Error Right'
+      placeholder='Input Center'
+      labelWidth='190px'
+      inputAlign='center'
+      labelAlign='right'
+      errorMessage='Something went wrong'
+      errorAlign='right'
+      error
+    />
+  </div>
+);
+
+export const AutoResize = () => (
+  <div className='container column grey'>
+    <Field />
+  </div>
+);

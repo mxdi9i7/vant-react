@@ -1,43 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
 
 import './index.scss';
 import Icon from '../Icons';
+import { IProps } from './types';
 
 const ICON_SIZE = '16px';
 
-export interface Props {
-  value?: string;
-  type?: string;
-  name?: string;
-  label?: string;
-  placeholder?: string;
-  disabled?: boolean;
-  readonly?: boolean;
-  clearable?: boolean;
-  colon?: boolean;
-  clickable?: boolean;
-  leftIcon?: string;
-  rightIcon?: string;
-  input?: Function;
-  clear?: Function;
-  click?: Function;
-  focus?: Function;
-  blur?: Function;
-  clickInput?: Function;
-  clickLeftIcon?: Function;
-  clickRightIcon?: Function;
-  getContainerRef?: Function;
-  getFieldRef?: Function;
-}
-
 const baseClass = 'vant-field';
+
+// TODO: Resize inputs
 
 const Field = ({
   value,
   type = 'text',
-  label = 'Label',
+  label,
   name,
   placeholder,
   readonly,
@@ -56,11 +34,35 @@ const Field = ({
   clickLeftIcon,
   clickRightIcon,
   getContainerRef,
-  getFieldRef
-}: Props) => {
+  getFieldRef,
+  autofocus,
+  error,
+  errorMessage,
+  maxLength,
+  showWordLimit,
+  button,
+  formatter,
+  labelClass,
+  labelWidth,
+  labelAlign = 'left',
+  inputAlign = 'left',
+  errorAlign = 'left'
+}: IProps) => {
   const handleInput = (e) => {
-    if (input) {
-      return input(e);
+    const inputValue = e.target.value;
+    if (formatter && formatter(inputValue)) {
+      if (input) {
+        if (!maxLength) {
+          return input(e);
+        } else {
+          if (
+            (value && value.length < maxLength) ||
+            inputValue.length < maxLength
+          ) {
+            return input(e);
+          }
+        }
+      }
     }
   };
 
@@ -101,7 +103,15 @@ const Field = ({
   }, []);
 
   const containerProps = {
-    className: classnames(baseClass, [{ disabled }, { readonly }]),
+    className: classnames(baseClass, [
+      { disabled },
+      { readonly },
+      { error },
+      { showWordLimit },
+      { [`input-${inputAlign}`]: inputAlign },
+      { [`label-${labelAlign}`]: labelAlign },
+      { [`error-${errorAlign}`]: errorAlign }
+    ]),
     onClick: handleClick,
     ref: fieldContainerRef
   };
@@ -114,6 +124,7 @@ const Field = ({
     disabled,
     readOnly: readonly,
     ref: fieldRef,
+    autoFocus: autofocus,
     onChange: handleInput,
     onBlur: handleBlur,
     onFocus: handleFocus,
@@ -121,34 +132,64 @@ const Field = ({
   };
 
   const labelProps = {
-    htmlFor: name
+    htmlFor: name,
+    className: labelClass
+  };
+
+  const labelContainerProps = {
+    style: {},
+    className: `${baseClass}__label ${labelClass || ''}`
   };
 
   if (type === 'digit')
     Object.assign(inputProps, { inputMode: 'numeric', type: 'tel' });
 
+  if (labelWidth)
+    Object.assign(labelContainerProps, { style: { width: labelWidth } });
+
   return (
     <div {...containerProps}>
-      <div className={`${baseClass}__label`}>
-        {leftIcon && (
-          <Icon click={handleClickLeftIcon} name={leftIcon} size={ICON_SIZE} />
-        )}
-        <label {...labelProps}>
-          {label}
-          {colon && ':'}
-        </label>
-      </div>
+      {label && (
+        <div {...labelContainerProps}>
+          {leftIcon && (
+            <Icon
+              click={handleClickLeftIcon}
+              name={leftIcon}
+              size={ICON_SIZE}
+            />
+          )}
+          <label {...labelProps}>
+            {label}
+            {colon && ':'}
+          </label>
+        </div>
+      )}
       <div className={`${baseClass}__input`}>
-        <input {...inputProps} />
-        {clearable && value && (
-          <Icon click={clear} name='clear' size={ICON_SIZE} />
+        <div className={`${baseClass}__field`}>
+          <input {...inputProps} />
+          {clearable && value && (
+            <Icon click={clear} name='clear' size={ICON_SIZE} />
+          )}
+          {rightIcon && !clearable && (
+            <Icon
+              click={handleClickRightIcon}
+              name={rightIcon}
+              size={ICON_SIZE}
+            />
+          )}
+          {button && button}
+        </div>
+        {error && errorMessage && (
+          <div className={`${baseClass}__error`}>{errorMessage}</div>
         )}
-        {rightIcon && !clearable && (
-          <Icon
-            click={handleClickRightIcon}
-            name={rightIcon}
-            size={ICON_SIZE}
-          />
+        {showWordLimit && (
+          <div
+            className={`${baseClass}__word-limit ${
+              value?.length === maxLength ? 'full' : ''
+            }`}
+          >
+            {value ? value.length : 0}/{maxLength}
+          </div>
         )}
       </div>
     </div>
