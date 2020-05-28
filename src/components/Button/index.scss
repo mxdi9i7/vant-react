@@ -40,6 +40,11 @@ a.#{$baseClass} {
     opacity: 0;
     content: ' ';
   }
+  &:first-child {
+    i {
+      margin: 0px;
+    }
+  }
 
   &:active {
     &::before {
