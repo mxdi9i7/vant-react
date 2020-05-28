@@ -57,7 +57,7 @@ nav.#{$baseClass} {
   }
 
   &__border {
-    border-color: #ebedf0;
+    border-color: $grey-text;
   }
 
   .#{$baseClass}__text--left,
