@@ -2,9 +2,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
-    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft Yahei', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
 
 .container {
@@ -24,14 +23,19 @@ body {
       margin-bottom: 20px;
       margin-right: 20px;
     }
+    i {
+      margin-right: 5px;
+    }
   }
 
   &.column {
     flex-direction: column;
   }
 
-  &.icon i {
-    margin-right: 5px;
+  &.icon {
+    i {
+      margin-right: 5px;
+    }
   }
 
   nav {
@@ -40,10 +44,6 @@ body {
     .vant-icon__container {
       margin: 0;
     }
-  }
-
-  .vant-button {
-    margin-right: 20px;
   }
 }
 

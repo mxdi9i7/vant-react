@@ -157,4 +157,14 @@ a.#{$baseClass} {
     object-position: 50% 50%;
     margin-right: 5px;
   }
+
+  .vant-icon__container {
+    margin-right: 5px;
+  }
+
+  &__onlyIcon {
+    .vant-icon__container {
+      margin-right: 0px;
+    }
+  }
 }

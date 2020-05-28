@@ -97,6 +97,7 @@ export const FieldEvents = () => {
 export const FieldRef = () => {
   const [containerRef, setContainerRef] = useState(null);
   const [fieldRef, setFieldRef] = useState(null);
+  const [clickOutside, setClickOutside] = useState(false);
 
   window.addEventListener('click', (e) => {
     if (
@@ -106,7 +107,9 @@ export const FieldRef = () => {
       // @ts-ignore: Object is possibly 'null'.
       !containerRef.current.contains(e.target)
     ) {
-      alert('Click outside of container detected');
+      setClickOutside(true);
+    } else {
+      setClickOutside(false);
     }
   });
 
@@ -127,6 +130,7 @@ export const FieldRef = () => {
         }
       </p>
       <Field
+        placeholder={`Click outside? ${clickOutside}`}
         leftIcon='music-o'
         rightIcon='success'
         getContainerRef={(ref) => setContainerRef(ref)}
