@@ -29,8 +29,11 @@ body {
   &.column {
     flex-direction: column;
   }
-  i {
-    margin-right: 5px;
+
+  &.icon {
+    i {
+      margin-right: 5px;
+    }
   }
 
   nav {
