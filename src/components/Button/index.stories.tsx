@@ -127,8 +127,12 @@ export const BlockButtons = () => (
 );
 
 export const IconButton = () => (
-  <div className='container button'>
-    <Button icon='https://img.yzcdn.cn/vant/logo.png'>
+  <div className='container'>
+    <Button icon='star-o' type='primary' />
+    <Button icon='star-o' type='info'>
+      Custom Icon Button
+    </Button>
+    <Button icon='https://img.yzcdn.cn/vant/logo.png' type='primary'>
       Custom Icon Button
     </Button>
   </div>
