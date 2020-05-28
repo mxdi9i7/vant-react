@@ -127,7 +127,7 @@ export const BlockButtons = () => (
 );
 
 export const IconButton = () => (
-  <div className='container'>
+  <div className='container button'>
     <Button icon='star-o' type='primary' />
     <Button icon='star-o' type='info'>
       Custom Icon Button

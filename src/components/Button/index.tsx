@@ -46,7 +46,8 @@ export default function Button({
       { square },
       { block },
       { hairline },
-      { [size]: size }
+      { [size]: size },
+      { onlyIcon: !text && !children }
     ]),
     style: {}
   };
