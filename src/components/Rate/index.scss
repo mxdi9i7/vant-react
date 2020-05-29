@@ -1,0 +1,12 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/typography.scss';
+@import '../../styles/opacity.scss';
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-rate';
+
+.#{$baseClass} {
+	display: flex;
+	cursor: pointer;
+}
