@@ -31,3 +31,9 @@
   color: $dark-text;
   font-weight: 300;
 }
+
+@mixin search-action {
+  font-size: 14px;
+  line-height: 34px;
+  font-weight: 300;
+}

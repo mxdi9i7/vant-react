@@ -181,6 +181,7 @@ const Field = ({
         <div className={`${baseClass}__field`}>
           {leftIcon && (
             <Icon
+              color='#323233'
               click={handleClickLeftIcon}
               name={leftIcon}
               size={ICON_SIZE}
