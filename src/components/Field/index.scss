@@ -74,6 +74,7 @@ $baseClass: 'vant-field';
     line-height: inherit;
     border: 0;
     resize: none;
+    padding: 0;
 
     &::placeholder {
       color: $placeholder;
