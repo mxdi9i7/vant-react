@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import Icon from '../Icons';
-
 import classnames from '../../utils/classNames';
 
 import './index.scss';
@@ -58,7 +56,7 @@ const Search = ({
   };
 
   const handleBlur = (e) => {
-    if (focus) blur(e);
+    if (blur) blur(e);
   };
 
   const handleClear = (e) => {
