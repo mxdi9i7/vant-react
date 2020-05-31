@@ -1,0 +1,10 @@
+$baseClass: 'vant-popup';
+
+.popup-container {
+  height: 100vh;
+  z-index: 5;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+
+  .#{$baseClass} {
+  }
+}
