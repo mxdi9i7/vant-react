@@ -81,7 +81,7 @@ const Popup = ({
             <Icon size='20px' name='cross' />
           </span>
         )}
-        <h2>its popup</h2>
+        <h2>{text && text}</h2>
       </div>
     </div>
   );
