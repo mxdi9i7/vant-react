@@ -1,10 +1,39 @@
-$baseClass: 'vant-popup';
+@import '../../styles/colors.scss';
 
-.popup-container {
-  height: 100vh;
+$baseClass: 'vant-popup';
+$baseContainerClass: 'vant-popup__container';
+
+.#{$baseContainerClass} {
+  visibility: hidden;
+  position: absolute;
+  background-color: transparent;
   z-index: 5;
-  background-color: rgba($color: #000000, $alpha: 0.4);
+	transition: 1s;
+
+
+  &__isActive {
+    visibility: visible;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .#{$baseClass} {
+    display: none;
+
+    &__isActive {
+      background-color: $default;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__center {
+      height: 200px;
+      width: 400px;
+    }
   }
 }

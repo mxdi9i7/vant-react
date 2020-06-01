@@ -6,31 +6,50 @@ import Icon from '../Icons';
 import './index.scss';
 
 export interface IProps {
+  isActive: boolean;
   borderRadius?: string;
   text?: string;
-  direction?: string;
+  position?: 'center' | 'top' | 'bottom' | 'left' | 'right';
   color?: string;
   children?: string;
-
   closeable?: boolean;
   tag?: 'i' | 'span';
+  setActive: Function;
   click?: Function;
   touchstart?: Function;
 }
 
 const baseClass = 'vant-popup';
 
-const Popup = ({ closeable, text, borderRadius, direction, color }: IProps) => {
+const Popup = ({
+  closeable,
+  text,
+  borderRadius,
+  position = 'center',
+  color,
+  isActive,
+  setActive
+}: IProps) => {
   const popupRef = useRef(null) || { current: {} };
   const props = {
-    className: classnames(baseClass, [{ closeable }]),
+    className: classnames(baseClass, [
+      { closeable },
+      { isActive },
+      { position }
+    ]),
     style: {}
   };
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const containerProps = {
+    className: classnames(`${baseClass}__container`, [
+      { isActive },
+      { position }
+    ]),
+    style: {}
+  };
 
   const handleClickOutside = (e) => {
     if (popupRef.current && !(popupRef as any).current.contains(e.target)) {
-      setPopupOpen(false);
+      setActive(false);
     }
   };
 
@@ -51,24 +70,18 @@ const Popup = ({ closeable, text, borderRadius, direction, color }: IProps) => {
     });
 
   return (
-    <div className='popup-container'>
-      {closeable && (
-        <span
-          onClick={() => {
-            if (popupRef !== null) {
-              const current = popupRef.current;
-              if (current) {
-                const style = (current as any).style;
-                style.display = 'none';
-              }
-            }
-          }}
-        >
-          <Icon size='10px' name='cross' />
-        </span>
-      )}
+    <div {...containerProps}>
       <div ref={popupRef} {...props}>
-        <h1>its popup</h1>
+        {closeable && (
+          <span
+            onClick={() => {
+              setActive(false);
+            }}
+          >
+            <Icon size='20px' name='cross' />
+          </span>
+        )}
+        <h2>its popup</h2>
       </div>
     </div>
   );

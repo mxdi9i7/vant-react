@@ -7,11 +7,26 @@ export default {
   component: Popup
 };
 
-// const [isPopupOpen, setPopupOpen] = useState(false);
+export const PopupType = () => {
+  const [centerPopup, setCenterPopup] = useState(false);
 
-export const PopupType = () => (
-  <div className='container'>
-    <div onClick={() => {}}>button</div>
-    <Popup>Default Button</Popup>
-  </div>
-);
+  return (
+    <div className='container'>
+      <div
+        onClick={() => {
+          setCenterPopup(true);
+        }}
+      >
+        button
+      </div>
+      <Popup
+        isActive={centerPopup}
+        setActive={setCenterPopup}
+        position='center'
+        closeable
+      >
+        Default Button
+      </Popup>
+    </div>
+  );
+};
