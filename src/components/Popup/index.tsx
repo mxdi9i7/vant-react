@@ -1,49 +1,30 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
 import Icon from '../Icons';
+import { IProps } from './types';
 
 import './index.scss';
-
-export interface IProps {
-  isActive: boolean;
-  borderRadius?: string;
-  text?: string;
-  position?: 'center' | 'top' | 'bottom' | 'left' | 'right';
-  color?: string;
-  children?: string;
-  closeable?: boolean;
-  tag?: 'i' | 'span';
-  setActive: Function;
-  click?: Function;
-  touchstart?: Function;
-}
 
 const baseClass = 'vant-popup';
 
 const Popup = ({
   closeable,
   text,
+  Content,
   borderRadius,
-  position = 'center',
+  type = 'center',
   color,
   isActive,
   setActive
 }: IProps) => {
   const popupRef = useRef(null) || { current: {} };
-  const props = {
-    className: classnames(baseClass, [
-      { closeable },
-      { isActive },
-      { position }
-    ]),
+  const popupProps = {
+    className: classnames(baseClass, [{ closeable }, { isActive }, { type }]),
     style: {}
   };
   const containerProps = {
-    className: classnames(`${baseClass}__container`, [
-      { isActive },
-      { position }
-    ]),
+    className: classnames(`${baseClass}__container`, [{ isActive }, { type }]),
     style: {}
   };
 
@@ -61,17 +42,36 @@ const Popup = ({
   });
 
   if (color)
-    Object.assign(props, {
+    Object.assign(popupProps, {
       style: {
-        ...props.style,
+        ...popupProps.style,
         backgroundColor: color,
         borderColor: color
       }
     });
 
+  const isInclude: Function = (data: string) => {
+    return popupProps.className.includes(data);
+  };
+
+  if (borderRadius)
+    Object.assign(popupProps, {
+      style: {
+        ...popupProps.style,
+        borderTopLeftRadius:
+          (isInclude('right') || isInclude('center')) && borderRadius,
+        borderTopRightRadius:
+          (isInclude('left') || isInclude('center')) && borderRadius,
+        borderBottomLeftRadius:
+          (isInclude('right') || isInclude('center')) && borderRadius,
+        borderBottomRightRadius:
+          (isInclude('left') || isInclude('center')) && borderRadius
+      }
+    });
+
   return (
     <div {...containerProps}>
-      <div ref={popupRef} {...props}>
+      <div ref={popupRef} {...popupProps}>
         {closeable && (
           <span
             onClick={() => {
@@ -82,6 +82,7 @@ const Popup = ({
           </span>
         )}
         <h2>{text && text}</h2>
+        {Content && <Content />}
       </div>
     </div>
   );

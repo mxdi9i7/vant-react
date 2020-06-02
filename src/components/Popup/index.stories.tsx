@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Popup from './';
+import { Types } from '../Tag/index.stories';
 import '../../styles/stories.scss';
 
 export default {
@@ -23,7 +24,8 @@ export const PopupType = () => {
       <Popup
         isActive={centerPopup}
         setActive={setCenterPopup}
-        position='center'
+        type='center'
+        borderRadius='20px'
         text='popup A'
         closeable
       >
@@ -36,7 +38,13 @@ export const PopupType = () => {
       >
         button B
       </button>
-      <Popup isActive={centerPopup2} setActive={setCenterPopup2} text='popup B'>
+      <Popup
+        isActive={centerPopup2}
+        setActive={setCenterPopup2}
+        Content={Types}
+        borderRadius='20px'
+        type='left'
+      >
         Default Button
       </Popup>
     </div>
