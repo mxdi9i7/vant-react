@@ -1,4 +1,4 @@
-import React, { useState, createRef, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
 import './index.scss';
@@ -7,15 +7,15 @@ const baseClass = 'vant-stepper';
 
 export interface Props {
   value?: number;
-  theme?: String;
-  disabled?: Boolean;
-  disableInput?: Boolean;
-  min?: number;
-  max?: number;
-  step?: number;
-  longPress?: Boolean;
-  plus?: Boolean;
-  minus?: Boolean;
+  theme?: boolean;
+  disabled?: boolean;
+  disableInput?: boolean;
+  min?: number | any;
+  max?: number | any;
+  step?: number | any;
+  longPress?: boolean;
+  plus?: boolean;
+  minus?: boolean;
   size?: number;
 }
 export default function Stepper({
@@ -50,6 +50,7 @@ export default function Stepper({
       setValue(value + step);
     } else if (max && limit < 0) {
       Object.assign(plusBtProps, { disabled });
+      setPlus(true);
     } else {
       setValue(value + 1);
       setMinus(true);
@@ -57,6 +58,7 @@ export default function Stepper({
   };
   const handleMinus = () => {
     const canMinus = value - step;
+    setPlus(false);
     if (step) {
       if (canMinus > 0) {
         setValue(value - step);
@@ -101,7 +103,7 @@ export default function Stepper({
         }
       });
     }
-  }, [value]);
+  }, [value, minusBtProps]);
   if (step > value) {
     Object.assign(minusBtProps, {
       style: {
@@ -153,17 +155,15 @@ export default function Stepper({
     if (disableInput) {
       setDisInput(true);
     }
-  }, [disInput]);
+  }, [disableInput]);
   useEffect(() => {
     if (disabled) {
       setMinus(true);
-    }
-  }, [minus]);
-  useEffect(() => {
-    if (disabled) {
       setPlus(true);
+      setDisInput(true);
+      setValue(0);
     }
-  }, [plus]);
+  }, [disabled]);
 
   return (
     <div className='step-container'>
