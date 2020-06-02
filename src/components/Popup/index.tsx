@@ -15,16 +15,33 @@ const Popup = ({
   borderRadius,
   type = 'center',
   color,
+  size,
   isActive,
-  setActive
+  setActive,
+  closeIcon = ['cross', '20px'],
+  closeIconPosition = { top: '10px', right: '10px' }
 }: IProps) => {
   const popupRef = useRef(null) || { current: {} };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  });
+
+  const containerProps = {
+    className: classnames(`${baseClass}__container`, [{ isActive }, { type }]),
+    style: {}
+  };
+
   const popupProps = {
     className: classnames(baseClass, [{ closeable }, { isActive }, { type }]),
     style: {}
   };
-  const containerProps = {
-    className: classnames(`${baseClass}__container`, [{ isActive }, { type }]),
+
+  const contentProps = {
+    className: classnames(`${baseClass}__content`, [{ isActive }]),
     style: {}
   };
 
@@ -34,12 +51,23 @@ const Popup = ({
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  });
+  if (closeIconPosition)
+    Object.assign(popupProps, {
+      style: {
+        ...popupProps.style,
+        backgroundColor: color,
+        borderColor: color
+      }
+    });
+
+  if (size)
+    Object.assign(popupProps, {
+      style: {
+        ...popupProps.style,
+        width: size[0],
+        height: size[1]
+      }
+    });
 
   if (color)
     Object.assign(popupProps, {
@@ -59,13 +87,17 @@ const Popup = ({
       style: {
         ...popupProps.style,
         borderTopLeftRadius:
-          (isInclude('right') || isInclude('center')) && borderRadius,
+          (isInclude('right') || isInclude('center') || isInclude('bottom')) &&
+          borderRadius,
         borderTopRightRadius:
-          (isInclude('left') || isInclude('center')) && borderRadius,
+          (isInclude('left') || isInclude('center') || isInclude('bottom')) &&
+          borderRadius,
         borderBottomLeftRadius:
-          (isInclude('right') || isInclude('center')) && borderRadius,
+          (isInclude('right') || isInclude('center') || isInclude('top')) &&
+          borderRadius,
         borderBottomRightRadius:
-          (isInclude('left') || isInclude('center')) && borderRadius
+          (isInclude('left') || isInclude('center') || isInclude('top')) &&
+          borderRadius
       }
     });
 
@@ -74,15 +106,30 @@ const Popup = ({
       <div ref={popupRef} {...popupProps}>
         {closeable && (
           <span
+            className='closeIcon'
             onClick={() => {
               setActive(false);
             }}
+            style={closeIconPosition}
           >
-            <Icon size='20px' name='cross' />
+            <Icon name={closeIcon[0]} size={closeIcon[1]} />
           </span>
         )}
-        <h2>{text && text}</h2>
-        {Content && <Content />}
+        <div {...contentProps}>
+          {text && (
+            <h3
+              style={{
+                color: text[1],
+                fontSize: text[2],
+                textAlign: text[3],
+                margin: '10px'
+              }}
+            >
+              {text[0]}
+            </h3>
+          )}
+          {Content && <Content />}
+        </div>
       </div>
     </div>
   );

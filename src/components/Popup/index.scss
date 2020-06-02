@@ -3,76 +3,98 @@
 
 $baseClass: 'vant-popup';
 $baseContainerClass: 'vant-popup__container';
+$baseContentClass: 'vant-popup__content';
 
 .#{$baseContainerClass} {
   visibility: hidden;
   position: absolute;
-  background-color: transparent;
-  transition: visibility 2s;
+  z-index: 10;
+
   &__isActive {
     visibility: visible;
+    // background-color: rgb(234, 123, 232);
     background-color: rgba(
       $color: $popup-background-color,
       $alpha: $popup-alpha
     );
     height: 100vh;
     width: 100vw;
+    transition: background-color 0.4s;
   }
 
   &__center {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.6s;
+  }
+}
+
+.#{$baseClass} {
+  padding: 10px;
+  overflow: scroll;
+  height: 50vh;
+  width: 50vw;
+
+  &__closeable {
+    .closeIcon {
+      position: absolute;
+      z-index: 2;
+    }
   }
 
-  .#{$baseClass} {
-    transform: translateX(-280px);
+  &__isActive {
+    background-color: $default;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transform: translateX(0px) !important;
+    transform: translateY(0px) !important;
+    transition: transform 0.4s;
+  }
 
-    transition: translate 0.6s ease-in-out;
-    &__closeable {
-      span {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
-    }
+  &__center {
+    max-height: 50vh;
+    max-width: 50vw;
+  }
 
-    &__isActive {
-      background-color: $default;
-      position: relative;
-      display: flex !important;
-      justify-content: center;
-      align-items: center;
-      padding: 50px;
-      transition: 1s;
-      width: 100%;
-      transform: translateX(0px);
+  &__left {
+    height: 100vh;
+    max-width: 50vw;
+    left: 0;
+    transform: translateX(-500px);
+  }
 
-      transition: all 0.6s ease-in-out;
-    }
+  &__right {
+    height: 100vh;
+    max-width: 50vw;
+    right: 0;
+    transform: translateX(500px);
+  }
 
-    &__center {
-      // display: none;
-      max-height: 50vh;
-      max-width: 50vw;
-    }
+  &__top {
+    max-height: 50vh;
+    width: 100vw;
+    top: 0;
+    transform: translateY(-500px);
+  }
 
-    &__left {
-      height: 100vh;
-      max-width: 50vw;
-      left: 0;
-      // display: none;
-    }
+  &__bottom {
+    max-height: 50vh;
+    width: 100vw;
+    bottom: 0;
+    transform: translateY(500px);
+  }
+}
 
-    // &__left,
-    // &__isActive {
-    //   transition: transform 0.6s ease-out;
-    // }
+.#{$baseContentClass} {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  display: none;
 
-    div:first-of-type {
-      max-height: 100%;
-      max-width: 100%;
-    }
+  &__isActive {
+    display: block;
   }
 }
