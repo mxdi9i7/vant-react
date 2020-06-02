@@ -1,0 +1,70 @@
+.van-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.van-multi-ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+
+  &--l2 {
+    -webkit-line-clamp: 2;
+  }
+
+  &--l3 {
+    -webkit-line-clamp: 3;
+  }
+}
+
+.van-hairline {
+  border: 0 solid #ebedf0;
+
+  &--top {
+    border-top-width: 1px;
+  }
+  &--bottom {
+    border-bottom-width: 1px;
+  }
+  &--left {
+    border-left-width: 1px;
+  }
+  &--right {
+    border-right-width: 1px;
+  }
+  &--top-bottom {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+  }
+  &--surround {
+    border-width: 1px;
+  }
+}
+
+.van-fade {
+  visibility: visible;
+  transition: all 0.3s ease-out;
+}
+
+.van-slide {
+  visibility: visible;
+  transition: all 0.3s ease-out;
+
+  &-up {
+    transform: translateY(-100%);
+  }
+
+  &-down {
+    transform: translateY(100%);
+  }
+
+  &-left {
+    transform: translateX(100%);
+  }
+
+  &-righ {
+    transform: translateX(-100%);
+  }
+}
