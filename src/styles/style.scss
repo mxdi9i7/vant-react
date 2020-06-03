@@ -1,10 +1,10 @@
-.van-ellipsis {
+.vant-ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.van-multi-ellipsis {
+.vant-multi-ellipsis {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -19,7 +19,7 @@
   }
 }
 
-.van-hairline {
+.vant-hairline {
   border: 0 solid #ebedf0;
 
   &--top {
@@ -43,12 +43,12 @@
   }
 }
 
-.van-fade {
+.vant-fade {
   visibility: visible;
   transition: all 0.3s ease-out;
 }
 
-.van-slide {
+.vant-slide {
   visibility: visible;
   transition: all 0.3s ease-out;
 
