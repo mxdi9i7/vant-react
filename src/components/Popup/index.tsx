@@ -11,13 +11,14 @@ const baseClass = 'vant-popup';
 const Popup = ({
   closeable,
   text,
-  Content,
+  content,
   borderRadius,
   type = 'center',
   color,
   size,
   isActive,
   setActive,
+  click,
   closeIcon = ['cross', '20px'],
   closeIconPosition = { top: '10px', right: '10px' }
 }: IProps) => {
@@ -68,6 +69,12 @@ const Popup = ({
         height: size[1]
       }
     });
+
+  if (click) {
+    Object.assign(contentProps, {
+      onClick: click
+    });
+  }
 
   if (color)
     Object.assign(popupProps, {
@@ -128,7 +135,7 @@ const Popup = ({
               {text[0]}
             </h3>
           )}
-          {Content && <Content />}
+          {content && content}
         </div>
       </div>
     </div>

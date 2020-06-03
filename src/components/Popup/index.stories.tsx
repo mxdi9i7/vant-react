@@ -134,7 +134,7 @@ export const PopupContent = () => {
       <Popup
         isActive={centerPopupB}
         setActive={setCenterPopupB}
-        Content={AllIcons}
+        content={<AllIcons />}
       />
     </div>
   );
@@ -252,6 +252,31 @@ export const PopupColor = () => {
         isActive={centerPopupB}
         setActive={setCenterPopupB}
         color='rgba(234, 123, 232,0.4)'
+      />
+    </div>
+  );
+};
+
+export const PopupAction = () => {
+  const [centerPopupA, setCenterPopupA] = useState(false);
+
+  return (
+    <div className='container'>
+      <Button
+        click={() => {
+          setCenterPopupA(true);
+        }}
+        text='Button'
+        type='primary'
+      />
+      <Popup
+        isActive={centerPopupA}
+        setActive={setCenterPopupA}
+        text={['Click me', '#000', '30px', 'center']}
+        size={['300px', '60px']}
+        click={(e) => {
+          alert(e);
+        }}
       />
     </div>
   );
