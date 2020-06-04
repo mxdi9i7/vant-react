@@ -1,16 +1,39 @@
 import React, { useState, useEffect } from 'react';
+import shortid from 'shortid';
 
 import classnames from '../../utils/classNames';
 
 import './index.scss';
 import Icon from '../Icons';
 import { IProps } from './types';
+import RateIcon from './subcomponents/rate-icon';
 
 const baseClass = 'vant-rate';
 
-const renderIcons = (icons, iconCount, iconName, iconColor, iconSize) => {
-  for (let i = 0; i < iconCount; i++) {
-    icons.push(<Icon color={iconColor} size={iconSize} name={iconName} />);
+const renderIcon = (
+  color,
+  size,
+  icon,
+  numberOfIcons,
+  handleClick,
+  isActive,
+  activeCount,
+  gutter
+) => {
+  const icons = new Array(numberOfIcons);
+  for (let i = 0; i < numberOfIcons; i++) {
+    icons.push(
+      <RateIcon
+        index={i}
+        gutter={gutter}
+        handleClick={(index) =>
+          handleClick(isActive ? index : index + activeCount)
+        }
+        key={shortid.generate()}
+        icon={<Icon color={color} size={size} name={icon} />}
+        className={`${baseClass}__icon`}
+      />
+    );
   }
   return icons;
 };
@@ -28,32 +51,9 @@ const Rate = ({
   allowHalf,
   disabled,
   readonly,
-  touchable
+  change
 }: IProps) => {
-  const [rateIcons, setRateIcons] = useState([]);
-
-  useEffect(() => {
-    let currentIcons = [...rateIcons];
-    if (disabled) {
-      currentIcons = renderIcons(
-        currentIcons,
-        count,
-        icon,
-        disabledColor,
-        size
-      );
-    } else {
-      currentIcons = renderIcons(currentIcons, currentRate, icon, color, size);
-      currentIcons = renderIcons(
-        currentIcons,
-        count - currentRate,
-        voidIcon,
-        voidColor,
-        size
-      );
-    }
-    setRateIcons(currentIcons);
-  }, []);
+  const [activeCount, setActiveCount] = useState(currentRate || count);
 
   const rateProps = {
     className: classnames(baseClass, [
@@ -65,13 +65,39 @@ const Rate = ({
     ])
   };
 
+  // TODO: Add half star feature
+  // TODO: Add touchable feature
+
+  const handleClick = (index) => {
+    if (!disabled && !readonly) {
+      const nextRate = index + 1;
+      setActiveCount(nextRate);
+      if (!!change) change(nextRate);
+    }
+  };
+
   return (
     <div {...rateProps}>
-      {rateIcons.map((v, i) => (
-        <div key={i} className={`${baseClass}__icon`}>
-          {v}
-        </div>
-      ))}
+      {renderIcon(
+        disabled ? disabledColor : color,
+        size,
+        icon,
+        activeCount,
+        handleClick,
+        true,
+        activeCount,
+        gutter
+      )}
+      {renderIcon(
+        disabled ? disabledColor : voidColor,
+        size,
+        voidIcon,
+        count - activeCount,
+        handleClick,
+        false,
+        activeCount,
+        gutter
+      )}
     </div>
   );
 };

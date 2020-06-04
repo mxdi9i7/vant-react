@@ -88,6 +88,7 @@
     ]
   },
   "dependencies": {
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "shortid": "^2.2.15"
   }
 }

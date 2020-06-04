@@ -7,6 +7,12 @@
 $baseClass: 'vant-rate';
 
 .#{$baseClass} {
-	display: flex;
-	cursor: pointer;
+  display: flex;
+  cursor: pointer;
+
+  .#{$baseClass}__icon {
+    &:last-of-type {
+      margin-right: 0 !important;
+    }
+  }
 }

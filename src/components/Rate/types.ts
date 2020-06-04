@@ -12,4 +12,5 @@ export interface IProps {
   voidColor?: string;
   disabledColor?: string;
   touchable?: boolean;
+  change?: Function;
 }
