@@ -22,7 +22,11 @@ It's welcomed to pull request, And there are some tips about that:
 
 - Rebase before creating a PR to keep commit history clear.
 
-- Add some descriptions and refer relative issues for you PR.
+- Create a brunch name as the standard “contributer firstname/component name or feature name.
+
+- Add your branch name as PR title.
+
+- Add some descriptions and refer relative issues for your PR.
 
 ## Getting started
 
