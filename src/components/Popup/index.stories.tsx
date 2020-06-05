@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Popup from './';
 import Button from '../Button';
 import { AllIcons } from '../Icons/index.stories';
+import { Types } from '../Tag/index.stories';
 
 import '../../styles/stories.scss';
 
@@ -134,7 +135,7 @@ export const PopupContent = () => {
       <Popup
         isActive={centerPopupB}
         setActive={setCenterPopupB}
-        content={<AllIcons />}
+        content={<Types />}
       />
     </div>
   );
@@ -204,6 +205,7 @@ export const RoundPopup = () => {
         setActive={setLeftPopup}
         type='left'
         borderRadius='50px'
+        content={<Types />}
       />
 
       <Button
@@ -218,6 +220,7 @@ export const RoundPopup = () => {
         setActive={setTopPopup}
         type='top'
         borderRadius='30%'
+        content={<AllIcons />}
       />
     </div>
   );
