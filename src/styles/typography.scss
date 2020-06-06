@@ -24,3 +24,16 @@
   line-height: 21px;
   color: $info;
 }
+
+@mixin field-label {
+  font-size: 14px;
+  line-height: 24px;
+  color: $dark-text;
+  font-weight: 300;
+}
+
+@mixin search-action {
+  font-size: 14px;
+  line-height: 34px;
+  font-weight: 300;
+}

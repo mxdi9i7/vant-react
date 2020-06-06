@@ -132,11 +132,39 @@ a.#{$baseClass} {
     opacity: $button-disabled-opacity;
   }
 
+  &__large {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  &__small {
+    height: 30px;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 $space-md;
+  }
+
+  &__mini {
+    height: 22px;
+    font-size: 10px;
+    padding: 0 $space-sm;
+  }
+
   img {
     height: $loader-size;
     width: $loader-size;
     object-fit: cover;
     object-position: 50% 50%;
     margin-right: 5px;
+  }
+
+  .vant-icon__container {
+    margin-right: 5px;
+  }
+
+  &__onlyIcon {
+    .vant-icon__container {
+      margin-right: 0px;
+    }
   }
 }

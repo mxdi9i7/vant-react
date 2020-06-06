@@ -32,7 +32,8 @@ export default function Button({
   click,
   touchstart,
   icon,
-  hairline
+  hairline,
+  size = 'normal'
 }: Props) {
   const CustomTag = tag || 'button';
   const props = {
@@ -44,7 +45,9 @@ export default function Button({
       { round },
       { square },
       { block },
-      { hairline }
+      { hairline },
+      { [size]: size },
+      { onlyIcon: !text && !children }
     ]),
     style: {}
   };

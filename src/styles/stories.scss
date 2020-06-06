@@ -2,9 +2,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
-    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft Yahei', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
 
 .container {
@@ -15,20 +14,28 @@ body {
   align-items: center;
 
   &.grey {
-    background-color: #f7f8fa;
+    background-color: $grey-background;
+  }
+
+  &.button {
+    button,
+    a {
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+    i {
+      margin-right: 5px;
+    }
   }
 
   &.column {
     flex-direction: column;
-
-    button,
-    a {
-      margin-bottom: 20px;
-      margin-right: 0;
-    }
   }
-  i {
-    margin-right: 5px;
+
+  &.icon {
+    i {
+      margin-right: 5px;
+    }
   }
 
   nav {
@@ -38,17 +45,13 @@ body {
       margin: 0;
     }
   }
-
-  .vant-button {
-    margin-right: 20px;
-  }
 }
 
 .icons-container {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  background-color: #f7f8fa;
+  background-color: $grey-background;
 
   h1 {
     font-size: 22px;
