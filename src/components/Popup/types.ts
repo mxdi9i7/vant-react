@@ -1,10 +1,11 @@
 import { ReactElement } from 'react';
+import { TAlignment } from '../Field/types';
 
 export interface IProps {
   isActive: boolean;
   borderRadius?: string;
   size?: [string, string];
-  text?: [string, string, string, TextAlign];
+  text?: [string, string, string, TAlignment];
   content?: ReactElement;
   type?: PopupTypes;
   color?: string;
@@ -17,4 +18,3 @@ export interface IProps {
 }
 
 export type PopupTypes = 'center' | 'top' | 'bottom' | 'left' | 'right';
-export type TextAlign = 'left' | 'right' | 'center';
