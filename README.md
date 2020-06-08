@@ -135,7 +135,7 @@ Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) befor
 
 Or, join our discussion group on Wechat by adding me!
 
-(https://github.com/mxdi9i7/Vant-react-docs/blob/master/.gitbook/assets/qr.png)
+![Wechat QR code](https://github.com/mxdi9i7/Vant-react-docs/blob/master/.gitbook/assets/qr.png)
 
 ## Browser Support
 
