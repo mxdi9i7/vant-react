@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
+
 import './index.scss';
 
 const baseClass = 'vant-stepper';
 
-export interface Props {
+export interface IProps {
   value?: number;
-  theme?: boolean;
-  disabled?: boolean;
-  disableInput?: boolean;
+  theme?: String | any;
+  disabled?: Boolean;
+  disableInput?: Boolean;
   min?: number | any;
   max?: number | any;
   step?: number | any;
-  longPress?: boolean;
-  plus?: boolean;
-  minus?: boolean;
+  longPress?: Boolean;
+  plus?: Boolean;
+  minus?: Boolean;
   size?: number;
 }
+
 export default function Stepper({
   disabled,
   step,
@@ -26,11 +28,11 @@ export default function Stepper({
   disableInput,
   size,
   theme
-}: Props) {
-  const [value, setValue] = useState(1);
+}: IProps) {
+  const [value, setValue] = useState(0);
   const [minus, setMinus] = useState(false);
   const [plus, setPlus] = useState(false);
-  const [disInput, setDisInput] = useState(false);
+  const [Input, setInput] = useState(false);
   const plusBtProps = {
     className: classnames(baseClass, [{ disabled }, { theme }]),
     style: {}
@@ -44,43 +46,27 @@ export default function Stepper({
     style: {}
   };
 
-  const handlePlus = () => {
-    const limit = max - 1 - value;
+  const handleIncrement = () => {
     if (step) {
       setValue(value + step);
-    } else if (max && limit < 0) {
-      Object.assign(plusBtProps, { disabled });
+    } else if (max && max === value) {
       setPlus(true);
     } else {
       setValue(value + 1);
-      setMinus(true);
     }
   };
   const handleMinus = () => {
     const canMinus = value - step;
-    setPlus(false);
-    if (step) {
-      if (canMinus > 0) {
-        setValue(value - step);
-      } else {
-        Object.assign(minusBtProps, {
-          style: {
-            ...minusBtProps.style,
-            cursor: 'not-allowed'
-          }
-        });
-      }
-    } else if (min > value && min) {
-      Object.assign(minusBtProps, {
-        style: {
-          ...minusBtProps.style,
-          cursor: 'not-allowed'
-        }
-      });
+    if (step && canMinus > 0) {
+      setValue(value - step);
+    } else {
+      setMinus(true);
+    }
+    if (min > value && min) {
+      setMinus(true);
     } else {
       if (value > 0) {
         setValue(value - 1);
-        setMinus(false);
       } else {
         setMinus(true);
       }
@@ -92,35 +78,23 @@ export default function Stepper({
     }
   };
   useEffect(() => {
-    if (value > 0) {
+    if (step && value === 1) {
+      setMinus(true);
+    } else {
       setMinus(false);
     }
-    if (value === 0) {
-      Object.assign(minusBtProps, {
-        style: {
-          ...minusBtProps.style,
-          cursor: 'not-allowed'
-        }
-      });
+    if (min && min === value) {
+      setMinus(true);
+    } else {
+      setMinus(false);
     }
-  }, [value, minusBtProps]);
-  if (step > value) {
-    Object.assign(minusBtProps, {
-      style: {
-        ...minusBtProps.style,
-        cursor: 'not-allowed'
-      }
-    });
-  }
+    if (max && max === value) {
+      setPlus(true);
+    } else {
+      setPlus(false);
+    }
+  }, [value, step, min, max]);
 
-  if (max - 1 < value) {
-    Object.assign(plusBtProps, {
-      style: {
-        ...plusBtProps.style,
-        cursor: 'not-allowed'
-      }
-    });
-  }
   if (disabled) {
     Object.assign(minusBtProps, { disabled });
     Object.assign(plusBtProps, { disabled });
@@ -128,42 +102,45 @@ export default function Stepper({
   }
 
   if (size) {
+    const Size = `${size}px`;
     Object.assign(minusBtProps, {
       style: {
         ...minusBtProps.style,
-        width: `${size}px`,
-        height: `${size}px`
+        width: Size,
+        height: Size
       }
     });
     Object.assign(plusBtProps, {
       style: {
         ...plusBtProps.style,
-        width: `${size}px`,
-        height: `${size}px`
+        width: Size,
+        height: Size
       }
     });
     Object.assign(inputProps, {
       style: {
         ...inputProps.style,
-        width: `${size}px`,
-        height: `${size}px`
+        width: Size,
+        height: Size
       }
     });
   }
 
   useEffect(() => {
     if (disableInput) {
-      setDisInput(true);
+      setInput(true);
     }
-  }, [disableInput]);
+  }, [Input]);
   useEffect(() => {
     if (disabled) {
       setMinus(true);
-      setPlus(true);
-      setDisInput(true);
-      setValue(0);
     }
-  }, [disabled]);
+  }, [minus]);
+  useEffect(() => {
+    if (disabled) {
+      setPlus(true);
+    }
+  }, [plus]);
 
   return (
     <div className='step-container'>
@@ -172,9 +149,9 @@ export default function Stepper({
         value={value}
         {...inputProps}
         onChange={handleInputChange}
-        disabled={disInput}
+        disabled={Input}
       />
-      <button onClick={handlePlus} {...plusBtProps} disabled={plus} />
+      <button onClick={handleIncrement} {...plusBtProps} disabled={plus} />
     </div>
   );
 }
