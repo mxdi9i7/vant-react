@@ -7,43 +7,43 @@ export default {
   component: Stepper
 };
 
-export const basicStepper = () => (
+export const BasicStepper = () => (
   <div className='container stepper'>
     <Stepper />
   </div>
 );
 
-export const disableStepper = () => (
+export const DisableStepper = () => (
   <div className='container stepper'>
     <Stepper disabled />
   </div>
 );
 
-export const stepStepper = () => (
+export const StepStepper = () => (
   <div className='container stepper'>
     <Stepper step={2} />
   </div>
 );
 
-export const rangeStepper = () => (
+export const RangeStepper = () => (
   <div className='container stepper'>
     <Stepper min={0} max={8} />
   </div>
 );
 
-export const sizeStepper = () => (
+export const SizeStepper = () => (
   <div className='container stepper'>
     <Stepper size={50} />
   </div>
 );
 
-export const roundStepper = () => (
+export const RoundStepper = () => (
   <div className='container stepper'>
     <Stepper theme />
   </div>
 );
 
-export const disableInputStepper = () => (
+export const DisableInputStepper = () => (
   <div className='container stepper'>
     <Stepper disableInput />
   </div>
