@@ -8,7 +8,7 @@ export default {
 };
 
 export const ButtonTypes = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='default'>Default Button</Button>
     <Button type='primary'>Primary Button</Button>
     <Button type='info'>Info Button</Button>
@@ -18,7 +18,7 @@ export const ButtonTypes = () => (
 );
 
 export const PlainButtons = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='danger' plain>
       Danger Button
     </Button>
@@ -29,7 +29,7 @@ export const PlainButtons = () => (
 );
 
 export const HairlineButtons = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='danger' hairline>
       Danger Button
     </Button>
@@ -40,7 +40,7 @@ export const HairlineButtons = () => (
 );
 
 export const DisabledButtons = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='danger' disabled>
       Disabled Button
     </Button>
@@ -51,7 +51,7 @@ export const DisabledButtons = () => (
 );
 
 export const LoadingButtons = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='danger' loading>
       Loading Default
     </Button>
@@ -68,7 +68,7 @@ export const LoadingButtons = () => (
 );
 
 export const ButtonShapes = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='info' round>
       Info Button
     </Button>
@@ -79,7 +79,7 @@ export const ButtonShapes = () => (
 );
 
 export const ButtonSize = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button type='info' size='large'>
       Info Button
     </Button>
@@ -93,7 +93,7 @@ export const ButtonSize = () => (
 );
 
 export const ButtonColor = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button color='FFECB3'>Info Button</Button>
     <Button color='00796B' fontColor='#999'>
       Warning Button
@@ -105,14 +105,14 @@ export const ButtonColor = () => (
 );
 
 export const ButtonTags = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button tag='a'>A Tag</Button>
     <Button tag='button'>Button Tag</Button>
   </div>
 );
 
 export const ButtonNativeTypes = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button nativeType='button'>Button Type</Button>
     <Button nativeType='reset'>Reset Type</Button>
     <Button nativeType='submit'>Submit Type</Button>
@@ -120,14 +120,14 @@ export const ButtonNativeTypes = () => (
 );
 
 export const BlockButtons = () => (
-  <div className='container column button'>
+  <div className='storybook__container column button'>
     <Button>Non Block Button</Button>
     <Button block>Block Button</Button>
   </div>
 );
 
 export const IconButton = () => (
-  <div className='container button'>
+  <div className='storybook__container button'>
     <Button icon='star-o' type='primary' />
     <Button icon='star-o' type='info'>
       Custom Icon Button
@@ -139,7 +139,7 @@ export const IconButton = () => (
 );
 
 export const ButtonURL = () => (
-  <div className='container column button'>
+  <div className='storybook__container column button'>
     <Button tag='a' url='https://github.com/mxdi9i7/vant-react'>
       Button with URL
     </Button>
@@ -153,7 +153,7 @@ export const ButtonURL = () => (
 );
 
 export const ButtonAction = () => (
-  <div className='container column button'>
+  <div className='storybook__container column button'>
     <Button click={(e) => alert(e.target)}>Handle Click</Button>
     <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
     <Button click={(e) => alert(e.target)} type='primary' disabled>

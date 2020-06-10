@@ -1,0 +1,23 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-image';
+
+.#{$baseClass} {
+  width: 100%;
+  height: 100%;
+
+  &__contain {
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__cover {
+    img {
+      object-fit: cover;
+    }
+  }
+}
