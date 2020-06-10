@@ -5,13 +5,18 @@ export interface IProps {
   isActive: boolean;
   borderRadius?: string;
   size?: [string, string];
-  text?: [string, string, string, TAlignment];
+  text?: {
+    text: string;
+    color: string;
+    fontSize: string;
+    textAlign: TAlignment;
+  };
   content?: ReactElement;
   type?: PopupTypes;
   color?: string;
   children?: string;
   closeable?: boolean;
-  closeIcon?: [string, string];
+  closeIcon?: { name: string; size: string };
   closeIconPosition?: object;
   setActive: Function;
   click?: Function;

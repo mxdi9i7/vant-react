@@ -19,7 +19,7 @@ const Popup = ({
   isActive,
   setActive,
   click,
-  closeIcon = ['cross', '20px'],
+  closeIcon = { name: 'cross', size: '20px' },
   closeIconPosition = { top: '10px', right: '10px' }
 }: IProps) => {
   const popupRef = useRef(null) || { current: {} };
@@ -51,15 +51,6 @@ const Popup = ({
       setActive(false);
     }
   };
-
-  if (closeIconPosition)
-    Object.assign(popupProps, {
-      style: {
-        ...popupProps.style,
-        backgroundColor: color,
-        borderColor: color
-      }
-    });
 
   if (size)
     Object.assign(popupProps, {
@@ -119,20 +110,20 @@ const Popup = ({
             }}
             style={closeIconPosition}
           >
-            <Icon name={closeIcon[0]} size={closeIcon[1]} />
+            <Icon name={closeIcon.name} size={closeIcon.size} />
           </span>
         )}
         <div {...contentProps}>
           {text && (
             <h3
               style={{
-                color: text[1],
-                fontSize: text[2],
-                textAlign: text[3],
+                color: text.color,
+                fontSize: text.fontSize,
+                textAlign: text.textAlign,
                 margin: '10px'
               }}
             >
-              {text[0]}
+              {text.text}
             </h3>
           )}
           {content && content}
