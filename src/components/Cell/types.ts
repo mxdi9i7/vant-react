@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 
 export interface IProps {
-  title?: [string, string];
-  titleIcon?: [string, string];
-  content?: [string, string];
-  contentIcon?: [string, string];
+  title?: { text: string; fontSize: string };
+  titleIcon?: { name: string; size: string };
+	content?: { text: string, fontSize: string; };
+  contentIcon?: { name: string; size: string };
   description?: string;
   Tag?: ReactElement;
   url?: string;

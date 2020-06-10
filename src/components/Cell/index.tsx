@@ -60,18 +60,24 @@ const Cell = ({
 
   return (
     <CustomTag {...containerProps}>
-      <div className='vant-cell__block'>
+      <div className={`${baseClass} __block`}>
         <div {...titleProps}>
-          {titleIcon && <Icon name={titleIcon[0]} size={titleIcon[1]} />}
-          {title && <span style={{ fontSize: title[1] }}>{title[0]}</span>}
+          {titleIcon && <Icon name={titleIcon.name} size={titleIcon.size} />}
+          {title && (
+            <span style={{ fontSize: title.fontSize }}>{title.text}</span>
+          )}
           {Tag && Tag}
         </div>
         <div {...contentProps}>
-          {content && <p style={{ fontSize: content[1] }}>{content[0]}</p>}
-          {contentIcon && <Icon name={contentIcon[0]} size={contentIcon[1]} />}
+          {content && (
+            <p style={{ fontSize: content.fontSize }}>{content.text}</p>
+          )}
+          {contentIcon && (
+            <Icon name={contentIcon.name} size={contentIcon.size} />
+          )}
         </div>
       </div>
-      {description && <p className='description'>{description}</p>}
+      {description && <p>{description}</p>}
     </CustomTag>
   );
 };

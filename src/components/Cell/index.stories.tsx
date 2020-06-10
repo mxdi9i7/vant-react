@@ -10,9 +10,12 @@ export default {
 
 export const BasicUsage = () => (
   <div className='container column grey'>
-    <Cell title={['Title', '20px']} content={['Content', '16px']} />
     <Cell
-      title={['Title', '16px']}
+      title={{ text: 'Title', fontSize: '20px' }}
+      content={['Content', '16px']}
+    />
+    <Cell
+      title={{ text: 'Title', fontSize: '16px' }}
       content={['Content', '16px']}
       description='description'
     />
@@ -22,10 +25,10 @@ export const BasicUsage = () => (
 export const cellIcon = () => (
   <div className='container column grey'>
     <Cell
-      titleIcon={['location-o', '16px']}
-      title={['Title', '20px']}
-      contentIcon={['arrow', '16px']}
-      content={['Content', '16px']}
+      titleIcon={{ name: 'location-o', size: '16px' }}
+      title={{ text: 'Title', fontSize: '20px' }}
+      contentIcon={{ name: 'arrow', size: '16px' }}
+      content={{ text: 'Content', fontSize: '16px' }}
     />
   </div>
 );
@@ -33,35 +36,39 @@ export const cellIcon = () => (
 export const cellTag = () => (
   <div className='container column grey'>
     <Cell
-      title={['Title', '20px']}
+      title={{ text: 'Title', fontSize: '20px' }}
       Tag={<Tag type='danger' text='Tag' />}
-      content={['Content', '16px']}
+      content={{ text: 'Content', fontSize: '16px' }}
     />
   </div>
 );
 
 export const roundCell = () => (
   <div className='container column grey'>
-    <Cell title={['Title', '20px']} round />
+    <Cell title={{ text: 'Title', fontSize: '20px' }} round />
   </div>
 );
 
 export const valueOnly = () => (
   <div className='container column grey'>
-    <Cell content={['Content', '16px']} />
+    <Cell content={{ text: 'Content', fontSize: '16px' }} />
   </div>
 );
 
 export const URL = () => (
   <div className='container column grey'>
-    <Cell title={['URL', '20px']} url='www.google.com' replace />
+    <Cell
+      title={{ text: 'URL', fontSize: '20px' }}
+      url='www.google.com'
+      replace
+    />
   </div>
 );
 
 export const Active = () => (
   <div className='container column grey'>
     <Cell
-      title={['Click', '20px']}
+      title={{ text: 'Click', fontSize: '20px' }}
       click={(e) => {
         alert(e);
       }}
