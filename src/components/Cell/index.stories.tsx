@@ -12,11 +12,11 @@ export const BasicUsage = () => (
   <div className='container column grey'>
     <Cell
       title={{ text: 'Title', fontSize: '20px' }}
-      content={['Content', '16px']}
+      content={{ text: 'Content', fontSize: '16px' }}
     />
     <Cell
       title={{ text: 'Title', fontSize: '16px' }}
-      content={['Content', '16px']}
+      content={{ text: 'Content', fontSize: '16px' }}
       description='description'
     />
   </div>
