@@ -49,21 +49,21 @@ const App = () => {
 * [ ] Image
 * [ ] Layout
 * [ ] Popup
-* [ ] Built-in style
+* [x] Built-in style
 
 ### Form Components
 
 * [ ] Calendar
 * [ ] Checkbox
 * [ ] DatetimePicker
-* [ ] Field
+* [x] Field
 * [ ] Form
 * [ ] NumberKeyboard
 * [ ] PasswordInput
 * [ ] Picker
 * [ ] Radio
-* [ ] Rate
-* [ ] Search
+* [x] Rate
+* [x] Search
 * [ ] Slider
 * [ ] Stepper
 * [ ] Switch
@@ -135,7 +135,7 @@ Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) befor
 
 Or, join our discussion group on Wechat by adding me!
 
-![Wechat QR Code](.gitbook/assets/qr.png)
+![Wechat QR code](https://github.com/mxdi9i7/Vant-react-docs/blob/master/.gitbook/assets/qr.png)
 
 ## Browser Support
 
