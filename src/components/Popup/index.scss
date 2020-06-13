@@ -1,0 +1,103 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-popup';
+$baseContainerClass: 'vant-popup__container';
+$baseContentClass: 'vant-popup__content';
+
+.#{$baseContainerClass} {
+  visibility: hidden;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  transition: 0.6s;
+
+  &__isActive {
+    visibility: visible;
+    background-color: rgba(
+      $color: $popup-background-color,
+      $alpha: $popup-alpha
+    );
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.#{$baseClass} {
+  overflow: scroll;
+  height: 50vh;
+  width: 50vw;
+  background-color: $default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  position: fixed;
+
+  &__closeable {
+    .closeIcon {
+      position: absolute;
+      z-index: 2;
+    }
+  }
+
+  &__isActive {
+    transform: translateX(0px) !important;
+    transform: translateY(0px) !important;
+    transition: 0.5s ease-in-out;
+  }
+
+  &__center {
+    max-height: 50vh;
+    max-width: 50vw;
+    display: none;
+  }
+
+  &__left {
+    height: 100vh;
+    max-width: 50vw;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &__right {
+    height: 100vh;
+    max-width: 50vw;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &__top {
+    max-height: 50vh;
+    width: 100vw;
+    top: 0;
+    transform: translateY(-100%);
+  }
+
+  &__bottom {
+    max-height: 50vh;
+    width: 100vw;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+}
+
+.vant-popup__center.vant-popup__isActive {
+  display: block;
+}
+
+.#{$baseContentClass} {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  display: none;
+
+  &__isActive {
+    display: block;
+  }
+}
