@@ -79,7 +79,7 @@ export default function Stepper({
       setMinus(false);
       setPlus(false);
     }
-  }, [value]);
+  }, [value, max, min]);
 
   if (disabled) {
     Object.assign(minusBtProps, { disabled });
@@ -112,6 +112,7 @@ export default function Stepper({
 
   if (size) {
     const Size = `${size}px`;
+
     Object.assign(minusBtProps, {
       style: {
         ...minusBtProps.style,
@@ -162,6 +163,7 @@ export default function Stepper({
         onChange={handleInputChange}
         disabled={Input}
       />
+
       <button onClick={handleIncrement} {...plusBtProps} disabled={plus}>
         +
       </button>
