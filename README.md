@@ -133,7 +133,7 @@ const App = () => {
 
 If you like what we do, please consider buy us a bubble-tea(donate)!
 
-[![DonorBox](https://d1iczxrky3cnb2.cloudfront.net/button-small-blue.png)](https://donorbox.org/vant-react-development-team?default_interval=o&amount=5)
+[![DonorBox](https://d1iczxrky3cnb2.cloudfront.net/button-small-blue.png)](https://donorbox.org/vant-react-dev-team?default_interval=o&amount=5)
 
 Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) before making a pull request.
 
