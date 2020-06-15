@@ -5,7 +5,7 @@ const classnames = (baseClass: string, names: object[]): string => {
     if (Object.prototype.toString.call(name) === '[object Object]') {
       const key = Object.keys(name)[0];
       const value = name[key];
-      if (specialKeys.includes(key)) {
+      if (specialKeys.indexOf(key) !== -1) {
         normalizedNames.push(`${baseClass}__${value}`);
       } else if (value) {
         normalizedNames.push(`${baseClass}__${key}`);
