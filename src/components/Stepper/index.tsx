@@ -49,26 +49,19 @@ export default function Stepper({
   const handleIncrement = () => {
     if (step) {
       setValue(value + step);
-    } else if (max && max === value) {
-      setPlus(true);
     } else {
       setValue(value + 1);
     }
   };
   const handleMinus = () => {
     const canMinus = value - step;
-    if (step && canMinus > 0) {
-      setValue(value - step);
-    } else {
-      setMinus(true);
-    }
-    if (min > value && min) {
-      setMinus(true);
+    if (step) {
+      if (canMinus >= 0) {
+        setValue(value - step);
+      }
     } else {
       if (value > 0) {
         setValue(value - 1);
-      } else {
-        setMinus(true);
       }
     }
   };
@@ -78,27 +71,43 @@ export default function Stepper({
     }
   };
   useEffect(() => {
-    if (step && value === 1) {
+    if (value === 0 || value === min) {
       setMinus(true);
-    } else {
-      setMinus(false);
-    }
-    if (min && min === value) {
-      setMinus(true);
-    } else {
-      setMinus(false);
-    }
-    if (max && max === value) {
+    } else if (value === max) {
       setPlus(true);
     } else {
+      setMinus(false);
       setPlus(false);
     }
-  }, [value, step, min, max]);
+  }, [value]);
 
   if (disabled) {
     Object.assign(minusBtProps, { disabled });
     Object.assign(plusBtProps, { disabled });
     Object.assign(inputProps, { disabled });
+  }
+  if (theme) {
+    Object.assign(plusBtProps, {
+      style: {
+        ...plusBtProps.style,
+        background: '#ee0a24',
+        color: 'white'
+      }
+    });
+    Object.assign(minusBtProps, {
+      style: {
+        ...minusBtProps.style,
+        border: '1px solid #ee0a24',
+        color: '#ee0a24',
+        background: 'white'
+      }
+    });
+    Object.assign(inputProps, {
+      style: {
+        ...inputProps.style,
+        background: 'white'
+      }
+    });
   }
 
   if (size) {
@@ -130,28 +139,32 @@ export default function Stepper({
     if (disableInput) {
       setInput(true);
     }
-  }, [Input]);
+  }, [disableInput]);
   useEffect(() => {
     if (disabled) {
       setMinus(true);
     }
-  }, [minus]);
+  }, [disabled]);
   useEffect(() => {
     if (disabled) {
       setPlus(true);
     }
-  }, [plus]);
+  }, [disabled]);
 
   return (
     <div className='step-container'>
-      <button onClick={handleMinus} {...minusBtProps} disabled={minus} />
+      <button onClick={handleMinus} {...minusBtProps} disabled={minus}>
+        -
+      </button>
       <input
         value={value}
         {...inputProps}
         onChange={handleInputChange}
         disabled={Input}
       />
-      <button onClick={handleIncrement} {...plusBtProps} disabled={plus} />
+      <button onClick={handleIncrement} {...plusBtProps} disabled={plus}>
+        +
+      </button>
     </div>
   );
 }

@@ -7,16 +7,39 @@
 $baseClass: 'vant-stepper';
 .step-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    margin: 0px 2px;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.137);
+  }
+  button {
+    border-radius: 5px;
+    padding-bottom: 3px;
+    font-size: 25px;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.137);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 100;
+  }
 }
 
-button.#{$baseClass},
-input.#{$baseClass} {
+button.#{$baseClass} {
   width: 30px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 
   &__disabled {
     cursor: not-allowed;
@@ -25,5 +48,17 @@ input.#{$baseClass} {
   &__theme {
     border-radius: 50%;
     outline: none;
+  }
+}
+input.#{$baseClass} {
+  width: 35px;
+  height: 30px;
+
+  &__disabled {
+    cursor: not-allowed;
+    opacity: $button-disabled-opacity;
+  }
+  &__theme {
+    border-radius: 50%;
   }
 }
