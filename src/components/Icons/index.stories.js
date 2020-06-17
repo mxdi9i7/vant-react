@@ -76,6 +76,5 @@ export const IconTags = () => (
 export const IconAction = () => (
   <div className='container icons'>
     <Icon name='chat-o' click={(e) => window.alert(e.target)} />
-    <Icon name='chat-o' />
   </div>
 );
