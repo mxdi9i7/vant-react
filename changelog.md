@@ -2,13 +2,36 @@
 
 ## Intro
 
-Vant follows Semantic Versioning 0.1.1.
+Vant follows Semantic Versioning 0.2.0.
 
 **Release Schedule**
 
 - Patch version：released weekly, including features and bug fixes.
 - Minor version：released every one to two months, including backwards compatible features.
 - Major version：including breaking changes and new features.
+
+## **0**.2.0
+
+-06-17-2020
+
+**Feature**
+
+- Added Field components [\#26](https://github.com/mxdi9i7/vant-react/pull/26)
+- Added Search components [\#31](https://github.com/mxdi9i7/vant-react/pull/31)
+- Added Rate components [\#32](https://github.com/mxdi9i7/vant-react/pull/32)
+- Added Popup components [\#33](https://github.com/mxdi9i7/vant-react/pull/33)
+- Added Cell components [\#33](https://github.com/mxdi9i7/vant-react/pull/42)
+- Added Built-in style
+- Basic docs: Popup & Field & Rate
+- Added changelogs
+
+**Bug Fixes**
+
+- Button:
+  - Enabled icon buttons
+- Icon:
+  - Added handle icon click
+  - Adjusted icon librart sryles
 
 ## **0**.1.1
 
@@ -17,10 +40,10 @@ Vant follows Semantic Versioning 0.1.1.
 **Bug Fixes**
 
 - Button:
-  - enable icon buttons, need to have icon library done first
-  - accept linear gradient
+  - Enabled icon buttons, need to have icon library done first
+  - Accepted linear gradient
 - Tag:
-  - accept custom tag element
+  - Accepted custom tag element
 
 ## **0**.1.0
 
@@ -29,7 +52,7 @@ Vant follows Semantic Versioning 0.1.1.
 **Feature**
 
 - Added Button components [\#4](https://github.com/mxdi9i7/vant-react/pull/4)
-- Added Icons components [\#6](https://github.com/mxdi9i7/vant-react/pull/6/files)
+- Added Icons components [\#6](https://github.com/mxdi9i7/vant-react/pull/6)
 - Added Navbar components [\#8](https://github.com/mxdi9i7/vant-react/pull/8)
 - Added Tag components [\#9](https://github.com/mxdi9i7/vant-react/pull/9)
 - Basic docs: Navbar & Tag & Icon
@@ -38,8 +61,8 @@ Vant follows Semantic Versioning 0.1.1.
 **Bug Fixes**
 
 - Button:
-  - add hairline props
-  - accept color in rgb
+  - Added hairline props
+  - Accepted color in rgb
 - Navbar：
-  - Fix navbar font weight
-  - Add navbar prop -&gt; border: boolean, default is true
+  - Fixed navbar font weight
+  - Added navbar prop -&gt; border: boolean, default is true
