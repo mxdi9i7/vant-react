@@ -6,9 +6,7 @@
 $baseClass: 'vant-image';
 
 .#{$baseClass} {
-  width: 100%;
-  height: 100%;
-
+  background-color: #f7f8fa;
   &__contain {
     img {
       object-fit: contain;
@@ -18,6 +16,30 @@ $baseClass: 'vant-image';
   &__cover {
     img {
       object-fit: cover;
+    }
+  }
+
+  &__fill {
+    img {
+      object-fit: fill;
+    }
+  }
+
+  &__none {
+    img {
+      object-fit: none;
+    }
+  }
+
+  &__scale-down {
+    img {
+      object-fit: scale-down;
+    }
+  }
+
+  &__round {
+    img {
+      border-radius: 50%;
     }
   }
 }

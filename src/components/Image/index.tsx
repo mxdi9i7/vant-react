@@ -44,6 +44,18 @@ const Image = ({
     },
     {
       cover: fit === 'cover'
+    },
+    {
+      fill: fit === 'fill'
+    },
+    {
+      'scale-down': fit === 'scale-down'
+    },
+    {
+      none: fit === 'none'
+    },
+    {
+      round
     }
   ]);
 

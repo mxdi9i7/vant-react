@@ -23,7 +23,7 @@ body {
   }
 
   &.grey {
-    background-color: $grey-background;
+    background-color: $grey-text;
   }
 
   &.button {
@@ -56,8 +56,11 @@ body {
   }
 
   .vant-image {
-    width: 200px;
-    height: 200px;
+    margin-right: 20px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
   }
 }
 
