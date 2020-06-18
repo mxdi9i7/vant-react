@@ -10,6 +10,15 @@ Vant follows Semantic Versioning 0.2.0.
 - Minor version：released every one to two months, including backwards compatible features.
 - Major version：including breaking changes and new features.
 
+## **0**.2.1
+
+-06-18-2020
+
+**Bug Fixes**
+
+- Popup:
+  - Adjusted position
+
 ## **0**.2.0
 
 -06-17-2020
