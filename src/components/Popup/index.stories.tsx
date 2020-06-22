@@ -140,7 +140,9 @@ export const PopupContent = () => {
       <Popup
         isActive={centerPopupB}
         setActive={setCenterPopupB}
+        size={['', '700px']}
         content={<Types />}
+        padding='0 30px'
       />
     </div>
   );

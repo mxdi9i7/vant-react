@@ -16,6 +16,7 @@ const Popup = ({
   type = 'center',
   color,
   size,
+  padding,
   isActive,
   setActive,
   click,
@@ -56,8 +57,16 @@ const Popup = ({
     Object.assign(popupProps, {
       style: {
         ...popupProps.style,
-        width: size[0],
-        height: size[1]
+        width: size[0] && size[0],
+        height: size[1] && size[1]
+      }
+    });
+
+  if (padding)
+    Object.assign(contentProps, {
+      style: {
+        ...contentProps.style,
+        padding
       }
     });
 

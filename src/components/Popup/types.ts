@@ -15,6 +15,7 @@ export interface IProps {
   type?: PopupTypes;
   color?: string;
   children?: string;
+  padding?: string;
   closeable?: boolean;
   closeIcon?: { name: string; size: string };
   closeIconPosition?: object;
