@@ -44,11 +44,11 @@ const App = () => {
 ### Basic Components
 
 * [x] Button
-* [ ] Cell
+* [x] Cell
 * [x] Icon
 * [ ] Image
 * [ ] Layout
-* [ ] Popup
+* [x] Popup
 * [x] Built-in style
 
 ### Form Components
