@@ -85,17 +85,13 @@ $baseContentClass: 'vant-popup__content';
   }
 }
 
-//chrome and Safari
 .#{$baseClass}::-webkit-scrollbar {
-  width: 0 !important;
+  width: 0 !important; //chrome and Safari
 }
-//IE 10+
+
 .#{$baseClass} {
-  -ms-overflow-style: none;
-}
-//Firefox
-.#{$baseClass} {
-  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none; //IE 10+
+  overflow: -moz-scrollbars-none; //Firefox
 }
 
 .vant-popup__center.vant-popup__isActive {

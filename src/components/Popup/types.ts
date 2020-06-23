@@ -4,7 +4,7 @@ import { TAlignment } from '../Field/types';
 export interface IProps {
   isActive: boolean;
   borderRadius?: string;
-  size?: [string, string];
+  size?: { width: string; height: string };
   text?: {
     text: string;
     color: string;

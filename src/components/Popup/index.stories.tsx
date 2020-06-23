@@ -23,7 +23,11 @@ export const DefaultPopup = () => {
         text='Default'
         type='primary'
       />
-      <Popup isActive={centerPopup} setActive={setCenterPopup} />
+      <Popup
+        isActive={centerPopup}
+        setActive={setCenterPopup}
+        size={{ width: '50vw', height: '50vh' }}
+      />
     </div>
   );
 };
@@ -43,7 +47,12 @@ export const PopupTypes = () => {
         text='From Left'
         type='primary'
       />
-      <Popup isActive={leftPopup} setActive={setLeftPopup} type='left' />
+      <Popup
+        isActive={leftPopup}
+        setActive={setLeftPopup}
+        type='left'
+        size={{ width: '50vw', height: '100vh' }}
+      />
       <Button
         click={() => {
           setRightPopup(true);
@@ -51,7 +60,12 @@ export const PopupTypes = () => {
         text='From Right'
         type='info'
       />
-      <Popup isActive={rightPopup} setActive={setRightPopup} type='right' />
+      <Popup
+        isActive={rightPopup}
+        setActive={setRightPopup}
+        type='right'
+        size={{ width: '50vw', height: '100vh' }}
+      />
       <Button
         click={() => {
           setTopPopup(true);
@@ -59,7 +73,12 @@ export const PopupTypes = () => {
         text='From Top'
         type='warning'
       />
-      <Popup isActive={topPopup} setActive={setTopPopup} type='top' />
+      <Popup
+        isActive={topPopup}
+        setActive={setTopPopup}
+        type='top'
+        size={{ width: '100vw', height: '50vh' }}
+      />
       <Button
         click={() => {
           setBottomPopup(true);
@@ -67,7 +86,12 @@ export const PopupTypes = () => {
         text='From Bottom'
         type='danger'
       />
-      <Popup isActive={bottomPopup} setActive={setBottomPopup} type='bottom' />
+      <Popup
+        isActive={bottomPopup}
+        setActive={setBottomPopup}
+        type='bottom'
+        size={{ width: '100vw', height: '50vh' }}
+      />
     </div>
   );
 };
@@ -88,7 +112,7 @@ export const PopupSize = () => {
       <Popup
         isActive={centerPopupA}
         setActive={setCenterPopupA}
-        size={['200px', '200px']}
+        size={{ width: '50vw', height: '50vh' }}
       />
       <Button
         click={() => {
@@ -100,7 +124,7 @@ export const PopupSize = () => {
       <Popup
         isActive={centerPopupB}
         setActive={setCenterPopupB}
-        size={['80vw', '80vh']}
+        size={{ width: '200px', height: '200px' }}
       />
     </div>
   );
@@ -128,7 +152,6 @@ export const PopupContent = () => {
           fontSize: '30px',
           textAlign: 'center'
         }}
-        size={['300px', '60px']}
       />
       <Button
         click={() => {
@@ -140,7 +163,7 @@ export const PopupContent = () => {
       <Popup
         isActive={centerPopupB}
         setActive={setCenterPopupB}
-        size={['', '700px']}
+        size={{ width: '', height: '700px' }}
         content={<Types />}
         padding='0 30px'
       />
@@ -162,7 +185,12 @@ export const CloseIcon = () => {
         text='Button A'
         type='primary'
       />
-      <Popup isActive={centerPopupA} setActive={setCenterPopupA} closeable />
+      <Popup
+        isActive={centerPopupA}
+        setActive={setCenterPopupA}
+        closeable
+        size={{ width: '50vw', height: '50vh' }}
+      />
       <Button
         click={() => {
           setCenterPopupB(true);
@@ -175,6 +203,7 @@ export const CloseIcon = () => {
         setActive={setCenterPopupB}
         closeable
         closeIcon={{ name: 'close', size: '20px' }}
+        size={{ width: '50vw', height: '50vh' }}
       />
       <Button
         click={() => {
@@ -189,6 +218,7 @@ export const CloseIcon = () => {
         closeable
         closeIcon={{ name: 'close', size: '40px' }}
         closeIconPosition={{ top: '40px', left: '40px' }}
+        size={{ width: '50vw', height: '50vh' }}
       />
     </div>
   );
@@ -213,6 +243,7 @@ export const RoundPopup = () => {
         type='left'
         borderRadius='50px'
         content={<Types />}
+        size={{ width: '50vw', height: '100vh' }}
       />
 
       <Button
@@ -228,6 +259,7 @@ export const RoundPopup = () => {
         type='top'
         borderRadius='30%'
         content={<AllIcons />}
+        size={{ width: '100vw', height: '50vh' }}
       />
     </div>
   );
@@ -250,6 +282,7 @@ export const PopupColor = () => {
         isActive={centerPopupA}
         setActive={setCenterPopupA}
         color='#b90000'
+        size={{ width: '50vw', height: '50vh' }}
       />
       <Button
         click={() => {
@@ -262,6 +295,7 @@ export const PopupColor = () => {
         isActive={centerPopupB}
         setActive={setCenterPopupB}
         color='rgba(234, 123, 232,0.4)'
+        size={{ width: '50vw', height: '50vh' }}
       />
     </div>
   );
@@ -288,7 +322,6 @@ export const PopupAction = () => {
           fontSize: '30px',
           textAlign: 'center'
         }}
-        size={['300px', '60px']}
         click={(e) => {
           alert(e);
         }}
