@@ -32,8 +32,6 @@ $baseContentClass: 'vant-popup__content';
 
 .#{$baseClass} {
   overflow: scroll;
-  height: 50vh;
-  width: 50vw;
   background-color: $default;
   display: flex;
   justify-content: center;
@@ -87,21 +85,26 @@ $baseContentClass: 'vant-popup__content';
   }
 }
 
-//chrome and Safari
-.#{$baseClass}::-webkit-scrollbar { width: 0 !important }
-//IE 10+
-.#{$baseClass} { -ms-overflow-style: none; }
-//Firefox
-.#{$baseClass} { overflow: -moz-scrollbars-none; }
+.#{$baseClass}::-webkit-scrollbar {
+  width: 0 !important; //chrome and Safari
+}
+
+.#{$baseClass} {
+  -ms-overflow-style: none; //IE 10+
+  overflow: -moz-scrollbars-none; //Firefox
+}
 
 .vant-popup__center.vant-popup__isActive {
   display: block;
 }
 
 .#{$baseContentClass} {
-  height: inherit;
-  width: inherit;
-  position: absolute;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
   display: none;
 
   &__isActive {
