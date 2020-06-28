@@ -1,33 +1,26 @@
-#all {
-  width: 500px;
-  height: 86px;
-  margin: 100px auto;
+#wrapper {
   position: relative;
+  width: 200px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #d3d3d3;
 }
-
-#bar {
-  width: 500px;
+/*将滑块和填充块设置成inline-block,保证他们在同一行内*/
+#slider {
+  position: absolute;
+  left: -2px;
+  width: 20px;
   height: 20px;
-  border-radius: 10px;
-  background: #9acfea;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  display: inline-block;
+  background-color: #fff;
   cursor: pointer;
-}
-
-#box {
-  width: 30px;
-  height: 30px;
-  background: #ec971f;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  margin: auto 0;
   border-radius: 50%;
-  cursor: pointer;
-  transition: left 0.1s linear 0s;
+  box-shadow: 0px 2px 5px #888;
+}
+#fill {
+  display: inline-block;
+  width: 0;
+  height: 10px;
+  background-color: #4169e1;
 }

@@ -24,81 +24,78 @@ const Slider = ({
     id: 'all',
     style: {}
   };
-
   useEffect(() => {
-    init();
+    slider.init();
   }, []);
-  const all = document.getElementById('all'); //容器
-  const p = document.querySelector('p'); //进度百分比
-  const bar = document.getElementById('bar'); //进度显示条
-  const box = document.getElementById('box'); //进度按钮
+  const slider = (() => {
+    const init = () => {
+      var wrapper = document.getElementById('wrapper');
+      var slider = document.getElementById('slider');
+      var fill = document.getElementById('fill');
+      move(wrapper, slider, fill);
+    };
+    const move = (dom1, dom2, dom3) => {
+      //drag用来存储滑块允许拖拽和不允许拖拽的状态
+      var drag = 0;
+      //在滑动条上绑定click事件以实现点击任意位置,自动调整滑块和填充块的效果
+      dom1.addEventListener('click', function (e) {
+        if (e.target === dom2) {
+          //点击滑块自身不做任何事情
+        } else {
+          if (e.offsetX > 180) {
+            dom2.style.left = '180px';
+            dom3.style.width = '180px';
+          } else if (e.offsetX < 20) {
+            dom2.style.left = '0px';
+            dom3.style.width = '0px';
+          } else {
+            dom2.style.left = e.offsetX - 10 + 'px';
+            dom3.style.width = e.offsetX - 10 + 'px';
+          }
+        }
+      });
+      //修改drag的状态
+      dom2.addEventListener('mousedown', function () {
+        drag = 1;
+      });
+      //释放按钮绑定在document上,保证在整个页面容器里面任何地方松开按钮都能修改drag的状态
+      document.addEventListener('mouseup', function () {
+        drag = 0;
+      });
+      // 使滑块和填充块跟随移动,这里使用的pageX,需要计算和视窗左侧的距离而不是和滑动块左侧的距离
+      dom1.addEventListener('mousemove', function (e) {
+        if (e.offsetX && drag == 1) {
+          // if (e.pageX > 689) {
+          //   dom2.style.left = '180px';
+          //   dom3.style.width = '180px';
+          // } else if (e.pageX < 529) {
+          //   dom2.style.left = '0px';
+          //   dom3.style.width = '0px';
+          // } else {
+          //   dom2.style.left = e.pageX - 500 - 19 + 'px';
+          //   dom3.style.width = e.pageX - 500 - 19 + 'px';
+          // }
+          if (e.offsetX > 180) {
+            alert('1');
+            dom2.style.left = '180px';
+            dom3.style.width = '180px';
+          } else if (e.offsetX < 20) {
+            dom2.style.left = '0px';
+            dom3.style.width = '0px';
+          } else {
+            console.log(e.offsetX);
+            dom2.style.left = `${e.offsetX + 1}px`;
+            dom3.style.width = `${e.offsetX + 1}px`;
+          }
+        }
+      });
+    };
+    return {
+      init: init
+    };
+  })();
 
-  const boxL, newL, moveL, mouseX, left;
-  const cha = bar.offsetWidth - box.offsetWidth;
-  const index = 0; //标记状态
-
-  const evt = new Event('change'); //本身的事件
-
-  function init() {
-    box.addEventListener('mousedown', mouseDownclickHandler);
-    document.addEventListener('mousemove', mouseMoveclickHandler);
-    document.addEventListener('mouseup', mouseUpclickHandler);
-    document.addEventListener('change', changeHandler);
-    bar.addEventListener('click', clickHandler);
-  }
-
-  function mouseDownclickHandler(e) {
-    const index = 1;
-    const boxL = box.offsetLeft;
-    const mouseX = e.clientX; //鼠标按下拖动的位置
-  }
-
-  function mouseMoveclickHandler(e) {
-    if (index === 1) {
-      const moveL = e.clientX - mouseX; //鼠标移动
-      const newL = boxL + moveL; //left值
-
-      //判断最小值与最大值
-      if (newL < 0) {
-        const newL = 0;
-      }
-      if (newL >= cha) {
-        const newL = cha;
-      }
-      // 改变left值
-      box.style.left = newL + 'px';
-      // 计算比例
-      var bili = (newL / cha) * 100;
-      p.textContent = '当前位置' + Math.ceil(bili) + '%';
-      evt.elem = this; //当前指向 对象
-      document.dispatchEvent(evt); //朝谁发送 抛发
-    }
-  }
-
-  function mouseUpclickHandler(e) {
-    const index = 0;
-    constevt.elem = this; //当前指向 对象
-    document.dispatchEvent(evt); //朝谁发送 抛发
-  }
-
-  function clickHandler(e) {
-    const left = e.clientX - all.offsetLeft - box.offsetWidth / 2;
-    if (left < 0) {
-      const left = 0;
-    }
-    if (left >= cha) {
-      const left = cha;
-    }
-    box.style.left = left + 'px';
-    const bili = (left / cha) * 100;
-    p.innerHTML = '当前位置' + Math.ceil(bili) + '%';
-    evt.elem = this; //当前指向 对象
-    document.dispatchEvent(evt); //朝谁发送 抛发
-  }
-
-  function changeHandler(e) {
-    console.log(e);
-  }
+  // slider.init();
 
   // if (size)
   //   Object.assign(popupProps, {
@@ -110,11 +107,9 @@ const Slider = ({
   //   });
 
   return (
-    <div {...containerProps}>
-      <p>当前位置0%</p>
-      <div id='bar'>
-        <div id='box'></div>
-      </div>
+    <div id='wrapper'>
+      <div id='fill'></div>
+      <div id='slider'></div>
     </div>
   );
 };
