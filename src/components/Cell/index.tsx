@@ -60,7 +60,7 @@ const Cell = ({
 
   return (
     <CustomTag {...containerProps}>
-      <div className={`${baseClass} __block`}>
+      <div className={`${baseClass}__block`}>
         <div {...titleProps}>
           {titleIcon && <Icon name={titleIcon.name} size={titleIcon.size} />}
           {title && (
@@ -77,7 +77,9 @@ const Cell = ({
           )}
         </div>
       </div>
-      {description && <p>{description}</p>}
+      {description && (
+        <p style={{ fontSize: description.fontSize }}>{description.text}</p>
+      )}
     </CustomTag>
   );
 };
