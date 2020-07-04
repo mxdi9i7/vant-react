@@ -3,26 +3,38 @@ $baseWrapperClass: 'vant-slider__wrapper';
 $baseFillClass: 'vant-slider__fill';
 $baseSliderClass: 'vant-slider__slider';
 
-#wrapper {
+.#{$baseWrapperClass} {
   position: relative;
   display: flex;
   align-items: center;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__disabled {
+    opacity: 0.6;
+  }
 }
-#fill {
+
+.#{$baseFillClass} {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
 }
-#slider {
+
+.#{$baseSliderClass} {
   position: absolute;
   background-color: #fff;
   cursor: grab;
   border-radius: 50%;
-  box-shadow: 0px 2px 5px #888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .#{$baseWrapperClass},
@@ -30,11 +42,5 @@ $baseSliderClass: 'vant-slider__slider';
 .#{$baseSliderClass} {
   &__disabled {
     cursor: not-allowed !important;
-    opacity: 0.8;
   }
 }
-// .#{$baseClass}__slider {
-//   &__disabled {
-//     cursor: not-allowed;
-//   }
-// }
