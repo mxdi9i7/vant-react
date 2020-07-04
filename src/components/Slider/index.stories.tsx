@@ -28,7 +28,7 @@ export const Disabled = () => {
 
   return (
     <div className='container'>
-      <Slider value={value} setValue={setValue} disabled />
+      <Slider value={value} setValue={setValue} disabled vertical />
     </div>
   );
 };

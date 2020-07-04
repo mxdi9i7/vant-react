@@ -19,12 +19,13 @@ const Slider = ({
   value = range.min,
   setValue
 }: IProps) => {
-  console.log(value);
   const slideRange = range.max - range.min;
   const sliderOffset = sliderSize.width / 2;
   const initialPosition =
-    (Math.abs((value as any) - range.min) / slideRange) * size.width;
-  console.log(initialPosition);
+    (Math.abs((value as any) - range.min) / slideRange) * size.width -
+    sliderOffset;
+  const isVertical = vertical ? true : false;
+
   const wrapperProps = {
     className: classnames(`${baseClass}__wrapper`, [{ disabled }]),
     style: {}
