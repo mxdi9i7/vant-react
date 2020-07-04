@@ -11,7 +11,7 @@ export default {
 export const DefaultSlider = () => {
   return (
     <div className='container'>
-      <Slider />
+      <Slider range={{ min: -50, max: 50 }} size={{ width: 400, height: 10 }} />
     </div>
   );
 };

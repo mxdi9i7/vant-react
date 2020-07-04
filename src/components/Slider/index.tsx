@@ -1,271 +1,131 @@
-import React from 'react';
-import warning from 'rc-util/lib/warning';
-import Track from './common/Track';
-import createSlider from './common/createSlider';
-import * as utils from './utils';
+import React, { useRef, useEffect, useState } from 'react';
 
-export interface SliderProps {
-  value?: number;
-  defaultValue?: number;
-  min?: number;
-  max?: number;
-  step?: number;
-  prefixCls?: string;
-  onChange?: (value: number) => void;
-  onBeforeChange?: (value: number) => void;
-  onAfterChange?: (value: number) => void;
-  vertical?: boolean;
-  included?: boolean;
-  disabled?: boolean;
-  reverse?: boolean;
-  minimumTrackStyle?: React.CSSProperties;
-  trackStyle?: React.CSSProperties;
-  handleStyle?: React.CSSProperties;
-  tabIndex?: number;
-  ariaLabelForHandle?: string;
-  ariaLabelledByForHandle?: string;
-  ariaValueTextFormatterForHandle?: string;
-  startPoint?: number;
-  handle: (props: {
-    className: string;
-    prefixCls?: string;
-    vertical?: boolean;
-    offset: number;
-    value: number;
-    dragging?: boolean;
-    disabled?: boolean;
-    min?: number;
-    max?: number;
-    reverse?: boolean;
-    index: number;
-    tabIndex?: number;
-    ariaLabel: string;
-    ariaLabelledBy: string;
-    ariaValueTextFormatter: string;
-    style?: React.CSSProperties;
-    ref?: React.Ref<any>;
-  }) => React.ReactElement;
-}
-export interface SliderState {
-  value: number;
-  dragging: boolean;
-}
+import classnames from '../../utils/classNames';
+import { IProps } from './types';
 
-class Slider extends React.Component<SliderProps, SliderState> {
-  /**
-   * [Legacy] Used for inherit other component.
-   * It's a bad code style which should be refactor.
-   */
-  /* eslint-disable @typescript-eslint/no-unused-vars, class-methods-use-this */
-  calcValueByPos(value: number) {
-    return 0;
-  }
+import './index.scss';
 
-  calcOffset(value: number) {
-    return 0;
-  }
+const baseClass = 'vant-slider';
 
-  saveHandle(index: number, h: any) {}
-
-  removeDocumentEvents() {}
-  /* eslint-enable */
-
-  constructor(props: SliderProps) {
-    super(props);
-
-    const defaultValue =
-      props.defaultValue !== undefined ? props.defaultValue : props.min;
-    const value = props.value !== undefined ? props.value : defaultValue;
-
-    this.state = {
-      value: this.trimAlignValue(value),
-      dragging: false
-    };
-
-    warning(
-      !('minimumTrackStyle' in props),
-      'minimumTrackStyle will be deprecated, please use trackStyle instead.'
-    );
-    warning(
-      !('maximumTrackStyle' in props),
-      'maximumTrackStyle will be deprecated, please use railStyle instead.'
-    );
-  }
-
-  startValue: number;
-
-  startPosition: number;
-
-  prevMovedHandleIndex: number;
-
-  componentDidUpdate(_: SliderProps, prevState: SliderState) {
-    if (
-      !('value' in this.props || 'min' in this.props || 'max' in this.props)
-    ) {
-      return;
-    }
-    const { value, onChange } = this.props;
-    const theValue = value !== undefined ? value : prevState.value;
-    const nextValue = this.trimAlignValue(theValue, this.props);
-    if (nextValue !== prevState.value) {
-      // eslint-disable-next-line
-      this.setState({ value: nextValue });
-      if (utils.isValueOutOfRange(theValue, this.props)) {
-        onChange(nextValue);
-      }
-    }
-  }
-
-  onChange(state: { value: number }) {
-    const { props } = this;
-    const isNotControlled = !('value' in props);
-    const nextState =
-      state.value > this.props.max
-        ? { ...state, value: this.props.max }
-        : state;
-    if (isNotControlled) {
-      this.setState(nextState);
-    }
-
-    const changedValue = nextState.value;
-    props.onChange(changedValue);
-  }
-
-  onStart(position: number) {
-    this.setState({ dragging: true });
-    const { props } = this;
-    const prevValue = this.getValue();
-    props.onBeforeChange(prevValue);
-
-    const value = this.calcValueByPos(position);
-    this.startValue = value;
-    this.startPosition = position;
-
-    if (value === prevValue) return;
-
-    this.prevMovedHandleIndex = 0;
-
-    this.onChange({ value });
-  }
-
-  onEnd = (force?: boolean) => {
-    const { dragging } = this.state;
-    this.removeDocumentEvents();
-    if (dragging || force) {
-      this.props.onAfterChange(this.getValue());
-    }
-    this.setState({ dragging: false });
+const Slider = ({
+  range = { min: 0, max: 100 },
+  size = { width: 100, height: 5 },
+  disabled,
+  vertical,
+  barHeight,
+  buttonSize,
+  activeColor = '#1989fa',
+  inactiveColor = '#e5e5e5',
+  step = 1,
+  value = 0
+}: IProps) => {
+  const [values, setValues] = useState(0);
+  const sliderRange = range.max - range.min;
+  const containerProps = {
+    className: classnames(`${baseClass}__container`, []),
+    id: 'all',
+    style: {}
+  };
+  useEffect(() => {
+    init();
+  }, []);
+  const init = () => {
+    var wrapper = document.getElementById('wrapper');
+    var fill = document.getElementById('fill');
+    var slider = document.getElementById('slider');
+    move(wrapper, slider, fill);
   };
 
-  onMove(e, position) {
-    utils.pauseEvent(e);
-    const { value: oldValue } = this.state;
-    const value = this.calcValueByPos(position);
-    if (value === oldValue) return;
-
-    this.onChange({ value });
-  }
-
-  onKeyboard(e) {
-    const { reverse, vertical } = this.props;
-    const valueMutator = utils.getKeyboardValueMutator(e, vertical, reverse);
-    if (valueMutator) {
-      utils.pauseEvent(e);
-      const { state } = this;
-      const oldValue = state.value;
-      const mutatedValue = valueMutator(oldValue, this.props);
-      const value = this.trimAlignValue(mutatedValue);
-      if (value === oldValue) return;
-
-      this.onChange({ value });
-      this.props.onAfterChange(value);
-      this.onEnd();
-    }
-  }
-
-  getValue() {
-    return this.state.value;
-  }
-
-  getLowerBound() {
-    return this.props.min;
-  }
-
-  getUpperBound() {
-    return this.state.value;
-  }
-
-  trimAlignValue(v: number, nextProps: Partial<SliderProps> = {}) {
-    if (v === null) {
-      return null;
-    }
-
-    const mergedProps = { ...this.props, ...nextProps };
-    const val = utils.ensureValueInRange(v, mergedProps);
-    return utils.ensureValuePrecision(val, mergedProps);
-  }
-
-  render() {
-    const {
-      prefixCls,
-      vertical,
-      included,
-      disabled,
-      minimumTrackStyle,
-      trackStyle,
-      handleStyle,
-      tabIndex,
-      ariaLabelForHandle,
-      ariaLabelledByForHandle,
-      ariaValueTextFormatterForHandle,
-      min,
-      max,
-      startPoint,
-      reverse,
-      handle: handleGenerator
-    } = this.props;
-    const { value, dragging } = this.state;
-    const offset = this.calcOffset(value);
-    const handle = handleGenerator({
-      className: `${prefixCls}-handle`,
-      prefixCls,
-      vertical,
-      offset,
-      value,
-      dragging,
-      disabled,
-      min,
-      max,
-      reverse,
-      index: 0,
-      tabIndex,
-      ariaLabel: ariaLabelForHandle,
-      ariaLabelledBy: ariaLabelledByForHandle,
-      ariaValueTextFormatter: ariaValueTextFormatterForHandle,
-      style: handleStyle[0] || handleStyle,
-      ref: (h) => this.saveHandle(0, h)
+  const move = (dom1, dom2, dom3) => {
+    //drag用来存储滑块允许拖拽和不允许拖拽的状态
+    var drag = 0;
+    //在滑动条上绑定click事件以实现点击任意位置,自动调整滑块和填充块的效果
+    dom1.addEventListener('click', function (e) {
+      if (e.target === dom2) {
+        //点击滑块自身不做任何事情
+      } else {
+        if (e.offsetX > size.width) {
+          dom2.style.left = `${size.width}px`;
+          dom3.style.width = `${size.width}px`;
+        } else if (e.offsetX < 0) {
+          dom2.style.left = '0px';
+          dom3.style.width = '0px';
+        } else {
+          dom2.style.left = e.offsetX - 1 + 'px';
+          dom3.style.width = e.offsetX - 1 + 'px';
+        }
+      }
     });
+    //修改drag的状态
+    dom2.addEventListener('mousedown', function () {
+      drag = 1;
+    });
+    //释放按钮绑定在document上,保证在整个页面容器里面任何地方松开按钮都能修改drag的状态
+    document.addEventListener('mouseup', function (e) {
+      drag = 0;
 
-    const trackOffset =
-      startPoint !== undefined ? this.calcOffset(startPoint) : 0;
-    const mergedTrackStyle = trackStyle[0] || trackStyle;
-    const track = (
-      <Track
-        className={`${prefixCls}-track`}
-        vertical={vertical}
-        included={included}
-        offset={trackOffset}
-        reverse={reverse}
-        length={offset - trackOffset}
+      const result = Math.round(
+        ((e.pageX - dom1.offsetLeft) / size.width) * sliderRange + range.min
+      );
+      console.log(result);
+      result && setValues(result);
+    });
+    // 使滑块和填充块跟随移动,这里使用的pageX,需要计算和视窗左侧的距离而不是和滑动块左侧的距离
+    document.addEventListener('mousemove', function (e) {
+      if (e.offsetX && drag == 1) {
+        if (e.pageX > dom1.offsetLeft + size.width) {
+          dom2.style.left = `${size.width}px`;
+          dom3.style.width = `${size.width}px`;
+        } else if (e.pageX < dom1.offsetLeft) {
+          dom2.style.left = '0px';
+          dom3.style.width = '0px';
+        } else {
+          dom2.style.left = e.pageX - dom1.offsetLeft - 1 + 'px';
+          dom3.style.width = e.pageX - dom1.offsetLeft - 1 + 'px';
+        }
+
+        // if (e.offsetX > 180) {
+        //   dom2.style.left = '180px';
+        //   dom3.style.width = '180px';
+        // } else if (e.offsetX < 20) {
+        //   dom2.style.left = '0px';
+        //   dom3.style.width = '0px';
+        // } else {
+        //   dom2.style.left = `${e.offsetX + 1}px`;
+        //   dom3.style.width = `${e.offsetX + 1}px`;
+        // }
+      }
+    });
+  };
+
+  // slider.init();
+
+  // if (size)
+  //   Object.assign(popupProps, {
+  //     style: {
+  //       ...popupProps.style,
+  //       width: size[0],
+  //       height: size[1]
+  //     }
+  //   });
+
+  return (
+    <div
+      id='wrapper'
+      style={{
+        width: `${size.width}px`,
+        height: `${size.height}px`
+      }}
+    >
+      <div
+        id='fill'
         style={{
-          ...minimumTrackStyle,
-          ...mergedTrackStyle
+          height: `${size.height}px`
         }}
-      />
-    );
+      ></div>
+      <div id='slider'>{values}</div>
+    </div>
+  );
+};
 
-    return { tracks: track, handles: handle };
-  }
-}
-
-export default createSlider(Slider);
+export default Slider;

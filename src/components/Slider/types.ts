@@ -5,8 +5,8 @@ export interface IProps {
   buttonSize?: Number;
   activeColor?: String;
   inactiveColor?: String;
-  min?: Number;
-  max?: Number;
+  size?: { width: number; height: number };
+  range?: { min: number; max: number };
   step?: Number;
   value?: Number;
 }
