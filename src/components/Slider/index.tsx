@@ -9,31 +9,40 @@ const baseClass = 'vant-slider';
 
 const Slider = ({
   range = { min: 0, max: 100 },
-  size = { width: 100, height: 5 },
+  size = { width: 200, height: 5 },
   sliderSize = { width: 20, height: 20 },
   disabled,
   vertical,
-  barHeight,
-  buttonSize,
-  activeColor = '#1989fa',
-  inactiveColor = '#e5e5e5',
+  activeColor = '#4169e1',
+  inactiveColor = '#d3d3d3',
   step = 1,
   value = range.min,
   setValue
 }: IProps) => {
+  console.log(value);
   const slideRange = range.max - range.min;
   const sliderOffset = sliderSize.width / 2;
-  const containerProps = {
-    className: classnames(`${baseClass}__container`, []),
-    id: 'all',
+  const initialPosition =
+    (Math.abs((value as any) - range.min) / slideRange) * size.width;
+  console.log(initialPosition);
+  const wrapperProps = {
+    className: classnames(`${baseClass}__wrapper`, [{ disabled }]),
+    style: {}
+  };
+  const fillProps = {
+    className: classnames(`${baseClass}__fill`, [{ disabled }]),
+    style: {}
+  };
+  const sliderProps = {
+    className: classnames(`${baseClass}__slider`, [{ disabled }]),
     style: {}
   };
 
   useEffect(() => {
-    init();
+    !disabled && handleSlide();
   }, [value]);
 
-  const init = () => {
+  const handleSlide = () => {
     const wrapper = document.getElementById('wrapper');
     const fill = document.getElementById('fill');
     const slider = document.getElementById('slider');
@@ -50,7 +59,6 @@ const Slider = ({
     let drag = 0;
     dom1.addEventListener('click', function (e) {
       if (e.target === dom2) {
-        return null;
       } else {
         if (e.offsetX > size.width) {
           dom2.style.left = `${size.width}px`;
@@ -77,8 +85,8 @@ const Slider = ({
     document.addEventListener('mousemove', function (e) {
       if (e.offsetX && drag === 1) {
         if (e.pageX > dom1.offsetLeft + size.width) {
-          dom2.style.left = `${size.width}px`;
-          dom3.style.width = `${size.width}px`;
+          dom2.style.left = `${size.width - sliderOffset}px`;
+          dom3.style.width = `${size.width - sliderOffset}px`;
           setValue(range.max);
         } else if (e.pageX < dom1.offsetLeft) {
           dom2.style.left = '0px';
@@ -93,37 +101,48 @@ const Slider = ({
     });
   };
 
-  // if (size)
-  //   Object.assign(popupProps, {
-  //     style: {
-  //       ...popupProps.style,
-  //       width: size[0],
-  //       height: size[1]
-  //     }
-  //   });
+  if (disabled) {
+    Object.assign(wrapperProps, {
+      disabled
+    });
+    Object.assign(fillProps, {
+      disabled
+    });
+    Object.assign(sliderProps, {
+      disabled
+    });
+  }
 
   return (
     <div
       id='wrapper'
+      {...wrapperProps}
       style={{
         width: `${size.width}px`,
-        height: `${size.height}px`
+        height: `${size.height}px`,
+        backgroundColor: inactiveColor
       }}
     >
       <div
         id='fill'
+        {...fillProps}
         style={{
-          height: `${size.height}px`
-        }}
-      />
-      <div
-        id='slider'
-        style={{
-          width: `${sliderSize.width}px`,
-          height: `${sliderSize.height}px`
+          width: `${initialPosition}px`,
+          height: `${size.height}px`,
+          backgroundColor: activeColor
         }}
       >
-        {value}
+        <div
+          id='slider'
+          {...sliderProps}
+          style={{
+            width: `${sliderSize.width}px`,
+            height: `${sliderSize.height}px`,
+            left: `${initialPosition}px`
+          }}
+        >
+          {value}
+        </div>
       </div>
     </div>
   );

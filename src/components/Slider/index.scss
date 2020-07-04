@@ -1,22 +1,40 @@
+$baseClass: 'vant-slider';
+$baseWrapperClass: 'vant-slider__wrapper';
+$baseFillClass: 'vant-slider__fill';
+$baseSliderClass: 'vant-slider__slider';
+
 #wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #d3d3d3;
   border-radius: 2px;
+  cursor: pointer;
+}
+#fill {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 2px;
+  cursor: pointer;
 }
 #slider {
   position: absolute;
-  display: inline-block;
   background-color: #fff;
   cursor: grab;
   border-radius: 50%;
   box-shadow: 0px 2px 5px #888;
 }
-#fill {
-  display: inline-block;
-  width: 0;
-  background-color: #4169e1;
-  border-radius: 2px;
-  cursor: pointer;
+
+.#{$baseWrapperClass},
+.#{$baseFillClass},
+.#{$baseSliderClass} {
+  &__disabled {
+    cursor: not-allowed !important;
+    opacity: 0.8;
+  }
 }
+// .#{$baseClass}__slider {
+//   &__disabled {
+//     cursor: not-allowed;
+//   }
+// }
