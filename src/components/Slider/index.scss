@@ -5,14 +5,11 @@
   background-color: #d3d3d3;
   border-radius: 2px;
 }
-/*将滑块和填充块设置成inline-block,保证他们在同一行内*/
 #slider {
   position: absolute;
-  width: 20px;
-  height: 20px;
   display: inline-block;
   background-color: #fff;
-  cursor: pointer;
+  cursor: grab;
   border-radius: 50%;
   box-shadow: 0px 2px 5px #888;
 }
@@ -21,4 +18,5 @@
   width: 0;
   background-color: #4169e1;
   border-radius: 2px;
+  cursor: pointer;
 }
