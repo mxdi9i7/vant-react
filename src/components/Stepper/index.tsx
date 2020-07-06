@@ -37,6 +37,7 @@ export default function Stepper({
   const [plus, setPlus] = useState(false);
   const [Input, setInput] = useState(false);
   const animationDiv = document.getElementById('loading');
+  const animationBackground = document.getElementById('loading-background');
 
   const plusBtProps = {
     className: classnames(baseClass, [{ disabled }, { theme }]),
@@ -54,13 +55,16 @@ export default function Stepper({
   const handleIncrement = () => {
     if (loading) {
       ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
+      ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
       const handlePlus = () => {
         if (step) {
           setValue(value + step);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         } else {
           setValue(value + 1);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         }
       };
 
@@ -75,13 +79,17 @@ export default function Stepper({
     const canMinus = value - step;
     if (loading) {
       ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
+      ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
+
       const handleMinus = () => {
         if (step) {
           setValue(value - step);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         } else {
           setValue(value - 1);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         }
       };
       setTimeout(handleMinus, 2000);
@@ -197,7 +205,11 @@ export default function Stepper({
       <button onClick={handleIncrement} {...plusBtProps} disabled={plus}>
         +
       </button>
-      {loading && <div id='loading' className='loading' />}
+      {loading && (
+        <div id='loading-background' className='load'>
+          <div id='loading' className='load-background' />
+        </div>
+      )}
     </div>
   );
 }
