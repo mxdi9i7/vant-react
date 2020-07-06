@@ -1,0 +1,45 @@
+@import '../../styles/colors.scss';
+
+$baseClass: 'vant-cell';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.#{$baseClass}__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $default;
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  cursor: pointer;
+  text-decoration: none;
+
+  .#{$baseClass}__block {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .#{$baseClass}__title,
+  .#{$baseClass}__content {
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0 5px;
+    }
+  }
+
+  p {
+    color: $grey;
+    margin-top: 6px;
+  }
+
+  i,
+  span {
+    color: $black;
+    margin-right: 6px;
+  }
+}

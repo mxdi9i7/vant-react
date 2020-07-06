@@ -44,26 +44,26 @@ const App = () => {
 ### Basic Components
 
 * [x] Button
-* [ ] Cell
+* [x] Cell
 * [x] Icon
 * [ ] Image
 * [ ] Layout
-* [ ] Popup
-* [ ] Built-in style
+* [x] Popup
+* [x] Built-in style
 
 ### Form Components
 
 * [ ] Calendar
 * [ ] Checkbox
 * [ ] DatetimePicker
-* [ ] Field
+* [x] Field
 * [ ] Form
 * [ ] NumberKeyboard
 * [ ] PasswordInput
 * [ ] Picker
 * [ ] Radio
-* [ ] Rate
-* [ ] Search
+* [x] Rate
+* [x] Search
 * [ ] Slider
 * [ ] Stepper
 * [ ] Switch
@@ -131,11 +131,15 @@ const App = () => {
 
 ## Contribution
 
+If you like what we do, please consider buy us a bubble-tea(donate)!
+
+[![DonorBox](https://d1iczxrky3cnb2.cloudfront.net/button-small-blue.png)](https://donorbox.org/vant-react-dev-team?default_interval=o&amount=5)
+
 Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) before making a pull request.
 
 Or, join our discussion group on Wechat by adding me!
 
-![Wechat QR Code](.gitbook/assets/qr.png)
+![Wechat QR code](https://github.com/mxdi9i7/Vant-react-docs/blob/master/.gitbook/assets/qr.png)
 
 ## Browser Support
 
