@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 import classnames from '../../utils/classNames';
 
@@ -18,6 +19,7 @@ export interface IProps {
   plus?: Boolean;
   minus?: Boolean;
   size?: number;
+  loading?: Boolean;
 }
 
 export default function Stepper({
@@ -27,12 +29,15 @@ export default function Stepper({
   max,
   disableInput,
   size,
-  theme
+  theme,
+  loading
 }: IProps) {
   const [value, setValue] = useState(0);
   const [minus, setMinus] = useState(false);
   const [plus, setPlus] = useState(false);
   const [Input, setInput] = useState(false);
+  const animationDiv = document.getElementById('loading');
+
   const plusBtProps = {
     className: classnames(baseClass, [{ disabled }, { theme }]),
     style: {}
@@ -47,7 +52,20 @@ export default function Stepper({
   };
 
   const handleIncrement = () => {
-    if (step) {
+    if (loading) {
+      ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
+      const handlePlus = () => {
+        if (step) {
+          setValue(value + step);
+          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+        } else {
+          setValue(value + 1);
+          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+        }
+      };
+
+      setTimeout(handlePlus, 2000);
+    } else if (step) {
       setValue(value + step);
     } else {
       setValue(value + 1);
@@ -55,7 +73,19 @@ export default function Stepper({
   };
   const handleMinus = () => {
     const canMinus = value - step;
-    if (step) {
+    if (loading) {
+      ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
+      const handleMinus = () => {
+        if (step) {
+          setValue(value - step);
+          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+        } else {
+          setValue(value - 1);
+          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
+        }
+      };
+      setTimeout(handleMinus, 2000);
+    } else if (step) {
       if (canMinus >= 0) {
         setValue(value - step);
       }
@@ -167,6 +197,7 @@ export default function Stepper({
       <button onClick={handleIncrement} {...plusBtProps} disabled={plus}>
         +
       </button>
+      {loading && <div id='loading' className='loading' />}
     </div>
   );
 }

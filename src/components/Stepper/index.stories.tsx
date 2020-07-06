@@ -33,7 +33,7 @@ export const RangeStepper = () => (
 
 export const SizeStepper = () => (
   <div className='container stepper'>
-    <Stepper size={50} />
+    <Stepper size={70} />
   </div>
 );
 
@@ -46,5 +46,11 @@ export const RoundStepper = () => (
 export const DisableInputStepper = () => (
   <div className='container stepper'>
     <Stepper disableInput />
+  </div>
+);
+
+export const AsyncStepper = () => (
+  <div className='container stepper'>
+    <Stepper loading />
   </div>
 );
