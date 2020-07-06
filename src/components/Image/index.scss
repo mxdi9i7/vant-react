@@ -42,4 +42,17 @@ $baseClass: 'vant-image';
       border-radius: 50%;
     }
   }
+
+  &__empty {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $grey;
+
+    circle {
+      stroke: $grey;
+    }
+  }
 }

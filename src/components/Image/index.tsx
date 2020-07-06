@@ -3,6 +3,7 @@ import Icon from '../Icons';
 import classnames from '../../utils/classNames';
 
 import './index.scss';
+import CircularLoading from '../../assets/icons/loaders/Circular';
 
 export interface IProps {
   src?: string;
@@ -16,6 +17,7 @@ export interface IProps {
   showLoading?: boolean;
   errorIcon?: string;
   loadingIcon?: string;
+  loadingSpinner?: boolean;
 }
 
 // TODO: LazyLoad, need lazyLoad component
@@ -33,7 +35,8 @@ const Image = ({
   showError = true,
   showLoading = true,
   errorIcon = 'warning-o',
-  loadingIcon = 'photo-o'
+  loadingIcon = 'photo-o',
+  loadingSpinner = false
 }: IProps) => {
   const [isError, setError] = useState(false);
   const [isLoading, setLoading] = useState(true);
@@ -56,13 +59,28 @@ const Image = ({
     },
     {
       round
+    },
+    {
+      empty: isError || isLoading
     }
   ]);
 
+  const renderIcon = () => {
+    if (isLoading && showLoading) {
+      if (loadingSpinner) return <CircularLoading loadingSize='22px' />;
+      if (!src) return <Icon name={loadingIcon} />;
+      if (isError && showError) {
+        return <Icon name={errorIcon} />;
+      }
+      if (loadingIcon) return <Icon name={loadingIcon} />;
+    }
+    if (isError && showError) return <Icon name={errorIcon} />;
+    return null;
+  };
+
   return (
     <div className={className}>
-      {isLoading && showLoading && <Icon name={loadingIcon} />}
-      {isError && showError && <Icon name={errorIcon} />}
+      {renderIcon()}
       <img
         width={width}
         height={height}

@@ -8,6 +8,7 @@ export default {
 };
 
 const dummyImage = 'https://img.yzcdn.cn/vant/cat.jpeg';
+const nonExistentImage = 'https://img.yzcdn.cn/vant/cat123.jpeg';
 
 export const BasicUsage = () => (
   <div className='storybook__container grey'>
@@ -67,6 +68,13 @@ export const RoundImage = () => (
 
 export const Loading = () => (
   <div className='storybook__container grey'>
-    <Image loadingIcon='picture-o' src={dummyImage + '123'} />
+    <Image src='' />
+    <Image src='' loadingSpinner />
+  </div>
+);
+
+export const Error = () => (
+  <div className='storybook__container grey'>
+    <Image src={nonExistentImage} />
   </div>
 );
