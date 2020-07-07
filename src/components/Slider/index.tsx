@@ -119,11 +119,11 @@ const Slider = ({
           dom3.style.width = `${
             parseInt(size.width) - sliderOffset + HIDE_ROUND
           }px`;
-          setValue(parseInt(range.max));
+          setValue(handleStep(parseInt(range.max)));
         } else if (e.pageX < dom1.offsetLeft) {
           dom2.style.left = `${0 - sliderOffset}px`;
           dom3.style.width = '0px';
-          setValue(parseInt(range.min));
+          setValue(handleStep(parseInt(range.min)));
         } else {
           dom2.style.left = `${e.pageX - dom1.offsetLeft - sliderOffset}px`;
           dom3.style.width = `${
