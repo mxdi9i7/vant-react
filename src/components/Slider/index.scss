@@ -16,6 +16,7 @@ $baseSliderClass: 'vant-slider__slider';
 
   &__disabled {
     opacity: 0.6;
+    cursor: not-allowed;
   }
 }
 
@@ -25,6 +26,10 @@ $baseSliderClass: 'vant-slider__slider';
   align-items: center;
   border-radius: 4px;
   cursor: pointer;
+
+  &__disabled {
+    cursor: not-allowed;
+  }
 }
 
 .#{$baseSliderClass} {
@@ -35,12 +40,8 @@ $baseSliderClass: 'vant-slider__slider';
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.#{$baseWrapperClass},
-.#{$baseFillClass},
-.#{$baseSliderClass} {
   &__disabled {
-    cursor: not-allowed !important;
+    cursor: not-allowed;
   }
 }

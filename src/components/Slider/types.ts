@@ -3,17 +3,17 @@ export interface IProps {
   hasValue?: boolean;
   activeColor?: string;
   inactiveColor?: string;
-  size?: { width: number; height: number };
-  sliderSize?: { width: number; height: number };
+  size?: { width: string; height: string };
+  sliderSize?: { width: string; height: string };
   sliderStyle?: {
-    color: string;
-    fontSize: string;
-    backgroundColor: string;
-    borderRadius: string;
-    borderColor: string;
+    color?: string;
+    fontSize?: string;
+    backgroundColor?: string;
+    borderRadius?: string;
+    borderColor?: string;
   };
-  range?: { min: number; max: number };
+  range?: { min: string; max: string };
   id?: string;
-  value: number | undefined;
+  value: number;
   setValue: Function;
 }

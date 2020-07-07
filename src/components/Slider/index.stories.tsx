@@ -31,7 +31,7 @@ export const SlideRange = () => {
         <Slider
           value={value}
           setValue={setValue}
-          range={{ min: -50, max: 50 }}
+          range={{ min: '-50px', max: '50px' }}
         />
       </div>
     </div>
@@ -66,7 +66,7 @@ export const ShowValue = () => {
           borderRadius: '5px',
           borderColor: '#000'
         }}
-        sliderSize={{ width: 30, height: 20 }}
+        sliderSize={{ width: '30px', height: '20px' }}
         hasValue
       />
     </div>
@@ -74,7 +74,7 @@ export const ShowValue = () => {
 };
 
 export const CustomSize = () => {
-  const [valueA, setValueA] = useState(0);
+  const [valueA, setValueA] = useState(80);
   const [valueB, setValueB] = useState(-50);
 
   return (
@@ -85,7 +85,7 @@ export const CustomSize = () => {
           id='a'
           value={valueA}
           setValue={setValueA}
-          size={{ width: 300, height: 10 }}
+          size={{ width: '300px', height: '10px' }}
         />
       </div>
       <div className='slider-block'>
@@ -94,7 +94,7 @@ export const CustomSize = () => {
           id='b'
           value={valueB}
           setValue={setValueB}
-          sliderSize={{ width: 30, height: 30 }}
+          sliderSize={{ width: '30px', height: '30px' }}
         />
       </div>
     </div>
@@ -102,7 +102,7 @@ export const CustomSize = () => {
 };
 
 export const CustomStyle = () => {
-  const [valueA, setValueA] = useState(0);
+  const [valueA, setValueA] = useState(30);
   const [valueB, setValueB] = useState(-50);
 
   return (
@@ -113,7 +113,7 @@ export const CustomStyle = () => {
           id='a'
           value={valueA}
           setValue={setValueA}
-          size={{ width: 400, height: 10 }}
+          size={{ width: '400px', height: '10px' }}
           activeColor='#b90000'
         />
       </div>
@@ -123,6 +123,7 @@ export const CustomStyle = () => {
           id='b'
           value={valueB}
           setValue={setValueB}
+          sliderStyle={{ backgroundColor: '#2F4F4F' }}
           inactiveColor='transparent'
         />
       </div>
