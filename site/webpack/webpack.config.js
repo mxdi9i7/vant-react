@@ -1,0 +1,207 @@
+const webpack = require('webpack');
+const Fiber = require('fibers');
+const sass = require('sass');
+const os = require('os');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const { prefix } = require('../constants');
+
+const DEV = process.env.NODE_ENV !== 'production';
+
+
+module.exports = {
+  mode: process.env.NODE_ENV,
+
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name]-[hash].js',
+    publicPath: prefix,
+  },
+
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.md', '.json'],
+    alias: Object.assign({
+      vant$: path.resolve(__dirname, '../../src'),
+    }),
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+        use: 'url-loader',
+      },
+      {
+        test: /\.html$/,
+        use: 'html-loader',
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'cache-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: DEV,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: DEV,
+              config: {
+                path: path.resolve(__dirname, '..'),
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: DEV,
+              implementation: sass,
+              fiber: Fiber,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'thread-loader',
+            // loaders with equal options will share worker pools
+            options: {
+              // the number of spawned workers, defaults to (number of cpus - 1) or
+              // fallback to 1 when require('os').cpus() is undefined
+              workers: os.cpus() - 1,
+
+              // number of jobs a worker processes in parallel
+              // defaults to 20
+              workerParallelJobs: 10,
+
+              // additional node.js arguments
+              workerNodeArgs: ['--max-old-space-size=1024'],
+
+              // Allow to respawn a dead worker pool
+              // respawning slows down the entire compilation
+              // and should be set to false for development
+              poolRespawn: !DEV,
+
+              // timeout for killing the worker processes when idle
+              // defaults to 500 (ms)
+              // can be set to Infinity for watching builds to keep workers alive
+              poolTimeout: DEV ? Infinity : 500,
+
+              // number of jobs the poll distributes to the workers
+              // defaults to 200
+              // decrease of less efficient but more fair distribution
+              poolParallelJobs: 50,
+
+              // name of the pool
+              // can be used to create different pools with elsewise identical options
+              name: 'md-pool',
+            },
+          },
+          'babel-loader',
+          {
+            loader: path.resolve(__dirname, '../markdown-loader')
+          },
+          // {
+          //   loader: 'react-markdown-doc-loader',
+          //   options: {
+          //     jsTemplate: path.resolve(__dirname, '../react-template.jstpl'),
+          //     renderers: {
+          //       markdown: 'Markdown',
+          //       style: 'Style',
+          //       demo: 'Demo',
+          //     },
+          //   },
+          // },
+          // 'markdown-doc-loader',
+        ],
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              useCache: true,
+              getCustomTransformers: program => ({
+                before: [],
+              }),
+            },
+          },
+        ],
+      },
+    ],
+  },
+
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      VERSION: 'release',
+    }),
+
+    new ProgressBarPlugin(),
+
+    new HtmlWebpackPlugin({
+      template: 'src/desktop/index.html',
+      filename: 'index.html',
+      chunks: ['vendor', 'docs'],
+      inject: 'body',
+    }),
+
+    new HtmlWebpackPlugin({
+      template: 'src/simulator/index.html',
+      chunks: ['vendor', 'simulator'],
+      filename: 'simulator.html',
+      inject: 'body',
+    }),
+
+    new HtmlWebpackPlugin({
+      template: 'src/404.html',
+      filename: '404.html',
+      chunks: [],
+      inject: false,
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: DEV ? '[name].css' : '[name]-[contenthash].css',
+      chunkFilename: DEV ? '[id].css' : '[id].[contenthash].css',
+    }),
+  ],
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
+
+  node: {
+    fs: 'empty',
+    net: 'empty',
+  },
+};

@@ -1,0 +1,20 @@
+@import '../../common/styles/index.scss';
+
+.van-doc-row {
+  width: 100%;
+
+  @media(min-width: $van-doc-row-max-width) {
+    width: $van-doc-row-max-width;
+    margin: 0 auto;
+  }
+}
+
+.van-doc-container {
+  box-sizing: border-box;
+  padding-left: $van-doc-nav-width;
+  overflow: hidden;
+
+  &--with-simulator {
+    padding-right: $van-doc-simulator-width + $van-doc-padding;
+  }
+}

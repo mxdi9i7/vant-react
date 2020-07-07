@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
+    "jsx": "react",
+    "allowJs": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+  },
+  "exclude": [
+    "lib",
+    "es",
+  ],
+  "include": [
+    "src",
+    "../src",
+  ]
+}
