@@ -23,6 +23,7 @@ const Slider = ({
   activeColor = '#4169e1',
   inactiveColor = '#d3d3d3',
   id,
+  step = 1,
   value = parseInt(range.min),
   setValue
 }: IProps) => {
@@ -54,6 +55,15 @@ const Slider = ({
     style: {}
   };
 
+  const handleStep = (value) => {
+    return (
+      Math.round(
+        Math.max(parseInt(range.min), Math.min(value, parseInt(range.max))) /
+          step
+      ) * step
+    );
+  };
+
   useEffect(() => {
     !disabled && handleSlide();
   }, [value]);
@@ -66,10 +76,11 @@ const Slider = ({
   };
 
   const getValue = (e, dom1) => {
-    return Math.round(
+    const result = Math.round(
       ((e.pageX - dom1.offsetLeft) / parseInt(size.width)) * slideRange +
         parseInt(range.min)
     );
+    return handleStep(result);
   };
 
   const move = (dom1, dom2, dom3) => {

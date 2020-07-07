@@ -14,6 +14,7 @@ export interface IProps {
   };
   range?: { min: string; max: string };
   id?: string;
+  step?: number;
   value: number;
   setValue: Function;
 }

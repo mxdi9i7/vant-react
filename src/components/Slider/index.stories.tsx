@@ -38,6 +38,19 @@ export const SlideRange = () => {
   );
 };
 
+export const SlideStep = () => {
+  const [value, setValue] = useState(0);
+
+  return (
+    <div className='slider-container'>
+      <div className='slider-block'>
+        <p>{`Current Value : ${value}`}</p>
+        <Slider value={value} setValue={setValue} step={10} />
+      </div>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   const [value, setValue] = useState(30);
 
