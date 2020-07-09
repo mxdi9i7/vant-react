@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
+import { withRouter } from 'react-router-dom';
 import SearchBox from '../search-box';
-import RouterContext from '../router-context-type';
-
-import docConfigs, { versions } from '../../../../configs/doc.config';
+import { versions } from '../../../../configs/doc.config';
+import navConfigs from '../../../../configs/nav.config';
 
 import './style.scss';
 
@@ -12,8 +11,7 @@ const CONTROLLS = {
   'en-US': '中文',
 };
 
-export default class PageHeader extends Component {
-  static contextTypes = RouterContext;
+class Header extends Component {
 
   toggle = () => {
     const { replace } = this.context.router.history;
@@ -28,7 +26,7 @@ export default class PageHeader extends Component {
 
   render() {
     const { i18n, sideNavData } = this.props;
-    const { header } = docConfigs[i18n];
+    const { header } = navConfigs[i18n];
 
     const { nav, logo } = header;
 
@@ -78,3 +76,5 @@ export default class PageHeader extends Component {
     );
   }
 }
+
+export default withRouter(Header);

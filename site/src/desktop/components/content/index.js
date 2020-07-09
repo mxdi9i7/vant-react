@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter } from "react-router-dom";
 import classnames from 'classnames';
 
@@ -9,23 +9,19 @@ import './styles.scss';
 
 
 function Layout({
-  oreo,
   i18n,
   children,
   version,
   sideNavData,
   sideNavRef,
-  saveFooter,
   location,
 }) {
   const { pathname } = location;
-  const index = pathname.indexOf(`/api`);
-  const withSimulator = index > -1;
-  const simulatorRouter = pathname.substr(index)
+  const withSimulator = true;
 
   const [ innerHeight, setInnerHeight ] = React.useState(window.innerHeight);
-
   const [ scrollY, setScrollY ] = React.useState(window.scrollY);
+  const iframeRef = React.useRef(null);
 
   const simulatorStyles = React.useMemo(() => {
     const height = Math.min(640, innerHeight - 90);
@@ -50,7 +46,7 @@ function Layout({
   return (
     <div className="van-doc">
       <PageHeader version={version} i18n={i18n} sideNavData={sideNavData} />
-      <SideNav data={sideNavData} base={oreo} ref={sideNavRef} className={classnames({
+      <SideNav data={sideNavData} i18n={i18n} ref={sideNavRef} className={classnames({
         'van-doc-nav-fixed': isFixed,
       })}/>
       <div className={classnames('van-doc-container van-doc-row', {
@@ -62,7 +58,7 @@ function Layout({
         {withSimulator && <div className={classnames('van-doc-simulator', {
           'van-doc-simulator-fixed': isFixed
         })}>
-          <iframe src={`${prefix}simulator.html#${simulatorRouter}`} style={simulatorStyles} frameBorder="0" ></iframe>
+          <iframe ref={iframeRef} src={`${prefix}simulator.html#${pathname}`} style={simulatorStyles} frameBorder="0" ></iframe>
         </div>}
       </div>
     </div>

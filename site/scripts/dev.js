@@ -15,18 +15,6 @@ let onceMark = true;
 
 const compiler = webpack(webpackConfig);
 
-// compiler.apply(
-//   new ProgressPlugin((percentage, message, ...args) => {
-//     // {
-//     //   format: '  build [:bar] :percent (:elapsed seconds)',
-//     //   clear: false,
-//     //   width: 60,
-//     // }
-//     // e.g. Output each progress message directly to the console:
-//     console.info(percentage, message, ...args);
-//   })
-// );
-
 compiler.plugin('done', () => {
   if (onceMark) {
     cp.exec(`${cmds[process.platform]} http://127.0.0.1:4396`);

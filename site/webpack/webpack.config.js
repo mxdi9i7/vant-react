@@ -175,13 +175,6 @@ module.exports = {
       inject: 'body',
     }),
 
-    new HtmlWebpackPlugin({
-      template: 'src/404.html',
-      filename: '404.html',
-      chunks: [],
-      inject: false,
-    }),
-
     new MiniCssExtractPlugin({
       filename: DEV ? '[name].css' : '[name]-[contenthash].css',
       chunkFilename: DEV ? '[id].css' : '[id].[contenthash].css',

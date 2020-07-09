@@ -12,18 +12,11 @@ const render = ChildComponent => {
     <AppContainer warnings={false}>
       <ChildComponent />
     </AppContainer>,
-    document.getElementById('app-container') // eslint-disable-line
+    document.getElementById('app-container')
   );
 };
 
-// Add a delay in dev mode to ensure styles are loaded before executing any JavaScript code
-if (process.env.NODE_ENV !== 'production') {
-  setTimeout(() => {
-    render(App);
-  }, 500);
-} else {
-  render(App);
-}
+render(App);
 
 if (module.hot) {
   module.hot.accept('./App', () => {

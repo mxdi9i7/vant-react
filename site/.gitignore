@@ -1,4 +1,5 @@
 dist
 node_modules
-src/nav.js
+configs/site-desktop-shared.js
+configs/site-mobile-shared.js
 .awcache

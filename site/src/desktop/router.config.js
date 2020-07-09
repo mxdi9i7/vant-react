@@ -1,32 +1,50 @@
-const registerRoute = (navData, oreo = '') => {
-  let route = [];
+import configs from '../../configs/nav.config';
+import { documents } from '../../configs/site-desktop-shared';
 
-  if (!navData) return route;
+function decamelize(str, sep = '-') {
+  return str
+    .replace(/([a-z\d])([A-Z])/g, '$1' + sep + '$2')
+    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + sep + '$2')
+    .toLowerCase();
+}
 
-  function addRoute(page) {
-    const { path, source, title } = page;
-    route.push({
-      path: `${oreo}/${path}`,
-      source,
-      title,
-    });
+function parseName(name) {
+  if (name.indexOf('_') !== -1) {
+    const pairs = name.split('_');
+    const component = pairs.shift();
+
+    return {
+      component: `${decamelize(component)}`,
+      lang: pairs.join('-'),
+    };
   }
 
-  navData.forEach(nav => {
-    if (nav.list) {
-      nav.list.forEach(subNav => {
-        addRoute(subNav);
-      });
-    } else if (nav.children) {
-      nav.children.forEach(subNav => {
-        addRoute(subNav);
-      });
-    } else {
-      addRoute(nav);
+  return {
+    component: `${decamelize(name)}`,
+    lang: '',
+  };
+}
+
+
+function getRoutes() {
+  const routes = [];
+  const names = Object.keys(documents);
+
+
+
+  names.forEach(name => {
+    const { component, lang } = parseName(name);
+
+    if (lang) {
+      routes.push({
+        name: `${lang}/${component}`,
+        path: `/${lang}/${component}`,
+        component: documents[name],
+      })
     }
-  });
+  })
 
-  return route;
-};
+  return routes;
+}
 
-export { registerRoute };
+export default getRoutes;

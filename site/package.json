@@ -10,8 +10,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "prepare-build": "rm -rf dist",
-    "dev": "cross-env NODE_ENV=development node scripts/dev.js",
+    "prepare": "node ./scripts/gen-shared.js",
+    "prepare-build": "rm -rf dist && yarn prepare",
+    "dev": "yarn prepare && cross-env NODE_ENV=development node scripts/dev.js",
     "webpack": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack/webpack.prd.config.js",
     "build": "yarn prepare-build && yarn webpack",
     "deploy": "yarn install && yarn build && ./scripts/deploy.sh"

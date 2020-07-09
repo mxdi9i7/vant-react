@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -8,30 +8,12 @@ import {
 
 import ScrollToTop from './components/scroll-to-top';
 import { version as pkgVersion } from '../../configs/doc.config';
-import docConfigs from '../../configs/doc.config';
-import { registerRoute } from './router.config';
+import navConfig from '../../configs/nav.config';
 import { prefix } from '../../constants';
-import CNWrapper from './components/i18n/CNWrapper';
-// import USWrapper from './components/USWrapper';
+import DocContent from './components/content';
+import getRoutes from './router.config';
 
-window.addEventListener('click', e => {
-  if (e.target instanceof HTMLAnchorElement) {
-    const { href } = e.target;
-    if (/(apidoc|formulr)/.test(href)) {
-      e.preventDefault();
-      window.open(href, '_blank', 'noopener,noreferrer');
-    }
-  }
-});
-
-// one-dimentional array
-// 第二个参数作为处理路由分块的夹层暂时存在，后续会修复。
-const routeData = {
-  'zh-CN': registerRoute(docConfigs['zh-CN'].nav, '/zh'),
-  // 'en-US': registerRoute(navData['en-US'], '/en'),
-};
-
-
+const routes = getRoutes();
 export default class App extends Component {
   state = {
     i18n: 'zh-CN',
@@ -45,51 +27,33 @@ export default class App extends Component {
 
   render() {
     const { i18n } = this.state;
-    const sideNavData = docConfigs[i18n].nav;
+    const sideNavData = navConfig[i18n].nav;
     const passthrough = i18nStr => ({
       // 奥利奥，路由路径中的夹层。
       oreo: `/${i18nStr.split('-')[0]}`,
       version: pkgVersion,
       sideNavData: sideNavData,
-      sideNavRef: this.saveSideNav,
-      saveFooter: this.saveFooter,
       changeI18N: this.changeI18N,
       prefix,
       i18n,
     });
 
+    console.log(routes)
+
     // 通过 basename 控制前缀，不要放到每一层路由里去
     return (
-      <Router key={module.hot ? Math.random() : null} basename={prefix}>
-        <ScrollToTop>
-          <Switch>
-            <Route
-              path="/zh"
-              render={() => (
-                <CNWrapper pass={passthrough('zh-CN')}>
-                  <Switch>{routeData['zh-CN'].map(renderRouter)}</Switch>
-                </CNWrapper>
-              )}
-            />
-            {/* <Route
-              path="/en"
-              render={() => (
-                <I18nProvider value={i18nEN}>
-                  <USWrapper pass={passthrough('en-US')}>
-                    <Switch>{routeData['en-US'].map(renderRouter)}</Switch>
-                  </USWrapper>
-                </I18nProvider>
-              )}
-            /> */}
-            <Redirect from="*" to={routeData['zh-CN'][0].path} />
-          </Switch>
-        </ScrollToTop>
-      </Router>
-    );
+        <Router key={module.hot ? Math.random() : null}>
+          <DocContent {...passthrough('zh-CN')}>
+            <ScrollToTop>
+              <Switch>
+                {
+                  routes.map(item => <Route path={item.path} component={item.component} key={item.name} />)
+                }
+                <Redirect from="/*" to={`${i18n}/quickstart`} />
+              </Switch>
+            </ScrollToTop>
+          </DocContent>
+        </Router>
+    )
   }
-}
-
-function renderRouter(data) {
-  const { source, path } = data;
-  return <Route key={`route-${path}`} component={source} path={path} />;
 }

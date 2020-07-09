@@ -1,12 +1,28 @@
 import * as React from 'react';
-import DemoConfig from '../../configs/demo.config';
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import { getRoutes } from './utils';
+import DemoHome from './pages/DemoHome';
+
+const routes = getRoutes();
+
+console.log(routes);
 
 const App = () => {
-  const componentName = window.location.hash.replace('#/api/', '');
-
-  const DemoComponent = DemoConfig[componentName];
   return (
-    <DemoComponent key={module.hot ? Math.random() : null} />
+   <Router>
+     <Switch>
+       <Route path="/zh" component={DemoHome} exact />
+       {
+        routes.map(item => <Route path={item.path} component={item.component} key={name} />)
+      }
+      <Redirect path="*" to="/zh" />
+     </Switch>
+   </Router>
   );
 }
 
