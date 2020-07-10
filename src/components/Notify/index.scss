@@ -1,0 +1,50 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-notify';
+$baseContentClass: 'vant-notify__content';
+
+.#{$baseClass} {
+  overflow: scroll;
+  background-color: $default;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  position: fixed;
+
+  &__closeable {
+    .closeIcon {
+      position: absolute;
+      z-index: 2;
+
+      i {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__isActive {
+    display: flex;
+    width: 100vw;
+    height: 10px;
+    top: 0;
+    // transform: translateY(-100%);
+    // transform: translateX(0px);
+    // transition: 0.5s ease-in-out;
+  }
+}
+
+.#{$baseContentClass} {
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  display: none;
+
+  &__isActive {
+    display: block;
+  }
+}
