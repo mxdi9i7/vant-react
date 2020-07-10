@@ -23,7 +23,7 @@
     "deploy": "cd site && yarn deploy",
     "lint": "eslint --ext .tsx ./src",
     "lint:watch": "esw --watch --fix --ext .tsx ./src",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
