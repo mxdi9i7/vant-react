@@ -11,13 +11,13 @@ export default {
 export const BasicUsage = () => (
   <div className='container column grey'>
     <Cell
-      title={{ text: 'Title', fontSize: '20px' }}
-      content={{ text: 'Content', fontSize: '16px' }}
+      title={{ text: 'Title', fontSize: '14px' }}
+      content={{ text: 'Content', fontSize: '12px' }}
     />
     <Cell
-      title={{ text: 'Title', fontSize: '16px' }}
-      content={{ text: 'Content', fontSize: '16px' }}
-      description='description'
+      title={{ text: 'Title', fontSize: '14px' }}
+      content={{ text: 'Content', fontSize: '12px' }}
+      description={{ text: 'description', fontSize: '12px' }}
     />
   </div>
 );
@@ -25,10 +25,10 @@ export const BasicUsage = () => (
 export const cellIcon = () => (
   <div className='container column grey'>
     <Cell
-      titleIcon={{ name: 'location-o', size: '16px' }}
-      title={{ text: 'Title', fontSize: '20px' }}
-      contentIcon={{ name: 'arrow', size: '16px' }}
-      content={{ text: 'Content', fontSize: '16px' }}
+      titleIcon={{ name: 'location-o', size: '12px' }}
+      title={{ text: 'Title', fontSize: '14px' }}
+      contentIcon={{ name: 'arrow', size: '12px' }}
+      content={{ text: 'Content', fontSize: '12px' }}
     />
   </div>
 );
@@ -36,29 +36,29 @@ export const cellIcon = () => (
 export const cellTag = () => (
   <div className='container column grey'>
     <Cell
-      title={{ text: 'Title', fontSize: '20px' }}
+      title={{ text: 'Title', fontSize: '14px' }}
       Tag={<Tag type='danger' text='Tag' />}
-      content={{ text: 'Content', fontSize: '16px' }}
+      content={{ text: 'Content', fontSize: '12px' }}
     />
   </div>
 );
 
 export const roundCell = () => (
   <div className='container column grey'>
-    <Cell title={{ text: 'Title', fontSize: '20px' }} round />
+    <Cell title={{ text: 'Title', fontSize: '14px' }} round />
   </div>
 );
 
 export const valueOnly = () => (
   <div className='container column grey'>
-    <Cell content={{ text: 'Content', fontSize: '16px' }} />
+    <Cell content={{ text: 'Content', fontSize: '14px' }} />
   </div>
 );
 
 export const URL = () => (
   <div className='container column grey'>
     <Cell
-      title={{ text: 'URL', fontSize: '20px' }}
+      title={{ text: 'URL', fontSize: '14px' }}
       url='www.google.com'
       replace
     />
@@ -68,7 +68,7 @@ export const URL = () => (
 export const Active = () => (
   <div className='container column grey'>
     <Cell
-      title={{ text: 'Click', fontSize: '20px' }}
+      title={{ text: 'Click', fontSize: '14px' }}
       click={(e) => {
         alert(e);
       }}

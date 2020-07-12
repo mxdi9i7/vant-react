@@ -7,7 +7,9 @@ $baseContentClass: 'vant-popup__content';
 
 .#{$baseContainerClass} {
   visibility: hidden;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   z-index: 10;
@@ -30,8 +32,6 @@ $baseContentClass: 'vant-popup__content';
 
 .#{$baseClass} {
   overflow: scroll;
-  height: 50vh;
-  width: 50vw;
   background-color: $default;
   display: flex;
   justify-content: center;
@@ -43,6 +43,10 @@ $baseContentClass: 'vant-popup__content';
     .closeIcon {
       position: absolute;
       z-index: 2;
+
+      i {
+        cursor: pointer;
+      }
     }
   }
 
@@ -53,38 +57,41 @@ $baseContentClass: 'vant-popup__content';
   }
 
   &__center {
-    max-height: 50vh;
-    max-width: 50vw;
     display: none;
   }
 
   &__left {
     height: 100vh;
-    max-width: 50vw;
     left: 0;
     transform: translateX(-100%);
   }
 
   &__right {
     height: 100vh;
-    max-width: 50vw;
     right: 0;
     transform: translateX(100%);
   }
 
   &__top {
-    max-height: 50vh;
     width: 100vw;
     top: 0;
     transform: translateY(-100%);
   }
 
   &__bottom {
-    max-height: 50vh;
     width: 100vw;
     bottom: 0;
     transform: translateY(100%);
   }
+}
+
+.#{$baseClass}::-webkit-scrollbar {
+  width: 0 !important; //chrome and Safari
+}
+
+.#{$baseClass} {
+  -ms-overflow-style: none; //IE 10+
+  overflow: -moz-scrollbars-none; //Firefox
 }
 
 .vant-popup__center.vant-popup__isActive {
@@ -92,9 +99,12 @@ $baseContentClass: 'vant-popup__content';
 }
 
 .#{$baseContentClass} {
-  height: inherit;
-  width: inherit;
-  position: absolute;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
   display: none;
 
   &__isActive {

@@ -4,7 +4,7 @@ import { TAlignment } from '../Field/types';
 export interface IProps {
   isActive: boolean;
   borderRadius?: string;
-  size?: [string, string];
+  size?: { width: string; height: string };
   text?: {
     text: string;
     color: string;
@@ -15,6 +15,7 @@ export interface IProps {
   type?: PopupTypes;
   color?: string;
   children?: string;
+  padding?: string;
   closeable?: boolean;
   closeIcon?: { name: string; size: string };
   closeIconPosition?: object;

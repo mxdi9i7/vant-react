@@ -9,19 +9,19 @@ export default {
 };
 
 export const BasicUsage = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field />
   </div>
 );
 
 export const RequiredField = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field label='Required' required />
   </div>
 );
 
 export const CustomTypes = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field label='Text' type='text' />
     <Field label='Phone' type='tel' />
     <Field label='Digit' type='digit' />
@@ -31,21 +31,21 @@ export const CustomTypes = () => (
 );
 
 export const Disabled = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field disabled value='Input Disabled' />
     <Field readonly value='Input Readonly' />
   </div>
 );
 
 export const Colon = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field label='Colon' colon />
   </div>
 );
 
 export const ShowIcon = () => {
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <Field label='Left Icon' leftIcon='music-o' />
       <Field label='Right Icon' rightIcon='success' />
       <Field labelWidth='150px' label='Label Icon' labelIcon='search' />
@@ -57,7 +57,7 @@ export const FieldEvents = () => {
   const [value, setValue] = useState('');
   const [isFocus, setFocus] = useState(false);
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <p>Value: {value}</p>
       <Field
         leftIcon='smile-o'
@@ -114,7 +114,7 @@ export const FieldRef = () => {
   });
 
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <p>
         Container Ref element name:
         {
@@ -142,7 +142,7 @@ export const FieldRef = () => {
 
 export const AutoFocus = () => {
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <Field autofocus placeholder='Autofocus input field' />
     </div>
   );
@@ -150,7 +150,7 @@ export const AutoFocus = () => {
 
 export const ErrorInfo = () => {
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <Field label='Error input' error errorMessage='Invalid input info' />
     </div>
   );
@@ -159,7 +159,7 @@ export const ErrorInfo = () => {
 export const MaxLengthWordLimit = () => {
   const [value, setValue] = useState('');
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <Field
         value={value}
         input={(e) => setValue(e.target.value)}
@@ -173,7 +173,7 @@ export const MaxLengthWordLimit = () => {
 
 export const FieldWithButton = () => {
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <Field
         label='SMS'
         placeholder='SMS'
@@ -195,7 +195,7 @@ const pattern = new RegExp(/^[a-zA-Z]*$/);
 export const Formatter = () => {
   const [value, setValue] = useState('');
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <Field
         label='Text Only'
         placeholder='No Numbers'
@@ -208,13 +208,13 @@ export const Formatter = () => {
 };
 
 export const LabelUtilities = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field label='Long 220px label' labelClass='pant' labelWidth='220px' />
   </div>
 );
 
 export const LabelInputAlignment = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field
       label='Label Center'
       placeholder='Input Right'
@@ -253,7 +253,7 @@ export const LabelInputAlignment = () => (
 );
 
 export const AutoResize = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Field />
   </div>
 );

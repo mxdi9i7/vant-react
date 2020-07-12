@@ -44,11 +44,11 @@ const App = () => {
 ### Basic Components
 
 * [x] Button
-* [ ] Cell
+* [x] Cell
 * [x] Icon
-* [ ] Image
+* [x] Image
 * [ ] Layout
-* [ ] Popup
+* [x] Popup
 * [x] Built-in style
 
 ### Form Components
@@ -64,7 +64,7 @@ const App = () => {
 * [ ] Radio
 * [x] Rate
 * [x] Search
-* [ ] Slider
+* [x] Slider
 * [ ] Stepper
 * [ ] Switch
 * [ ] SwitchCell

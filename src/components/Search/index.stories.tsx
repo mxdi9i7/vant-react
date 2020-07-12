@@ -9,14 +9,14 @@ export default {
 };
 
 export const BasicUsage = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Search />
     <Search shape='round' />
   </div>
 );
 
 export const CustomLabel = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Search
       placeholder='Label width of 65px'
       label='Address'
@@ -28,19 +28,19 @@ export const CustomLabel = () => (
 );
 
 export const BackgroundColor = () => (
-  <div className='container grey'>
+  <div className='storybook__container grey'>
     <Search background='rgb(79, 192, 141)' />
   </div>
 );
 
 export const MaxLength = () => (
-  <div className='container grey'>
+  <div className='storybook__container grey'>
     <Search maxLength={5} />
   </div>
 );
 
 export const PlaceholderAutoFocus = () => (
-  <div className='container grey column'>
+  <div className='storybook__container grey column'>
     <Search placeholder='This is a placeholder' />
     <Search placeholder='This is a auto focus' autofocus />
   </div>
@@ -54,7 +54,7 @@ export const SearchActions = () => {
   const [value, setValue] = useState('');
   const [focus, setFocus] = useState(false);
   return (
-    <div className='container column grey'>
+    <div className='storybook__container column grey'>
       <h1>Value: {value}</h1>
       <Search cancel={handleClick} showAction />
       <Search cancel={handleClick} showAction actionText='Clear' />
@@ -88,7 +88,7 @@ export const SearchActions = () => {
 };
 
 export const DisabledReadonlyError = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Search disabled />
     <Search readonly />
     <Search error errorMessage='Something is up' />
@@ -96,7 +96,7 @@ export const DisabledReadonlyError = () => (
 );
 
 export const AlignmentAndIcon = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Search inputAlign='center' placeholder='This is a placeholder' />
     <Search inputAlign='right' placeholder='This is a placeholder' />
     <Search leftIcon='smile-o' />
