@@ -9,7 +9,7 @@ export default {
 };
 
 export const Types = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Default tag' type='default' />
     <Tag text='Primary tag' type='primary' />
     <Tag text='Info tag' type='info' />
@@ -19,7 +19,7 @@ export const Types = () => (
 );
 
 export const Plain = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Default tag' type='default' plain />
     <Tag text='Primary tag' type='primary' plain />
     <Tag text='Info tag' type='info' plain />
@@ -29,7 +29,7 @@ export const Plain = () => (
 );
 
 export const Sizes = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Small Tag' type='danger' size='small' />
     <Tag text='Medium Tag' type='primary' size='medium' />
     <Tag text='Large Tag' type='info' size='large' />
@@ -37,7 +37,7 @@ export const Sizes = () => (
 );
 
 export const CustomColors = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Tag' color='FFA000' />
     <Tag text='Tag' color='FFECB3' />
     <Tag text='Tag' color='5D4037' />
@@ -45,7 +45,7 @@ export const CustomColors = () => (
 );
 
 export const Round = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Default tag' round type='default' />
     <Tag text='Primary tag' round type='primary' />
     <Tag text='Info tag' round type='info' />
@@ -55,7 +55,7 @@ export const Round = () => (
 );
 
 export const Mark = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Default tag' mark type='default' />
     <Tag text='Primary tag' mark type='primary' />
     <Tag text='Info tag' mark type='info' />
@@ -65,7 +65,7 @@ export const Mark = () => (
 );
 
 export const Closeable = () => (
-  <div className='container'>
+  <div className='storybook__container'>
     <Tag text='Warning tag' color='FFA000' closeable />
     <Tag text='Danger tag' closeable type='danger' />
   </div>

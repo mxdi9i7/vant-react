@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import './index.scss';
 
 interface Props {
-  className: string;
+  className?: string;
   loadingSize?: string;
 }
 

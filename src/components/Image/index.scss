@@ -1,0 +1,58 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-image';
+
+.#{$baseClass} {
+  background-color: #f7f8fa;
+  &__contain {
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__cover {
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__fill {
+    img {
+      object-fit: fill;
+    }
+  }
+
+  &__none {
+    img {
+      object-fit: none;
+    }
+  }
+
+  &__scale-down {
+    img {
+      object-fit: scale-down;
+    }
+  }
+
+  &__round {
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &__empty {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $grey;
+
+    circle {
+      stroke: $grey;
+    }
+  }
+}

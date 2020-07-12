@@ -7,6 +7,7 @@ import Search from './components/Search';
 import Popup from './components/Popup';
 import Cell from './components/Cell';
 import Rate from './components/Rate';
+import Image from './components/Image';
 import Slider from './components/Slider';
 
 export { default as Button } from './components/Button';
@@ -18,6 +19,7 @@ export { default as Search } from './components/Search';
 export { default as Popup } from './components/Popup';
 export { default as Cell } from './components/Cell';
 export { default as Rate } from './components/Rate';
+export { default as Image } from './components/Image';
 export { default as Slider } from './components/Slider';
 
 const Vant = {
@@ -30,6 +32,7 @@ const Vant = {
   Popup,
   Cell,
   Rate,
+  Image,
   Slider
 };
 
