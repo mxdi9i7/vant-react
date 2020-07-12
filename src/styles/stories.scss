@@ -63,6 +63,23 @@ body {
     }
   }
 }
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .slider-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    p {
+      margin-bottom: 20px;
+    }
+  }
+}
 
 .storybook__icons-container {
   padding: 15px;
