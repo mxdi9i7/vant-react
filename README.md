@@ -46,7 +46,7 @@ const App = () => {
 * [x] Button
 * [x] Cell
 * [x] Icon
-* [ ] Image
+* [x] Image
 * [ ] Layout
 * [x] Popup
 * [x] Built-in style
@@ -64,7 +64,7 @@ const App = () => {
 * [ ] Radio
 * [x] Rate
 * [x] Search
-* [ ] Slider
+* [x] Slider
 * [ ] Stepper
 * [ ] Switch
 * [ ] SwitchCell
