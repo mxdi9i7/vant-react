@@ -9,9 +9,7 @@ import './index.scss';
 const baseClass = 'vant-layout';
 
 const Column = ({
-  text,
   color,
-  start,
   span,
   gutter,
   offset,
@@ -28,12 +26,10 @@ const Column = ({
     <div
       {...columnProps}
       style={{
-        backgroundColor: color,
-        gridColumn: start,
-        gridColumnEnd: span
+        backgroundColor: color
       }}
     >
-      {text}
+      {`span: ${span}`}
     </div>
   );
 };
