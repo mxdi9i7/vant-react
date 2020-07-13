@@ -2,21 +2,13 @@ import { ReactElement } from 'react';
 import { TAlignment } from '../Field/types';
 
 export interface IProps {
-  size?: [string, string];
-  text?: {
-    text: string;
-    fontSize: string;
-    lineHight: string;
-    textAlign: TAlignment;
-  };
-  content?: ReactElement; //????
+  text?: string;
   color?: string;
-  type?: string;
-  gutter?: string; //or number
+  start: string;
   span: string;
+  gutter?: string; 
   offset: number;
-
-  justify: string; //?
+  justify: string; 
   align: string;
 
   click?: Function;
