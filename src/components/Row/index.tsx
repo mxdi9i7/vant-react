@@ -8,7 +8,7 @@ import './index.scss';
 
 const baseClass = 'vant-layout';
 
-const Row = ({ gutter, offset, justify, align, click }: IProps) => {
+const Row = ({ children, gutter, offset, justify, align, click }: IProps) => {
   const rowProps = {
     className: classnames(`${baseClass}__row`, []),
     style: {}
@@ -21,7 +21,7 @@ const Row = ({ gutter, offset, justify, align, click }: IProps) => {
         gridGap: gutter
       }}
     >
-      sdddd
+      {children}
     </div>
   );
 };

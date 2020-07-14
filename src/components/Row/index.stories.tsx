@@ -10,10 +10,11 @@ export default {
 
 export const BasicUsage = () => (
   <div className='container'>
-    <Row />
-    <Column span='8' color='#66c6f2' />
-    <Column span='8' color='#39a9ed' />
-    <Column span='8' color='#66c6f2' />
+    <Row>
+      <Column span='8' color='#66c6f2' />
+      <Column span='8' color='#39a9ed' />
+      <Column span='8' color='#66c6f2' />
+    </Row>
   </div>
 );
 export const ColumnSpacing = () => (

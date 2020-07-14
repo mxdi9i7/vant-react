@@ -4,12 +4,11 @@ import { TAlignment } from '../Field/types';
 export interface IProps {
   text?: string;
   color?: string;
- 
-  gutter?: string; 
+  children?: string;
+  gutter?: string;
 
- 
   offset: number;
-  justify: string; 
+  justify: string;
   align: string;
   click?: Function;
 }
