@@ -1,10 +1,18 @@
 @import '../../styles/colors.scss';
 
 $baseRowClass: 'vant-layout__row';
-$baseColumnClass: 'vant-layout__col';
 
 .#{$baseRowClass} {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 10px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+  }
+
+  &__flex {
+    display: flex;
+  }
 }

@@ -7,21 +7,21 @@ import { IProps } from './types';
 import './index.scss';
 
 const baseClass = 'vant-layout';
+const flexwidth = (1 / 24) * 6;
 
-const Column = ({
-  color,
-  span,
-  gutter,
-  offset,
-  justify,
-  align,
-  click
-}: IProps) => {
+const Column = ({ color, span, offset, align, click }: IProps) => {
   const columnProps = {
     className: classnames(`${baseClass}__col`, []),
     style: {}
   };
 
+  if (type === 'grid')
+    Object.assign(columnProps, {
+      style: {
+        ...columnProps.style,
+        gridColumn: `span ${span}`
+      }
+    });
   return (
     <div
       {...columnProps}
