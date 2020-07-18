@@ -48,7 +48,7 @@ export default function Stepper({
     style: {}
   };
   const inputProps = {
-    className: classnames(baseClass, [{}]),
+    className: classnames(baseClass, [{ disableInput }]),
     style: {}
   };
 
@@ -119,20 +119,24 @@ export default function Stepper({
     }
   };
   useEffect(() => {
-    if (value === 0 || value === min) {
-      setIsMinus(true);
-    } else if (value === max) {
+    if (disabled) {
       setIsPlus(true);
+      setIsMinus(true);
     } else {
-      setIsMinus(false);
-      setIsPlus(false);
+      if (value === 0 || value === min) {
+        setIsMinus(true);
+      } else if (value === max) {
+        setIsPlus(true);
+      } else {
+        setIsMinus(false);
+        setIsPlus(false);
+      }
     }
-  }, [value, max, min]);
+  }, [disabled, value, max, min, handleDecrementProps, handleIncrementBtProps]);
 
   if (disabled) {
     Object.assign(handleDecrementProps, { disabled });
     Object.assign(handleIncrementBtProps, { disabled });
-    Object.assign(inputProps, { disabled });
   }
   if (theme) {
     Object.assign(handleIncrementBtProps, {
@@ -187,18 +191,9 @@ export default function Stepper({
   useEffect(() => {
     if (disableInput) {
       setIsInput(true);
+      Object.assign(inputProps, { disabled });
     }
   }, [disableInput]);
-  useEffect(() => {
-    if (disabled) {
-      setIsMinus(true);
-    }
-  }, [disabled]);
-  useEffect(() => {
-    if (disabled) {
-      setIsPlus(true);
-    }
-  }, [disabled]);
 
   return (
     <div className='step-container'>
@@ -207,7 +202,7 @@ export default function Stepper({
         {...handleDecrementProps}
         disabled={isMinus}
       >
-        -
+        <p>-</p>
       </button>
       <input
         value={value}
@@ -221,7 +216,7 @@ export default function Stepper({
         {...handleIncrementBtProps}
         disabled={isPlus}
       >
-        +
+        <p>+</p>
       </button>
       {loading && (
         <div id='loading-background' className='load'>
