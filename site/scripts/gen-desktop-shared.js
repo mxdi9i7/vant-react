@@ -33,7 +33,7 @@ function resolveDocuments(components) {
   })
 
   const staticDocs = glob.sync(normalizePath(path.join(DOCS_DIR, '**/*.md'))).map(p => {
-    const pairs = path.parse(p).name.split('_');
+    const pairs = path.parse(p).name.split('.');
     return {
       name: formatName(pairs[0], pairs[1] || 'zh-CN'),
       path: p,

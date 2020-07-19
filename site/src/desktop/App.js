@@ -29,18 +29,12 @@ export default class App extends Component {
     const { i18n } = this.state;
     const sideNavData = navConfig[i18n].nav;
     const passthrough = i18nStr => ({
-      // 奥利奥，路由路径中的夹层。
-      oreo: `/${i18nStr.split('-')[0]}`,
       version: pkgVersion,
       sideNavData: sideNavData,
       changeI18N: this.changeI18N,
       prefix,
       i18n,
     });
-
-    console.log(routes)
-
-    // 通过 basename 控制前缀，不要放到每一层路由里去
     return (
         <Router key={module.hot ? Math.random() : null}>
           <DocContent {...passthrough('zh-CN')}>

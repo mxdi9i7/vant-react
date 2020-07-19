@@ -10,8 +10,6 @@ import DemoHome from './pages/DemoHome';
 
 const routes = getRoutes();
 
-console.log(routes);
-
 const App = () => {
   return (
    <Router>
