@@ -9,6 +9,7 @@ import Cell from './components/Cell';
 import Rate from './components/Rate';
 import Image from './components/Image';
 import Slider from './components/Slider';
+import Checkbox from './components/Checkbox';
 
 export { default as Button } from './components/Button';
 export { default as Icon } from './components/Icons';
@@ -21,6 +22,7 @@ export { default as Cell } from './components/Cell';
 export { default as Rate } from './components/Rate';
 export { default as Image } from './components/Image';
 export { default as Slider } from './components/Slider';
+export { default as Checkbox } from './components/Checkbox';
 
 const Vant = {
   Button,
@@ -33,7 +35,8 @@ const Vant = {
   Cell,
   Rate,
   Image,
-  Slider
+  Slider,
+  Checkbox
 };
 
 export default Vant;
