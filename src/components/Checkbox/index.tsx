@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactElement, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
 
@@ -14,14 +14,19 @@ export interface IProps {
   labelText?: string;
   disabled?: boolean;
   labelDisabled?: boolean;
+  changed?: Function;
+  clicked?: Function;
 }
 
 const baseClass = 'vant-checkbox';
 
 // TODO: Round/Square checkbox
+// TODO: Checkbox groups
 
 const Checkbox = ({
   checked,
+  changed,
+  clicked,
   name,
   activeIcon = 'checked',
   checkedColor = '#1989fa',
@@ -32,10 +37,15 @@ const Checkbox = ({
 }: IProps) => {
   const [isChecked, handleCheck] = useState(checked);
 
+  useEffect(() => {
+    changed(isChecked);
+  }, [isChecked]);
+
   const handleContainerClick = (e) => {
     e.preventDefault();
     if (!disabled && !labelDisabled) {
       handleCheck(!isChecked);
+      clicked(e);
     }
   };
 
@@ -43,8 +53,12 @@ const Checkbox = ({
     e.preventDefault();
     if (!disabled) {
       handleCheck(!isChecked);
+      clicked(e);
     }
   };
+
+  const iconName = isChecked ? activeIcon : inactiveIcon;
+  const iconColor = disabled ? '#c8c9cc' : checkedColor;
 
   return (
     <div
@@ -56,11 +70,7 @@ const Checkbox = ({
       onClick={handleContainerClick}
     >
       <div className={`${baseClass}__icon-container`} onClick={handleIconClick}>
-        <Icon
-          color={disabled ? '#c8c9cc' : checkedColor}
-          name={isChecked ? activeIcon : inactiveIcon}
-          size='20px'
-        />
+        <Icon color={iconColor} name={iconName} size='20px' />
       </div>
       <label htmlFor={name}>{labelText}</label>
     </div>
