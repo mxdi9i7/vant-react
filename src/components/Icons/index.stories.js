@@ -9,7 +9,7 @@ export default {
 };
 
 export const AllIcons = () => (
-  <div className='icons-container'>
+  <div className='storybook__icons-container'>
     <h1>{IconsConfig.basic.length} Basic Icons</h1>
     <div className='icon-group'>
       {IconsConfig.basic.map((v, i) => (
@@ -33,7 +33,7 @@ export const AllIcons = () => (
       {IconsConfig.filled.map((v, i) => (
         <div className='icon-block' key={i}>
           <Icon name={v} />
-          <span className='icon-name'>{v}</span>
+          <span className='storybook__icon-name'>{v}</span>
         </div>
       ))}
     </div>
@@ -50,7 +50,7 @@ export const IconColor = () => (
 );
 
 export const IconSize = () => (
-  <div className='container icons' size='18px'>
+  <div className='storybook__container icons' size='18px'>
     <Icon name='chat-o' size='28px' />
     <Icon name='add' size='38px' />
     <Icon name='add-square' size='48px' />
@@ -59,7 +59,7 @@ export const IconSize = () => (
 );
 
 export const IconDotsAndBadges = () => (
-  <div className='container icons'>
+  <div className='storybook__container icons'>
     <Icon name='chat-o' dot />
     <Icon name='add' badge='1' />
     <Icon name='add-square' badge='12' />
@@ -67,14 +67,14 @@ export const IconDotsAndBadges = () => (
   </div>
 );
 export const IconTags = () => (
-  <div className='container icons'>
+  <div className='storybook__container icons'>
     <Icon name='chat-o' tag='i' />
     <Icon name='add' tag='span' />
   </div>
 );
 
 export const IconAction = () => (
-  <div className='container icons'>
+  <div className='storybook__container icons'>
     <Icon name='chat-o' click={(e) => window.alert(e.target)} />
   </div>
 );

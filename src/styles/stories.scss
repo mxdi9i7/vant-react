@@ -7,15 +7,23 @@ body {
     'Microsoft Yahei', sans-serif;
 }
 
-.container {
+.storybook__container {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  .image-container {
+    span {
+      text-align: center;
+      display: block;
+      margin: 15px 0;
+    }
+  }
+
   &.grey {
-    background-color: $grey-background;
+    background-color: $grey-text;
   }
 
   &.button {
@@ -46,6 +54,14 @@ body {
       margin: 0;
     }
   }
+
+  .vant-image {
+    margin-right: 20px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
 }
 .slider-container {
   display: flex;
@@ -65,7 +81,7 @@ body {
   }
 }
 
-.icons-container {
+.storybook__icons-container {
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -121,7 +137,7 @@ body {
     }
   }
 
-  .icon-name {
+  .storybook__icon-name {
     color: $black;
     font-size: 12px;
     display: block;

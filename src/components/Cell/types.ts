@@ -6,7 +6,7 @@ export interface IProps {
   content?: { text: string; fontSize: string };
   contentIcon?: { name: string; size: string };
   description?: { text: string; fontSize: string };
-  Tag?: ReactElement;
+  tag?: ReactElement;
   url?: string;
   replace?: boolean;
   round?: boolean;
