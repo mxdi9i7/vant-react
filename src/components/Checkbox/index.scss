@@ -1,0 +1,43 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/typography.scss';
+
+$baseClass: 'vant-checkbox';
+
+.#{$baseClass} {
+  display: flex;
+  align-items: center;
+  @include form-label;
+
+  label {
+    margin-left: $space-md;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__icon-container {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__disabled {
+    color: $placeholder;
+    user-select: none;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    label {
+      cursor: not-allowed;
+    }
+
+    i {
+      color: $placeholder !important;
+    }
+  }
+}

@@ -37,3 +37,9 @@
   line-height: 34px;
   font-weight: 300;
 }
+
+@mixin form-label {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+}
