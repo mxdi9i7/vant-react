@@ -14,7 +14,7 @@ const Cell = ({
   content,
   contentIcon,
   description,
-  Tag,
+  tag,
   url,
   replace,
   round,
@@ -66,7 +66,7 @@ const Cell = ({
           {title && (
             <span style={{ fontSize: title.fontSize }}>{title.text}</span>
           )}
-          {Tag && Tag}
+          {tag && tag}
         </div>
         <div {...contentProps}>
           {content && (

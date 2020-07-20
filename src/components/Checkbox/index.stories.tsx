@@ -32,12 +32,17 @@ export const LabelDisable = () => (
   </div>
 );
 
-export const Events = () => (
+export const OnChange = () => (
   <div className='storybook__container'>
-    <Checkbox labelText='On Click' clicked={() => alert('clicked')} />
     <Checkbox
       labelText='On Change'
       changed={(checked) => alert(`Checkbox is checked: ${checked}`)}
     />
+  </div>
+);
+
+export const OnClick = () => (
+  <div className='storybook__container'>
+    <Checkbox labelText='On Click' clicked={() => alert('clicked')} />
   </div>
 );

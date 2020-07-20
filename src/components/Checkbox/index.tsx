@@ -22,9 +22,10 @@ const baseClass = 'vant-checkbox';
 
 // TODO: Round/Square checkbox
 // TODO: Checkbox groups
+// TODO: Checkbox in Cells (Need to get Will to finish cell component)
 
 const Checkbox = ({
-  checked,
+  checked = false,
   changed,
   clicked,
   name,
@@ -37,15 +38,19 @@ const Checkbox = ({
 }: IProps) => {
   const [isChecked, handleCheck] = useState(checked);
 
+  const handleClick = (e) => {
+    return clicked && clicked(e);
+  };
+
   useEffect(() => {
-    changed(isChecked);
+    return changed && changed(isChecked);
   }, [isChecked]);
 
   const handleContainerClick = (e) => {
     e.preventDefault();
     if (!disabled && !labelDisabled) {
       handleCheck(!isChecked);
-      clicked(e);
+      handleClick(e);
     }
   };
 
@@ -53,7 +58,7 @@ const Checkbox = ({
     e.preventDefault();
     if (!disabled) {
       handleCheck(!isChecked);
-      clicked(e);
+      handleClick(e);
     }
   };
 
