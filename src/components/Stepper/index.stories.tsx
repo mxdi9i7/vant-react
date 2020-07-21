@@ -33,7 +33,7 @@ export const RangeStepper = () => (
 
 export const SizeStepper = () => (
   <div className='container stepper'>
-    <Stepper size={70} />
+    <Stepper size={50} />
   </div>
 );
 

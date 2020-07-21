@@ -18,6 +18,10 @@ $baseClass: 'vant-stepper';
   display: flex;
   justify-content: center;
   align-items: center;
+  img{
+    width: 12px;
+    height: auto;
+  }
   input {
     margin: 0px 2px;
     border-radius: 5px;

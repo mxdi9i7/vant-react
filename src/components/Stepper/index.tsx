@@ -38,6 +38,7 @@ export default function Stepper({
   const [isInput, setIsInput] = useState(false);
   const animationDiv = document.getElementById('loading');
   const animationBackground = document.getElementById('loading-background');
+  const [minusBt, setMinusBt] = useState({});
 
   const handleIncrementBtProps = {
     className: classnames(baseClass, [{ disabled }, { theme }]),
@@ -133,6 +134,14 @@ export default function Stepper({
       }
     }
   }, [disabled, value, max, min, handleDecrementProps, handleIncrementBtProps]);
+  useEffect(() => {
+    if (value === 0) {
+      const btStyle = { cursor: 'not-allowed' };
+      setMinusBt(btStyle);
+    } else {
+      setMinusBt({});
+    }
+  }, [value]);
 
   if (disabled) {
     Object.assign(handleDecrementProps, { disabled });
@@ -201,8 +210,12 @@ export default function Stepper({
         onClick={handleDecrement}
         {...handleDecrementProps}
         disabled={isMinus}
+        style={minusBt}
       >
-        <p>-</p>
+        <img
+          src='https://res.cloudinary.com/dlapk94rx/image/upload/v1595307854/icons8-minus-24_y8dnmc.png'
+          alt=''
+        />{' '}
       </button>
       <input
         value={value}
@@ -216,7 +229,10 @@ export default function Stepper({
         {...handleIncrementBtProps}
         disabled={isPlus}
       >
-        <p>+</p>
+        <img
+          src='https://res.cloudinary.com/dlapk94rx/image/upload/v1595307854/icons8-plus-24_wnv2uo.png'
+          alt=''
+        />
       </button>
       {loading && (
         <div id='loading-background' className='load'>
