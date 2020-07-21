@@ -136,7 +136,7 @@ export default function Stepper({
   }, [disabled, value, max, min, handleDecrementProps, handleIncrementBtProps]);
   useEffect(() => {
     if (value === 0) {
-      const btStyle = { cursor: 'not-allowed' };
+      const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
       setMinusBt(btStyle);
     } else {
       setMinusBt({});
