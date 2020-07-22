@@ -9,7 +9,7 @@ export interface IProps {
   offset?: number;
   justify?: string;
   align?: string;
-
+  type?: string;
   click?: Function;
 }
 
@@ -22,4 +22,4 @@ export type JustifyTypes =
   | 'space-around'
   | 'space-between';
 
-//align='top'|'center'|'bottom'
+// align='top'|'center'|'bottom'

@@ -1,35 +1,28 @@
-import React, { useRef, useEffect, FC } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
 
 import { IProps } from './types';
 
 import './index.scss';
-import Row from '../Row';
 
 const baseClass = 'vant-layout';
 const flexwidth = (1 / 24) * 6;
 
-const Column: FC<IProps> = ({
+const Column = ({
   row: Row,
   color,
   span,
   offset,
   align,
-  click
+  click,
+  type
 }: IProps) => {
+  console.log(type);
   const columnProps = {
     className: classnames(`${baseClass}__col`, []),
     style: {}
   };
-  console.log(Row);
-  if (row === 'grid')
-    Object.assign(columnProps, {
-      style: {
-        ...columnProps.style,
-        gridColumn: `span ${span}`
-      }
-    });
   return (
     <div
       {...columnProps}

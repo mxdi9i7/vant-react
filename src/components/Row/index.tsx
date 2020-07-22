@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, FC } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import classnames from '../../utils/classNames';
 import Column from '../Column';
@@ -16,6 +16,7 @@ const Row: FC<Props> = ({
   align,
   click
 }: Props) => {
+  console.log(children.length);
   const rowProps = {
     className: classnames(`${baseClass}__row`, [{ type }]),
     style: {}
@@ -37,7 +38,11 @@ const Row: FC<Props> = ({
       }
     });
 
-  return <div {...rowProps}>{children}</div>;
+  const childrenWithProps = children.map((child) =>
+    React.cloneElement(child, { type })
+  );
+
+  return <div {...rowProps}>{childrenWithProps}</div>;
 };
 
 export default Row;

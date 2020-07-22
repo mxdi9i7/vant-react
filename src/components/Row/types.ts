@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 
 import { TAlignment } from '../Field/types';
 
 export interface Props {
-  children?: string;
+  children: [ReactElement];
   type?: 'grid' | 'flex';
   gutter?: string;
   justify?: JustifyTypes;
@@ -19,4 +20,4 @@ export type JustifyTypes =
   | 'space-around'
   | 'space-between';
 
-//align='top'|'center'|'bottom'
+// align='top'|'center'|'bottom'
