@@ -1,7 +1,8 @@
 import { ReactElement } from 'react';
 import { TAlignment } from '../Field/types';
-
+import { Props } from '../Row/types';
 export interface IProps {
+  row?: Props[];
   span?: string;
   color?: string;
   gutter?: string;

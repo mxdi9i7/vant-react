@@ -1,7 +1,7 @@
 
 import { TAlignment } from '../Field/types';
 
-export interface IProps {
+export interface Props {
   children?: string;
   type?: 'grid' | 'flex';
   gutter?: string;

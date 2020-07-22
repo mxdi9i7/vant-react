@@ -1,21 +1,21 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, FC } from 'react';
 
 import classnames from '../../utils/classNames';
 import Column from '../Column';
-import { IProps } from './types';
+import { Props } from './types';
 
 import './index.scss';
 
 const baseClass = 'vant-layout';
 
-const Row = ({
+const Row: FC<Props> = ({
   children,
   type = 'grid',
   gutter,
   justify = 'start',
   align,
   click
-}: IProps) => {
+}: Props) => {
   const rowProps = {
     className: classnames(`${baseClass}__row`, [{ type }]),
     style: {}
