@@ -177,11 +177,6 @@ export default function Stepper({
     }
   }, [value]);
 
-  if (disabled) {
-    Object.assign(handleDecrementProps, { disabled });
-    Object.assign(handleIncrementBtProps, { disabled });
-  }
-
   useEffect(() => {
     if (disableInput) {
       setIsInput(true);
