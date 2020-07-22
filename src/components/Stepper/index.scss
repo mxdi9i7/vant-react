@@ -18,7 +18,9 @@ $baseClass: 'vant-stepper';
   display: flex;
   justify-content: center;
   align-items: center;
-  img{
+  margin: 0px;
+  padding: 0px;
+  img {
     width: 12px;
     height: auto;
   }
@@ -52,8 +54,8 @@ $baseClass: 'vant-stepper';
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: white;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     animation: donut-spin 1.2s linear infinite;
     position: relative;
 
@@ -71,12 +73,13 @@ $baseClass: 'vant-stepper';
     border-radius: 10px;
     margin: auto;
     opacity: 0;
+    
   }
 }
 
 button.#{$baseClass} {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -90,11 +93,15 @@ button.#{$baseClass} {
   &__theme {
     border-radius: 50%;
     outline: none;
-  }
+    width: 22px;
+    height: 22px;
+    background-color: rgb(132, 225, 241);
+ }
+ 
 }
 input.#{$baseClass} {
-  width: 30px;
-  height: 25px;
+  width: 32px;
+  height: 28px;
 
   &__disableInput {
     cursor: not-allowed;
@@ -102,7 +109,9 @@ input.#{$baseClass} {
   }
   &__theme {
     border-radius: 50%;
-    
+    width: 32px;
+    height: 22px;
+    background-color: white;
   }
 }
 .step-container button p {
@@ -116,3 +125,4 @@ input.#{$baseClass} {
   font-size: 20px;
   margin: 0;
 }
+

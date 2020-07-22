@@ -39,6 +39,8 @@ export default function Stepper({
   const animationDiv = document.getElementById('loading');
   const animationBackground = document.getElementById('loading-background');
   const [minusBt, setMinusBt] = useState({});
+  const [plusBt, setPlusBt] = useState({});
+  const [inputBt, setInputBt] = useState({});
 
   const handleIncrementBtProps = {
     className: classnames(baseClass, [{ disabled }, { theme }]),
@@ -49,7 +51,7 @@ export default function Stepper({
     style: {}
   };
   const inputProps = {
-    className: classnames(baseClass, [{ disableInput }]),
+    className: classnames(baseClass, [{ disableInput }, { theme }]),
     style: {}
   };
 
@@ -135,66 +137,49 @@ export default function Stepper({
     }
   }, [disabled, value, max, min, handleDecrementProps, handleIncrementBtProps]);
   useEffect(() => {
-    if (value === 0) {
-      const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
-      setMinusBt(btStyle);
+    if (size) {
+      const Size = `${size}px`;
+      setMinusBt({ width: Size, height: Size });
+      setInputBt({ width: Size, height: Size });
+      setPlusBt({ width: Size, height: Size });
+      if (value === 0 || value === min) {
+        const btStyle = {
+          cursor: 'not-allowed',
+          width: Size,
+          height: Size,
+          opacity: '0.2'
+        };
+        setMinusBt(btStyle);
+      } else if (value === max) {
+        const btStyle = {
+          cursor: 'not-allowed',
+          width: Size,
+          height: Size,
+          opacity: '0.2'
+        };
+        setPlusBt(btStyle);
+      } else {
+        setMinusBt({ width: Size, height: Size });
+        setInputBt({ width: Size, height: Size });
+        setPlusBt({ width: Size, height: Size });
+      }
     } else {
-      setMinusBt({});
+      if (value === 0 || value === min) {
+        const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
+        setMinusBt(btStyle);
+      } else if (value === max) {
+        const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
+        setPlusBt(btStyle);
+      } else {
+        setMinusBt({});
+        setPlusBt({});
+      }
     }
   }, [value]);
 
   if (disabled) {
     Object.assign(handleDecrementProps, { disabled });
     Object.assign(handleIncrementBtProps, { disabled });
-  }
-  if (theme) {
-    Object.assign(handleIncrementBtProps, {
-      style: {
-        ...handleIncrementBtProps.style,
-        background: '#ee0a24',
-        color: 'white'
-      }
-    });
-    Object.assign(handleDecrementProps, {
-      style: {
-        ...handleDecrementProps.style,
-        border: '1px solid #ee0a24',
-        color: '#ee0a24',
-        background: 'white'
-      }
-    });
-    Object.assign(inputProps, {
-      style: {
-        ...inputProps.style,
-        background: 'white'
-      }
-    });
-  }
-
-  if (size) {
-    const Size = `${size}px`;
-
-    Object.assign(handleDecrementProps, {
-      style: {
-        ...handleDecrementProps.style,
-        width: Size,
-        height: Size
-      }
-    });
-    Object.assign(handleIncrementBtProps, {
-      style: {
-        ...handleIncrementBtProps.style,
-        width: Size,
-        height: Size
-      }
-    });
-    Object.assign(inputProps, {
-      style: {
-        ...inputProps.style,
-        width: Size,
-        height: Size
-      }
-    });
   }
 
   useEffect(() => {
@@ -222,12 +207,14 @@ export default function Stepper({
         {...inputProps}
         onChange={handleInputChange}
         disabled={isInput}
+        style={inputBt}
       />
 
       <button
         onClick={handleIncrement}
         {...handleIncrementBtProps}
         disabled={isPlus}
+        style={plusBt}
       >
         <img
           src='https://res.cloudinary.com/dlapk94rx/image/upload/v1595307854/icons8-plus-24_wnv2uo.png'
