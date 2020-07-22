@@ -1,0 +1,81 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/typography.scss';
+@import '../../styles/opacity.scss';
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-swipe';
+$baseWrapperClass: 'vant-swipe-wrapper';
+$baseImageClass: 'vant-swipe-image';
+$baseIndicatorClass: 'vant-swipe-indicator';
+$baseDotClass: 'vant-swipe-dot';
+
+
+// .Dot{
+//     cursor: pointer;
+//   height: 15px;
+//   width: 15px;
+//   margin: 0 2px;
+//   background-color: grey;
+//   border-radius: 50%;
+//   display: inline-block;
+//   transition: background-color 0.6s ease;
+// }
+// .activeDot{
+//     background-color: black;
+//     cursor: pointer;
+//   height: 15px;
+//   width: 15px;
+//   margin: 0 2px;
+//   border-radius: 50%;
+//   display: inline-block;
+//   transition: background-color 0.6s ease;
+// }
+
+.#{baseClass}{
+    @include normal;
+    display: flex;
+    justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.#{$baseWrapperClass}{
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      img{
+        width: 100%;
+        height: 100%;
+        font-size: 100px;
+        display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    }
+}
+.#{$baseIndicatorClass}{
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    // margin: auto;
+}
+.#{$baseDotClass}{
+    cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 2px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      background-color:white;
+      z-index: 1;
+}
