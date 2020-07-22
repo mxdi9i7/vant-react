@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import classnames from '../../utils/classNames';
 
 import './index.scss';
 import Icon from '../Icons';
+import Checkbox from '../Checkbox';
 import { IProps } from './types';
 
 const baseClass = 'vant-cell';
 
 const Cell = ({
+  url,
+  click,
   title,
   titleIcon,
   content,
-  contentIcon,
+  contentIcon = url || click ? { name: 'arrow', size: '12px' } : null,
   description,
+  checkbox,
   tag,
-  url,
   replace,
-  round,
-  click
+  round
 }: IProps) => {
+  const [isActive, setActive] = useState(false);
+
   const CustomTag = url ? 'a' : 'div';
   const containerProps = {
     className: classnames(`${baseClass}__container`, []),
@@ -58,6 +62,14 @@ const Cell = ({
     });
   }
 
+  if (checkbox) {
+    Object.assign(containerProps, {
+      onClick: () => {
+        setActive(!isActive);
+      }
+    });
+  }
+
   return (
     <CustomTag {...containerProps}>
       <div className={`${baseClass}__block`}>
@@ -68,14 +80,18 @@ const Cell = ({
           )}
           {tag && tag}
         </div>
-        <div {...contentProps}>
-          {content && (
-            <p style={{ fontSize: content.fontSize }}>{content.text}</p>
-          )}
-          {contentIcon && (
-            <Icon name={contentIcon.name} size={contentIcon.size} />
-          )}
-        </div>
+        {checkbox ? (
+          <Checkbox isActive={isActive} checkedColor={checkbox.checkedColor} />
+        ) : (
+          <div {...contentProps}>
+            {content && (
+              <p style={{ fontSize: content.fontSize }}>{content.text}</p>
+            )}
+            {contentIcon && (
+              <Icon name={contentIcon.name} size={contentIcon.size} />
+            )}
+          </div>
+        )}
       </div>
       {description && (
         <p style={{ fontSize: description.fontSize }}>{description.text}</p>
