@@ -165,7 +165,6 @@ input.#{$baseClass} {
   height: 28px;
   animation: donut-spin 1.2s linear infinite;
   position: relative;
-
   opacity: 0;
 }
 .load {
@@ -180,4 +179,8 @@ input.#{$baseClass} {
   border-radius: 10px;
   margin: auto;
   opacity: 0;
+}
+.load {
+  position: absolute;
+  bottom: 150px;
 }
