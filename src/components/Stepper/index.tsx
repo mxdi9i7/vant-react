@@ -112,7 +112,7 @@ export default function Stepper({
       ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
       ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
       const changeInput = () => {
-        setValue(result);
+        setValue(Number(result));
         ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
         ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
       };
@@ -121,27 +121,25 @@ export default function Stepper({
       setValue(Number(e.target.value));
     }
   };
+
   useEffect(() => {
     if (disabled) {
+      const btStyle = {
+        cursor: 'not-allowed',
+        opacity: '0.2'
+      };
+      setMinusBt(btStyle);
+      setPlusBt(btStyle);
       setIsPlus(true);
       setIsMinus(true);
-    } else {
-      if (value === 0 || value === min) {
-        setIsMinus(true);
-      } else if (value === max) {
-        setIsPlus(true);
-      } else {
-        setIsMinus(false);
-        setIsPlus(false);
-      }
-    }
-  }, [disabled, value, max, min, handleDecrementProps, handleIncrementBtProps]);
-  useEffect(() => {
-    if (size) {
+      Object.assign(handleDecrementProps, { disabled });
+      Object.assign(handleIncrementBtProps, { disabled });
+    } else if (size) {
       const Size = `${size}px`;
       setMinusBt({ width: Size, height: Size });
       setInputBt({ width: Size, height: Size });
-      setPlusBt({ width: Size, height: Size });
+      setPlusBt({ cursor: 'pointer' });
+
       if (value === 0 || value === min) {
         const btStyle = {
           cursor: 'not-allowed',
@@ -149,7 +147,13 @@ export default function Stepper({
           height: Size,
           opacity: '0.2'
         };
+        const btnStyle = {
+          cursor: 'pointer',
+          width: Size,
+          height: Size
+        };
         setMinusBt(btStyle);
+        setPlusBt(btnStyle);
       } else if (value === max) {
         const btStyle = {
           cursor: 'not-allowed',
@@ -159,20 +163,30 @@ export default function Stepper({
         };
         setPlusBt(btStyle);
       } else {
-        setMinusBt({ width: Size, height: Size });
-        setInputBt({ width: Size, height: Size });
-        setPlusBt({ width: Size, height: Size });
+        const btnStyle = {
+          cursor: 'pointer',
+          width: Size,
+          height: Size
+        };
+        setMinusBt(btnStyle);
+        setInputBt(btnStyle);
+        setPlusBt(btnStyle);
       }
     } else {
       if (value === 0 || value === min) {
         const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
+        const btnStyle = { cursor: 'pointer' };
         setMinusBt(btStyle);
+        setPlusBt(btnStyle);
       } else if (value === max) {
         const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
         setPlusBt(btStyle);
       } else {
-        setMinusBt({});
-        setPlusBt({});
+        const btnStyle = {
+          cursor: 'pointer'
+        };
+        setMinusBt(btnStyle);
+        setPlusBt(btnStyle);
       }
     }
   }, [value]);
@@ -187,15 +201,13 @@ export default function Stepper({
   return (
     <div className='step-container'>
       <button
+        id='minus'
         onClick={handleDecrement}
         {...handleDecrementProps}
         disabled={isMinus}
         style={minusBt}
       >
-        <img
-          src='https://res.cloudinary.com/dlapk94rx/image/upload/v1595307854/icons8-minus-24_y8dnmc.png'
-          alt=''
-        />{' '}
+        <div className='minus' />
       </button>
       <input
         value={value}
@@ -204,23 +216,19 @@ export default function Stepper({
         disabled={isInput}
         style={inputBt}
       />
-
+      {loading && (
+        <div id='loading-background' className='load'>
+          <div id='loading' className='load-background' />
+        </div>
+      )}
       <button
         onClick={handleIncrement}
         {...handleIncrementBtProps}
         disabled={isPlus}
         style={plusBt}
       >
-        <img
-          src='https://res.cloudinary.com/dlapk94rx/image/upload/v1595307854/icons8-plus-24_wnv2uo.png'
-          alt=''
-        />
+        <div className='add' />
       </button>
-      {loading && (
-        <div id='loading-background' className='load'>
-          <div id='loading' className='load-background' />
-        </div>
-      )}
     </div>
   );
 }
