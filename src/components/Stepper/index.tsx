@@ -8,7 +8,7 @@ import './index.scss';
 const baseClass = 'vant-stepper';
 
 export interface IProps {
-  Value?: number;
+  value?: number;
   theme?: String | any;
   disabled?: Boolean;
   disableInput?: Boolean;
@@ -30,8 +30,7 @@ export default function Stepper({
   disableInput,
   size,
   theme,
-  loading,
-  Value
+  loading
 }: IProps) {
   const [value, setValue] = useState(0);
   const [isMinus, setIsMinus] = useState(false);
