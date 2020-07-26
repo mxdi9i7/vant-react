@@ -8,7 +8,7 @@ import './index.scss';
 const baseClass = 'vant-stepper';
 
 export interface IProps {
-  value?: number;
+  Value?: number;
   theme?: String | any;
   disabled?: Boolean;
   disableInput?: Boolean;
@@ -30,7 +30,8 @@ export default function Stepper({
   disableInput,
   size,
   theme,
-  loading
+  loading,
+  Value
 }: IProps) {
   const [value, setValue] = useState(0);
   const [isMinus, setIsMinus] = useState(false);
@@ -79,6 +80,8 @@ export default function Stepper({
     }
   };
   const handleDecrement = () => {
+    setIsPlus(false);
+
     const canMinus = value - step;
     if (loading) {
       ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
@@ -106,6 +109,7 @@ export default function Stepper({
       }
     }
   };
+
   const handleInputChange = (e) => {
     const result = e.target.value;
     if (loading) {
@@ -162,6 +166,7 @@ export default function Stepper({
           opacity: '0.2'
         };
         setPlusBt(btStyle);
+        setIsPlus(true);
       } else {
         const btnStyle = {
           cursor: 'pointer',
@@ -181,6 +186,7 @@ export default function Stepper({
       } else if (value === max) {
         const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
         setPlusBt(btStyle);
+        setIsPlus(true);
       } else {
         const btnStyle = {
           cursor: 'pointer'
@@ -197,9 +203,8 @@ export default function Stepper({
       Object.assign(inputProps, { disabled });
     }
   }, [disableInput]);
-
   return (
-    <div className='step-container'>
+    <div v-model={value} className='step-container'>
       <button
         id='minus'
         onClick={handleDecrement}
