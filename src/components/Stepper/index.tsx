@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 
 import classnames from '../../utils/classNames';
@@ -20,6 +20,8 @@ export interface IProps {
   minus?: Boolean;
   size?: number;
   loading?: Boolean;
+  tag?: ReactElement;
+  onChange: Function;
 }
 
 export default function Stepper({
@@ -30,9 +32,10 @@ export default function Stepper({
   disableInput,
   size,
   theme,
-  loading
+  loading,
+  onChange
 }: IProps) {
-  const [value, setValue] = useState(0);
+  let [value, setValue] = useState(0);
   const [isMinus, setIsMinus] = useState(false);
   const [isPlus, setIsPlus] = useState(false);
   const [isInput, setIsInput] = useState(false);
@@ -61,11 +64,13 @@ export default function Stepper({
       ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
       const handlePlus = () => {
         if (step) {
-          setValue(value + step);
+          setValue((value += step));
+          onChange(value);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
           ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         } else {
-          setValue(value + 1);
+          setValue((value += 1));
+          onChange(value);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
           ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         }
@@ -73,11 +78,14 @@ export default function Stepper({
 
       setTimeout(handlePlus, 2000);
     } else if (step) {
-      setValue(value + step);
+      setValue((value += step));
+      onChange(value);
     } else {
-      setValue(value + 1);
+      setValue((value += 1));
+      onChange(value);
     }
   };
+
   const handleDecrement = () => {
     setIsPlus(false);
 
@@ -88,11 +96,13 @@ export default function Stepper({
 
       const Decrement = () => {
         if (step) {
-          setValue(value - step);
+          setValue((value -= step));
+          onChange(value);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
           ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         } else {
-          setValue(value - 1);
+          setValue((value -= 1));
+          onChange(value);
           ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
           ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
         }
@@ -100,11 +110,13 @@ export default function Stepper({
       setTimeout(Decrement, 2000);
     } else if (step) {
       if (canMinus >= 0) {
-        setValue(value - step);
+        setValue((value -= step));
+        onChange(value);
       }
     } else {
       if (value > 0) {
-        setValue(value - 1);
+        setValue((value -= 1));
+        onChange(value);
       }
     }
   };
@@ -116,12 +128,14 @@ export default function Stepper({
       ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
       const changeInput = () => {
         setValue(Number(result));
+        onChange(Number(result));
         ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
         ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
       };
       setTimeout(changeInput, 2000);
     } else {
       setValue(Number(e.target.value));
+      onChange(Number(e.target.value));
     }
   };
 
@@ -203,7 +217,7 @@ export default function Stepper({
     }
   }, [disableInput]);
   return (
-    <div v-model={value} className='step-container'>
+    <div className='step-container'>
       <button
         id='minus'
         onClick={handleDecrement}
