@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Children } from 'react';
+import ReactDom from 'react-dom';
 
 import { Iprops } from './types';
 import classnames from '../../utils/classNames';
@@ -40,31 +41,27 @@ export default function Swipe({ children }: Iprops) {
     };
     handleSlider();
   }, [current]);
+  useEffect(() => {
+    const move = () => {
+      const currentNode = document.getElementsByTagName('img')[current];
+      const prevNode = document.getElementsByTagName('img')[
+        (current - 1) % length
+      ];
+      if (currentNode && prevNode) {
+        const offset1 = -current * currentNode.clientWidth;
+        currentNode.style.transform = `translateX(${offset1}px)`;
+        prevNode.style.transform = `translateX(${offset1}px)`;
+      }
+    };
+    move();
+  }, [current]);
+
+  // to-add consider the case when move to end and start moving.... needs to fix calculation.
+
   return (
     <div {...baseProps}>
       <div {...wrapperProps}>
-        {children?.map((child, index) => {
-          if (index === current) {
-            return (
-              <div
-                key={index}
-                {...imageProps}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  textAlign: 'center',
-                  backgroundColor: '#1EA7FD',
-                  display: 'block',
-                  margin: 'auto'
-                }}
-              >
-                {child}
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <div {...imageProps}>{children?.map((child) => child)}</div>
         <div {...indicatorProps}>
           {[...Array(length)].map((_, index) => (
             <span
