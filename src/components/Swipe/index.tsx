@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Children } from 'react';
-import ReactDom from 'react-dom';
 
 import { Iprops } from './types';
 import classnames from '../../utils/classNames';
