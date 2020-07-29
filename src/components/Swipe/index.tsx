@@ -32,6 +32,7 @@ export default function Swipe({ children }: Iprops) {
   };
   const [current, setCurrent] = useState(0);
   const length = Children.count(children);
+  const [count, setCount] = useState(0);
   useEffect(() => {
     const handleSlider = () => {
       const next = length && (current + 1) % length;
@@ -48,17 +49,28 @@ export default function Swipe({ children }: Iprops) {
         (current - 1) % length
       ];
 
-      if (current === 0) {
+      if (current === 0 && count) {
         prevNode = document.getElementsByTagName('img')[
           ((current - 1) % length) + length
         ];
       }
+      if (current === 3) {
+        setCount(1);
+      }
       if (currentNode && prevNode) {
         const offset = -current * currentNode.clientWidth;
+        console.log(offset);
         prevNode.style.transform = `translateX(${offset}px)`;
-        currentNode.style.transform = `translate(${offset}px)`;
+        currentNode.style.transform = `translateX(${offset}px)`;
         currentNode.style.transition = `0.2s`;
         prevNode.style.transition = `0.2s`;
+        if (count && current === 0) {
+          const nodes = document.getElementsByTagName('img');
+          for (let i = 0; i < nodes.length; i++) {
+            nodes[i].style.transform = `translateX(0px)`;
+            nodes[i].style.transition = `0.1s`;
+          }
+        }
       }
     };
     move();
