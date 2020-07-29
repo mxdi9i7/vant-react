@@ -59,7 +59,6 @@ export default function Swipe({ children }: Iprops) {
       }
       if (currentNode && prevNode) {
         const offset = -current * currentNode.clientWidth;
-        console.log(offset);
         prevNode.style.transform = `translateX(${offset}px)`;
         currentNode.style.transform = `translateX(${offset}px)`;
         currentNode.style.transition = `0.2s`;
