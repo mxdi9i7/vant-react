@@ -40,16 +40,25 @@ export default function Swipe({ children }: Iprops) {
     };
     handleSlider();
   }, [current]);
+
   useEffect(() => {
     const move = () => {
       const currentNode = document.getElementsByTagName('img')[current];
-      const prevNode = document.getElementsByTagName('img')[
+      let prevNode = document.getElementsByTagName('img')[
         (current - 1) % length
       ];
+
+      if (current === 0) {
+        prevNode = document.getElementsByTagName('img')[
+          ((current - 1) % length) + length
+        ];
+      }
       if (currentNode && prevNode) {
-        const offset1 = -current * currentNode.clientWidth;
-        currentNode.style.transform = `translateX(${offset1}px)`;
-        prevNode.style.transform = `translateX(${offset1}px)`;
+        const offset = -current * currentNode.clientWidth;
+        prevNode.style.transform = `translateX(${offset}px)`;
+        currentNode.style.transform = `translate(${offset}px)`;
+        currentNode.style.transition = `0.2s`;
+        prevNode.style.transition = `0.2s`;
       }
     };
     move();
