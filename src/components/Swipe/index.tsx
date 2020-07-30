@@ -59,8 +59,12 @@ export default function Swipe({
           );
           return () => clearTimeout(activeIndex);
         } else {
+          /* eslint-disable-next-line no-useless-return */
+          return;
         }
       } else {
+        /* eslint-disable-next-line no-useless-return */
+        return;
       }
     };
     handleSlider();
