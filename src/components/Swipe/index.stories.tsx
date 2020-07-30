@@ -15,7 +15,7 @@ export default {
 export const BasicUsage = () => {
   return (
     <div>
-      <Swipe>
+      <Swipe autoplay='3000'>
         <img src={dummyImage} alt='image' />
         <img src={dummyImage2} alt='image' />
         <img src={dummyImage3} alt='image' />

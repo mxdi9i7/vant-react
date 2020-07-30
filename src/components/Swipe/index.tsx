@@ -6,38 +6,62 @@ import classnames from '../../utils/classNames';
 import './index.scss';
 
 const baseClass = 'vant-swipe';
-// const iconClass = 'vant-swipe-icon'
-// const indicatorClass = 'vant-swipe-indicator';
 
-export default function Swipe({ children }: Iprops) {
+export default function Swipe({
+  autoplay,
+  loop = true,
+  showIndicators = true,
+  children
+}: Iprops) {
   const baseProps = {
     className: classnames(`${baseClass}`, []),
     style: {}
   };
   const wrapperProps = {
-    className: classnames(`${baseClass}-wrapper`, []),
+    className: classnames(`${baseClass}_wrapper`, []),
     style: {}
   };
   const imageProps = {
-    className: classnames(`${baseClass}-image`, []),
+    className: classnames(`${baseClass}_image`, []),
     style: {}
   };
   const indicatorProps = {
-    className: classnames(`${baseClass}-indicator`, []),
+    className: classnames(`${baseClass}_indicator`, []),
     style: {}
   };
   const dotProps = {
-    className: classnames(`${baseClass}-dot`, []),
+    className: classnames(`${baseClass}_dot`, []),
     style: {}
   };
+  if (!showIndicators) {
+    Object.assign(indicatorProps, {
+      style: { display: 'none' }
+    });
+  }
   const [current, setCurrent] = useState(0);
   const length = Children.count(children);
   const [count, setCount] = useState(0);
   useEffect(() => {
     const handleSlider = () => {
-      const next = length && (current + 1) % length;
-      const activeIndex = setTimeout(() => setCurrent(next), 3000);
-      return () => clearTimeout(activeIndex);
+      if (autoplay) {
+        if (current !== 3) {
+          const next = length && (current + 1) % length;
+          const activeIndex = setTimeout(
+            () => setCurrent(next),
+            parseInt(autoplay)
+          );
+          return () => clearTimeout(activeIndex);
+        } else if (loop) {
+          const next = length && (current + 1) % length;
+          const activeIndex = setTimeout(
+            () => setCurrent(next),
+            parseInt(autoplay)
+          );
+          return () => clearTimeout(activeIndex);
+        } else {
+        }
+      } else {
+      }
     };
     handleSlider();
   }, [current]);
@@ -54,8 +78,8 @@ export default function Swipe({ children }: Iprops) {
           ((current - 1) % length) + length
         ];
       }
-      if (current === 3) {
-        setCount(1);
+      if (current === 3 && loop) {
+        setCount(count + 1);
       }
       if (currentNode && prevNode) {
         const offset = -current * currentNode.clientWidth;
@@ -73,7 +97,7 @@ export default function Swipe({ children }: Iprops) {
       }
     };
     move();
-  }, [current]);
+  }, [current, count]);
 
   // to-add consider the case when move to end and start moving.... needs to fix calculation.
 

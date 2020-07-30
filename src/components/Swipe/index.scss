@@ -5,10 +5,10 @@
 @import '../../styles/variables.scss';
 
 $baseClass: 'vant-swipe';
-$baseWrapperClass: 'vant-swipe-wrapper';
-$baseImageClass: 'vant-swipe-image';
-$baseIndicatorClass: 'vant-swipe-indicator';
-$baseDotClass: 'vant-swipe-dot';
+$baseWrapperClass: 'vant-swipe_wrapper';
+$baseImageClass: 'vant-swipe_image';
+$baseIndicatorClass: 'vant-swipe_indicator';
+$baseDotClass: 'vant-swipe_dot';
 
 
 .#{baseClass}{
