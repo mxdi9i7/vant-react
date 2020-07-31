@@ -51,6 +51,10 @@ export const DisableInputStepper = () => (
 
 export const AsyncStepper = () => (
   <div className='container stepper'>
-    <Stepper loading onChange={(value) => console.log(value)} />
+    <Stepper
+      loading
+      asyncChange={() => {}}
+      onChange={(value) => console.log(value)}
+    />
   </div>
 );
