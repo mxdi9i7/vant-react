@@ -7,32 +7,39 @@ import { IProps } from './types';
 import './index.scss';
 
 const baseClass = 'vant-layout';
-const flexwidth = (1 / 24) * 6;
+const flexwidth = 100 / 24;
 
-const Column = ({
-  row: Row,
-  color,
-  span,
-  offset,
-  align,
-  click,
-  type
-}: IProps) => {
-  console.log(type);
+const Column = ({ span, offset, display, gutter, click }: IProps) => {
+  // console.log(groups);
+  // console.log(display);
+  // console.log(gutter);
+
   const columnProps = {
     className: classnames(`${baseClass}__col`, []),
-    style: {}
+    style: {
+      display: display,
+      width: flexwidth * Number(span) + '%'
+    }
   };
-  return (
-    <div
-      {...columnProps}
-      style={{
-        backgroundColor: color
-      }}
-    >
-      {`span: ${span}`}
-    </div>
-  );
+
+  if (offset)
+    Object.assign(columnProps, {
+      style: {
+        ...columnProps.style,
+        marginLeft: flexwidth * Number(offset) + '%'
+      }
+    });
+
+  if (gutter) {
+    Object.assign(columnProps, {
+      style: {
+        ...columnProps.style,
+        marginLeft: gutter.left + 'px',
+        marginRight: gutter.right + 'px'
+      }
+    });
+  }
+  return <div {...columnProps}>{`span: ${span}`}</div>;
 };
 
 export default Column;

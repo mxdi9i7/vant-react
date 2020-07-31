@@ -7,5 +7,12 @@ $baseColumnClass: 'vant-layout__col';
   font-size: 13px;
   line-height: 30px;
   text-align: center;
-  
+ 
+  display: display;
+  &:nth-child(odd) {
+    background-color: #39a9ed;
+  }
+  &:nth-child(even) {
+    background-color: #66c6f2;
+  }
 }

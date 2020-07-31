@@ -1,23 +1,19 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactFragment } from 'react';
 
-import { TAlignment } from '../Field/types';
-
-export interface Props {
-  children: [ReactElement];
-  type?: 'grid' | 'flex';
+export interface IProps {
+  children?: [ReactElement] | ReactFragment;
+  child?: ReactFragment;
+  type?: string;
   gutter?: string;
   justify?: JustifyTypes;
-  align?: string;
+  align?: 'center' | 'flex-start' | 'flex-end';
   click?: Function;
+  span?: string;
 }
-
-// export type TAlignment = 'center' | 'right' | 'left';
 
 export type JustifyTypes =
   | 'start'
-  | 'end'
+  | 'flex-end'
   | 'center'
   | 'space-around'
   | 'space-between';
-
-// align='top'|'center'|'bottom'

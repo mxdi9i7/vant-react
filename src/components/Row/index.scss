@@ -5,14 +5,15 @@ $baseRowClass: 'vant-layout__row';
 .#{$baseRowClass} {
   width: 100%;
   margin-bottom: 10px;
+  display: flex;
+ 
+  // justify-content: space-between;
+  // grid-template-columns: repeat(24, 1fr);
+  // .#{$baseRowClass}:first-child{
+  //   flex-basis: 100px;
+  // }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
-
-  }
-
-  &__flex {
+  &__type {
     display: flex;
   }
 }
