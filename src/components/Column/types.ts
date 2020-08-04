@@ -1,5 +1,4 @@
 export interface IProps {
-  
   span: string;
   display?: string;
   gutter?: {
@@ -7,7 +6,4 @@ export interface IProps {
     right: number;
   };
   offset?: string;
-
-  click?: Function;
-  
 }

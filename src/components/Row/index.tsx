@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, Children } from 'react';
-import { isFragment } from 'react-is';
+
 import classnames from '../../utils/classNames';
 
 import { IProps } from './types';
@@ -10,12 +10,10 @@ const baseClass = 'vant-layout';
 
 const Row = ({
   children,
-  child,
-  type = '',
+  type,
   gutter,
   justify = 'start',
-  align = 'center',
-  click
+  align = 'center'
 }: IProps) => {
   const rowProps = {
     className: classnames(`${baseClass}__row`, []),
@@ -37,14 +35,12 @@ const Row = ({
       }
     });
 
+  if (Children.count(children) === 1) {
+    children = [children];
+  }
   const groups: number[][] = [[]];
 
   let totalSpan = 0;
-  // if (!children.length) {
-  //   children = [].push(children);
-  // // }
-  // console.log(Children.count(children));
-  // Children.toArray(child);
 
   children.forEach((child, index) => {
     totalSpan += Number(child.props.span);
@@ -92,18 +88,7 @@ const Row = ({
       return gutterArray;
     });
   }
-  // const flattenChildren = (children) => {
-  //   const result = [];
-  //   children.map((child) => {
-  //     if (isFragment(child)) {
-  //       result.push(...flattenChildren(child.props.children));
-  //     } else {
-  //       result.push(child);
-  //     }
-  //   });
-  //   return result;
-  // };
-  // console.log(child);
+
   const childrenWithProps = children?.map((child, index) =>
     React.cloneElement(child, {
       groups,
@@ -111,7 +96,7 @@ const Row = ({
       gutter: gutterArray[index]
     })
   );
-  // const childWithProps = React.cloneElement(child, { group });
+
   return <div {...rowProps}>{childrenWithProps}</div>;
 };
 

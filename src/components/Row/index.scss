@@ -7,13 +7,4 @@ $baseRowClass: 'vant-layout__row';
   margin-bottom: 10px;
   display: flex;
  
-  // justify-content: space-between;
-  // grid-template-columns: repeat(24, 1fr);
-  // .#{$baseRowClass}:first-child{
-  //   flex-basis: 100px;
-  // }
-
-  &__type {
-    display: flex;
-  }
 }
