@@ -9,48 +9,52 @@ export default {
 
 export const BasicStepper = () => (
   <div className='container stepper'>
-    <Stepper />
+    <Stepper onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const DisableStepper = () => (
   <div className='container stepper'>
-    <Stepper disabled />
+    <Stepper disabled onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const StepStepper = () => (
   <div className='container stepper'>
-    <Stepper step={2} />
+    <Stepper step={2} onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const RangeStepper = () => (
   <div className='container stepper'>
-    <Stepper min={0} max={8} />
+    <Stepper min={0} max={8} onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const SizeStepper = () => (
   <div className='container stepper'>
-    <Stepper size={50} />
+    <Stepper size={50} onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const RoundStepper = () => (
   <div className='container stepper'>
-    <Stepper theme />
+    <Stepper theme onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const DisableInputStepper = () => (
   <div className='container stepper'>
-    <Stepper disableInput />
+    <Stepper disableInput onChange={(value) => console.log(value)} />
   </div>
 );
 
 export const AsyncStepper = () => (
   <div className='container stepper'>
-    <Stepper loading />
+    <Stepper
+      loading
+      asyncChange={() => {}}
+      onChange={(value) => console.log(value)}
+    />
   </div>
 );

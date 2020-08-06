@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect, ReactElement, createRef } from 'react';
 
 import classnames from '../../utils/classNames';
 
@@ -20,6 +19,9 @@ export interface IProps {
   minus?: Boolean;
   size?: number;
   loading?: Boolean;
+  tag?: ReactElement;
+  onChange: Function;
+  asyncChange?: Function | any;
 }
 
 export default function Stepper({
@@ -30,17 +32,20 @@ export default function Stepper({
   disableInput,
   size,
   theme,
-  loading
+  loading,
+  onChange,
+  asyncChange
 }: IProps) {
   const [value, setValue] = useState(0);
   const [isMinus, setIsMinus] = useState(false);
   const [isPlus, setIsPlus] = useState(false);
   const [isInput, setIsInput] = useState(false);
-  const animationDiv = document.getElementById('loading');
-  const animationBackground = document.getElementById('loading-background');
+
   const [minusBt, setMinusBt] = useState({});
   const [plusBt, setPlusBt] = useState({});
   const [inputBt, setInputBt] = useState({});
+  const animationDiv = createRef<HTMLDivElement>();
+  const animationBackgroundDiv = createRef<HTMLDivElement>();
 
   const handleIncrementBtProps = {
     className: classnames(baseClass, [{ disabled }, { theme }]),
@@ -57,68 +62,82 @@ export default function Stepper({
 
   const handleIncrement = () => {
     if (loading) {
-      ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
-      ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
+      const aniNode = animationDiv.current;
+      const aniBgNode = animationBackgroundDiv.current;
+      if (aniNode && aniBgNode) {
+        aniNode.style.opacity = '1';
+        aniBgNode.style.opacity = '1';
+      }
+
       const handlePlus = () => {
-        if (step) {
-          setValue(value + step);
-          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
-          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
-        } else {
-          setValue(value + 1);
-          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
-          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
-        }
-      };
+        const nextValue = value + (step || 1);
+        setValue(nextValue);
 
-      setTimeout(handlePlus, 2000);
-    } else if (step) {
-      setValue(value + step);
+        if (aniNode && aniBgNode) {
+          aniNode.style.opacity = '0';
+          aniBgNode.style.opacity = '0';
+        }
+        onChange(nextValue);
+        asyncChange();
+      };
+      setTimeout(handlePlus, 1000);
     } else {
-      setValue(value + 1);
+      const nextValue = value + (step || 1);
+      setValue(nextValue);
+      onChange(nextValue);
     }
   };
+
   const handleDecrement = () => {
-    const canMinus = value - step;
+    setIsPlus(false);
     if (loading) {
-      ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
-      ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
+      const aniNode = animationDiv.current;
+      const aniBgNode = animationBackgroundDiv.current;
+      if (aniNode && aniBgNode) {
+        aniNode.style.opacity = '1';
+        aniBgNode.style.opacity = '1';
+      }
 
-      const Decrement = () => {
-        if (step) {
-          setValue(value - step);
-          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
-          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
-        } else {
-          setValue(value - 1);
-          ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
-          ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
+      const decrement = () => {
+        const nextValue = value - (step || 1);
+        setValue(nextValue);
+        onChange(nextValue);
+        if (aniNode && aniBgNode) {
+          aniNode.style.opacity = '0';
+          aniBgNode.style.opacity = '0';
         }
       };
-      setTimeout(Decrement, 2000);
-    } else if (step) {
-      if (canMinus >= 0) {
-        setValue(value - step);
-      }
+      setTimeout(decrement, 1000);
     } else {
-      if (value > 0) {
-        setValue(value - 1);
+      const nextValue = value - (step || 1);
+      if (nextValue >= 0) {
+        setValue(nextValue);
+        onChange(nextValue);
       }
     }
   };
+
   const handleInputChange = (e) => {
     const result = e.target.value;
     if (loading) {
-      ReactDOM.findDOMNode(animationDiv).style.opacity = 1;
-      ReactDOM.findDOMNode(animationBackground).style.opacity = 1;
+      const aniNode = animationDiv.current;
+      const aniBgNode = animationBackgroundDiv.current;
+      if (aniNode && aniBgNode) {
+        aniNode.style.opacity = '1';
+        aniBgNode.style.opacity = '1';
+      }
       const changeInput = () => {
         setValue(Number(result));
-        ReactDOM.findDOMNode(animationDiv).style.opacity = 0;
-        ReactDOM.findDOMNode(animationBackground).style.opacity = 0;
+        onChange(Number(result));
+        if (aniNode && aniBgNode) {
+          aniNode.style.opacity = '0';
+          aniBgNode.style.opacity = '0';
+        }
       };
       setTimeout(changeInput, 2000);
     } else {
       setValue(Number(e.target.value));
+      onChange(Number(e.target.value));
     }
   };
 
@@ -162,6 +181,7 @@ export default function Stepper({
           opacity: '0.2'
         };
         setPlusBt(btStyle);
+        setIsPlus(true);
       } else {
         const btnStyle = {
           cursor: 'pointer',
@@ -181,6 +201,7 @@ export default function Stepper({
       } else if (value === max) {
         const btStyle = { cursor: 'not-allowed', opacity: '0.2' };
         setPlusBt(btStyle);
+        setIsPlus(true);
       } else {
         const btnStyle = {
           cursor: 'pointer'
@@ -197,7 +218,6 @@ export default function Stepper({
       Object.assign(inputProps, { disabled });
     }
   }, [disableInput]);
-
   return (
     <div className='step-container'>
       <button
@@ -217,8 +237,8 @@ export default function Stepper({
         style={inputBt}
       />
       {loading && (
-        <div id='loading-background' className='load'>
-          <div id='loading' className='load-background' />
+        <div ref={animationBackgroundDiv} className='load'>
+          <div ref={animationDiv} className='load-background' />
         </div>
       )}
       <button
