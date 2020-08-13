@@ -10,6 +10,7 @@ import Rate from './components/Rate';
 import Image from './components/Image';
 import Slider from './components/Slider';
 import Checkbox from './components/Checkbox';
+import Stepper from './components/Stepper';
 
 export { default as Button } from './components/Button';
 export { default as Icon } from './components/Icons';
@@ -23,6 +24,7 @@ export { default as Rate } from './components/Rate';
 export { default as Image } from './components/Image';
 export { default as Slider } from './components/Slider';
 export { default as Checkbox } from './components/Checkbox';
+export { default as Stepper } from './components/Stepper';
 
 const Vant = {
   Button,
@@ -36,7 +38,8 @@ const Vant = {
   Rate,
   Image,
   Slider,
-  Checkbox
+  Checkbox,
+  Stepper
 };
 
 export default Vant;
