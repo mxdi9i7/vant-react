@@ -21,7 +21,7 @@
 }
 
 $baseClass: 'vant-stepper';
-.step-container {
+.vant-stepper-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,8 +106,8 @@ button.#{$baseClass} {
   &__theme {
     border-radius: 50%;
     outline: none;
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     background-color: red;
     border-color: white;
     .minus::before {
@@ -150,8 +150,8 @@ input.#{$baseClass} {
   }
   &__theme {
     border-radius: 50%;
-    width: 32px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     background-color: white;
   }
 }
