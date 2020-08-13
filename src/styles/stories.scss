@@ -2,19 +2,28 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft Yahei', sans-serif;
 }
 
-.container {
+.storybook__container {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  .image-container {
+    span {
+      text-align: center;
+      display: block;
+      margin: 15px 0;
+    }
+  }
+
   &.grey {
-    background-color: $grey-background;
+    background-color: $grey-text;
   }
 
   &.button {
@@ -45,9 +54,34 @@ body {
       margin: 0;
     }
   }
+
+  .vant-image {
+    margin-right: 20px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .slider-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    p {
+      margin-bottom: 20px;
+    }
+  }
 }
 
-.icons-container {
+.storybook__icons-container {
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -103,7 +137,7 @@ body {
     }
   }
 
-  .icon-name {
+  .storybook__icon-name {
     color: $black;
     font-size: 12px;
     display: block;
