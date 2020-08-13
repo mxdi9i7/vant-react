@@ -46,7 +46,7 @@ const App = () => {
 * [x] Button
 * [x] Cell
 * [x] Icon
-* [ ] Image
+* [x] Image
 * [ ] Layout
 * [x] Popup
 * [x] Built-in style
@@ -54,7 +54,7 @@ const App = () => {
 ### Form Components
 
 * [ ] Calendar
-* [ ] Checkbox
+* [x] Checkbox
 * [ ] DatetimePicker
 * [x] Field
 * [ ] Form
@@ -64,8 +64,8 @@ const App = () => {
 * [ ] Radio
 * [x] Rate
 * [x] Search
-* [ ] Slider
-* [ ] Stepper
+* [x] Slider
+* [x] Stepper
 * [ ] Switch
 * [ ] SwitchCell
 * [ ] Uploader
