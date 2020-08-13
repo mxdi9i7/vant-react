@@ -2,13 +2,22 @@
 
 ## Intro
 
-Vant follows Semantic Versioning 0.2.0.
+Vant follows Semantic Versioning 0.2.5.
 
 **Release Schedule**
 
 - Patch version：released weekly, including features and bug fixes.
 - Minor version：released every one to two months, including backwards compatible features.
 - Major version：including breaking changes and new features.
+
+## **0**.2.5
+
+-08-13-2020
+
+**Bug Fixes**
+
+- Stepper
+  - fixed export component
 
 ## **0**.2.4
 
