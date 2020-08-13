@@ -98,7 +98,6 @@ button.#{$baseClass} {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
 
   &__disabled {
     cursor: not-allowed;
@@ -177,7 +176,6 @@ input.#{$baseClass} {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin: auto;
   opacity: 0;
 }
 .load {
