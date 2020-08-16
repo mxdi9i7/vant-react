@@ -1,0 +1,13 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/typography.scss';
+@import '../../styles/opacity.scss';
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-form';
+
+form.#{$baseClass} {
+  &__horizontal {
+    display: flex;
+  }
+}
