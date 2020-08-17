@@ -219,7 +219,7 @@ export default function Stepper({
     }
   }, [disableInput]);
   return (
-    <div className='step-container'>
+    <div className='vant-stepper-container'>
       <button
         id='minus'
         onClick={handleDecrement}
