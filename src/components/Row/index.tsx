@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, Children } from 'react';
+import React, { useRef, useEffect, Children, useState } from 'react';
 
 import classnames from '../../utils/classNames';
 
@@ -35,14 +35,14 @@ const Row = ({
       }
     });
 
-  if (Children.count(children) === 1) {
-    children = [children];
-  }
+  const childrenArray = Children.toArray(children);
+
+  console.log(Children);
   const groups: number[][] = [[]];
 
   let totalSpan = 0;
 
-  children.forEach((child, index) => {
+  childrenArray.forEach((child, index) => {
     totalSpan += Number(child.props.span);
     if (child.props.offset) {
       totalSpan += Number(child.props.offset);
@@ -89,7 +89,7 @@ const Row = ({
     });
   }
 
-  const childrenWithProps = children?.map((child, index) =>
+  const childrenWithProps = children.map((child, index) =>
     React.cloneElement(child, {
       groups,
       display: displayArray[index],

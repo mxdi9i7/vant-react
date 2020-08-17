@@ -1,7 +1,8 @@
-import { ReactElement, ReactFragment } from 'react';
+import { ReactElement, ReactFragment, ReactNode } from 'react';
 
 export interface IProps {
-  children?: [ReactElement] | ReactFragment;
+  // children?: [ReactElement] | ReactFragment;
+  children: ReactNode;
   type?: string;
   gutter?: string;
   justify?: JustifyTypes;
