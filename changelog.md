@@ -2,7 +2,7 @@
 
 ## Intro
 
-Vant follows Semantic Versioning 0.2.5.
+Vant follows Semantic Versioning 0.2.6.
 
 **Release Schedule**
 
