@@ -55,7 +55,7 @@ const Row = ({
         groups[groups.length - 1].push(index);
       }
       return groups;
-    }
+    } else return null;
   });
 
   const displayArray: string[] = [];
@@ -98,7 +98,7 @@ const Row = ({
         display: displayArray[index],
         gutter: gutterArray[index]
       });
-    }
+    } else return null;
   });
 
   return <div {...rowProps}>{childrenWithProps}</div>;
