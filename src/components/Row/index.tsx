@@ -35,25 +35,27 @@ const Row = ({
       }
     });
 
-  const childrenArray = Children.toArray(children);
+  // const childrenArray = Children.toArray(children);
 
-  console.log(Children);
+  // console.log(Children);
   const groups: number[][] = [[]];
 
   let totalSpan = 0;
 
-  childrenArray.forEach((child, index) => {
-    totalSpan += Number(child.props.span);
-    if (child.props.offset) {
-      totalSpan += Number(child.props.offset);
+  React.Children.forEach(children, (child, index) => {
+    if (React.isValidElement(child)) {
+      totalSpan += Number(child.props.span);
+      if (child.props.offset) {
+        totalSpan += Number(child.props.offset);
+      }
+      if (totalSpan > 24) {
+        groups.push([index]);
+        totalSpan -= 24;
+      } else {
+        groups[groups.length - 1].push(index);
+      }
+      return groups;
     }
-    if (totalSpan > 24) {
-      groups.push([index]);
-      totalSpan -= 24;
-    } else {
-      groups[groups.length - 1].push(index);
-    }
-    return groups;
   });
 
   const displayArray: string[] = [];
@@ -89,13 +91,15 @@ const Row = ({
     });
   }
 
-  const childrenWithProps = children.map((child, index) =>
-    React.cloneElement(child, {
-      groups,
-      display: displayArray[index],
-      gutter: gutterArray[index]
-    })
-  );
+  const childrenWithProps = React.Children.map(children, (child, index) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        groups,
+        display: displayArray[index],
+        gutter: gutterArray[index]
+      });
+    }
+  });
 
   return <div {...rowProps}>{childrenWithProps}</div>;
 };
