@@ -2,7 +2,7 @@
 
 ## Intro
 
-Vant follows Semantic Versioning 0.2.6.
+Vant follows Semantic Versioning 0.2.7.
 
 **Release Schedule**
 
@@ -10,7 +10,7 @@ Vant follows Semantic Versioning 0.2.6.
 - Minor version：released every one to two months, including backwards compatible features.
 - Major version：including breaking changes and new features.
 
-## **0**.2.6
+## **0**.2.7
 
 -08-17-2020
 
@@ -18,6 +18,15 @@ Vant follows Semantic Versioning 0.2.6.
 
 - Stepper
   - adjusted stepper margin
+
+## **0**.2.6
+
+-08-15-2020
+
+**Bug Fixes**
+
+- Stepper
+  - adjusted stepper layout
 
 ## **0**.2.5
 
