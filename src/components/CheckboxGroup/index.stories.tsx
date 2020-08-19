@@ -9,7 +9,7 @@ export default {
 
 export const BasicUsage = () => (
   <div className='storybook__container'>
-    <CheckboxGroup changed={(e, o) => console.log(e, o)}>
+    <CheckboxGroup changed={(e) => console.log(e)}>
       <Checkbox name='a' labelText='Basic Usage' />
       <Checkbox name='b' labelText='Basic Usage' />
       <Checkbox name='c' labelText='Basic Usage' />

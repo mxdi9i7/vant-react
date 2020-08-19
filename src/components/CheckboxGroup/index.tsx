@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { useState, ReactElement, useEffect } from 'react';
 import classnames from '../../utils/classNames';
 
 export interface IPorps {
@@ -10,9 +10,23 @@ export interface IPorps {
 const baseClass = 'vant-checkbox-group';
 
 function CheckboxBroup({ disabled, changed, children }: IPorps) {
+  const [state, setState] = useState({});
+
   const handleChanged = (checked, name) => {
-    changed && changed(checked, name);
+    setState({ ...state, [name]: checked });
   };
+
+  useEffect(() => {
+    const result = [];
+    for (const key in state) {
+      if (Object.prototype.hasOwnProperty.call(state, key)) {
+        if (state[key]) {
+          result.push(key);
+        }
+      }
+    }
+    changed && changed(result);
+  }, [state]);
 
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
