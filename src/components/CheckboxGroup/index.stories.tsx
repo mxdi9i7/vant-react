@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckboxGroup from '.';
-import Checkbox from '../Checkbox';
+import Checkbox from '../Checkbox/index';
 
 export default {
   title: 'CheckboxGroup',
@@ -9,7 +9,7 @@ export default {
 
 export const BasicUsage = () => (
   <div className='storybook__container'>
-    <CheckboxGroup changed={(e) => console.log(e)}>
+    <CheckboxGroup changed={(e, o) => console.log(e, o)}>
       <Checkbox name='a' labelText='Basic Usage' />
       <Checkbox name='b' labelText='Basic Usage' />
       <Checkbox name='c' labelText='Basic Usage' />

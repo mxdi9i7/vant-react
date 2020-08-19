@@ -45,7 +45,7 @@ const Checkbox = ({
   };
 
   useEffect(() => {
-    return changed && changed(isChecked);
+    return changed && changed(isChecked, name);
   }, [isChecked]);
 
   useEffect(() => {
