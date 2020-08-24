@@ -39,4 +39,5 @@ export interface IProps {
   getFieldRef?: Function;
   formatter?: Function;
   button?: ReactElement;
+  autocomplete?: String;
 }

@@ -49,7 +49,8 @@ const Field = ({
   inputAlign = 'left',
   errorAlign = 'left',
   required,
-  border = true
+  border = true,
+  autocomplete
 }: IProps) => {
   const [containerFocus, setContainerFocus] = useState(false);
 
@@ -147,7 +148,8 @@ const Field = ({
     onChange: handleInput,
     onBlur: handleBlur,
     onFocus: handleFocus,
-    onClick: handleClickInput
+    onClick: handleClickInput,
+    autoComplete: autocomplete
   };
 
   const labelProps = {
