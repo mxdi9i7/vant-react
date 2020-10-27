@@ -1,0 +1,43 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-switch';
+
+.#{$baseClass} {
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+  width: $switch-width;
+  height: $switch-height;
+  font-size: $switch-size;
+  background-color: $switch-background-color;
+  border: $switch-border;
+  border-radius: $switch-node-size;
+  cursor: pointer;
+  transition: background-color $switch-transition-duration;
+  &__node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $switch-node-z-index;
+    width: $switch-node-size;
+    height: $switch-node-size;
+    background-color: $switch-node-background-color;
+    border-radius: 100%;
+    box-shadow: $switch-node-box-shadow;
+    transition: transform $switch-transition-duration
+    cubic-bezier(0.3, 1.05, 0.4, 1.05);
+  }
+
+  &--on {
+    background-color: $switch-on-background-color;
+
+    .#{$baseClass}__node {
+      transform: translateX($switch-width - $switch-node-size);
+    }
+
+    .#{$baseClass}__loading {
+      color: $switch-on-background-color;
+    }
+  }
+}
