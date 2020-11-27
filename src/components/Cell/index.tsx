@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import classnames from '../../utils/classNames';
 
 import './index.scss';
 import Icon from '../Icons';
+import Checkbox from '../Checkbox';
 import { IProps } from './types';
+import Radio from '../Radio';
 
 const baseClass = 'vant-cell';
 
 const Cell = ({
+  url,
+  click,
   title,
   titleIcon,
   content,
-  contentIcon,
+  contentIcon = url || click ? { name: 'arrow', size: '12px' } : null,
   description,
+  checkbox,
+  radio,
   tag,
-  url,
   replace,
-  round,
-  click
+  round
 }: IProps) => {
+  const [isActive, setActive] = useState(false);
+
   const CustomTag = url ? 'a' : 'div';
   const containerProps = {
     className: classnames(`${baseClass}__container`, []),
@@ -58,6 +64,39 @@ const Cell = ({
     });
   }
 
+  if (checkbox) {
+    Object.assign(containerProps, {
+      onClick: () => {
+        setActive(!isActive);
+      }
+    });
+  }
+
+  const renderCustomContent = () => {
+    if (checkbox) {
+      return (
+        <Checkbox
+          {...checkbox}
+          isActive={isActive}
+          checkedColor={checkbox.checkedColor}
+        />
+      );
+    } else if (radio) {
+      return <Radio {...radio} checked={isActive} />;
+    } else {
+      return (
+        <div {...contentProps}>
+          {content && (
+            <p style={{ fontSize: content.fontSize }}>{content.text}</p>
+          )}
+          {contentIcon && (
+            <Icon name={contentIcon.name} size={contentIcon.size} />
+          )}
+        </div>
+      );
+    }
+  };
+
   return (
     <CustomTag {...containerProps}>
       <div className={`${baseClass}__block`}>
@@ -68,14 +107,7 @@ const Cell = ({
           )}
           {tag && tag}
         </div>
-        <div {...contentProps}>
-          {content && (
-            <p style={{ fontSize: content.fontSize }}>{content.text}</p>
-          )}
-          {contentIcon && (
-            <Icon name={contentIcon.name} size={contentIcon.size} />
-          )}
-        </div>
+        {renderCustomContent()}
       </div>
       {description && (
         <p style={{ fontSize: description.fontSize }}>{description.text}</p>

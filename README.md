@@ -43,32 +43,32 @@ const App = () => {
 
 ### Basic Components
 
-- [x] Button
-- [x] Cell
-- [x] Icon
-- [x] Image
-- [ ] Layout
-- [x] Popup
-- [x] Built-in style
+* [x] Button
+* [x] Cell
+* [x] Icon
+* [x] Image
+* [ ] Layout
+* [x] Popup
+* [x] Built-in style
 
 ### Form Components
 
-- [ ] Calendar
-- [x] Checkbox
-- [ ] DatetimePicker
-- [x] Field
-- [ ] Form
-- [ ] NumberKeyboard
-- [ ] PasswordInput
-- [ ] Picker
-- [ ] Radio
-- [x] Rate
-- [x] Search
-- [x] Slider
-- [ ] Stepper
-- [ ] Switch
-- [ ] SwitchCell
-- [ ] Uploader
+* [ ] Calendar
+* [x] Checkbox
+* [ ] DatetimePicker
+* [x] Field
+* [ ] Form
+* [ ] NumberKeyboard
+* [ ] PasswordInput
+* [ ] Picker
+* [ ] Radio
+* [x] Rate
+* [x] Search
+* [x] Slider
+* [x] Stepper
+* [ ] Switch
+* [ ] SwitchCell
+* [ ] Uploader
 
 ### Action Components
 

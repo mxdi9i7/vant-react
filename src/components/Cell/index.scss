@@ -21,6 +21,7 @@ $baseClass: 'vant-cell';
   .#{$baseClass}__block {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
   }
 
   .#{$baseClass}__title,

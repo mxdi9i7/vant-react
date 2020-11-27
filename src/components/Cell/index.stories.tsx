@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Cell from '.';
 import Tag from '../Tag';
 import '../../styles/stories.scss';
@@ -61,6 +62,17 @@ export const URL = () => (
       title={{ text: 'URL', fontSize: '14px' }}
       url='https://www.google.com'
       replace
+    />
+  </div>
+);
+
+export const checkbox = () => (
+  <div className='storybook__container column grey'>
+    <Cell
+      title={{ text: 'Title', fontSize: '14px' }}
+      content={{ text: 'Content', fontSize: '12px' }}
+      description={{ text: 'description', fontSize: '12px' }}
+      checkbox={{ checkedColor: '#b90000' }}
     />
   </div>
 );

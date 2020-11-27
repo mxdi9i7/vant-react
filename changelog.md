@@ -2,13 +2,60 @@
 
 ## Intro
 
-Vant follows Semantic Versioning 0.2.0.
+Vant follows Semantic Versioning 0.2.7.
 
 **Release Schedule**
 
 - Patch version：released weekly, including features and bug fixes.
 - Minor version：released every one to two months, including backwards compatible features.
 - Major version：including breaking changes and new features.
+
+## **0**.2.7
+
+-08-17-2020
+
+**Bug Fixes**
+
+- Stepper
+  - adjusted stepper margin
+
+## **0**.2.6
+
+-08-15-2020
+
+**Bug Fixes**
+
+- Stepper
+  - adjusted stepper layout
+
+## **0**.2.5
+
+-08-13-2020
+
+**Bug Fixes**
+
+- Stepper
+  - fixed export component
+
+## **0**.2.4
+
+-08-12-2020
+
+**Feature**
+
+- Added Image components [\#44](https://github.com/mxdi9i7/vant-react/pull/44)
+- Added Checkbox components [\#67](https://github.com/mxdi9i7/vant-react/pull/67)
+- Added Stepper components [\#34](https://github.com/mxdi9i7/vant-react/pull/34)
+- Added Slider components [\#60](https://github.com/mxdi9i7/vant-react/pull/60)
+  
+## **0**.2.3
+
+-07-25-2020
+
+**Bug Fixes**
+
+- Popup:
+  - revert and fix custom size, hided scrollbar, add padding and fit-content
 
 ## **0**.2.2
 

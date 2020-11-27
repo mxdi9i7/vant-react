@@ -1,22 +1,63 @@
-import React from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
 
 import classnames from '../../utils/classNames';
+import Icon from '../Icons';
 
 import './index.scss';
-
-export interface IProps {
-  foo: string;
-  bar: number;
-}
+import { IProps } from './types';
 
 const baseClass = 'vant-radio';
 
-const Radio = ({ foo = 'foo', bar = 42 }: IProps) => {
+const Radio = ({
+  name,
+  disabled,
+  checked,
+  labelDisabled,
+  checkedColor,
+  click,
+  change,
+  rtl,
+  label = 'radio button'
+}: IProps) => {
+  const [isChecked, setChecked] = useState(checked);
+  const handleClick = (event: MouseEvent): void => {
+    if (!labelDisabled) {
+      setChecked(!isChecked);
+      click && click(event);
+    }
+  };
+
+  const handleRadioClick = (event: MouseEvent): void => {
+    if (labelDisabled) {
+      setChecked(!isChecked);
+      click && click(event);
+    }
+  };
+
+  useEffect(() => {
+    change && change(isChecked);
+  }, [isChecked]);
+
+  const iconName = isChecked ? 'checked' : 'circle';
+  const iconColor = disabled ? '#c8c9cc' : isChecked ? checkedColor : '#000';
+
+  // TODO: Add form related inputs here when working on form element
   return (
-    <div className={classnames(baseClass, [])}>
-      <h1>
-        I am a radio, {foo}, {bar}
-      </h1>
+    <div
+      onClick={handleClick}
+      className={classnames(baseClass, [
+        { labelDisabled },
+        { disabled },
+        { rtl }
+      ])}
+    >
+      <div
+        className={`${baseClass}__icon-container`}
+        onClick={handleRadioClick}
+      >
+        <Icon color={iconColor} name={iconName} size='20px' />
+      </div>
+      <label htmlFor={name}>{label}</label>
     </div>
   );
 };

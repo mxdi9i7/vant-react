@@ -14,7 +14,8 @@ export interface IProps {
   labelText?: string;
   disabled?: boolean;
   labelDisabled?: boolean;
-  changed?: Function;
+  isActive?: boolean;
+  change?: Function;
   clicked?: Function;
 }
 
@@ -22,11 +23,10 @@ const baseClass = 'vant-checkbox';
 
 // TODO: Round/Square checkbox
 // TODO: Checkbox groups
-// TODO: Checkbox in Cells (Need to get Will to finish cell component)
 
 const Checkbox = ({
   checked = false,
-  changed,
+  change,
   clicked,
   name,
   activeIcon = 'checked',
@@ -34,7 +34,8 @@ const Checkbox = ({
   labelText,
   inactiveIcon = 'passed',
   disabled,
-  labelDisabled
+  labelDisabled,
+  isActive
 }: IProps) => {
   const [isChecked, handleCheck] = useState(checked);
 
@@ -43,8 +44,12 @@ const Checkbox = ({
   };
 
   useEffect(() => {
-    return changed && changed(isChecked);
+    return change && change(isChecked);
   }, [isChecked]);
+
+  useEffect(() => {
+    isActive ? handleCheck(true) : handleCheck(false);
+  }, [isActive]);
 
   const handleContainerClick = (e) => {
     e.preventDefault();
