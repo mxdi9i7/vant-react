@@ -55,7 +55,7 @@ export const OnChange = () => (
 export const OnClick = () => (
   <div className='storybook__container'>
     <FormContainer>
-      <Radio click={(e) => alert('clicked')} />
+      <Radio click={() => alert('clicked')} />
     </FormContainer>
   </div>
 );
