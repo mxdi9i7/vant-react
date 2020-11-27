@@ -232,7 +232,7 @@ export default function Stepper({
       <input
         value={value}
         {...inputProps}
-        change={handleInputChange}
+        onChange={handleInputChange}
         disabled={isInput}
         style={inputBt}
       />
