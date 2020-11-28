@@ -36,7 +36,7 @@ export const OnChange = () => (
   <div className='storybook__container'>
     <Checkbox
       labelText='On Change'
-      changed={(checked) => alert(`Checkbox is checked: ${checked}`)}
+      change={(checked) => alert(`Checkbox is checked: ${checked}`)}
     />
   </div>
 );

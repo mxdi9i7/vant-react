@@ -20,7 +20,7 @@ export interface IProps {
   size?: number;
   loading?: Boolean;
   tag?: ReactElement;
-  onChange: Function;
+  change: Function;
   asyncChange?: Function | any;
 }
 
@@ -33,7 +33,7 @@ export default function Stepper({
   size,
   theme,
   loading,
-  onChange,
+  change,
   asyncChange
 }: IProps) {
   const [value, setValue] = useState(0);
@@ -77,14 +77,14 @@ export default function Stepper({
           aniNode.style.opacity = '0';
           aniBgNode.style.opacity = '0';
         }
-        onChange(nextValue);
+        change(nextValue);
         asyncChange();
       };
       setTimeout(handlePlus, 1000);
     } else {
       const nextValue = value + (step || 1);
       setValue(nextValue);
-      onChange(nextValue);
+      change(nextValue);
     }
   };
 
@@ -101,7 +101,7 @@ export default function Stepper({
       const decrement = () => {
         const nextValue = value - (step || 1);
         setValue(nextValue);
-        onChange(nextValue);
+        change(nextValue);
         if (aniNode && aniBgNode) {
           aniNode.style.opacity = '0';
           aniBgNode.style.opacity = '0';
@@ -112,7 +112,7 @@ export default function Stepper({
       const nextValue = value - (step || 1);
       if (nextValue >= 0) {
         setValue(nextValue);
-        onChange(nextValue);
+        change(nextValue);
       }
     }
   };
@@ -128,7 +128,7 @@ export default function Stepper({
       }
       const changeInput = () => {
         setValue(Number(result));
-        onChange(Number(result));
+        change(Number(result));
         if (aniNode && aniBgNode) {
           aniNode.style.opacity = '0';
           aniBgNode.style.opacity = '0';
@@ -137,7 +137,7 @@ export default function Stepper({
       setTimeout(changeInput, 2000);
     } else {
       setValue(Number(e.target.value));
-      onChange(Number(e.target.value));
+      change(Number(e.target.value));
     }
   };
 

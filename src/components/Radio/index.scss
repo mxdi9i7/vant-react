@@ -1,0 +1,36 @@
+@import '../../styles/colors.scss';
+
+$baseClass: 'vant-radio';
+
+.#{$baseClass} {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  label {
+    margin-left: 5px;
+  }
+
+  input {
+    visibility: hidden;
+  }
+
+  *:hover {
+    cursor: pointer;
+  }
+
+  &.#{$baseClass}__disabled {
+    &:hover,
+    *:hover {
+      cursor: not-allowed;
+    }
+    label {
+      color: $placeholder;
+    }
+  }
+
+  &.#{$baseClass}__rtl {
+    flex-direction: row-reverse;
+  }
+}
