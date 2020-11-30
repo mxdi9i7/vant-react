@@ -16,6 +16,6 @@ export const BasicUsage = () => (
 
 export const Disabled = () => (
   <div className='storybook__container'>
-    <Switch />
+    <Switch disabled />
   </div>
 );

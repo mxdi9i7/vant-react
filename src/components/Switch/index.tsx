@@ -7,7 +7,7 @@ import { Props } from './types';
 
 const baseClass = 'vant-switch';
 
-const Switch = ({ checked = false }: Props) => {
+const Switch = ({ checked = false, disabled }: Props) => {
   const [isChecked, handleCheck] = useState(checked);
   const onClick = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const Switch = ({ checked = false }: Props) => {
 
   return (
     <div
-      className={classnames(baseClass, [{ on: isChecked }])}
+      className={classnames(baseClass, [{ on: isChecked, disabled }])}
       role='switch'
       aria-checked={checked}
       onClick={onClick}

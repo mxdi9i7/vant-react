@@ -40,4 +40,9 @@ $baseClass: 'vant-switch';
       color: $switch-on-background-color;
     }
   }
+
+  &__disabled {
+    cursor: not-allowed;
+    opacity: $switch-disabled-opacity;
+  }
 }
