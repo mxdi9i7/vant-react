@@ -29,7 +29,7 @@ $baseClass: 'vant-switch';
     cubic-bezier(0.3, 1.05, 0.4, 1.05);
   }
 
-  &--on {
+  &__on {
     background-color: $switch-on-background-color;
 
     .#{$baseClass}__node {

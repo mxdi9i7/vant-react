@@ -13,3 +13,9 @@ export const BasicUsage = () => (
     <Switch />
   </div>
 );
+
+export const Disabled = () => (
+  <div className='storybook__container'>
+    <Switch />
+  </div>
+);
