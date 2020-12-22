@@ -21,11 +21,11 @@ export interface IProps {
   leftIcon?: string;
   rightIcon?: string;
   actionText?: string;
-  search?: Function;
-  input?: Function;
-  focus?: Function;
-  blur?: Function;
-  clear?: Function;
-  cancel?: Function;
+  onSearch?: Function;
+  onChange?: Function;
+  onFocus?: Function;
+  onBlur?: Function;
+  onClear?: Function;
+  onCancel?: Function;
   action?: ReactElement;
 }

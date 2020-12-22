@@ -26,14 +26,14 @@ const Field = ({
   rightIcon,
   clearable,
   clickable,
-  input,
-  clear,
-  click,
-  focus,
-  blur,
-  clickInput,
-  clickLeftIcon,
-  clickRightIcon,
+  onChange,
+  onClear,
+  onClick,
+  onFocus,
+  onBlur,
+  onClickInput,
+  onClickLeftIcon,
+  onClickRightIcon,
   getContainerRef,
   getFieldRef,
   autofocus,
@@ -53,18 +53,18 @@ const Field = ({
 }: IProps) => {
   const [containerFocus, setContainerFocus] = useState(false);
 
-  const handleInput = (e) => {
+  const handleChange = (e) => {
     const inputValue = e.target.value;
     if (formatter(inputValue)) {
-      if (input) {
+      if (onChange) {
         if (!maxLength) {
-          return input(e);
+          return onChange(e);
         } else {
           if (
             (value && value.length < maxLength) ||
             inputValue.length < maxLength
           ) {
-            return input(e);
+            return onChange(e);
           }
         }
       }
@@ -72,31 +72,31 @@ const Field = ({
   };
 
   const handleClick = (e) => {
-    if (clickable && click) {
-      return click(e);
+    if (clickable && onClick) {
+      return onClick(e);
     }
   };
 
   const handleClickInput = (e) => {
-    if (clickable && clickInput) {
-      return clickInput(e);
+    if (clickable && onClickInput) {
+      return onClickInput(e);
     }
   };
 
   const handleFocus = (e) => {
-    if (focus) return focus(e);
+    if (onFocus) return onFocus(e);
   };
 
   const handleBlur = (e) => {
-    if (blur) return blur(e);
+    if (onBlur) return onBlur(e);
   };
 
   const handleClickLeftIcon = (e) => {
-    if (clickLeftIcon && clickable) return clickLeftIcon(e);
+    if (onClickLeftIcon && clickable) return onClickLeftIcon(e);
   };
 
   const handleClickRightIcon = (e) => {
-    if (clickRightIcon && clickable) return clickRightIcon(e);
+    if (onClickRightIcon && clickable) return onClickRightIcon(e);
   };
 
   const fieldContainerRef = useRef(null);
@@ -144,7 +144,7 @@ const Field = ({
     readOnly: readonly,
     ref: fieldRef,
     autoFocus: autofocus,
-    onChange: handleInput,
+    onChange: handleChange,
     onBlur: handleBlur,
     onFocus: handleFocus,
     onClick: handleClickInput
@@ -182,18 +182,18 @@ const Field = ({
           {leftIcon && (
             <Icon
               color='#323233'
-              click={handleClickLeftIcon}
+              onClick={handleClickLeftIcon}
               name={leftIcon}
               size={ICON_SIZE}
             />
           )}
           <input {...inputProps} />
           {clearable && value && containerFocus && (
-            <Icon click={clear} name='clear' size={ICON_SIZE} />
+            <Icon onClick={onClear} name='clear' size={ICON_SIZE} />
           )}
           {rightIcon && !clearable && (
             <Icon
-              click={handleClickRightIcon}
+              onClick={handleClickRightIcon}
               name={rightIcon}
               size={ICON_SIZE}
             />

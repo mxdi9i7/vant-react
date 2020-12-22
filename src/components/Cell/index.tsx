@@ -12,11 +12,11 @@ const baseClass = 'vant-cell';
 
 const Cell = ({
   url,
-  click,
+  onClick,
   title,
   titleIcon,
   content,
-  contentIcon = url || click ? { name: 'arrow', size: '12px' } : null,
+  contentIcon = url || onClick ? { name: 'arrow', size: '12px' } : null,
   description,
   checkbox,
   radio,
@@ -58,9 +58,9 @@ const Cell = ({
     }
   }
 
-  if (click) {
+  if (onClick) {
     Object.assign(containerProps, {
-      onClick: click
+      onClick
     });
   }
 

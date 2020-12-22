@@ -14,5 +14,5 @@ export interface IProps {
   url?: string;
   replace?: boolean;
   round?: boolean;
-  click?: Function;
+  onClick?: Function;
 }

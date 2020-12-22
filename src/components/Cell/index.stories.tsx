@@ -81,7 +81,7 @@ export const OnClick = () => (
   <div className='storybook__container column grey'>
     <Cell
       title={{ text: 'Click', fontSize: '14px' }}
-      click={(e) => {
+      onClick={(e) => {
         alert(e);
       }}
     />

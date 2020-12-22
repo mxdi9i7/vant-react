@@ -29,8 +29,8 @@ export default function Button({
   block,
   url,
   replace,
-  click,
-  touchstart,
+  onClick,
+  onTouchStart,
   icon,
   hairline,
   size = 'normal'
@@ -101,25 +101,25 @@ export default function Button({
     }
   }
 
-  if (click) {
+  if (onClick) {
     Object.assign(props, {
-      onClick: click
+      onClick
     });
   }
 
-  if (click && loading) {
+  if (onClick && loading) {
     Object.assign(props, {
       onClick: () => {}
     });
   }
 
-  if (touchstart) {
+  if (onTouchStart) {
     Object.assign(props, {
-      onTouchStart: touchstart
+      onTouchStart
     });
   }
 
-  if (touchstart && loading) {
+  if (onTouchStart && loading) {
     Object.assign(props, {
       onTouchStart: () => {}
     });

@@ -16,5 +16,5 @@ export interface IProps {
   id?: string;
   step?: number;
   value: number;
-  setValue: Function;
+  onSetValue: Function;
 }
