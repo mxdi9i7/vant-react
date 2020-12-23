@@ -19,8 +19,8 @@ export interface IProps {
   closeable?: boolean;
   closeIcon?: { name: string; size: string };
   closeIconPosition?: object;
-  setActive: Function;
-  click?: Function;
+  onSetActive: Function;
+  onClick?: Function;
 }
 
 export type PopupTypes = 'center' | 'top' | 'bottom' | 'left' | 'right';

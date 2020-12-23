@@ -24,12 +24,12 @@ const Search = ({
   leftIcon = 'search',
   rightIcon,
   actionText = 'Cancel',
-  search,
-  input,
-  focus,
-  blur,
-  clear,
-  cancel,
+  onSearch,
+  onChange,
+  onFocus,
+  onBlur,
+  onClear,
+  onCancel,
   action,
   errorMessage,
   labelAlign,
@@ -39,30 +39,30 @@ const Search = ({
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (search) search(e);
+    if (onSearch) onSearch(e);
   };
   const handleActionClick = (e) => {
     e.preventDefault();
-    if (cancel) cancel(e);
+    if (onCancel) onCancel(e);
   };
 
   const handleInput = (e) => {
-    if (input) input(e);
+    if (onChange) onChange(e);
     setValue(e.target.value);
   };
 
   const handleFocus = (e) => {
-    if (focus) focus(e);
+    if (onFocus) onFocus(e);
   };
 
   const handleBlur = (e) => {
-    if (blur) blur(e);
+    if (onBlur) onBlur(e);
   };
 
   const handleClear = (e) => {
     e.preventDefault();
-    if (clear) {
-      clear(e);
+    if (onClear) {
+      onClear(e);
     }
     setValue('');
   };
@@ -89,10 +89,10 @@ const Search = ({
         label={label}
         labelAlign={labelAlign}
         labelWidth={labelWidth}
-        input={handleInput}
-        blur={handleBlur}
-        focus={handleFocus}
-        clear={handleClear}
+        onChange={handleInput}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        onClear={handleClear}
         clearable={clearable}
         leftIcon={leftIcon}
         maxLength={maxLength}

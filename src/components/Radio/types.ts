@@ -6,7 +6,7 @@ export interface IProps {
   rtl?: boolean;
   iconSize?: string;
   checkedColor?: string;
-  click?: Function;
-  change?: Function;
+  onClick?: Function;
+  onChange?: Function;
   label?: string;
 }

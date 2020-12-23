@@ -48,14 +48,14 @@ export const RadioColor = () => (
 export const OnChange = () => (
   <div className='storybook__container'>
     <FormContainer>
-      <Radio change={(v) => alert(v)} />
+      <Radio onChange={(v) => alert(v)} />
     </FormContainer>
   </div>
 );
 export const OnClick = () => (
   <div className='storybook__container'>
     <FormContainer>
-      <Radio click={() => alert('clicked')} />
+      <Radio onClick={() => alert('clicked')} />
     </FormContainer>
   </div>
 );

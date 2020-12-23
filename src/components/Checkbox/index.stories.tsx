@@ -36,13 +36,13 @@ export const OnChange = () => (
   <div className='storybook__container'>
     <Checkbox
       labelText='On Change'
-      change={(checked) => alert(`Checkbox is checked: ${checked}`)}
+      onChange={(checked) => alert(`Checkbox is checked: ${checked}`)}
     />
   </div>
 );
 
 export const OnClick = () => (
   <div className='storybook__container'>
-    <Checkbox labelText='On Click' clicked={() => alert('clicked')} />
+    <Checkbox labelText='On Click' onClicked={() => alert('clicked')} />
   </div>
 );

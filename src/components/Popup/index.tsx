@@ -18,8 +18,8 @@ const Popup = ({
   size,
   padding,
   isActive,
-  setActive,
-  click,
+  onSetActive,
+  onClick,
   closeIcon = { name: 'cross', size: '20px' },
   closeIconPosition = { top: '10px', right: '10px' }
 }: IProps) => {
@@ -49,7 +49,7 @@ const Popup = ({
 
   const handleClickOutside = (e) => {
     if (popupRef.current && !(popupRef as any).current.contains(e.target)) {
-      setActive(false);
+      onSetActive(false);
     }
   };
 
@@ -79,9 +79,9 @@ const Popup = ({
       }
     });
 
-  if (click) {
+  if (onClick) {
     Object.assign(contentProps, {
-      onClick: click
+      onClick
     });
   }
 
@@ -124,7 +124,7 @@ const Popup = ({
           <span
             className='closeIcon'
             onClick={() => {
-              setActive(false);
+              onSetActive(false);
             }}
             style={closeIconPosition}
           >

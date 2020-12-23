@@ -15,7 +15,7 @@ export const BasicUsage = () => {
     <div className='slider-container'>
       <div className='slider-block'>
         <p>{`Current Value : ${value}`}</p>
-        <Slider value={value} setValue={setValue} />
+        <Slider value={value} onSetValue={setValue} />
       </div>
     </div>
   );
@@ -30,7 +30,7 @@ export const SlideRange = () => {
         <p>{`Current Value : ${value}`}</p>
         <Slider
           value={value}
-          setValue={setValue}
+          onSetValue={setValue}
           range={{ min: '-50px', max: '50px' }}
         />
       </div>
@@ -45,7 +45,7 @@ export const SlideStep = () => {
     <div className='slider-container'>
       <div className='slider-block'>
         <p>{`Current Value : ${value}`}</p>
-        <Slider value={value} setValue={setValue} step={10} />
+        <Slider value={value} onSetValue={setValue} step={10} />
       </div>
     </div>
   );
@@ -58,7 +58,7 @@ export const Disabled = () => {
     <div className='slider-container'>
       <div className='slider-block'>
         <p>{`Current Value : ${value}`}</p>
-        <Slider value={value} setValue={setValue} disabled />
+        <Slider value={value} onSetValue={setValue} disabled />
       </div>
     </div>
   );
@@ -71,7 +71,7 @@ export const ShowValue = () => {
     <div className='slider-container'>
       <Slider
         value={value}
-        setValue={setValue}
+        onSetValue={setValue}
         sliderStyle={{
           color: '#000',
           fontSize: '12px',
@@ -97,7 +97,7 @@ export const CustomSize = () => {
         <Slider
           id='a'
           value={valueA}
-          setValue={setValueA}
+          onSetValue={setValueA}
           size={{ width: '300px', height: '10px' }}
         />
       </div>
@@ -106,7 +106,7 @@ export const CustomSize = () => {
         <Slider
           id='b'
           value={valueB}
-          setValue={setValueB}
+          onSetValue={setValueB}
           sliderSize={{ width: '30px', height: '30px' }}
         />
       </div>
@@ -125,7 +125,7 @@ export const CustomStyle = () => {
         <Slider
           id='a'
           value={valueA}
-          setValue={setValueA}
+          onSetValue={setValueA}
           size={{ width: '400px', height: '10px' }}
           activeColor='#b90000'
         />
@@ -135,7 +135,7 @@ export const CustomStyle = () => {
         <Slider
           id='b'
           value={valueB}
-          setValue={setValueB}
+          onSetValue={setValueB}
           sliderStyle={{ backgroundColor: '#2F4F4F' }}
           inactiveColor='transparent'
         />

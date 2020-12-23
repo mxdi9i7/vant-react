@@ -20,8 +20,8 @@ export interface IProps {
   size?: number;
   loading?: Boolean;
   tag?: ReactElement;
-  change: Function;
-  asyncChange?: Function | any;
+  onChange: Function;
+  onAsyncChange?: Function | any;
 }
 
 export default function Stepper({
@@ -33,8 +33,8 @@ export default function Stepper({
   size,
   theme,
   loading,
-  change,
-  asyncChange
+  onChange,
+  onAsyncChange
 }: IProps) {
   const [value, setValue] = useState(0);
   const [isMinus, setIsMinus] = useState(false);
@@ -77,14 +77,14 @@ export default function Stepper({
           aniNode.style.opacity = '0';
           aniBgNode.style.opacity = '0';
         }
-        change(nextValue);
-        asyncChange();
+        onChange(nextValue);
+        onAsyncChange();
       };
       setTimeout(handlePlus, 1000);
     } else {
       const nextValue = value + (step || 1);
       setValue(nextValue);
-      change(nextValue);
+      onChange(nextValue);
     }
   };
 
@@ -101,7 +101,7 @@ export default function Stepper({
       const decrement = () => {
         const nextValue = value - (step || 1);
         setValue(nextValue);
-        change(nextValue);
+        onChange(nextValue);
         if (aniNode && aniBgNode) {
           aniNode.style.opacity = '0';
           aniBgNode.style.opacity = '0';
@@ -112,7 +112,7 @@ export default function Stepper({
       const nextValue = value - (step || 1);
       if (nextValue >= 0) {
         setValue(nextValue);
-        change(nextValue);
+        onChange(nextValue);
       }
     }
   };
@@ -128,7 +128,7 @@ export default function Stepper({
       }
       const changeInput = () => {
         setValue(Number(result));
-        change(Number(result));
+        onChange(Number(result));
         if (aniNode && aniBgNode) {
           aniNode.style.opacity = '0';
           aniBgNode.style.opacity = '0';
@@ -137,7 +137,7 @@ export default function Stepper({
       setTimeout(changeInput, 2000);
     } else {
       setValue(Number(e.target.value));
-      change(Number(e.target.value));
+      onChange(Number(e.target.value));
     }
   };
 
