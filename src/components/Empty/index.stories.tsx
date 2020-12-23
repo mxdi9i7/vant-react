@@ -26,28 +26,28 @@ export const ImageType = () => {
   return (
     <div className='storybook__container empty'>
       <Button
-        click={() => {
+        onClick={() => {
           setShowType('error');
         }}
         text='Error'
         type='primary'
       />
       <Button
-        click={() => {
+        onClick={() => {
           setShowType('network');
         }}
         text='Network'
         type='info'
       />
       <Button
-        click={() => {
+        onClick={() => {
           setShowType('search');
         }}
         text='Search'
         type='warning'
       />
       <Button
-        click={() => {
+        onClick={() => {
           setShowType('custom');
         }}
         text='Custom'

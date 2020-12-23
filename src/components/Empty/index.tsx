@@ -10,16 +10,13 @@ import { Network } from './Network';
 const baseClass = 'vant-button';
 const PRESET_IMAGES = ['error', 'search', 'default'];
 
+// TODO: custom imageSize
+// TODO: bottom & image & description solts
 export default function Empty({
-  imageSize,
   description,
   image = 'default',
   bottom
 }: Props) {
-  console.log(imageSize);
-  console.log(description);
-  console.log(image);
-
   const containerProps = {
     className: classnames(`${baseClass}`, []),
     style: {}
