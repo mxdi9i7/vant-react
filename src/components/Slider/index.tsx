@@ -25,7 +25,7 @@ const Slider = ({
   id,
   step = 1,
   value = parseInt(range.min),
-  setValue
+  onSetValue
 }: IProps) => {
   const {
     color,
@@ -101,7 +101,7 @@ const Slider = ({
           dom3.style.width = `${e.offsetX - sliderOffset + HIDE_ROUND}px`;
         }
       }
-      setValue(getValue(e, dom1));
+      onSetValue(getValue(e, dom1));
     });
     dom2.addEventListener('mousedown', function () {
       drag = CLICKABLE;
@@ -109,7 +109,7 @@ const Slider = ({
     document.addEventListener('mouseup', function (e) {
       drag = NON_CLICK;
       if (e.target === dom1 && e.target === dom3) {
-        setValue(getValue(e, dom1));
+        onSetValue(getValue(e, dom1));
       }
     });
     document.addEventListener('mousemove', function (e) {
@@ -119,17 +119,17 @@ const Slider = ({
           dom3.style.width = `${
             parseInt(size.width) - sliderOffset + HIDE_ROUND
           }px`;
-          setValue(handleStep(parseInt(range.max)));
+          onSetValue(handleStep(parseInt(range.max)));
         } else if (e.pageX < dom1.offsetLeft) {
           dom2.style.left = `${0 - sliderOffset}px`;
           dom3.style.width = '0px';
-          setValue(handleStep(parseInt(range.min)));
+          onSetValue(handleStep(parseInt(range.min)));
         } else {
           dom2.style.left = `${e.pageX - dom1.offsetLeft - sliderOffset}px`;
           dom3.style.width = `${
             e.pageX - dom1.offsetLeft - sliderOffset + HIDE_ROUND
           }px`;
-          setValue(getValue(e, dom1));
+          onSetValue(getValue(e, dom1));
         }
       }
     });

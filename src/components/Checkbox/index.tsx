@@ -15,8 +15,8 @@ export interface IProps {
   disabled?: boolean;
   labelDisabled?: boolean;
   isActive?: boolean;
-  change?: Function;
-  clicked?: Function;
+  onChange?: Function;
+  onClicked?: Function;
 }
 
 const baseClass = 'vant-checkbox';
@@ -26,8 +26,8 @@ const baseClass = 'vant-checkbox';
 
 const Checkbox = ({
   checked = false,
-  change,
-  clicked,
+  onChange,
+  onClicked,
   name,
   activeIcon = 'checked',
   checkedColor = '#1989fa',
@@ -40,11 +40,11 @@ const Checkbox = ({
   const [isChecked, handleCheck] = useState(checked);
 
   const handleClick = (e) => {
-    return clicked && clicked(e);
+    return onClicked && onClicked(e);
   };
 
   useEffect(() => {
-    return change && change(isChecked);
+    return onChange && onChange(isChecked);
   }, [isChecked]);
 
   useEffect(() => {

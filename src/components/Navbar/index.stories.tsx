@@ -68,8 +68,8 @@ export const NavbarClickHandler = () => (
       leftIcon='arrow-left'
       leftText='Back'
       rightIcon='search'
-      clickLeft={(e) => alert(e.target.innerHTML + ' Left Click')}
-      clickRight={(e) => alert(e.target.innerHTML + ' Right Click')}
+      onClickLeft={(e) => alert(e.target.innerHTML + ' Left Click')}
+      onClickRight={(e) => alert(e.target.innerHTML + ' Right Click')}
     />
   </div>
 );

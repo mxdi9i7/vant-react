@@ -64,31 +64,37 @@ export const FieldEvents = () => {
         placeholder='Show clear icon'
         rightIcon='success'
         value={value}
-        input={(e) => setValue(e.target.value)}
-        clear={() => setValue('')}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
         clearable
       />
-      <Field leftIcon='smile-o' placeholder='Click event' rightIcon='success' />
+      <Field
+        leftIcon='smile-o'
+        placeholder='Click event'
+        rightIcon='success'
+        clickable
+        onClick={() => alert('Click event')}
+      />
       <Field
         leftIcon='smile-o'
         placeholder='Input focus state'
         rightIcon={isFocus ? 'success' : 'cross'}
-        focus={() => setFocus(true)}
-        blur={() => setFocus(false)}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
       />
       <Field
         leftIcon='smile-o'
         placeholder='Input click event'
         clickable
-        clickInput={() => alert('Input clicked')}
+        onClickInput={() => alert('Input clicked')}
       />
       <Field
         leftIcon='smile-o'
         rightIcon='fire-o'
         placeholder='Input left and right icon click'
         clickable
-        clickLeftIcon={() => alert('Left Icon Clicked')}
-        clickRightIcon={() => alert('Right Icon Clicked')}
+        onClickLeftIcon={() => alert('Left Icon Clicked')}
+        onClickRightIcon={() => alert('Right Icon Clicked')}
       />
     </div>
   );
@@ -162,7 +168,7 @@ export const MaxLengthWordLimit = () => {
     <div className='storybook__container column grey'>
       <Field
         value={value}
-        input={(e) => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
         label='Max length'
         maxLength={5}
         showWordLimit
@@ -180,7 +186,7 @@ export const FieldWithButton = () => {
         button={
           <Button
             size='small'
-            click={() => alert('Message sent!')}
+            onClick={() => alert('Message sent!')}
             text='Send SMS'
             type='primary'
           />
@@ -200,7 +206,7 @@ export const Formatter = () => {
         label='Text Only'
         placeholder='No Numbers'
         value={value}
-        input={(e) => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
         formatter={(value) => pattern.test(value)}
       />
     </div>

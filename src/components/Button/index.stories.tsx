@@ -154,9 +154,9 @@ export const ButtonURL = () => (
 
 export const ButtonAction = () => (
   <div className='storybook__container column button'>
-    <Button click={(e) => alert(e.target)}>Handle Click</Button>
-    <Button touchstart={(e) => alert(e.target)}>Handle Touchstart</Button>
-    <Button click={(e) => alert(e.target)} type='primary' disabled>
+    <Button onClick={(e) => alert(e.target)}>Handle Click</Button>
+    <Button onTouchStart={(e) => alert(e.target)}>Handle Touchstart</Button>
+    <Button onClick={(e) => alert(e.target)} type='primary' disabled>
       Disabled Button
     </Button>
     <Button
@@ -164,7 +164,7 @@ export const ButtonAction = () => (
       loading
       loadingType='circular'
       loadingText='Loading Button'
-      click={(e) => alert(e.target)}
+      onClick={(e) => alert(e.target)}
     />
   </div>
 );

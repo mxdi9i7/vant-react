@@ -51,7 +51,7 @@ const Rate = ({
   allowHalf,
   disabled,
   readonly,
-  change
+  onChange
 }: IProps) => {
   const [activeCount, setActiveCount] = useState(currentRate || count);
 
@@ -72,7 +72,7 @@ const Rate = ({
     if (!disabled && !readonly) {
       const nextRate = index + 1;
       setActiveCount(nextRate);
-      if (!!change) change(nextRate);
+      if (!!onChange) onChange(nextRate);
     }
   };
 

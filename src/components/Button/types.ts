@@ -20,8 +20,8 @@ export interface Props {
   nativeType?: 'button' | 'submit' | 'reset';
   type?: ButtonTypes;
   loadingType?: LoadingTypes;
-  click?: Function;
-  touchstart?: Function;
+  onClick?: Function;
+  onTouchStart?: Function;
 }
 
 export interface LoadingIconProps {

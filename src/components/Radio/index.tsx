@@ -14,8 +14,8 @@ const Radio = ({
   checked,
   labelDisabled,
   checkedColor,
-  click,
-  change,
+  onClick,
+  onChange,
   rtl,
   label = 'radio button'
 }: IProps) => {
@@ -23,19 +23,19 @@ const Radio = ({
   const handleClick = (event: MouseEvent): void => {
     if (!labelDisabled) {
       setChecked(!isChecked);
-      click && click(event);
+      onClick && onClick(event);
     }
   };
 
   const handleRadioClick = (event: MouseEvent): void => {
     if (labelDisabled) {
       setChecked(!isChecked);
-      click && click(event);
+      onClick && onClick(event);
     }
   };
 
   useEffect(() => {
-    change && change(isChecked);
+    onChange && onChange(isChecked);
   }, [isChecked]);
 
   const iconName = isChecked ? 'checked' : 'circle';
