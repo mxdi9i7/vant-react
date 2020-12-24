@@ -62,6 +62,15 @@ body {
       height: 200px;
     }
   }
+
+  &.divider {
+    &.divider__content-position {
+      flex-direction: column;
+      >div {
+        width: 100%;
+      }
+    }
+  }
 }
 .slider-container {
   display: flex;
