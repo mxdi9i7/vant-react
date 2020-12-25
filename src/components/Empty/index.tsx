@@ -1,17 +1,14 @@
 import React from 'react';
-
 import classnames from '../../utils/classNames';
-
 import { Props } from './types';
-
 import './index.scss';
 import { Network } from './Network';
 
-const baseClass = 'vant-button';
+const baseClass = 'vant-empty';
 const PRESET_IMAGES = ['error', 'search', 'default'];
 
 // TODO: custom imageSize
-// TODO: bottom & image & description solts
+// TODO: bottom & image & description slots
 export default function Empty({
   description,
   image = 'default',

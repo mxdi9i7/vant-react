@@ -89,7 +89,7 @@ const App = () => {
 - [ ] Collapse
 - [ ] CountDown
 - [ ] Divider
-- [ ] Empty
+- [x] Empty
 - [ ] ImagePreview
 - [ ] Lazyload
 - [ ] List

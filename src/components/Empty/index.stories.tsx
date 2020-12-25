@@ -25,34 +25,36 @@ export const ImageType = () => {
 
   return (
     <div className='storybook__container empty'>
-      <Button
-        onClick={() => {
-          setShowType('error');
-        }}
-        text='Error'
-        type='primary'
-      />
-      <Button
-        onClick={() => {
-          setShowType('network');
-        }}
-        text='Network'
-        type='info'
-      />
-      <Button
-        onClick={() => {
-          setShowType('search');
-        }}
-        text='Search'
-        type='warning'
-      />
-      <Button
-        onClick={() => {
-          setShowType('custom');
-        }}
-        text='Custom'
-        type='danger'
-      />
+      <div>
+        <Button
+          onClick={() => {
+            setShowType('error');
+          }}
+          text='Error'
+          type='primary'
+        />
+        <Button
+          onClick={() => {
+            setShowType('network');
+          }}
+          text='Network'
+          type='info'
+        />
+        <Button
+          onClick={() => {
+            setShowType('search');
+          }}
+          text='Search'
+          type='warning'
+        />
+        <Button
+          onClick={() => {
+            setShowType('custom');
+          }}
+          text='Custom'
+          type='danger'
+        />
+      </div>
       {showType === 'error' && (
         <Empty image='error' description='description' />
       )}
@@ -78,7 +80,7 @@ export const CustomImage = () => (
   </div>
 );
 
-export const BottomContent = () => (
+export const CustomBottomContent = () => (
   <div className='storybook__container empty'>
     <Empty
       bottom={
