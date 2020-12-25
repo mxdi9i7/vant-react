@@ -62,6 +62,10 @@ body {
       height: 200px;
     }
   }
+
+  &.empty {
+    flex-direction: column;
+  }
 }
 .slider-container {
   display: flex;
