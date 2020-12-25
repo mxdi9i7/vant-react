@@ -50,10 +50,12 @@ const App = () => {
 - [ ] Layout
 - [x] Popup
 - [x] Built-in style
+- [ ] Toast
 
 ### Form Components
 
 - [ ] Calendar
+- [ ] Cascader
 - [x] Checkbox
 - [ ] DatetimePicker
 - [x] Field
@@ -67,7 +69,6 @@ const App = () => {
 - [x] Slider
 - [x] Stepper
 - [ ] Switch
-- [ ] SwitchCell
 - [ ] Uploader
 
 ### Action Components
@@ -81,10 +82,10 @@ const App = () => {
 - [ ] PullRefresh
 - [ ] ShareSheet
 - [ ] SwipeCell
-- [ ] Toast
 
 ### Display Components
 
+- [ ] Badge
 - [ ] Circle
 - [ ] Collapse
 - [ ] CountDown
@@ -94,7 +95,7 @@ const App = () => {
 - [ ] Lazyload
 - [ ] List
 - [ ] NoticeBar
-- [ ] Panel
+- [ ] Popover
 - [ ] Progress
 - [ ] Skeleton
 - [ ] Steps
@@ -119,7 +120,9 @@ const App = () => {
 - [ ] AddressList
 - [ ] Area
 - [ ] Card
-- [ ] Contact
+- [ ] ContactCard
+- [ ] ContactEdit
+- [ ] ContactList
 - [ ] Coupon
 - [ ] GoodsAction
 - [ ] SubmitBar
@@ -128,6 +131,7 @@ const App = () => {
 ### Deprecated
 
 - [ ] SwitchCell
+- [ ] Panel
 
 ## Contribution
 
