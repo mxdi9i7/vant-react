@@ -56,13 +56,13 @@ export const SearchActions = () => {
   return (
     <div className='storybook__container column grey'>
       <h1>Value: {value}</h1>
-      <Search cancel={handleClick} showAction />
-      <Search cancel={handleClick} showAction actionText='Clear' />
+      <Search onCancel={handleClick} showAction />
+      <Search onCancel={handleClick} showAction actionText='Clear' />
       <Search
         showAction
         action={
           <Button
-            click={handleClick}
+            onClick={handleClick}
             text='Action'
             type='primary'
             size='small'
@@ -72,16 +72,16 @@ export const SearchActions = () => {
       />
       <Search
         placeholder='Search Action, press Enter to search'
-        search={() => alert('Searched')}
+        onSearch={() => alert('Searched')}
       />
 
       <Search
         rightIcon={focus ? 'success' : 'cross'}
         clearable={false}
         placeholder='Focus blur and input actions'
-        input={(e) => setValue(e.target.value)}
-        focus={() => setFocus(true)}
-        blur={() => setFocus(false)}
+        onChange={(e) => setValue(e.target.value)}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
       />
     </div>
   );

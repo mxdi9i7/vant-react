@@ -43,32 +43,33 @@ const App = () => {
 
 ### Basic Components
 
-* [x] Button
-* [x] Cell
-* [x] Icon
-* [x] Image
-* [ ] Layout
-* [x] Popup
-* [x] Built-in style
+- [x] Button
+- [x] Cell
+- [x] Icon
+- [x] Image
+- [ ] Layout
+- [x] Popup
+- [x] Built-in style
+- [ ] Toast
 
 ### Form Components
 
-* [ ] Calendar
-* [x] Checkbox
-* [ ] DatetimePicker
-* [x] Field
-* [ ] Form
-* [ ] NumberKeyboard
-* [ ] PasswordInput
-* [ ] Picker
-* [ ] Radio
-* [x] Rate
-* [x] Search
-* [x] Slider
-* [x] Stepper
-* [ ] Switch
-* [ ] SwitchCell
-* [ ] Uploader
+- [ ] Calendar
+- [ ] Cascader
+- [x] Checkbox
+- [ ] DatetimePicker
+- [x] Field
+- [ ] Form
+- [ ] NumberKeyboard
+- [ ] PasswordInput
+- [ ] Picker
+- [x] Radio
+- [x] Rate
+- [x] Search
+- [x] Slider
+- [x] Stepper
+- [ ] Switch
+- [ ] Uploader
 
 ### Action Components
 
@@ -81,10 +82,10 @@ const App = () => {
 - [ ] PullRefresh
 - [ ] ShareSheet
 - [ ] SwipeCell
-- [ ] Toast
 
 ### Display Components
 
+- [ ] Badge
 - [ ] Circle
 - [ ] Collapse
 - [ ] CountDown
@@ -94,7 +95,7 @@ const App = () => {
 - [ ] Lazyload
 - [ ] List
 - [ ] NoticeBar
-- [ ] Panel
+- [ ] Popover
 - [ ] Progress
 - [ ] Skeleton
 - [ ] Steps
@@ -119,7 +120,9 @@ const App = () => {
 - [ ] AddressList
 - [ ] Area
 - [ ] Card
-- [ ] Contact
+- [ ] ContactCard
+- [ ] ContactEdit
+- [ ] ContactList
 - [ ] Coupon
 - [ ] GoodsAction
 - [ ] SubmitBar
@@ -128,6 +131,7 @@ const App = () => {
 ### Deprecated
 
 - [ ] SwitchCell
+- [ ] Panel
 
 ## Contribution
 

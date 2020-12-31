@@ -14,8 +14,8 @@ interface Props {
   fixed?: boolean;
   leftIcon?: string;
   rightIcon?: string;
-  clickLeft?: Function;
-  clickRight?: Function;
+  onClickLeft?: Function;
+  onClickRight?: Function;
   zIndex?: number;
 }
 
@@ -32,8 +32,8 @@ export default function Navbar({
   border,
   fixed,
   zIndex = 1,
-  clickLeft = () => {},
-  clickRight = () => {}
+  onClickLeft = () => {},
+  onClickRight = () => {}
 }: Props): ReactElement {
   const navProps = {
     style: {
@@ -46,13 +46,13 @@ export default function Navbar({
 
   return (
     <nav {...navProps}>
-      <div className={`${baseClass}__left`} onClick={(e) => clickLeft(e)}>
+      <div className={`${baseClass}__left`} onClick={(e) => onClickLeft(e)}>
         <div className={`${baseClass}__icon--left`} />
         {leftIcon && <Icon name={leftIcon} size={NAV_ICON_SIZE} />}
         <div className={`${baseClass}__text--left`}>{leftText}</div>
       </div>
       <div className={`${baseClass}__title`}>{title || 'Title'}</div>
-      <div className={`${baseClass}__right`} onClick={(e) => clickRight(e)}>
+      <div className={`${baseClass}__right`} onClick={(e) => onClickRight(e)}>
         <div className={`${baseClass}__text--right`}>{rightText}</div>
         {rightIcon && <Icon name={rightIcon} size={NAV_ICON_SIZE} />}
       </div>

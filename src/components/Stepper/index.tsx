@@ -21,7 +21,7 @@ export interface IProps {
   loading?: Boolean;
   tag?: ReactElement;
   onChange: Function;
-  asyncChange?: Function | any;
+  onAsyncChange?: Function | any;
 }
 
 export default function Stepper({
@@ -34,7 +34,7 @@ export default function Stepper({
   theme,
   loading,
   onChange,
-  asyncChange
+  onAsyncChange
 }: IProps) {
   const [value, setValue] = useState(0);
   const [isMinus, setIsMinus] = useState(false);
@@ -78,7 +78,7 @@ export default function Stepper({
           aniBgNode.style.opacity = '0';
         }
         onChange(nextValue);
-        asyncChange();
+        onAsyncChange();
       };
       setTimeout(handlePlus, 1000);
     } else {
