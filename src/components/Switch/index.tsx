@@ -11,12 +11,14 @@ const Switch = ({ checked = false, disabled }: Props) => {
   const [isChecked, handleCheck] = useState(checked);
   const onClick = (e) => {
     e.preventDefault();
-    handleCheck(!isChecked);
+    if (!disabled) {
+      handleCheck(!isChecked);
+    }
   };
 
   return (
     <div
-      className={classnames(baseClass, [{ on: isChecked, disabled }])}
+      className={classnames(baseClass, [{ on: isChecked }, { disabled }])}
       role='switch'
       aria-checked={checked}
       onClick={onClick}
