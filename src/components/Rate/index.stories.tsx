@@ -80,7 +80,7 @@ export const ListenOnChange = () => {
     <div className='storybook__container column grey'>
       <h1>{currentRate}</h1>
       <Rate
-        change={(rate) => setRate(rate)}
+        onChange={(rate) => setRate(rate)}
         currentRate={currentRate}
         icon='like'
         voidIcon='like-o'

@@ -15,20 +15,19 @@ export interface IProps {
   disabled?: boolean;
   labelDisabled?: boolean;
   isActive?: boolean;
-  changed?: Function;
-  clicked?: Function;
+  onChange?: Function;
+  onClicked?: Function;
 }
 
 const baseClass = 'vant-checkbox';
 
 // TODO: Round/Square checkbox
 // TODO: Checkbox groups
-// TODO: Checkbox in Cells (Need to get Will to finish cell component)
 
 const Checkbox = ({
   checked = false,
-  changed,
-  clicked,
+  onChange,
+  onClicked,
   name,
   activeIcon = 'checked',
   checkedColor = '#1989fa',
@@ -41,11 +40,11 @@ const Checkbox = ({
   const [isChecked, handleCheck] = useState(checked);
 
   const handleClick = (e) => {
-    return clicked && clicked(e);
+    return onClicked && onClicked(e);
   };
 
   useEffect(() => {
-    return changed && changed(isChecked);
+    return onChange && onChange(isChecked);
   }, [isChecked]);
 
   useEffect(() => {

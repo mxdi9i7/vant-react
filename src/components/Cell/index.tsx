@@ -6,18 +6,20 @@ import './index.scss';
 import Icon from '../Icons';
 import Checkbox from '../Checkbox';
 import { IProps } from './types';
+import Radio from '../Radio';
 
 const baseClass = 'vant-cell';
 
 const Cell = ({
   url,
-  click,
+  onClick,
   title,
   titleIcon,
   content,
-  contentIcon = url || click ? { name: 'arrow', size: '12px' } : null,
+  contentIcon = url || onClick ? { name: 'arrow', size: '12px' } : null,
   description,
   checkbox,
+  radio,
   tag,
   replace,
   round
@@ -56,9 +58,9 @@ const Cell = ({
     }
   }
 
-  if (click) {
+  if (onClick) {
     Object.assign(containerProps, {
-      onClick: click
+      onClick
     });
   }
 
@@ -70,6 +72,31 @@ const Cell = ({
     });
   }
 
+  const renderCustomContent = () => {
+    if (checkbox) {
+      return (
+        <Checkbox
+          {...checkbox}
+          isActive={isActive}
+          checkedColor={checkbox.checkedColor}
+        />
+      );
+    } else if (radio) {
+      return <Radio {...radio} checked={isActive} />;
+    } else {
+      return (
+        <div {...contentProps}>
+          {content && (
+            <p style={{ fontSize: content.fontSize }}>{content.text}</p>
+          )}
+          {contentIcon && (
+            <Icon name={contentIcon.name} size={contentIcon.size} />
+          )}
+        </div>
+      );
+    }
+  };
+
   return (
     <CustomTag {...containerProps}>
       <div className={`${baseClass}__block`}>
@@ -80,18 +107,7 @@ const Cell = ({
           )}
           {tag && tag}
         </div>
-        {checkbox ? (
-          <Checkbox isActive={isActive} checkedColor={checkbox.checkedColor} />
-        ) : (
-          <div {...contentProps}>
-            {content && (
-              <p style={{ fontSize: content.fontSize }}>{content.text}</p>
-            )}
-            {contentIcon && (
-              <Icon name={contentIcon.name} size={contentIcon.size} />
-            )}
-          </div>
-        )}
+        {renderCustomContent()}
       </div>
       {description && (
         <p style={{ fontSize: description.fontSize }}>{description.text}</p>

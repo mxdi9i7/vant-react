@@ -53,7 +53,7 @@ export const AsyncStepper = () => (
   <div className='container stepper'>
     <Stepper
       loading
-      asyncChange={() => {}}
+      onAsyncChange={() => {}}
       onChange={(value) => console.log(value)}
     />
   </div>
