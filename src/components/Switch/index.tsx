@@ -8,7 +8,14 @@ import { Props } from './types';
 
 const baseClass = 'vant-switch';
 
-const Switch = ({ checked = false, disabled, loading, size }: Props) => {
+const Switch = ({
+  checked = false,
+  disabled,
+  loading,
+  size,
+  activeColor,
+  inactiveColor
+}: Props) => {
   const [isChecked, handleCheck] = useState(checked);
   const onClick = (e) => {
     e.preventDefault();
@@ -30,8 +37,20 @@ const Switch = ({ checked = false, disabled, loading, size }: Props) => {
   };
 
   const style = {
-    fontSize: addUnit(size)
+    fontSize: addUnit(size),
+    backgroundColor: isChecked ? activeColor : inactiveColor
   };
+
+  const renderLoading = () => {
+    if (loading) {
+      const color = isChecked ? activeColor : inactiveColor;
+      return (
+        <CircularLoading className={`${baseClass}--loading`} color={color} />
+      );
+    }
+    return '';
+  };
+
   return (
     <div
       className={classnames(baseClass, [
@@ -44,9 +63,7 @@ const Switch = ({ checked = false, disabled, loading, size }: Props) => {
       aria-checked={checked}
       onClick={onClick}
     >
-      <div className={`${baseClass}__node`}>
-        {loading ? <CircularLoading className={`${baseClass}--loading`} /> : ''}
-      </div>
+      <div className={`${baseClass}__node`}>{renderLoading()}</div>
     </div>
   );
 };

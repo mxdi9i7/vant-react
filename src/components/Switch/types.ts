@@ -3,4 +3,6 @@ export interface Props {
   disabled?: boolean;
   loading?: boolean;
   size?: string | number;
+  activeColor?: string;
+  inactiveColor?: string;
 }

@@ -31,3 +31,9 @@ export const CustomSize = () => (
     <Switch size={24} checked />
   </div>
 );
+
+export const CustomColor = () => (
+  <div className='storybook__container'>
+    <Switch checked activeColor='#ee0a24' inactiveColor='#dcdee0' loading />
+  </div>
+);
