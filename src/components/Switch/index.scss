@@ -28,21 +28,38 @@ $baseClass: 'vant-switch';
     transition: transform $switch-transition-duration
     cubic-bezier(0.3, 1.05, 0.4, 1.05);
   }
-
   &__on {
     background-color: $switch-on-background-color;
-
     .#{$baseClass}__node {
       transform: translateX($switch-width - $switch-node-size);
+      // Todo: wait for loading component
+      .circular-loading {
+        position: relative;
+        font-size: 0;
+        vertical-align: middle;
+        top: 25%;
+        left: 25%;
+        width: 50%!important;
+        height: 50%!important;
+        line-height: 1;
+        circle {
+          stroke: $switch-on-background-color
+        }
+      }
     }
 
     .#{$baseClass}__loading {
       color: $switch-on-background-color;
+      position: relative;
     }
   }
 
   &__disabled {
     cursor: not-allowed;
     opacity: $switch-disabled-opacity;
+  }
+
+  &__loading {
+    cursor: default;
   }
 }

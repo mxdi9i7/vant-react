@@ -19,3 +19,8 @@ export const Disabled = () => (
     <Switch disabled />
   </div>
 );
+export const Loading = () => (
+  <div className='storybook__container'>
+    <Switch checked loading />
+  </div>
+);
