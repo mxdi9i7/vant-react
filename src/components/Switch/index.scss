@@ -27,25 +27,25 @@ $baseClass: 'vant-switch';
     box-shadow: $switch-node-box-shadow;
     transition: transform $switch-transition-duration
     cubic-bezier(0.3, 1.05, 0.4, 1.05);
+    // Todo: wait for loading component
+    .circular-loading {
+      position: relative;
+      font-size: 0;
+      vertical-align: middle;
+      top: 25%;
+      left: 25%;
+      width: 50%!important;
+      height: 50%!important;
+      line-height: 1;
+      circle {
+        stroke: $switch-on-background-color
+      }
+    }
   }
   &__on {
     background-color: $switch-on-background-color;
     .#{$baseClass}__node {
       transform: translateX($switch-width - $switch-node-size);
-      // Todo: wait for loading component
-      .circular-loading {
-        position: relative;
-        font-size: 0;
-        vertical-align: middle;
-        top: 25%;
-        left: 25%;
-        width: 50%!important;
-        height: 50%!important;
-        line-height: 1;
-        circle {
-          stroke: $switch-on-background-color
-        }
-      }
     }
 
     .#{$baseClass}__loading {
@@ -60,6 +60,6 @@ $baseClass: 'vant-switch';
   }
 
   &__loading {
-    cursor: default;
+    cursor: not-allowed;
   }
 }
