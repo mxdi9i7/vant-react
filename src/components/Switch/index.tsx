@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import classnames from '../../utils/classNames';
 
@@ -14,15 +14,23 @@ const Switch = ({
   loading,
   size,
   activeColor,
-  inactiveColor
+  inactiveColor,
+  onClick,
+  onChange
 }: Props) => {
   const [isChecked, handleCheck] = useState(checked);
-  const onClick = (e) => {
+
+  const handleClick = (e) => {
     e.preventDefault();
     if (!disabled && !loading) {
       handleCheck(!isChecked);
+      onClick && onClick(e);
     }
   };
+
+  useEffect(() => {
+    return onChange && onChange(isChecked);
+  }, [isChecked]);
 
   const isNumeric = (value) => {
     return typeof value === 'number' || /^\d+(\.\d+)?$/.test(value);
@@ -61,7 +69,7 @@ const Switch = ({
       style={style}
       role='switch'
       aria-checked={checked}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div className={`${baseClass}__node`}>{renderLoading()}</div>
     </div>

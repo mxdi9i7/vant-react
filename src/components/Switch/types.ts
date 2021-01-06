@@ -5,4 +5,6 @@ export interface Props {
   size?: string | number;
   activeColor?: string;
   inactiveColor?: string;
+  onClick?: Function;
+  onChange?: Function;
 }
