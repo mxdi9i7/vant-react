@@ -10,17 +10,24 @@ export default {
 
 export const BasicUsage = () => (
   <div className='storybook__container'>
-    <Switch />
+    <Switch checked />
   </div>
 );
 
 export const Disabled = () => (
   <div className='storybook__container'>
-    <Switch disabled />
+    <Switch checked disabled />
   </div>
 );
+
 export const Loading = () => (
   <div className='storybook__container'>
     <Switch checked loading />
+  </div>
+);
+
+export const CustomSize = () => (
+  <div className='storybook__container'>
+    <Switch size={24} checked />
   </div>
 );

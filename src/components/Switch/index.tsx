@@ -8,7 +8,7 @@ import { Props } from './types';
 
 const baseClass = 'vant-switch';
 
-const Switch = ({ checked = false, disabled, loading }: Props) => {
+const Switch = ({ checked = false, disabled, loading, size }: Props) => {
   const [isChecked, handleCheck] = useState(checked);
   const onClick = (e) => {
     e.preventDefault();
@@ -17,6 +17,21 @@ const Switch = ({ checked = false, disabled, loading }: Props) => {
     }
   };
 
+  const isNumeric = (value) => {
+    return typeof value === 'number' || /^\d+(\.\d+)?$/.test(value);
+  };
+
+  const addUnit = (value) => {
+    if (value === undefined || value === null) {
+      return undefined;
+    }
+
+    return isNumeric(value) ? `${value}px` : String(value);
+  };
+
+  const style = {
+    fontSize: addUnit(size)
+  };
   return (
     <div
       className={classnames(baseClass, [
@@ -24,6 +39,7 @@ const Switch = ({ checked = false, disabled, loading }: Props) => {
         { disabled },
         { loading }
       ])}
+      style={style}
       role='switch'
       aria-checked={checked}
       onClick={onClick}
