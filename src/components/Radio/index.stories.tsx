@@ -10,7 +10,8 @@ export default {
 };
 
 const FormContainer = ({ children }) => {
-  return <div style={{ width: '140px' }}>{children}</div>;
+  // return <div style={{ width: '140px' }}>{children}</div>;
+  return <div>{children}</div>;
 };
 
 export const BasicUsage = () => {
