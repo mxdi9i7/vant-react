@@ -23,7 +23,7 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
     "lint": "eslint --ext .tsx ./src",
-    "lint:watch": "esw --watch --ext .tsx ./src",
+    "lint:watch": "esw --watch --fix --ext .tsx ./src",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook"
   },
