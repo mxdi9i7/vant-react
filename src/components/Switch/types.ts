@@ -4,8 +4,6 @@ export interface IProps {
   size?: number | string;
   activeColor?: string;
   inactiveColor?: string;
-  activeValue?: any;
-  inactiveValue?: any;
   onClick?: Function;
   onChange?: Function;
   loading?: boolean;

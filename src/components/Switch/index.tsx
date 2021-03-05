@@ -12,8 +12,6 @@ const Switch = ({
   size = '30px',
   activeColor = 'red',
   inactiveColor = 'blue',
-  activeValue = true,
-  inactiveValue = false,
   loading,
   loadingType,
   loadingText,
