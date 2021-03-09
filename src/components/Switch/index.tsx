@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from '../../utils/classNames';
 import './index.scss';
 import { IProps } from './types';
@@ -17,35 +17,26 @@ const Switch = ({
   onClick,
   onChange
 }: IProps) => {
-  const [isChecked, setChecked] = useState(checked);
-
   const handleClick = (e) => {
     if (!disabled && !loading) {
-      setChecked(() => {
-        const value = !isChecked ? activeValue : inactiveValue;
-        onChange && onChange(value);
-        return !isChecked;
-      });
+      const value = !checked ? activeValue : inactiveValue;
+      onChange && onChange(value);
       onClick && onClick(e);
     }
   };
 
   const containerProps = {
-    onClick: handleClick,
-    className: classnames(baseClass, [
-      { checked: isChecked },
-      { disabled },
-      { loading }
-    ]),
+    onClick: (e) => handleClick(e),
+    className: classnames(baseClass, [{ checked }, { disabled }, { loading }]),
     style: {
       fontSize: typeof size === 'number' ? size + 'px' : size,
-      backgroundColor: isChecked ? activeColor : inactiveColor
+      backgroundColor: checked ? activeColor : inactiveColor
     }
   };
 
   const renderLoading = () => {
     if (loading) {
-      const color = isChecked ? activeColor : inactiveColor;
+      const color = checked ? activeColor : inactiveColor;
       return (
         <CircularLoading className={`${baseClass}--loading`} color={color} />
       );
