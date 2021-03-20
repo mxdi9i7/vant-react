@@ -1,0 +1,23 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+
+
+$baseClass: 'vant-loading';
+
+.#{$baseClass} {
+  position: relative;
+  color: $loading-spinner-color;
+  font-size: 0;
+  vertical-align: middle;
+  &__spinner {
+    position: relative;
+    display: inline-block;
+    width: $loading-spinner-size;
+    max-width: 100%;
+    height: $loading-spinner-size;
+    max-height: 100%;
+    vertical-align: middle;
+    animation: van-rotate $loading-spinner-animation-duration linear infinite;
+  }
+
+  }

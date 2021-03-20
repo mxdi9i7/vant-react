@@ -1,6 +1,22 @@
 @import './colors.scss';
 @import './opacity.scss';
 
+// Font
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-weight-bold: 500;
+$line-height-xs: 14px;
+$line-height-sm: 18px;
+$line-height-md: 20px;
+$line-height-lg: 22px;
+$base-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
+'Microsoft Yahei', sans-serif;
+$price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial,
+sans-serif;
+
 // Border
 $border-color: $gray-3;
 $border-width-base: 1px;
@@ -49,3 +65,11 @@ $switch-on-background-color: $blue;
 $switch-transition-duration: $animation-duration-base;
 $switch-disabled-opacity: $disabled-opacity;
 $switch-border: $border-width-base solid rgba(0, 0, 0, 0.1);
+
+
+// Loading
+$loading-text-color: $gray-6;
+$loading-text-font-size: $font-size-md;
+$loading-spinner-color: $gray-5;
+$loading-spinner-size: 30px;
+$loading-spinner-animation-duration: 0.8s;
