@@ -14,7 +14,6 @@ export interface IProps {
   labelText?: string;
   disabled?: boolean;
   labelDisabled?: boolean;
-  isActive?: boolean;
   onChange?: Function;
   onClicked?: Function;
 }
@@ -34,8 +33,7 @@ const Checkbox = ({
   labelText,
   inactiveIcon = 'passed',
   disabled,
-  labelDisabled,
-  isActive
+  labelDisabled
 }: IProps) => {
   const [isChecked, handleCheck] = useState(checked);
 
@@ -46,10 +44,6 @@ const Checkbox = ({
   useEffect(() => {
     return onChange && onChange(isChecked);
   }, [isChecked]);
-
-  useEffect(() => {
-    isActive ? handleCheck(true) : handleCheck(false);
-  }, [isActive]);
 
   const handleContainerClick = (e) => {
     e.preventDefault();

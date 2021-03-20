@@ -62,6 +62,7 @@ export const IconDotsAndBadges = () => (
   <div className='storybook__container icons'>
     <Icon name='chat-o' dot />
     <Icon name='add' badge='1' />
+    <Icon name='add' badge='0' />
     <Icon name='add-square' badge='12' />
     <Icon name='after-sale' badge='99+' />
   </div>

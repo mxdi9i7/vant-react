@@ -77,7 +77,7 @@ const Cell = ({
       return (
         <Checkbox
           {...checkbox}
-          isActive={isActive}
+          checked={isActive}
           checkedColor={checkbox.checkedColor}
         />
       );

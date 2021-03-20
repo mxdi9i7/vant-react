@@ -6,7 +6,7 @@ import classnames from '../../utils/classNames';
 interface IProps {
   name: string;
   dot?: boolean;
-  badge?: boolean;
+  badge?: string;
   color?: string;
   size?: string;
   classPrefix?: string;

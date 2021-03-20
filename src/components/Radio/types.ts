@@ -1,12 +1,11 @@
 export interface IProps {
   name?: string;
   disabled?: boolean;
-  checked?: boolean;
+  checked: boolean;
   labelDisabled?: boolean;
   rtl?: boolean;
   iconSize?: string;
   checkedColor?: string;
-  onClick?: Function;
-  onChange?: Function;
+  onClick: Function;
   label?: string;
 }
