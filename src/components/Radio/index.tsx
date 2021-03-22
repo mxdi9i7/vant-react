@@ -1,4 +1,4 @@
-import React, { MouseEvent, useEffect, useState } from 'react';
+import React, { MouseEvent } from 'react';
 
 import classnames from '../../utils/classNames';
 import Icon from '../Icons';
@@ -15,31 +15,23 @@ const Radio = ({
   labelDisabled,
   checkedColor,
   onClick,
-  onChange,
   rtl,
   label = 'radio button'
 }: IProps) => {
-  const [isChecked, setChecked] = useState(checked);
   const handleClick = (event: MouseEvent): void => {
     if (!labelDisabled) {
-      setChecked(!isChecked);
       onClick && onClick(event);
     }
   };
 
   const handleRadioClick = (event: MouseEvent): void => {
     if (labelDisabled) {
-      setChecked(!isChecked);
       onClick && onClick(event);
     }
   };
 
-  useEffect(() => {
-    onChange && onChange(isChecked);
-  }, [isChecked]);
-
-  const iconName = isChecked ? 'checked' : 'circle';
-  const iconColor = disabled ? '#c8c9cc' : isChecked ? checkedColor : '#000';
+  const iconName = checked ? 'checked' : 'circle';
+  const iconColor = disabled ? '#c8c9cc' : checked ? checkedColor : '#000';
 
   // TODO: Add form related inputs here when working on form element
   return (
