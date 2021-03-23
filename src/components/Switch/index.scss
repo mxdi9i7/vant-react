@@ -1,0 +1,64 @@
+@import '../../styles/colors.scss';
+
+@import '../../styles/variables.scss';
+
+$baseClass: 'vant-switch';
+
+.#{$baseClass} {
+  width: 2em;
+  height: 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  position: relative;
+  box-sizing: content-box;
+  display: inline-block;
+  transition: background-color 0.3s cubic-bezier(0.3, 1.05, 0.4, 1.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  // 开关节点 switch  node
+  &__node {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    top: 0;
+    border-radius: 100%;
+    background: white;
+    box-shadow: 0 3px 1px 0 #00000005, 0 2px 2px 0 #00000010, 0 3px 3px 0 #00000005;
+    transition: transform 0.3s cubic-bezier(0.3, 1.05, 0.4, 1.05);
+    .circular-loading {
+      position: relative;
+      font-size: 0;
+      vertical-align: middle;
+      top: 25%;
+      left: 25%;
+      width: 50%!important;
+      height: 50%!important;
+      line-height: 1;
+      circle {
+        stroke: $info
+      }
+    }
+  }
+
+ //开关loading
+  &__loading {
+    cursor: not-allowed;
+  }
+
+  // 开关禁用  switch disable
+  &__disabled {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+
+  // 开关开启 Switch on
+  &__checked {
+    .#{$baseClass}__node {
+      transform: translateX(1em);
+    }
+  }
+
+}
+
+
+
