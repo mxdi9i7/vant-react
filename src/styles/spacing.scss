@@ -2,4 +2,9 @@ $space-sm: 4px;
 $space-md: 8px;
 $space-lg: 16px;
 
-$padding-sm: 15px;
+$padding-base: 4px;
+$padding-xs: $padding-base * 2;
+$padding-sm: $padding-base * 3;
+$padding-md: $padding-base * 4;
+$padding-lg: $padding-base * 6;
+$padding-xl: $padding-base * 8;
