@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-12 18:14:09
- * @LastEditTime: 2021-05-13 17:49:01
+ * @LastEditTime: 2021-05-13 19:51:41
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Cell/types.ts
@@ -27,4 +27,5 @@ export interface IProps {
 
 export interface GroupProps {
   title?: string | ReactElement;
+  children: React.ReactNode
 }

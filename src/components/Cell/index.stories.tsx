@@ -1,14 +1,14 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-12 18:14:09
- * @LastEditTime: 2021-05-13 18:27:10
+ * @LastEditTime: 2021-05-13 19:34:24
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Cell/index.stories.tsx
  */
 import React from 'react';
 
-import Cell from './Cell';
+import Cell from '../Cell';
 import Tag from '../Tag';
 import '../../styles/stories.scss';
 
