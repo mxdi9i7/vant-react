@@ -1,6 +1,14 @@
+/*
+ * @Author: zhaohui
+ * @Date: 2021-05-12 18:14:09
+ * @LastEditTime: 2021-05-13 18:27:10
+ * @LastEditors: zhaohui
+ * @Description:
+ * @FilePath: /vant-react/src/components/Cell/index.stories.tsx
+ */
 import React from 'react';
 
-import Cell from '.';
+import Cell from './Cell';
 import Tag from '../Tag';
 import '../../styles/stories.scss';
 
@@ -87,3 +95,13 @@ export const OnClick = () => (
     />
   </div>
 );
+
+export const CellGroup = () => {
+  return (
+    <div className='storybook__container column grey'>
+      <Cell.Group title='CellGroupTitle'>
+        <Cell title={{ text: 'Title', fontSize: '14px' }} />
+      </Cell.Group>
+    </div>
+  );
+};

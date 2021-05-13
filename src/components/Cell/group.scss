@@ -1,0 +1,19 @@
+@import '../../styles/colors.scss';
+
+$baseClass: 'vant-cell-group';
+* {
+  margin: 0;
+  padding: 0;
+}
+.#{$baseClass}__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  text-decoration: none;
+
+  .#{$baseClass}__title{
+      padding: 24px 12px 12px;
+      color: $word-limit;
+  }
+}
