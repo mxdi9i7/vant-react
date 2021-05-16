@@ -29,7 +29,7 @@ $baseClass: vant-loading;
     height: 30px;
     max-height: 100%;
     vertical-align: middle;
-    animation: van-rotate 0.8s linear infinite;
+    animation: vant-rotate 0.8s linear infinite;
 
     @include generate-spinner(12);
 
@@ -66,7 +66,7 @@ $baseClass: vant-loading;
     height: 100%;
 
     circle {
-      animation: van-circular 1.5s ease-in-out infinite;
+      animation: vant-circular 1.5s ease-in-out infinite;
       stroke: currentColor;
       stroke-width: 3;
       stroke-linecap: round;
@@ -92,7 +92,7 @@ $baseClass: vant-loading;
   }
 }
 
-@keyframes van-circular {
+@keyframes vant-circular {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
