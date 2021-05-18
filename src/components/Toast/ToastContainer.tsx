@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-17 18:50:48
- * @LastEditTime: 2021-05-18 14:51:29
+ * @LastEditTime: 2021-05-18 15:11:32
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/ToastContainer.tsx
@@ -22,8 +22,9 @@ class ToastContainer extends Component<any, ToastContainerState> {
       toastList: []
     };
   }
+
   pushToastItem = (info: ToastItemProps) => {
-    let toastList: ToastProps[] = this.state.toastList;
+    const toastList: ToastProps[] = this.state.toastList;
     const toastItem = Object.assign({}, info, { id: getUid() });
     const { duration } = toastItem;
     toastList.push(toastItem);
@@ -33,21 +34,23 @@ class ToastContainer extends Component<any, ToastContainerState> {
       }, duration || 2000);
     });
   };
+
   popToast = (id: string) => {
-    let { toastList } = this.state;
-    let newToastList: ToastItemProps[] = toastList.filter(
+    const { toastList } = this.state;
+    const newToastList: ToastItemProps[] = toastList.filter(
       (item: ToastItemProps) => item.id !== id
     );
     this.setState({
       toastList: newToastList
     });
   };
+
   render() {
-    let toastContainerStyle = {
+    const toastContainerStyle = {
       className: classnames(`${baseClass}__container`, []),
       style: {}
     };
-    let toastMaskStyle = {
+    const toastMaskStyle = {
       className: classnames(`${baseClass}__mask`, []),
       style: {}
     };
@@ -55,14 +58,15 @@ class ToastContainer extends Component<any, ToastContainerState> {
       <div {...toastContainerStyle}>
         {this.state.toastList.map((item: ToastItemProps) => (
           <div key={item.id}>
-            {item.overlay ? <div {...toastMaskStyle}></div> : ''}
-            <Toast {...item}></Toast>
+            {item.overlay ? <div {...toastMaskStyle} /> : ''}
+            <Toast {...item} />
           </div>
         ))}
       </div>
     );
   }
 }
+
 let toastCount = 0;
 const getUid = () => {
   return `${baseClass}__container__${new Date().getTime()}__${toastCount++}`;

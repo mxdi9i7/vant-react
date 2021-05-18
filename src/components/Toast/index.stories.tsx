@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-17 14:21:43
- * @LastEditTime: 2021-05-18 15:03:01
+ * @LastEditTime: 2021-05-18 16:07:54
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/index.stories.tsx
@@ -28,7 +28,7 @@ export const BasicUsage = () => {
           },
           onClick: () => Toast.info({ message: 'Base Usage' })
         }}
-      ></Cell>
+      />
       <Cell
         {...{
           title: {
@@ -38,7 +38,7 @@ export const BasicUsage = () => {
           onClick: () =>
             Toast.info({ message: 'Toast bottom', position: 'bottom' })
         }}
-      ></Cell>
+      />
       <Cell
         {...{
           title: {
@@ -46,12 +46,13 @@ export const BasicUsage = () => {
             fontSize: '12px'
           },
           onClick: () =>
-            Toast.info({ message: 'Toast top', position: 'center' })
+            Toast.info({ message: 'Toast center', position: 'center' })
         }}
-      ></Cell>
+      />
     </div>
   );
 };
+
 export const ToastStatus = () => {
   return (
     <div className='storybook__container column grey'>
@@ -64,7 +65,7 @@ export const ToastStatus = () => {
           onClick: () =>
             Toast.info({ message: 'ToastSuccess', type: 'success' })
         }}
-      ></Cell>
+      />
       <Cell
         {...{
           title: {
@@ -73,10 +74,11 @@ export const ToastStatus = () => {
           },
           onClick: () => Toast.info({ message: 'ToastFail', type: 'fail' })
         }}
-      ></Cell>
+      />
     </div>
   );
 };
+
 export const ToastUserSet = () => {
   return (
     <div className='storybook__container column grey'>
@@ -89,10 +91,10 @@ export const ToastUserSet = () => {
           onClick: () =>
             Toast.info({
               message: 'Toast user set icon',
-              icon: <Icon name='good-job-o'></Icon>
+              icon: <Icon name='good-job-o' />
             })
         }}
-      ></Cell>
+      />
       <Cell
         {...{
           title: {
@@ -102,13 +104,14 @@ export const ToastUserSet = () => {
           onClick: () =>
             Toast.info({
               message: 'Toast user set img',
-              icon: <img width="28" src="https://img.yzcdn.cn/vant/logo.png" /> 
+              icon: <img width='28' src='https://img.yzcdn.cn/vant/logo.png' />
             })
         }}
-      ></Cell>
+      />
     </div>
   );
 };
+
 export const ToastSetDefaultOptionGlobal = () => {
   return (
     <div className='storybook__container column grey'>
@@ -123,7 +126,7 @@ export const ToastSetDefaultOptionGlobal = () => {
               duration: 5000
             })
         }}
-      ></Cell>
+      />
       <Cell
         {...{
           title: {
@@ -135,7 +138,7 @@ export const ToastSetDefaultOptionGlobal = () => {
               duration: 1000
             })
         }}
-      ></Cell>
+      />
     </div>
   );
 };

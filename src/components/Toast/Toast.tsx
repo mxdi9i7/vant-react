@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-14 09:30:56
- * @LastEditTime: 2021-05-18 14:46:33
+ * @LastEditTime: 2021-05-18 15:06:47
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/Toast.tsx
@@ -39,7 +39,7 @@ const Toast = ({
   switch (type) {
     case 'success':
     case 'fail':
-      icon = <Icon name={type}></Icon>;
+      icon = <Icon name={type} />;
       break;
     default:
       break;

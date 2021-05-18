@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-17 14:50:33
- * @LastEditTime: 2021-05-18 14:53:23
+ * @LastEditTime: 2021-05-18 15:06:01
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/CreateToast.tsx
@@ -14,7 +14,7 @@ import { ToastItemProps, ToastProps } from './types';
 const createToast = () => {
   const div = document.createElement('div');
   document.body.appendChild(div);
-  const toast = ReactDom.render(<ToastContainer></ToastContainer>, div);
+  const toast = ReactDom.render(<ToastContainer />, div);
   let defaultProps: ToastProps = {
     type: 'message',
     position: 'top',

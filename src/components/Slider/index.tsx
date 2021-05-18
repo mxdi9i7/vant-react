@@ -27,13 +27,8 @@ const Slider = ({
   value = parseInt(range.min),
   onSetValue
 }: IProps) => {
-  const {
-    color,
-    fontSize,
-    backgroundColor,
-    borderRadius,
-    borderColor
-  } = sliderStyle;
+  const { color, fontSize, backgroundColor, borderRadius, borderColor } =
+    sliderStyle;
   const slideRange = parseInt(range.max) - parseInt(range.min);
   const sliderOffset = parseInt(sliderSize.width) / 2;
   const initialPosition =
