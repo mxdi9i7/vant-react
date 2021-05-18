@@ -1,36 +1,58 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-14 09:30:56
- * @LastEditTime: 2021-05-14 21:19:36
+ * @LastEditTime: 2021-05-18 14:46:33
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/Toast.tsx
  */
-import React, { useState, useEffect, forwardRef, useRef } from 'react';
+import React from 'react';
 import classnames from '../../utils/classNames';
-import ReactDom from 'react-dom';
-import { ToastProps } from './types';
-const baseClass = 'vant-toast';
-const Toast = (props: ToastProps) => {
-    const toastContainer = {
-        className: classnames(`${baseClass}__container`, []),
-        style: {}
-      };
-      const init = () => {
-        console.log(1111);
-      };
-      return <div {...toastContainer}>这个是toast</div>;
-} 
+import { baseClass, ToastProps } from './types';
+import Icon from '../Icons';
 
-const createToast = (option?: ToastProps | string) => {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
-//   const ref = useRef();
-  ReactDom.render(React.forwardRef((props: ToastProps, ref) => <Toast ref={ref}/>), div);
-//   console.log(ref);
-  if (typeof option === 'string') {
-  } else {
-    return {};
+const Toast = ({
+  message = '',
+  position = 'center',
+  type,
+  icon
+}: ToastProps) => {
+  const toastItem = {
+    className: classnames(`${baseClass}`, [
+      {
+        toastItem: 'toastItem'
+      },
+      {
+        [`position`]: 'position'
+      },
+      {
+        [`position__${position}`]: `position__${position}`
+      },
+      { type },
+      {
+        [type === 'message' && icon ? 'user__type' : '']:
+          type === 'message' && icon ? 'user__type' : ''
+      }
+    ]),
+    style: {}
+  };
+  switch (type) {
+    case 'success':
+    case 'fail':
+      icon = <Icon name={type}></Icon>;
+      break;
+    default:
+      break;
   }
+  const contentStyle = {
+    className: classnames(`${baseClass}__text`, []),
+    style: {}
+  };
+  return (
+    <div {...toastItem}>
+      {icon}
+      <div {...contentStyle}>{message}</div>
+    </div>
+  );
 };
-export default createToast;
+export default Toast;
