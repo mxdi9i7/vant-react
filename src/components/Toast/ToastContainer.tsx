@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-17 18:50:48
- * @LastEditTime: 2021-05-18 15:11:32
+ * @LastEditTime: 2021-05-26 11:27:45
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/ToastContainer.tsx
@@ -15,6 +15,7 @@ import { ToastProps, baseClass, ToastItemProps } from './types';
 interface ToastContainerState {
   toastList: ToastProps[];
 }
+let timer;
 class ToastContainer extends Component<any, ToastContainerState> {
   constructor(props) {
     super(props);
@@ -23,16 +24,27 @@ class ToastContainer extends Component<any, ToastContainerState> {
     };
   }
 
-  pushToastItem = (info: ToastItemProps) => {
-    const toastList: ToastProps[] = this.state.toastList;
+  pushToastItem = (info: ToastItemProps): void | Promise<void> => {
     const toastItem = Object.assign({}, info, { id: getUid() });
     const { duration } = toastItem;
-    toastList.push(toastItem);
-    this.setState({ toastList }, () => {
-      setTimeout(() => {
-        this.popToast(toastItem.id);
-      }, duration || 2000);
-    });
+    clearTimeout(timer);
+    if (toastItem.type === 'loading') {
+      return new Promise((resolve) => {
+        this.setState({ toastList: [toastItem] }, () => {
+          timer = setTimeout(() => {
+            this.popToast(toastItem.id);
+            clearTimeout(timer);
+            resolve();
+          }, duration || 2000);
+        });
+      });
+    } else {
+      this.setState({ toastList: [toastItem] }, () => {
+        timer = setTimeout(() => {
+          this.popToast(toastItem.id);
+        }, duration || 2000);
+      });
+    }
   };
 
   popToast = (id: string) => {

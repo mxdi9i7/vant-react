@@ -1,7 +1,7 @@
 /*
  * @Author: zhaohui
  * @Date: 2021-05-17 14:21:43
- * @LastEditTime: 2021-05-18 16:07:54
+ * @LastEditTime: 2021-05-26 11:25:59
  * @LastEditors: zhaohui
  * @Description:
  * @FilePath: /vant-react/src/components/Toast/index.stories.tsx
@@ -63,7 +63,7 @@ export const ToastStatus = () => {
             fontSize: '12px'
           },
           onClick: () =>
-            Toast.info({ message: 'ToastSuccess', type: 'success' })
+            Toast.info({ message: 'ToastSuccess', type: 'checked' })
         }}
       />
       <Cell
@@ -73,6 +73,56 @@ export const ToastStatus = () => {
             fontSize: '12px'
           },
           onClick: () => Toast.info({ message: 'ToastFail', type: 'fail' })
+        }}
+      />
+    </div>
+  );
+};
+export const ToastLoading = () => {
+  return (
+    <div className='storybook__container column grey'>
+      <Cell
+        {...{
+          title: {
+            text: 'ToastLoadingWithString',
+            fontSize: '12px'
+          },
+          onClick: () => Toast.Loading('Loading')
+        }}
+      />
+      <Cell
+        {...{
+          title: {
+            text: 'ToastLoadingWithSpinner',
+            fontSize: '12px'
+          },
+          onClick: () =>
+            Toast.Loading({
+              type: 'spinner',
+              message: 'ToastLoadingWithSpinner'
+            })
+        }}
+      />
+      <Cell
+        {...{
+          title: {
+            text: 'ToastLoadingWithCircular',
+            fontSize: '12px'
+          },
+          onClick: () =>
+            Toast.Loading({
+              type: 'circular',
+              message: 'ToastLoadingWithCpinner'
+            })
+        }}
+      />
+      <Cell
+        {...{
+          title: {
+            text: 'ToastLoadingBackSync',
+            fontSize: '12px'
+          },
+          onClick: () => toastSync()
         }}
       />
     </div>
@@ -141,4 +191,13 @@ export const ToastSetDefaultOptionGlobal = () => {
       />
     </div>
   );
+};
+
+const toastSync = () => {
+  Toast.Loading({
+    type: 'circular',
+    message: 'ToastLoadingBackSync'
+  }).then(() => {
+    alert('finished');
+  });
 };

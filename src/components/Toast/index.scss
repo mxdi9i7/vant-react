@@ -61,31 +61,7 @@ $baseClass: 'vant-toast';
     border-radius: 8px;
     padding: 8px 12px;
   }
-  .#{$baseClass}__success {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    min-width: 120px;
-    min-height: 120px;
-    text-align: center;
-    max-width: 70%;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 16px;
-    white-space: pre-wrap;
-    color: white;
-    word-wrap: break-word;
-    border-radius: 8px;
-    .#{$baseClass}__text {
-      width: 100%;
-      min-width: 0;
-      margin-top: 8px;
-      padding: 0;
-    }
-  }
-  .#{$baseClass}__fail {
+  .#{$baseClass}__extra {
     display: flex;
     flex-direction: column;
     justify-content: center;
