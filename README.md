@@ -69,7 +69,7 @@ const App = () => {
 - [x] Slider
 - [x] Stepper
 - [x] Switch
-- [x] Uploader
+- [ ] Uploader
 
 ### Action Components
 
