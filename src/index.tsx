@@ -1,3 +1,11 @@
+/*
+ * @Author: zhaohui
+ * @Date: 2021-05-29 11:23:26
+ * @LastEditTime: 2021-05-29 11:30:52
+ * @LastEditors: zhaohui
+ * @Description: 
+ * @FilePath: /vant-react/src/index.tsx
+ */
 import Button from './components/Button';
 import Icon from './components/Icons';
 import Tag from './components/Tag';
@@ -13,6 +21,7 @@ import Checkbox from './components/Checkbox';
 import Radio from './components/Radio';
 import Stepper from './components/Stepper';
 import Toast from './components/Toast';
+import ActionSheet from './components/ActionSheet';
 
 export { default as Button } from './components/Button';
 export { default as Icon } from './components/Icons';
@@ -29,6 +38,7 @@ export { default as Checkbox } from './components/Checkbox';
 export { default as Radio } from './components/Radio';
 export { default as Stepper } from './components/Stepper';
 export { default as Toast } from './components/Toast';
+export { default as ActionSheet } from './components/ActionSheet';
 
 const Vant = {
   Button,
@@ -45,7 +55,8 @@ const Vant = {
   Checkbox,
   Radio,
   Stepper,
-  Toast
+  Toast,
+  ActionSheet
 };
 
 export default Vant;
