@@ -50,7 +50,7 @@ const App = () => {
 - [ ] Layout
 - [x] Popup
 - [x] Built-in style
-- [ ] Toast
+- [x] Toast
 
 ### Form Components
 
@@ -68,15 +68,15 @@ const App = () => {
 - [x] Search
 - [x] Slider
 - [x] Stepper
-- [ ] Switch
-- [ ] Uploader
+- [x] Switch
+- [x] Uploader
 
 ### Action Components
 
 - [ ] ActionSheet
 - [ ] Dialog
 - [ ] DropdownMenu
-- [ ] Loading
+- [x] Loading
 - [ ] Notify
 - [ ] Overlay
 - [ ] PullRefresh
@@ -89,7 +89,7 @@ const App = () => {
 - [ ] Circle
 - [ ] Collapse
 - [ ] CountDown
-- [ ] Divider
+- [x] Divider
 - [ ] Empty
 - [ ] ImagePreview
 - [ ] Lazyload
