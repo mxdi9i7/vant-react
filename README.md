@@ -50,7 +50,7 @@ const App = () => {
 - [ ] Layout
 - [x] Popup
 - [x] Built-in style
-- [ ] Toast
+- [x] Toast
 
 ### Form Components
 
@@ -68,7 +68,7 @@ const App = () => {
 - [x] Search
 - [x] Slider
 - [x] Stepper
-- [ ] Switch
+- [x] Switch
 - [ ] Uploader
 
 ### Action Components
@@ -76,7 +76,7 @@ const App = () => {
 - [ ] ActionSheet
 - [ ] Dialog
 - [ ] DropdownMenu
-- [ ] Loading
+- [x] Loading
 - [ ] Notify
 - [ ] Overlay
 - [ ] PullRefresh
@@ -89,7 +89,7 @@ const App = () => {
 - [ ] Circle
 - [ ] Collapse
 - [ ] CountDown
-- [ ] Divider
+- [x] Divider
 - [ ] Empty
 - [ ] ImagePreview
 - [ ] Lazyload
@@ -139,7 +139,7 @@ If you like what we do, please consider buy us a bubble-tea(donate)!
 
 [![DonorBox](https://d1iczxrky3cnb2.cloudfront.net/button-small-blue.png)](https://donorbox.org/vant-react-dev-team?default_interval=o&amount=5)
 
-Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) before making a pull request.
+Please make sure to read the[ Contributing Guide](./CONTRIBUTION.md) before making a pull request.
 
 Or, join our discussion group on Wechat by adding me!
 

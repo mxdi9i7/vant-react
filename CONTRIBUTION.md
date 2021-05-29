@@ -1,3 +1,11 @@
+<!--
+ * @Author: zhaohui
+ * @Date: 2021-05-13 18:18:19
+ * @LastEditTime: 2021-05-29 13:47:58
+ * @LastEditors: zhaohui
+ * @Description: 
+ * @FilePath: /vant-react/CONTRIBUTION.md
+-->
 # Contributing to Vant React
 
 The following is a set of guidelines for contributing to Vant. Please spend several minutes in reading these guidelines before you create an issue or pull request.
@@ -27,6 +35,12 @@ It's welcomed to pull request, And there are some tips about that:
 - Add your branch name as PR title.
 
 - Add some descriptions and refer relative issues for your PR.
+
+## Coding suggestion
+
+It's the suggestions for your coding
+
+- To define a prop as `string | ReactNode` if possible, developers usually need to support putting a DOM element in the place where the string is placed.
 
 ## Getting started
 
