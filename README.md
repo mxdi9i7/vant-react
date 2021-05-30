@@ -73,7 +73,7 @@ const App = () => {
 
 ### Action Components
 
-- [ ] ActionSheet
+- [x] ActionSheet
 - [ ] Dialog
 - [ ] DropdownMenu
 - [x] Loading
