@@ -1,11 +1,3 @@
-/*
- * @Author: zhaohui
- * @Date: 2021-05-29 11:23:26
- * @LastEditTime: 2021-05-29 11:30:52
- * @LastEditors: zhaohui
- * @Description: 
- * @FilePath: /vant-react/src/index.tsx
- */
 import Button from './components/Button';
 import Icon from './components/Icons';
 import Tag from './components/Tag';

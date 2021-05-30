@@ -1,0 +1,80 @@
+@import '../../styles/colors.scss';
+
+$baseClass: 'vant-action-sheet';
+
+* {
+  box-sizing: border-box;
+}
+.#{$baseClass}__gap {
+  height: 8px;
+  background: $grey-background;
+}
+.#{$baseClass}__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: $placeholder;
+  font-size: 22px;
+  cursor: pointer;
+}
+.#{$baseClass}__title {
+  flex-shrink: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 48px;
+  text-align: center;
+}
+.#{$baseClass}__container {
+  position: relative;
+  width: 100vw;
+  .#{$baseClass}__action__con {
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    text-align: center;
+    .#{$baseClass}__cancel {
+      background: #000;
+    }
+    .#{$baseClass}__description {
+      padding: 20px;
+      color: $grey;
+      font-size: 14px;
+      border-bottom: 1px solid $grey-background;
+    }
+    .#{$baseClass}__action__item {
+      line-height: 22px;
+      display: block;
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 16px;
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+      &:active {
+        background-color: $grey-background;
+      }
+
+      .#{$baseClass}__action__item__name {
+        font-size: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &__danger {
+          color: $danger;
+        }
+        .loading {
+          svg {
+            circle {
+              stroke: #c8c9cc !important;
+            }
+          }
+        }
+      }
+      .#{$baseClass}__action__item__subName {
+        font-size: 12px;
+        color: $grey;
+      }
+    }
+  }
+}
