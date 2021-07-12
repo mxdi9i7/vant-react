@@ -1,23 +1,23 @@
 # **Vant React**
 
-[![npm version](https://badge.fury.io/js/vant-react.svg)](https://badge.fury.io/js/vant-react)
-[![NPM](https://img.shields.io/npm/l/vant-react)](LICENSE)
-![Test CI](https://github.com/mxdi9i7/vant-react/workflows/Test%20CI/badge.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/30ddabc0-3eb6-4530-ab08-58db247a2b48/deploy-status)](https://vant.bctc.io)
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://vant.bctc.io)
+<img src="https://badge.fury.io/js/vant-react.svg" alt="npm version" style="width: 126px; height: 20px;" />
+<img src="https://img.shields.io/npm/l/vant-react" alt="NPM" style="width: 78px" />
+<img src="https://github.com/mxdi9i7/vant-react/workflows/Test%20CI/badge.svg" alt="Test CI" style="width: 126px; height: 20px;" />
+<img src="https://api.netlify.com/api/v1/badges/30ddabc0-3eb6-4530-ab08-58db247a2b48/deploy-status" alt="Netlify Status" style="width: 126px; height: 20px;" />
+<img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" alt="Storybook" style="width: 82px; height: 20px;" />
 
 Lightweight Mobile UI Components built on Typescript and React in under 2kb!
 
-## **Features**
+### **Features**
 
 - Support Typescript
 - 60+ Reusable components
 - 100% Storybook coverage: [https://vant.bctc.io](https://vant.bctc.io)
 - Extensive documentation and demos
 
-## Install
+### Install
 
-```text
+``` bash
 # Using npm
 npm i vant-react -S
 
@@ -25,9 +25,9 @@ npm i vant-react -S
 yarn add vant-react
 ```
 
-## Quickstart
+### Quickstart
 
-```text
+``` js
 import React from 'react';
 import { Button } from 'vant-react';
 import 'vant-react/dist/index.css';
