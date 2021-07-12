@@ -1,3 +1,12 @@
+
+// Border
+$border-color: #ebedf0;
+$border-width-base: 1px;
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$border-radius-max: 999px;
+
 // loaders
 $loader-size: 20px;
 $loader-animation-duration: 2s;
@@ -16,3 +25,13 @@ $icon-dot-size: 8px;
 // popups
 $popup-alpha: 0.5;
 $popup-background-color: #000;
+
+// divider
+$divider-margin:	8px;
+$divider-text-color:	#969799;
+$divider-font-size:	14px;
+$divider-line-height:	24px;
+$divider-border-color:	#ebedf0;
+$divider-content-padding:	16px;
+$divider-content-left-width:	10%;
+$divider-content-right-width:	10%;

@@ -1,11 +1,12 @@
 import { ReactElement } from 'react';
+import TShape from '../../types/shapes';
 import { TAlignment } from '../Field/types';
 
 export interface IProps {
   label?: string;
   labelWidth?: string;
   labelAlign?: TAlignment;
-  shape?: 'round' | 'square';
+  shape?: TShape;
   background?: string;
   maxLength?: number;
   placeholder?: string;
@@ -20,11 +21,11 @@ export interface IProps {
   leftIcon?: string;
   rightIcon?: string;
   actionText?: string;
-  search?: Function;
-  input?: Function;
-  focus?: Function;
-  blur?: Function;
-  clear?: Function;
-  cancel?: Function;
+  onSearch?: Function;
+  onChange?: Function;
+  onFocus?: Function;
+  onBlur?: Function;
+  onClear?: Function;
+  onCancel?: Function;
   action?: ReactElement;
 }
