@@ -1,0 +1,112 @@
+@import '../../styles/colors.scss';
+
+$baseClass: 'vant-toast';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.#{$baseClass}__container {
+  position: relative;
+  z-index: 10000;
+  .#{$baseClass}__mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: transparent;
+  }
+  .#{$baseClass}__toastItem {
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: white;
+  }
+  .#{$baseClass}__position {
+  }
+  .#{$baseClass}__position__center {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 2;
+  }
+  .#{$baseClass}__position__top {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 2;
+  }
+  .#{$baseClass}__position__bottom {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 2;
+  }
+  .#{$baseClass}__text {
+    width: fit-content;
+    min-width: 96px;
+    min-height: 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    color: white;
+    word-wrap: break-word;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  .#{$baseClass}__extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    min-width: 120px;
+    min-height: 120px;
+    text-align: center;
+    max-width: 70%;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 16px;
+    white-space: pre-wrap;
+    color: white;
+    word-wrap: break-word;
+    border-radius: 8px;
+    .#{$baseClass}__text {
+      width: 100%;
+      min-width: 0;
+      margin-top: 8px;
+      padding: 0;
+    }
+  }
+  .#{$baseClass}__user__type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    min-width: 120px;
+    min-height: 120px;
+    text-align: center;
+    max-width: 70%;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 16px;
+    white-space: pre-wrap;
+    color: white;
+    word-wrap: break-word;
+    border-radius: 8px;
+    .#{$baseClass}__text {
+      width: 100%;
+      min-width: 0;
+      margin-top: 8px;
+      padding: 0;
+    }
+  }
+}

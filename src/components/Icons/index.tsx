@@ -6,12 +6,12 @@ import classnames from '../../utils/classNames';
 interface IProps {
   name: string;
   dot?: boolean;
-  badge?: boolean;
+  badge?: string;
   color?: string;
   size?: string;
   classPrefix?: string;
   tag?: 'i' | 'span';
-  click?: Function;
+  onClick?: Function;
 }
 
 const baseClass = 'vant-icon';
@@ -24,7 +24,7 @@ export default function Icon({
   size,
   classPrefix = baseClass,
   tag,
-  click
+  onClick
 }: IProps) {
   const CustomTag = tag || 'i' || 'span';
   const containerProps = {
@@ -57,9 +57,9 @@ export default function Icon({
       }
     });
   }
-  if (click) {
+  if (onClick) {
     Object.assign(iconProps, {
-      onClick: click
+      onClick
     });
   }
 

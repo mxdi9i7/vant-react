@@ -10,10 +10,10 @@ Lightweight Mobile UI Components built on Typescript and React in under 2kb!
 
 ## **Features**
 
-* Support Typescript
-* 60+ Reusable components
-* 100% Storybook coverage: [https://vant.bctc.io](https://vant.bctc.io)
-* Extensive documentation and demos
+- Support Typescript
+- 60+ Reusable components
+- 100% Storybook coverage: [https://vant.bctc.io](https://vant.bctc.io)
+- Extensive documentation and demos
 
 ## Install
 
@@ -43,91 +43,95 @@ const App = () => {
 
 ### Basic Components
 
-* [x] Button
-* [x] Cell
-* [x] Icon
-* [ ] Image
-* [ ] Layout
-* [x] Popup
-* [x] Built-in style
+- [x] Button
+- [x] Cell
+- [x] Icon
+- [x] Image
+- [ ] Layout
+- [x] Popup
+- [x] Built-in style
+- [x] Toast
 
 ### Form Components
 
-* [ ] Calendar
-* [ ] Checkbox
-* [ ] DatetimePicker
-* [x] Field
-* [ ] Form
-* [ ] NumberKeyboard
-* [ ] PasswordInput
-* [ ] Picker
-* [ ] Radio
-* [x] Rate
-* [x] Search
-* [ ] Slider
-* [ ] Stepper
-* [ ] Switch
-* [ ] SwitchCell
-* [ ] Uploader
+- [ ] Calendar
+- [ ] Cascader
+- [x] Checkbox
+- [ ] DatetimePicker
+- [x] Field
+- [ ] Form
+- [ ] NumberKeyboard
+- [ ] PasswordInput
+- [ ] Picker
+- [x] Radio
+- [x] Rate
+- [x] Search
+- [x] Slider
+- [x] Stepper
+- [x] Switch
+- [ ] Uploader
 
 ### Action Components
 
-* [ ] ActionSheet
-* [ ] Dialog
-* [ ] DropdownMenu
-* [ ] Loading
-* [ ] Notify
-* [ ] Overlay
-* [ ] PullRefresh
-* [ ] ShareSheet
-* [ ] SwipeCell
-* [ ] Toast
+- [ ] ActionSheet
+- [ ] Dialog
+- [ ] DropdownMenu
+- [x] Loading
+- [ ] Notify
+- [ ] Overlay
+- [ ] PullRefresh
+- [ ] ShareSheet
+- [ ] SwipeCell
 
 ### Display Components
 
-* [ ] Circle
-* [ ] Collapse
-* [ ] CountDown
-* [ ] Divider
-* [ ] Empty
-* [ ] ImagePreview
-* [ ] Lazyload
-* [ ] List
-* [ ] NoticeBar
-* [ ] Panel
-* [ ] Progress
-* [ ] Skeleton
-* [ ] Steps
-* [ ] Sticky
-* [ ] Swipe
-* [x] Tag
+- [ ] Badge
+- [ ] Circle
+- [ ] Collapse
+- [ ] CountDown
+- [x] Divider
+- [ ] Empty
+- [ ] ImagePreview
+- [ ] Lazyload
+- [ ] List
+- [ ] NoticeBar
+- [ ] Popover
+- [ ] Progress
+- [ ] Skeleton
+- [ ] Steps
+- [ ] Sticky
+- [ ] Swipe
+- [x] Tag
 
 ### Navigation Components
 
-* [ ] Grid
-* [ ] IndexBar
-* [x] NavBar
-* [ ] Pagination
-* [ ] Sidebar
-* [ ] Tab
-* [ ] Tabbar
-* [ ] TreeSelect
+- [ ] Grid
+- [ ] IndexBar
+- [x] NavBar
+- [ ] Pagination
+- [ ] Sidebar
+- [ ] Tab
+- [ ] Tabbar
+- [ ] TreeSelect
 
 ### Business Components
 
-* [ ] AddressEdit
-* [ ] AddressList
-* [ ] Area
-* [ ] Card
-* [ ] Contact
-* [ ] Coupon
-* [ ] GoodsAction
-* [ ] SubmitBar
-* [ ] Sku
+- [ ] AddressEdit
+- [ ] AddressList
+- [ ] Area
+- [ ] Card
+- [ ] ContactCard
+- [ ] ContactEdit
+- [ ] ContactList
+- [ ] Coupon
+- [ ] GoodsAction
+- [ ] SubmitBar
+- [ ] Sku
 
 ### Deprecated
 
-* [ ] SwitchCell
+- [ ] SwitchCell
+- [ ] Panel
 
 ## Contribution
 
@@ -135,7 +139,7 @@ If you like what we do, please consider buy us a bubble-tea(donate)!
 
 [![DonorBox](https://d1iczxrky3cnb2.cloudfront.net/button-small-blue.png)](https://donorbox.org/vant-react-dev-team?default_interval=o&amount=5)
 
-Please make sure to read the[ Contributing Guide](.github/CONTRIBUTION.md) before making a pull request.
+Please make sure to read the[ Contributing Guide](./CONTRIBUTION.md) before making a pull request.
 
 Or, join our discussion group on Wechat by adding me!
 
@@ -148,4 +152,3 @@ Modern browsers and Android 4.0+, iOS 8.0+.
 ## Open Source License
 
 This is an Open Source Software operating under the [MIT](https://github.com/mxdi9i7/vant-react/blob/master/LICENSE) License.
-

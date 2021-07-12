@@ -7,6 +7,12 @@ import Search from './components/Search';
 import Popup from './components/Popup';
 import Cell from './components/Cell';
 import Rate from './components/Rate';
+import Image from './components/Image';
+import Slider from './components/Slider';
+import Checkbox from './components/Checkbox';
+import Radio from './components/Radio';
+import Stepper from './components/Stepper';
+import Toast from './components/Toast';
 
 export { default as Button } from './components/Button';
 export { default as Icon } from './components/Icons';
@@ -17,6 +23,12 @@ export { default as Search } from './components/Search';
 export { default as Popup } from './components/Popup';
 export { default as Cell } from './components/Cell';
 export { default as Rate } from './components/Rate';
+export { default as Image } from './components/Image';
+export { default as Slider } from './components/Slider';
+export { default as Checkbox } from './components/Checkbox';
+export { default as Radio } from './components/Radio';
+export { default as Stepper } from './components/Stepper';
+export { default as Toast } from './components/Toast';
 
 const Vant = {
   Button,
@@ -27,7 +39,13 @@ const Vant = {
   Search,
   Popup,
   Cell,
-  Rate
+  Rate,
+  Image,
+  Slider,
+  Checkbox,
+  Radio,
+  Stepper,
+  Toast
 };
 
 export default Vant;

@@ -8,13 +8,13 @@ export default {
 };
 
 export const NavbarTitle = () => (
-  <div className='container grey'>
+  <div className='storybook__container grey'>
     <Navbar title='Settings' />
   </div>
 );
 
 export const NavbarLeftAndRightText = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Navbar title='Settings' leftText='Back' rightText='More' />
     <Navbar
       title='Profile'
@@ -28,7 +28,7 @@ export const NavbarLeftAndRightText = () => (
 );
 
 export const NavbarFixed = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Navbar
       fixed
       title='Profile'
@@ -39,7 +39,7 @@ export const NavbarFixed = () => (
   </div>
 );
 export const NavbarBorder = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Navbar
       border
       title='Profile'
@@ -51,7 +51,7 @@ export const NavbarBorder = () => (
 );
 
 export const NavbarWithLongTitle = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Navbar
       title='This is a very very very very very very very very very very long text'
       leftIcon='arrow-left'
@@ -62,14 +62,14 @@ export const NavbarWithLongTitle = () => (
 );
 
 export const NavbarClickHandler = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Navbar
       title='Title'
       leftIcon='arrow-left'
       leftText='Back'
       rightIcon='search'
-      clickLeft={(e) => alert(e.target.innerHTML + ' Left Click')}
-      clickRight={(e) => alert(e.target.innerHTML + ' Right Click')}
+      onClickLeft={(e) => alert(e.target.innerHTML + ' Left Click')}
+      onClickRight={(e) => alert(e.target.innerHTML + ' Right Click')}
     />
   </div>
 );

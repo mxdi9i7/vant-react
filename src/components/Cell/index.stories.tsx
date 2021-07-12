@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Cell from '.';
 import Tag from '../Tag';
 import '../../styles/stories.scss';
@@ -9,7 +10,7 @@ export default {
 };
 
 export const BasicUsage = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Cell
       title={{ text: 'Title', fontSize: '14px' }}
       content={{ text: 'Content', fontSize: '12px' }}
@@ -23,7 +24,7 @@ export const BasicUsage = () => (
 );
 
 export const cellIcon = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Cell
       titleIcon={{ name: 'location-o', size: '12px' }}
       title={{ text: 'Title', fontSize: '14px' }}
@@ -34,42 +35,53 @@ export const cellIcon = () => (
 );
 
 export const cellTag = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Cell
       title={{ text: 'Title', fontSize: '14px' }}
-      Tag={<Tag type='danger' text='Tag' />}
+      tag={<Tag type='danger' text='Tag' />}
       content={{ text: 'Content', fontSize: '12px' }}
     />
   </div>
 );
 
 export const roundCell = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Cell title={{ text: 'Title', fontSize: '14px' }} round />
   </div>
 );
 
 export const valueOnly = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Cell content={{ text: 'Content', fontSize: '14px' }} />
   </div>
 );
 
 export const URL = () => (
-  <div className='container column grey'>
+  <div className='storybook__container column grey'>
     <Cell
       title={{ text: 'URL', fontSize: '14px' }}
-      url='www.google.com'
+      url='https://www.google.com'
       replace
     />
   </div>
 );
 
-export const Active = () => (
-  <div className='container column grey'>
+export const checkbox = () => (
+  <div className='storybook__container column grey'>
+    <Cell
+      title={{ text: 'Title', fontSize: '14px' }}
+      content={{ text: 'Content', fontSize: '12px' }}
+      description={{ text: 'description', fontSize: '12px' }}
+      checkbox={{ checkedColor: '#b90000' }}
+    />
+  </div>
+);
+
+export const OnClick = () => (
+  <div className='storybook__container column grey'>
     <Cell
       title={{ text: 'Click', fontSize: '14px' }}
-      click={(e) => {
+      onClick={(e) => {
         alert(e);
       }}
     />
